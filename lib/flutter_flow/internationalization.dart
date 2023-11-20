@@ -112,35 +112,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'أولوياتي',
     },
     '0ll3yfl3': {
-      'en': 'Upcoming (10)',
-      'ar': 'القادمة (10)',
+      'en': 'Upcoming',
+      'ar': 'القادمة',
     },
     'l4kkia6u': {
-      'en': 'Overdue (5)',
-      'ar': 'متأخرة (5)',
-    },
-    'w2bfopfp': {
-      'en': 'Edit Column 1',
-      'ar': '',
-    },
-    'uyjqbrlv': {
-      'en': 'Edit Column 2',
-      'ar': '',
+      'en': 'Overdue',
+      'ar': 'متأخرة',
     },
     '0jmhf24m': {
-      'en': 'Completed (100+)',
-      'ar': 'مكتمل (100+)',
-    },
-    '7uncxver': {
-      'en': 'Edit Column 3',
-      'ar': '',
+      'en': 'Completed',
+      'ar': 'مكتمل',
     },
     'fdhvt9kh': {
       'en': ' ',
       'ar': '',
     },
-    '55efs86s': {
-      'en': 'Edit Column 4',
+    'jheuilak': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'f6lfqs2u': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    '1vgdp5lb': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    'iou0nblk': {
+      'en': 'Hello World',
       'ar': '',
     },
     'bxzhzz5i': {

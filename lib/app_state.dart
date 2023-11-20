@@ -44,10 +44,7 @@ class FFAppState extends ChangeNotifier {
     updateFn(_tokenModelAppState);
   }
 
-  List<PrioritieModelStruct> _prioritiesListAppState = [
-    PrioritieModelStruct.fromSerializableMap(jsonDecode(
-        '{"mileStoneId":"0","projectId":"0","projectName":" ","client":" ","clientId":"0","clientLogo":"https://picsum.photos/seed/299/600","startDate":"1700483896348","endDate":"1700483896348","description":"Hello World","status":"0","title":" ","amount":"0","reminderOffset":"0","milestoneType":"0","progress":"0","invoiceUrl":" ","invoiceStatus":"0","members":"[\\"{\\\\\\"id\\\\\\":\\\\\\" \\\\\\",\\\\\\"name\\\\\\":\\\\\\" \\\\\\",\\\\\\"picture\\\\\\":\\\\\\"https://picsum.photos/seed/119/600\\\\\\"}\\"]"}'))
-  ];
+  List<PrioritieModelStruct> _prioritiesListAppState = [];
   List<PrioritieModelStruct> get prioritiesListAppState =>
       _prioritiesListAppState;
   set prioritiesListAppState(List<PrioritieModelStruct> value) {

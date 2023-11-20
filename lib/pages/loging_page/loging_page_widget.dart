@@ -452,26 +452,6 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                                   ''),
                                             ));
                                           });
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                FFAppState()
-                                                    .userModelAppState
-                                                    .userName,
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                ),
-                                              ),
-                                              duration:
-                                                  const Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
                                           if (Navigator.of(context).canPop()) {
                                             context.pop();
                                           }
