@@ -13,20 +13,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   void updateStatisticsModelStruct(Function(StatisticsModelStruct) updateFn) =>
       updateFn(statisticsModel ??= StatisticsModelStruct());
 
-  List<PrioritieModelStruct> prioritiesModelList = [];
-  void addToPrioritiesModelList(PrioritieModelStruct item) =>
-      prioritiesModelList.add(item);
-  void removeFromPrioritiesModelList(PrioritieModelStruct item) =>
-      prioritiesModelList.remove(item);
-  void removeAtIndexFromPrioritiesModelList(int index) =>
-      prioritiesModelList.removeAt(index);
-  void insertAtIndexInPrioritiesModelList(
-          int index, PrioritieModelStruct item) =>
-      prioritiesModelList.insert(index, item);
-  void updatePrioritiesModelListAtIndex(
-          int index, Function(PrioritieModelStruct) updateFn) =>
-      prioritiesModelList[index] = updateFn(prioritiesModelList[index]);
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
