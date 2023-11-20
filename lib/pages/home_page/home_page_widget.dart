@@ -892,33 +892,31 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                           ),
                                         ),
-                                        Flexible(
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 40.0, 10.0, 0.0),
-                                            child: Container(
-                                              height: 471.0,
-                                              constraints: const BoxConstraints(
-                                                minWidth: 370.0,
-                                                maxWidth: 550.0,
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(25.0),
-                                                border: Border.all(
-                                                  color: const Color(0xFFFFD600),
-                                                  width: 2.0,
+                                        if (MediaQuery.sizeOf(context).width >
+                                            450.0)
+                                          Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 40.0, 10.0, 0.0),
+                                              child: Container(
+                                                height: 471.0,
+                                                constraints: const BoxConstraints(
+                                                  minWidth: 370.0,
+                                                  maxWidth: 550.0,
                                                 ),
-                                              ),
-                                              child: Visibility(
-                                                visible:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width >
-                                                        450.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                  border: Border.all(
+                                                    color: const Color(0xFFFFD600),
+                                                    width: 2.0,
+                                                  ),
+                                                ),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
@@ -1146,11 +1144,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                             ),
                                           ),
-                                        ),
                                       ],
                                     ),
-                                    Flexible(
-                                      child: Padding(
+                                    if (MediaQuery.sizeOf(context).width <
+                                        450.0)
+                                      Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 40.0, 10.0, 0.0),
                                         child: Container(
@@ -1168,179 +1166,97 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               width: 2.0,
                                             ),
                                           ),
-                                          child: Visibility(
-                                            visible: MediaQuery.sizeOf(context)
-                                                    .width <
-                                                450.0,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(20.0, 20.0,
-                                                          20.0, 20.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'h087oxl9' /* Projects */,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Almarai',
-                                                                  color: const Color(
-                                                                      0xFF01A3E2),
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  useGoogleFonts:
-                                                                      false,
-                                                                ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 20.0, 20.0, 20.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'h087oxl9' /* Projects */,
                                                       ),
-                                                    ],
-                                                  ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Almarai',
+                                                            color: const Color(
+                                                                0xFF01A3E2),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Container(
-                                                  height: 400.0,
-                                                  decoration: const BoxDecoration(),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final listOfProjects =
-                                                          FFAppState()
-                                                              .projectsListAppState
-                                                              .map((e) => e)
-                                                              .toList();
-                                                      return ListView.builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount:
-                                                            listOfProjects
-                                                                .length,
-                                                        itemBuilder: (context,
-                                                            listOfProjectsIndex) {
-                                                          final listOfProjectsItem =
-                                                              listOfProjects[
-                                                                  listOfProjectsIndex];
-                                                          return Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        0.0,
-                                                                        15.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          5.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Container(
-                                                                        width:
-                                                                            60.0,
-                                                                        height:
-                                                                            60.0,
-                                                                        decoration:
-                                                                            const BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(200.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            functions.getFullImage(listOfProjectsItem.clientLogo)!,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            10.0,
+                                              ),
+                                              Container(
+                                                height: 400.0,
+                                                decoration: const BoxDecoration(),
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    final listOfProjects =
+                                                        FFAppState()
+                                                            .projectsListAppState
+                                                            .map((e) => e)
+                                                            .toList();
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          listOfProjects.length,
+                                                      itemBuilder: (context,
+                                                          listOfProjectsIndex) {
+                                                        final listOfProjectsItem =
+                                                            listOfProjects[
+                                                                listOfProjectsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children: [
-                                                                            Text(
-                                                                              listOfProjectsItem.name,
-                                                                              textAlign: TextAlign.start,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Almarai',
-                                                                                    color: const Color(0xFF808080),
-                                                                                    fontSize: 16.0,
-                                                                                    fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: false,
-                                                                                  ),
-                                                                            ),
-                                                                            Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  width: 150.0,
-                                                                                  height: 40.0,
-                                                                                  child: custom_widgets.PannerProgressParCustomWidget(
-                                                                                    width: 150.0,
-                                                                                    height: 40.0,
-                                                                                    progress: valueOrDefault<double>(
-                                                                                      listOfProjectsItem.progress,
-                                                                                      0.0,
-                                                                                    ),
-                                                                                    color: const Color(0xFF39D485),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Row(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            5.0),
+                                                                child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
                                                                   children: [
                                                                     Container(
                                                                       width:
-                                                                          50.0,
+                                                                          60.0,
                                                                       height:
-                                                                          50.0,
+                                                                          60.0,
                                                                       decoration:
                                                                           const BoxDecoration(
                                                                         shape: BoxShape
@@ -1349,70 +1265,146 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       child:
                                                                           ClipRRect(
                                                                         borderRadius:
-                                                                            BorderRadius.circular(25.0),
+                                                                            BorderRadius.circular(200.0),
                                                                         child: Image
                                                                             .network(
                                                                           functions
-                                                                              .getFullImage(listOfProjectsItem.seniorPicture)!,
+                                                                              .getFullImage(listOfProjectsItem.clientLogo)!,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Text(
-                                                                          listOfProjectsItem
-                                                                              .senior,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Almarai',
-                                                                                color: const Color(0xFF032734),
-                                                                                fontSize: 16.0,
-                                                                                fontWeight: FontWeight.bold,
-                                                                                useGoogleFonts: false,
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            listOfProjectsItem.name,
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Almarai',
+                                                                                  color: const Color(0xFF808080),
+                                                                                  fontSize: 16.0,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  useGoogleFonts: false,
+                                                                                ),
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              SizedBox(
+                                                                                width: 150.0,
+                                                                                height: 40.0,
+                                                                                child: custom_widgets.PannerProgressParCustomWidget(
+                                                                                  width: 150.0,
+                                                                                  height: 40.0,
+                                                                                  progress: valueOrDefault<double>(
+                                                                                    listOfProjectsItem.progress,
+                                                                                    0.0,
+                                                                                  ),
+                                                                                  color: const Color(0xFF39D485),
+                                                                                ),
                                                                               ),
-                                                                        ),
-                                                                        Text(
-                                                                          listOfProjectsItem
-                                                                              .team,
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Almarai',
-                                                                                color: const Color(0xFF032734),
-                                                                                fontSize: 16.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                                useGoogleFonts: false,
-                                                                              ),
-                                                                        ),
-                                                                      ],
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                  ),
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        const BoxDecoration(
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              25.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        functions
+                                                                            .getFullImage(listOfProjectsItem.seniorPicture)!,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        listOfProjectsItem
+                                                                            .senior,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Almarai',
+                                                                              color: const Color(0xFF032734),
+                                                                              fontSize: 16.0,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              useGoogleFonts: false,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        listOfProjectsItem
+                                                                            .team,
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Almarai',
+                                                                              color: const Color(0xFF032734),
+                                                                              fontSize: 16.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: false,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                    ),
                                   ].addToEnd(const SizedBox(height: 50.0)),
                                 ),
                               ),
