@@ -107,8 +107,40 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
-    'd1d70dwf': {
-      'en': 'Hello World',
+    '98mqarv5': {
+      'en': 'My Priorities',
+      'ar': 'أولوياتي',
+    },
+    '0ll3yfl3': {
+      'en': 'Upcoming (10)',
+      'ar': 'القادمة (10)',
+    },
+    'l4kkia6u': {
+      'en': 'Overdue (5)',
+      'ar': 'متأخرة (5)',
+    },
+    'w2bfopfp': {
+      'en': 'Edit Column 1',
+      'ar': '',
+    },
+    'uyjqbrlv': {
+      'en': 'Edit Column 2',
+      'ar': '',
+    },
+    '0jmhf24m': {
+      'en': 'Completed (100+)',
+      'ar': 'مكتمل (100+)',
+    },
+    '7uncxver': {
+      'en': 'Edit Column 3',
+      'ar': '',
+    },
+    'fdhvt9kh': {
+      'en': ' ',
+      'ar': '',
+    },
+    '55efs86s': {
+      'en': 'Edit Column 4',
       'ar': '',
     },
     'bxzhzz5i': {
