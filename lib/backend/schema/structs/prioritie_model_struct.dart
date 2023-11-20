@@ -12,8 +12,6 @@ class PrioritieModelStruct extends BaseStruct {
     String? client,
     int? clientId,
     String? clientLogo,
-    DateTime? startDate,
-    DateTime? endDate,
     String? description,
     int? status,
     String? title,
@@ -24,14 +22,14 @@ class PrioritieModelStruct extends BaseStruct {
     String? invoiceUrl,
     int? invoiceStatus,
     List<MemberModelStruct>? members,
+    String? startDate,
+    String? endDate,
   })  : _mileStoneId = mileStoneId,
         _projectId = projectId,
         _projectName = projectName,
         _client = client,
         _clientId = clientId,
         _clientLogo = clientLogo,
-        _startDate = startDate,
-        _endDate = endDate,
         _description = description,
         _status = status,
         _title = title,
@@ -41,7 +39,9 @@ class PrioritieModelStruct extends BaseStruct {
         _progress = progress,
         _invoiceUrl = invoiceUrl,
         _invoiceStatus = invoiceStatus,
-        _members = members;
+        _members = members,
+        _startDate = startDate,
+        _endDate = endDate;
 
   // "mileStoneId" field.
   int? _mileStoneId;
@@ -81,18 +81,6 @@ class PrioritieModelStruct extends BaseStruct {
   String get clientLogo => _clientLogo ?? '';
   set clientLogo(String? val) => _clientLogo = val;
   bool hasClientLogo() => _clientLogo != null;
-
-  // "startDate" field.
-  DateTime? _startDate;
-  DateTime? get startDate => _startDate;
-  set startDate(DateTime? val) => _startDate = val;
-  bool hasStartDate() => _startDate != null;
-
-  // "endDate" field.
-  DateTime? _endDate;
-  DateTime? get endDate => _endDate;
-  set endDate(DateTime? val) => _endDate = val;
-  bool hasEndDate() => _endDate != null;
 
   // "description" field.
   String? _description;
@@ -165,6 +153,18 @@ class PrioritieModelStruct extends BaseStruct {
       updateFn(_members ??= []);
   bool hasMembers() => _members != null;
 
+  // "startDate" field.
+  String? _startDate;
+  String get startDate => _startDate ?? '';
+  set startDate(String? val) => _startDate = val;
+  bool hasStartDate() => _startDate != null;
+
+  // "endDate" field.
+  String? _endDate;
+  String get endDate => _endDate ?? '';
+  set endDate(String? val) => _endDate = val;
+  bool hasEndDate() => _endDate != null;
+
   static PrioritieModelStruct fromMap(Map<String, dynamic> data) =>
       PrioritieModelStruct(
         mileStoneId: castToType<int>(data['mileStoneId']),
@@ -173,8 +173,6 @@ class PrioritieModelStruct extends BaseStruct {
         client: data['client'] as String?,
         clientId: castToType<int>(data['clientId']),
         clientLogo: data['clientLogo'] as String?,
-        startDate: data['startDate'] as DateTime?,
-        endDate: data['endDate'] as DateTime?,
         description: data['description'] as String?,
         status: castToType<int>(data['status']),
         title: data['title'] as String?,
@@ -188,6 +186,8 @@ class PrioritieModelStruct extends BaseStruct {
           data['members'],
           MemberModelStruct.fromMap,
         ),
+        startDate: data['startDate'] as String?,
+        endDate: data['endDate'] as String?,
       );
 
   static PrioritieModelStruct? maybeFromMap(dynamic data) =>
@@ -200,8 +200,6 @@ class PrioritieModelStruct extends BaseStruct {
         'client': _client,
         'clientId': _clientId,
         'clientLogo': _clientLogo,
-        'startDate': _startDate,
-        'endDate': _endDate,
         'description': _description,
         'status': _status,
         'title': _title,
@@ -212,6 +210,8 @@ class PrioritieModelStruct extends BaseStruct {
         'invoiceUrl': _invoiceUrl,
         'invoiceStatus': _invoiceStatus,
         'members': _members?.map((e) => e.toMap()).toList(),
+        'startDate': _startDate,
+        'endDate': _endDate,
       }.withoutNulls;
 
   @override
@@ -239,14 +239,6 @@ class PrioritieModelStruct extends BaseStruct {
         'clientLogo': serializeParam(
           _clientLogo,
           ParamType.String,
-        ),
-        'startDate': serializeParam(
-          _startDate,
-          ParamType.DateTime,
-        ),
-        'endDate': serializeParam(
-          _endDate,
-          ParamType.DateTime,
         ),
         'description': serializeParam(
           _description,
@@ -289,6 +281,14 @@ class PrioritieModelStruct extends BaseStruct {
           ParamType.DataStruct,
           true,
         ),
+        'startDate': serializeParam(
+          _startDate,
+          ParamType.String,
+        ),
+        'endDate': serializeParam(
+          _endDate,
+          ParamType.String,
+        ),
       }.withoutNulls;
 
   static PrioritieModelStruct fromSerializableMap(Map<String, dynamic> data) =>
@@ -321,16 +321,6 @@ class PrioritieModelStruct extends BaseStruct {
         clientLogo: deserializeParam(
           data['clientLogo'],
           ParamType.String,
-          false,
-        ),
-        startDate: deserializeParam(
-          data['startDate'],
-          ParamType.DateTime,
-          false,
-        ),
-        endDate: deserializeParam(
-          data['endDate'],
-          ParamType.DateTime,
           false,
         ),
         description: deserializeParam(
@@ -384,6 +374,16 @@ class PrioritieModelStruct extends BaseStruct {
           true,
           structBuilder: MemberModelStruct.fromSerializableMap,
         ),
+        startDate: deserializeParam(
+          data['startDate'],
+          ParamType.String,
+          false,
+        ),
+        endDate: deserializeParam(
+          data['endDate'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -399,8 +399,6 @@ class PrioritieModelStruct extends BaseStruct {
         client == other.client &&
         clientId == other.clientId &&
         clientLogo == other.clientLogo &&
-        startDate == other.startDate &&
-        endDate == other.endDate &&
         description == other.description &&
         status == other.status &&
         title == other.title &&
@@ -410,7 +408,9 @@ class PrioritieModelStruct extends BaseStruct {
         progress == other.progress &&
         invoiceUrl == other.invoiceUrl &&
         invoiceStatus == other.invoiceStatus &&
-        listEquality.equals(members, other.members);
+        listEquality.equals(members, other.members) &&
+        startDate == other.startDate &&
+        endDate == other.endDate;
   }
 
   @override
@@ -421,8 +421,6 @@ class PrioritieModelStruct extends BaseStruct {
         client,
         clientId,
         clientLogo,
-        startDate,
-        endDate,
         description,
         status,
         title,
@@ -432,7 +430,9 @@ class PrioritieModelStruct extends BaseStruct {
         progress,
         invoiceUrl,
         invoiceStatus,
-        members
+        members,
+        startDate,
+        endDate
       ]);
 }
 
@@ -443,8 +443,6 @@ PrioritieModelStruct createPrioritieModelStruct({
   String? client,
   int? clientId,
   String? clientLogo,
-  DateTime? startDate,
-  DateTime? endDate,
   String? description,
   int? status,
   String? title,
@@ -454,6 +452,8 @@ PrioritieModelStruct createPrioritieModelStruct({
   int? progress,
   String? invoiceUrl,
   int? invoiceStatus,
+  String? startDate,
+  String? endDate,
 }) =>
     PrioritieModelStruct(
       mileStoneId: mileStoneId,
@@ -462,8 +462,6 @@ PrioritieModelStruct createPrioritieModelStruct({
       client: client,
       clientId: clientId,
       clientLogo: clientLogo,
-      startDate: startDate,
-      endDate: endDate,
       description: description,
       status: status,
       title: title,
@@ -473,4 +471,6 @@ PrioritieModelStruct createPrioritieModelStruct({
       progress: progress,
       invoiceUrl: invoiceUrl,
       invoiceStatus: invoiceStatus,
+      startDate: startDate,
+      endDate: endDate,
     );
