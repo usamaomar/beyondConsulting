@@ -39,3 +39,19 @@ String calculateFutureDate(String dateString) {
     return DateFormat("d, MMM").format(inputDate);
   }
 }
+
+List<ProjectModelStruct>? fromProjectJsonToModelList(dynamic jsonBody) {
+  return jsonBody
+      .map((e) => e != null && e != '' ? ProjectModelStruct.fromMap(e) : null)
+      .toList()
+      .toList()
+      .cast<ProjectModelStruct>();
+}
+
+String? getFullImage(String image) {
+  if (image == "null" || image == null) {
+    return "https://beyond.api.matterhr.com/Files/Uploads/82b9c31f-49aa-4c2f-8577-fa13f8698289.jpg";
+  } else {
+    return "https://beyond.api.matterhr.com/${image}";
+  }
+}

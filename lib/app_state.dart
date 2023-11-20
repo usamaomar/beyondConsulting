@@ -74,6 +74,36 @@ class FFAppState extends ChangeNotifier {
       int index, PrioritieModelStruct value) {
     _prioritiesListAppState.insert(index, value);
   }
+
+  List<ProjectModelStruct> _projectsListAppState = [];
+  List<ProjectModelStruct> get projectsListAppState => _projectsListAppState;
+  set projectsListAppState(List<ProjectModelStruct> value) {
+    _projectsListAppState = value;
+  }
+
+  void addToProjectsListAppState(ProjectModelStruct value) {
+    _projectsListAppState.add(value);
+  }
+
+  void removeFromProjectsListAppState(ProjectModelStruct value) {
+    _projectsListAppState.remove(value);
+  }
+
+  void removeAtIndexFromProjectsListAppState(int index) {
+    _projectsListAppState.removeAt(index);
+  }
+
+  void updateProjectsListAppStateAtIndex(
+    int index,
+    ProjectModelStruct Function(ProjectModelStruct) updateFn,
+  ) {
+    _projectsListAppState[index] = updateFn(_projectsListAppState[index]);
+  }
+
+  void insertAtIndexInProjectsListAppState(
+      int index, ProjectModelStruct value) {
+    _projectsListAppState.insert(index, value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -31,14 +31,53 @@ class _PannerProgressParCustomWidgetState
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        LinearProgressIndicator(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          minHeight: 10,
-          value: (widget.progress ?? 0) / 100,
-          backgroundColor: Colors.grey[300],
-          valueColor:
-              AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),
-        ),
+        Stack(children: [
+          LinearProgressIndicator(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            minHeight: 17,
+            value: (widget.progress ?? 0) / 100,
+            backgroundColor: Colors.grey[300],
+            valueColor:
+                AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Visibility(
+                child: Container(
+                  child: Text(
+                    '${(widget.progress ?? 0)}%',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 50,
+                ),
+                visible: (widget.progress ?? 0) <= 25,
+              ),
+              Visibility(
+                child: Container(
+                  child: Text(
+                    '${(widget.progress ?? 0)}%',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 50,
+                ),
+                visible:
+                    (widget.progress ?? 0) > 25 && (widget.progress ?? 0) <= 50,
+              ),
+              Visibility(
+                child: Container(
+                  child: Text(
+                    '${(widget.progress ?? 0)}%',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 50,
+                ),
+                visible: (widget.progress ?? 0) > 50,
+              )
+            ],
+          )
+        ])
       ],
     );
   }
