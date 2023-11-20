@@ -56,7 +56,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         );
         if ((_model.apiResultscn?.statusCode ?? 200) == 200) {
           setState(() {
-            FFAppState().prioritiesListAppState =
+            _model.prioritiesModelList =
                 GetMyPrioritiesApiCall.proioritesJsonArray(
               (_model.apiResultscn?.jsonBody ?? ''),
             )!
@@ -67,6 +67,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     .toList()
                     .toList()
                     .cast<PrioritieModelStruct>();
+          });
+          setState(() {
+            FFAppState().prioritiesListAppState = _model.prioritiesModelList
+                .toList()
+                .cast<PrioritieModelStruct>();
           });
         }
       }
