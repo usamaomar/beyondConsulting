@@ -12,7 +12,6 @@ class UserModelStruct extends BaseStruct {
     String? firstName,
     String? lastName,
     String? email,
-    String? isActive,
     String? emailConfirmed,
     String? phoneNumber,
     String? supervisorId,
@@ -20,19 +19,20 @@ class UserModelStruct extends BaseStruct {
     String? notificationToken,
     int? accessRole,
     String? profilePictureDataUrl,
+    bool? isActive,
   })  : _id = id,
         _userName = userName,
         _firstName = firstName,
         _lastName = lastName,
         _email = email,
-        _isActive = isActive,
         _emailConfirmed = emailConfirmed,
         _phoneNumber = phoneNumber,
         _supervisorId = supervisorId,
         _supervisorName = supervisorName,
         _notificationToken = notificationToken,
         _accessRole = accessRole,
-        _profilePictureDataUrl = profilePictureDataUrl;
+        _profilePictureDataUrl = profilePictureDataUrl,
+        _isActive = isActive;
 
   // "id" field.
   String? _id;
@@ -63,12 +63,6 @@ class UserModelStruct extends BaseStruct {
   String get email => _email ?? '';
   set email(String? val) => _email = val;
   bool hasEmail() => _email != null;
-
-  // "isActive" field.
-  String? _isActive;
-  String get isActive => _isActive ?? '';
-  set isActive(String? val) => _isActive = val;
-  bool hasIsActive() => _isActive != null;
 
   // "emailConfirmed" field.
   String? _emailConfirmed;
@@ -113,13 +107,18 @@ class UserModelStruct extends BaseStruct {
   set profilePictureDataUrl(String? val) => _profilePictureDataUrl = val;
   bool hasProfilePictureDataUrl() => _profilePictureDataUrl != null;
 
+  // "isActive" field.
+  bool? _isActive;
+  bool get isActive => _isActive ?? false;
+  set isActive(bool? val) => _isActive = val;
+  bool hasIsActive() => _isActive != null;
+
   static UserModelStruct fromMap(Map<String, dynamic> data) => UserModelStruct(
         id: data['id'] as String?,
         userName: data['userName'] as String?,
         firstName: data['firstName'] as String?,
         lastName: data['lastName'] as String?,
         email: data['email'] as String?,
-        isActive: data['isActive'] as String?,
         emailConfirmed: data['emailConfirmed'] as String?,
         phoneNumber: data['phoneNumber'] as String?,
         supervisorId: data['supervisorId'] as String?,
@@ -127,6 +126,7 @@ class UserModelStruct extends BaseStruct {
         notificationToken: data['notificationToken'] as String?,
         accessRole: castToType<int>(data['accessRole']),
         profilePictureDataUrl: data['profilePictureDataUrl'] as String?,
+        isActive: data['isActive'] as bool?,
       );
 
   static UserModelStruct? maybeFromMap(dynamic data) =>
@@ -138,7 +138,6 @@ class UserModelStruct extends BaseStruct {
         'firstName': _firstName,
         'lastName': _lastName,
         'email': _email,
-        'isActive': _isActive,
         'emailConfirmed': _emailConfirmed,
         'phoneNumber': _phoneNumber,
         'supervisorId': _supervisorId,
@@ -146,6 +145,7 @@ class UserModelStruct extends BaseStruct {
         'notificationToken': _notificationToken,
         'accessRole': _accessRole,
         'profilePictureDataUrl': _profilePictureDataUrl,
+        'isActive': _isActive,
       }.withoutNulls;
 
   @override
@@ -168,10 +168,6 @@ class UserModelStruct extends BaseStruct {
         ),
         'email': serializeParam(
           _email,
-          ParamType.String,
-        ),
-        'isActive': serializeParam(
-          _isActive,
           ParamType.String,
         ),
         'emailConfirmed': serializeParam(
@@ -202,6 +198,10 @@ class UserModelStruct extends BaseStruct {
           _profilePictureDataUrl,
           ParamType.String,
         ),
+        'isActive': serializeParam(
+          _isActive,
+          ParamType.bool,
+        ),
       }.withoutNulls;
 
   static UserModelStruct fromSerializableMap(Map<String, dynamic> data) =>
@@ -228,11 +228,6 @@ class UserModelStruct extends BaseStruct {
         ),
         email: deserializeParam(
           data['email'],
-          ParamType.String,
-          false,
-        ),
-        isActive: deserializeParam(
-          data['isActive'],
           ParamType.String,
           false,
         ),
@@ -271,6 +266,11 @@ class UserModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        isActive: deserializeParam(
+          data['isActive'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -284,14 +284,14 @@ class UserModelStruct extends BaseStruct {
         firstName == other.firstName &&
         lastName == other.lastName &&
         email == other.email &&
-        isActive == other.isActive &&
         emailConfirmed == other.emailConfirmed &&
         phoneNumber == other.phoneNumber &&
         supervisorId == other.supervisorId &&
         supervisorName == other.supervisorName &&
         notificationToken == other.notificationToken &&
         accessRole == other.accessRole &&
-        profilePictureDataUrl == other.profilePictureDataUrl;
+        profilePictureDataUrl == other.profilePictureDataUrl &&
+        isActive == other.isActive;
   }
 
   @override
@@ -301,14 +301,14 @@ class UserModelStruct extends BaseStruct {
         firstName,
         lastName,
         email,
-        isActive,
         emailConfirmed,
         phoneNumber,
         supervisorId,
         supervisorName,
         notificationToken,
         accessRole,
-        profilePictureDataUrl
+        profilePictureDataUrl,
+        isActive
       ]);
 }
 
@@ -318,7 +318,6 @@ UserModelStruct createUserModelStruct({
   String? firstName,
   String? lastName,
   String? email,
-  String? isActive,
   String? emailConfirmed,
   String? phoneNumber,
   String? supervisorId,
@@ -326,6 +325,7 @@ UserModelStruct createUserModelStruct({
   String? notificationToken,
   int? accessRole,
   String? profilePictureDataUrl,
+  bool? isActive,
 }) =>
     UserModelStruct(
       id: id,
@@ -333,7 +333,6 @@ UserModelStruct createUserModelStruct({
       firstName: firstName,
       lastName: lastName,
       email: email,
-      isActive: isActive,
       emailConfirmed: emailConfirmed,
       phoneNumber: phoneNumber,
       supervisorId: supervisorId,
@@ -341,4 +340,5 @@ UserModelStruct createUserModelStruct({
       notificationToken: notificationToken,
       accessRole: accessRole,
       profilePictureDataUrl: profilePictureDataUrl,
+      isActive: isActive,
     );
