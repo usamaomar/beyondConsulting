@@ -19,11 +19,11 @@ class PrioritieModelStruct extends BaseStruct {
     int? reminderOffset,
     int? milestoneType,
     int? progress,
-    String? invoiceUrl,
     int? invoiceStatus,
     List<MemberModelStruct>? members,
     String? startDate,
     String? endDate,
+    String? invoiceUrl,
   })  : _mileStoneId = mileStoneId,
         _projectId = projectId,
         _projectName = projectName,
@@ -37,11 +37,11 @@ class PrioritieModelStruct extends BaseStruct {
         _reminderOffset = reminderOffset,
         _milestoneType = milestoneType,
         _progress = progress,
-        _invoiceUrl = invoiceUrl,
         _invoiceStatus = invoiceStatus,
         _members = members,
         _startDate = startDate,
-        _endDate = endDate;
+        _endDate = endDate,
+        _invoiceUrl = invoiceUrl;
 
   // "mileStoneId" field.
   int? _mileStoneId;
@@ -131,12 +131,6 @@ class PrioritieModelStruct extends BaseStruct {
   void incrementProgress(int amount) => _progress = progress + amount;
   bool hasProgress() => _progress != null;
 
-  // "invoiceUrl" field.
-  String? _invoiceUrl;
-  String get invoiceUrl => _invoiceUrl ?? '';
-  set invoiceUrl(String? val) => _invoiceUrl = val;
-  bool hasInvoiceUrl() => _invoiceUrl != null;
-
   // "invoiceStatus" field.
   int? _invoiceStatus;
   int get invoiceStatus => _invoiceStatus ?? 0;
@@ -165,6 +159,12 @@ class PrioritieModelStruct extends BaseStruct {
   set endDate(String? val) => _endDate = val;
   bool hasEndDate() => _endDate != null;
 
+  // "invoiceUrl" field.
+  String? _invoiceUrl;
+  String get invoiceUrl => _invoiceUrl ?? '';
+  set invoiceUrl(String? val) => _invoiceUrl = val;
+  bool hasInvoiceUrl() => _invoiceUrl != null;
+
   static PrioritieModelStruct fromMap(Map<String, dynamic> data) =>
       PrioritieModelStruct(
         mileStoneId: castToType<int>(data['mileStoneId']),
@@ -180,7 +180,6 @@ class PrioritieModelStruct extends BaseStruct {
         reminderOffset: castToType<int>(data['reminderOffset']),
         milestoneType: castToType<int>(data['milestoneType']),
         progress: castToType<int>(data['progress']),
-        invoiceUrl: data['invoiceUrl'] as String?,
         invoiceStatus: castToType<int>(data['invoiceStatus']),
         members: getStructList(
           data['members'],
@@ -188,6 +187,7 @@ class PrioritieModelStruct extends BaseStruct {
         ),
         startDate: data['startDate'] as String?,
         endDate: data['endDate'] as String?,
+        invoiceUrl: data['invoiceUrl'] as String?,
       );
 
   static PrioritieModelStruct? maybeFromMap(dynamic data) =>
@@ -207,11 +207,11 @@ class PrioritieModelStruct extends BaseStruct {
         'reminderOffset': _reminderOffset,
         'milestoneType': _milestoneType,
         'progress': _progress,
-        'invoiceUrl': _invoiceUrl,
         'invoiceStatus': _invoiceStatus,
         'members': _members?.map((e) => e.toMap()).toList(),
         'startDate': _startDate,
         'endDate': _endDate,
+        'invoiceUrl': _invoiceUrl,
       }.withoutNulls;
 
   @override
@@ -268,10 +268,6 @@ class PrioritieModelStruct extends BaseStruct {
           _progress,
           ParamType.int,
         ),
-        'invoiceUrl': serializeParam(
-          _invoiceUrl,
-          ParamType.String,
-        ),
         'invoiceStatus': serializeParam(
           _invoiceStatus,
           ParamType.int,
@@ -287,6 +283,10 @@ class PrioritieModelStruct extends BaseStruct {
         ),
         'endDate': serializeParam(
           _endDate,
+          ParamType.String,
+        ),
+        'invoiceUrl': serializeParam(
+          _invoiceUrl,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -358,11 +358,6 @@ class PrioritieModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
-        invoiceUrl: deserializeParam(
-          data['invoiceUrl'],
-          ParamType.String,
-          false,
-        ),
         invoiceStatus: deserializeParam(
           data['invoiceStatus'],
           ParamType.int,
@@ -381,6 +376,11 @@ class PrioritieModelStruct extends BaseStruct {
         ),
         endDate: deserializeParam(
           data['endDate'],
+          ParamType.String,
+          false,
+        ),
+        invoiceUrl: deserializeParam(
+          data['invoiceUrl'],
           ParamType.String,
           false,
         ),
@@ -406,11 +406,11 @@ class PrioritieModelStruct extends BaseStruct {
         reminderOffset == other.reminderOffset &&
         milestoneType == other.milestoneType &&
         progress == other.progress &&
-        invoiceUrl == other.invoiceUrl &&
         invoiceStatus == other.invoiceStatus &&
         listEquality.equals(members, other.members) &&
         startDate == other.startDate &&
-        endDate == other.endDate;
+        endDate == other.endDate &&
+        invoiceUrl == other.invoiceUrl;
   }
 
   @override
@@ -428,11 +428,11 @@ class PrioritieModelStruct extends BaseStruct {
         reminderOffset,
         milestoneType,
         progress,
-        invoiceUrl,
         invoiceStatus,
         members,
         startDate,
-        endDate
+        endDate,
+        invoiceUrl
       ]);
 }
 
@@ -450,10 +450,10 @@ PrioritieModelStruct createPrioritieModelStruct({
   int? reminderOffset,
   int? milestoneType,
   int? progress,
-  String? invoiceUrl,
   int? invoiceStatus,
   String? startDate,
   String? endDate,
+  String? invoiceUrl,
 }) =>
     PrioritieModelStruct(
       mileStoneId: mileStoneId,
@@ -469,8 +469,8 @@ PrioritieModelStruct createPrioritieModelStruct({
       reminderOffset: reminderOffset,
       milestoneType: milestoneType,
       progress: progress,
-      invoiceUrl: invoiceUrl,
       invoiceStatus: invoiceStatus,
       startDate: startDate,
       endDate: endDate,
+      invoiceUrl: invoiceUrl,
     );

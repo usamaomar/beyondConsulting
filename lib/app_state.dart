@@ -44,10 +44,7 @@ class FFAppState extends ChangeNotifier {
     updateFn(_tokenModelAppState);
   }
 
-  List<PrioritieModelStruct> _prioritiesListAppState = [
-    PrioritieModelStruct.fromSerializableMap(jsonDecode(
-        '{"mileStoneId":"0","projectId":"0","projectName":" ","client":" ","clientId":"0","clientLogo":"https://picsum.photos/seed/299/600","startDate":"1700483896348","endDate":"1700483896348","description":"Hello World","status":"0","title":" ","amount":"0","reminderOffset":"0","milestoneType":"0","progress":"0","invoiceUrl":" ","invoiceStatus":"0","members":"[\\"{\\\\\\"id\\\\\\":\\\\\\" \\\\\\",\\\\\\"name\\\\\\":\\\\\\" \\\\\\",\\\\\\"picture\\\\\\":\\\\\\"https://picsum.photos/seed/119/600\\\\\\"}\\"]"}'))
-  ];
+  List<PrioritieModelStruct> _prioritiesListAppState = [];
   List<PrioritieModelStruct> get prioritiesListAppState =>
       _prioritiesListAppState;
   set prioritiesListAppState(List<PrioritieModelStruct> value) {
@@ -76,6 +73,49 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInPrioritiesListAppState(
       int index, PrioritieModelStruct value) {
     _prioritiesListAppState.insert(index, value);
+  }
+
+  List<ProjectModelStruct> _projectsListAppState = [];
+  List<ProjectModelStruct> get projectsListAppState => _projectsListAppState;
+  set projectsListAppState(List<ProjectModelStruct> value) {
+    _projectsListAppState = value;
+  }
+
+  void addToProjectsListAppState(ProjectModelStruct value) {
+    _projectsListAppState.add(value);
+  }
+
+  void removeFromProjectsListAppState(ProjectModelStruct value) {
+    _projectsListAppState.remove(value);
+  }
+
+  void removeAtIndexFromProjectsListAppState(int index) {
+    _projectsListAppState.removeAt(index);
+  }
+
+  void updateProjectsListAppStateAtIndex(
+    int index,
+    ProjectModelStruct Function(ProjectModelStruct) updateFn,
+  ) {
+    _projectsListAppState[index] = updateFn(_projectsListAppState[index]);
+  }
+
+  void insertAtIndexInProjectsListAppState(
+      int index, ProjectModelStruct value) {
+    _projectsListAppState.insert(index, value);
+  }
+
+  ProjectStatisticModelStruct _ProjectStatisticsModel =
+      ProjectStatisticModelStruct();
+  ProjectStatisticModelStruct get ProjectStatisticsModel =>
+      _ProjectStatisticsModel;
+  set ProjectStatisticsModel(ProjectStatisticModelStruct value) {
+    _ProjectStatisticsModel = value;
+  }
+
+  void updateProjectStatisticsModelStruct(
+      Function(ProjectStatisticModelStruct) updateFn) {
+    updateFn(_ProjectStatisticsModel);
   }
 }
 

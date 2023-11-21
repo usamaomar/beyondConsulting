@@ -112,36 +112,52 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'أولوياتي',
     },
     '0ll3yfl3': {
-      'en': 'Upcoming (10)',
-      'ar': 'القادمة (10)',
+      'en': 'Upcoming',
+      'ar': 'القادمة',
     },
     'l4kkia6u': {
-      'en': 'Overdue (5)',
-      'ar': 'متأخرة (5)',
-    },
-    'w2bfopfp': {
-      'en': 'Edit Column 1',
-      'ar': '',
-    },
-    'uyjqbrlv': {
-      'en': 'Edit Column 2',
-      'ar': '',
+      'en': 'Overdue',
+      'ar': 'متأخرة',
     },
     '0jmhf24m': {
-      'en': 'Completed (100+)',
-      'ar': 'مكتمل (100+)',
-    },
-    '7uncxver': {
-      'en': 'Edit Column 3',
-      'ar': '',
+      'en': 'Completed',
+      'ar': 'مكتمل',
     },
     'fdhvt9kh': {
       'en': ' ',
       'ar': '',
     },
-    '55efs86s': {
-      'en': 'Edit Column 4',
+    'jheuilak': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'r94z50ch': {
+      'en': 'See More >>',
+      'ar': 'شاهد المزيد >>',
+    },
+    'h087oxl9': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'cdqd2nva': {
+      'en': 'See More >>',
+      'ar': 'شاهد المزيد >>',
+    },
+    'irpi5f45': {
+      'en': 'Targets',
+      'ar': 'الأهداف',
+    },
+    'e3i7s6lq': {
+      'en': 'Financial Target',
+      'ar': 'الهدف المالي',
+    },
+    'saxd53ww': {
+      'en': '/ 250 K',
       'ar': '',
+    },
+    'o6gz17pe': {
+      'en': 'Client Satisfaction',
+      'ar': 'رضا العملاء',
     },
     'bxzhzz5i': {
       'en': 'Home',
