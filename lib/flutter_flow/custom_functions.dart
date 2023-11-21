@@ -60,8 +60,8 @@ String? formatLastUpdated(
   String? dateString,
   String? lang,
 ) {
-  if (dateString == null) {
-    return null; // or a default value if you prefer
+  if (dateString == null || dateString == 'null') {
+    return "-"; // or a default value if you prefer
   }
 
   // Parse the input date string
