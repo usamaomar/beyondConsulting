@@ -1713,7 +1713,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                '${FFAppState().ProjectStatisticsModel.averageClientSatisfaction}٪',
+                                                                '${FFAppState().ProjectStatisticsModel.averageClientSatisfaction.toString()}٪',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium

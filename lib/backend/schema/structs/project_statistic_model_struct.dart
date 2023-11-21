@@ -13,7 +13,7 @@ class ProjectStatisticModelStruct extends BaseStruct {
     double? profitPercentage,
     bool? seniorStatus,
     String? lastUpdated,
-    String? averageClientSatisfaction,
+    int? averageClientSatisfaction,
   })  : _approvedPricing = approvedPricing,
         _approvedCost = approvedCost,
         _profit = profit,
@@ -66,10 +66,11 @@ class ProjectStatisticModelStruct extends BaseStruct {
   bool hasLastUpdated() => _lastUpdated != null;
 
   // "averageClientSatisfaction" field.
-  String? _averageClientSatisfaction;
-  String get averageClientSatisfaction => _averageClientSatisfaction ?? '';
-  set averageClientSatisfaction(String? val) =>
-      _averageClientSatisfaction = val;
+  int? _averageClientSatisfaction;
+  int get averageClientSatisfaction => _averageClientSatisfaction ?? 0;
+  set averageClientSatisfaction(int? val) => _averageClientSatisfaction = val;
+  void incrementAverageClientSatisfaction(int amount) =>
+      _averageClientSatisfaction = averageClientSatisfaction + amount;
   bool hasAverageClientSatisfaction() => _averageClientSatisfaction != null;
 
   static ProjectStatisticModelStruct fromMap(Map<String, dynamic> data) =>
@@ -80,7 +81,8 @@ class ProjectStatisticModelStruct extends BaseStruct {
         profitPercentage: castToType<double>(data['profitPercentage']),
         seniorStatus: data['seniorStatus'] as bool?,
         lastUpdated: data['lastUpdated'] as String?,
-        averageClientSatisfaction: data['averageClientSatisfaction'] as String?,
+        averageClientSatisfaction:
+            castToType<int>(data['averageClientSatisfaction']),
       );
 
   static ProjectStatisticModelStruct? maybeFromMap(dynamic data) =>
@@ -126,7 +128,7 @@ class ProjectStatisticModelStruct extends BaseStruct {
         ),
         'averageClientSatisfaction': serializeParam(
           _averageClientSatisfaction,
-          ParamType.String,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -165,7 +167,7 @@ class ProjectStatisticModelStruct extends BaseStruct {
         ),
         averageClientSatisfaction: deserializeParam(
           data['averageClientSatisfaction'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
       );
@@ -204,7 +206,7 @@ ProjectStatisticModelStruct createProjectStatisticModelStruct({
   double? profitPercentage,
   bool? seniorStatus,
   String? lastUpdated,
-  String? averageClientSatisfaction,
+  int? averageClientSatisfaction,
 }) =>
     ProjectStatisticModelStruct(
       approvedPricing: approvedPricing,
