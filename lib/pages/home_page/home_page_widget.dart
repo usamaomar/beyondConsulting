@@ -1531,7 +1531,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           .CircularProgressParCustomWidget(
                                                         width: 200.0,
                                                         height: 200.0,
-                                                        progress: 20.0,
+                                                        progress: FFAppState()
+                                                            .ProjectStatisticsModel
+                                                            .profitPercentage,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .beyondBlueColor,
@@ -1641,7 +1643,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .languageCode),
-                                                            '-',
+                                                            'null',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1655,16 +1657,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
-                                                    const SizedBox(
+                                                    SizedBox(
                                                       width: 200.0,
                                                       height: 200.0,
                                                       child: custom_widgets
                                                           .CircularProgressParCustomWidget(
                                                         width: 200.0,
                                                         height: 200.0,
-                                                        progress: 90.0,
+                                                        progress: FFAppState()
+                                                            .ProjectStatisticsModel
+                                                            .averageClientSatisfaction
+                                                            .toDouble(),
                                                         color:
-                                                            Color(0xFFB1D77B),
+                                                            const Color(0xFFB1D77B),
                                                       ),
                                                     ),
                                                     Column(
@@ -1744,7 +1749,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .languageCode),
-                                                            '-',
+                                                            'null',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
