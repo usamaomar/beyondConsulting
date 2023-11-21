@@ -22,6 +22,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResultscn;
   // Stores action output result for [Backend Call - API (GetMyProjectsApi)] action in HomePage widget.
   ApiCallResponse? apiProjectResultscn;
+  // Stores action output result for [Backend Call - API (GetProjectStatisticsApi)] action in HomePage widget.
+  ApiCallResponse? apiProjectStats;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 

@@ -80,6 +80,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   .toList()
                   .cast<ProjectModelStruct>();
             });
+            _model.apiProjectStats = await GetProjectStatisticsApiCall.call(
+              token: FFAppState().tokenModelAppState.token,
+            );
+            if ((_model.apiProjectStats?.statusCode ?? 200) == 200) {
+              setState(() {
+                FFAppState().ProjectStatisticsModel =
+                    ProjectStatisticModelStruct.fromMap(getJsonField(
+                  (_model.apiProjectStats?.jsonBody ?? ''),
+                  r'''$.data''',
+                ));
+              });
+            }
           }
         }
       }
@@ -1505,10 +1517,242 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                Container(
-                                                  child: const custom_widgets
-                                                      .CircularProgressParCustomWidget(),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    SizedBox(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      child: custom_widgets
+                                                          .CircularProgressParCustomWidget(
+                                                        width: 200.0,
+                                                        height: 200.0,
+                                                        progress: 20.0,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .beyondBlueColor,
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'e3i7s6lq' /* Financial Target */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                color: const Color(
+                                                                    0xFF808080),
+                                                                fontSize: 20.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                '${FFAppState().ProjectStatisticsModel.profit.toString()}${FFLocalizations.of(context).getVariableText(
+                                                                  enText: ' K ',
+                                                                  arText:
+                                                                      ' الف ',
+                                                                )}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFF01A3E2),
+                                                                      fontSize:
+                                                                          35.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'saxd53ww' /* / 250 K */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFF808080),
+                                                                      fontSize:
+                                                                          25.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.formatLastUpdated(
+                                                                FFAppState()
+                                                                    .ProjectStatisticsModel
+                                                                    .lastUpdated,
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode),
+                                                            '-',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    const SizedBox(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      child: custom_widgets
+                                                          .CircularProgressParCustomWidget(
+                                                        width: 200.0,
+                                                        height: 200.0,
+                                                        progress: 90.0,
+                                                        color:
+                                                            Color(0xFFB1D77B),
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'o6gz17pe' /* Client Satisfaction */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                color: const Color(
+                                                                    0xFF808080),
+                                                                fontSize: 20.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                '${FFAppState().ProjectStatisticsModel.averageClientSatisfaction}٪',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFFB1D77B),
+                                                                      fontSize:
+                                                                          35.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.formatLastUpdated(
+                                                                FFAppState()
+                                                                    .ProjectStatisticsModel
+                                                                    .lastUpdated,
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode),
+                                                            '-',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),

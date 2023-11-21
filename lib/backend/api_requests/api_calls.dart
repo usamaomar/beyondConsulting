@@ -163,6 +163,34 @@ class GetMyProjectsApiCall {
       );
 }
 
+class GetProjectStatisticsApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetProjectStatisticsApi',
+      apiUrl:
+          'https://beyond.api.matterhr.com/api/v1/Dashboard/GetProjectStatistics',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic projectStatisticsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

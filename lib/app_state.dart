@@ -104,6 +104,19 @@ class FFAppState extends ChangeNotifier {
       int index, ProjectModelStruct value) {
     _projectsListAppState.insert(index, value);
   }
+
+  ProjectStatisticModelStruct _ProjectStatisticsModel =
+      ProjectStatisticModelStruct();
+  ProjectStatisticModelStruct get ProjectStatisticsModel =>
+      _ProjectStatisticsModel;
+  set ProjectStatisticsModel(ProjectStatisticModelStruct value) {
+    _ProjectStatisticsModel = value;
+  }
+
+  void updateProjectStatisticsModelStruct(
+      Function(ProjectStatisticModelStruct) updateFn) {
+    updateFn(_ProjectStatisticsModel);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

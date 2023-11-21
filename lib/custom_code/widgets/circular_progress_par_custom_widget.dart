@@ -25,21 +25,24 @@ class CircularProgressParCustomWidget extends StatefulWidget {
 }
 
 class _CircularProgressParCustomWidgetState
-    extends State<PannerProgressParCustomWidget> {
+    extends State<CircularProgressParCustomWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Stack(children: [
-          CircularProgressIndicator(
-            strokeWidth: 17,
+        Container(
+          width: 150,
+          height: 160,
+          child: CircularProgressIndicator(
+            strokeCap: StrokeCap.round,
+            strokeWidth: 12,
             value: (widget.progress ?? 0) / 100,
             backgroundColor: Colors.grey[300],
             valueColor:
                 AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),
           ),
-        ])
+        )
       ],
     );
   }

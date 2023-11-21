@@ -147,6 +147,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Targets',
       'ar': 'الأهداف',
     },
+    'e3i7s6lq': {
+      'en': 'Financial Target',
+      'ar': 'الهدف المالي',
+    },
+    'saxd53ww': {
+      'en': '/ 250 K',
+      'ar': '',
+    },
+    'o6gz17pe': {
+      'en': 'Client Satisfaction',
+      'ar': 'رضا العملاء',
+    },
     'bxzhzz5i': {
       'en': 'Home',
       'ar': '',

@@ -55,3 +55,39 @@ String? getFullImage(String image) {
     return "https://beyond.api.matterhr.com/${image}";
   }
 }
+
+String? formatLastUpdated(
+  String? dateString,
+  String? lang,
+) {
+  if (dateString == null) {
+    return null; // or a default value if you prefer
+  }
+
+  // Parse the input date string
+  DateTime lastUpdated = DateTime.parse(dateString);
+
+  // Get current date and time
+  DateTime now = DateTime.now();
+
+  // Check if the date is today
+  if (now.year == lastUpdated.year &&
+      now.month == lastUpdated.month &&
+      now.day == lastUpdated.day) {
+    return lang == 'ar' ? 'اخر تعديل اليوم' : 'Last Updated Today';
+  }
+
+  // Check if the date is yesterday
+  DateTime yesterday = now.subtract(Duration(days: 1));
+  if (yesterday.year == lastUpdated.year &&
+      yesterday.month == lastUpdated.month &&
+      yesterday.day == lastUpdated.day) {
+    return lang == 'ar' ? 'اخر تعديل البارحذ' : 'Last Updated Yesterday';
+  }
+
+  // Format the date as '11, May' (for example)
+  String formattedDate = DateFormat('dd, MMM').format(lastUpdated);
+  return lang == 'ar'
+      ? 'اخر تعديل $formattedDate'
+      : 'Last Updated $formattedDate';
+}
