@@ -156,14 +156,15 @@ class FFAppState extends ChangeNotifier {
     _projectListCreationAppState.insert(index, value);
   }
 
-  CountryModelStruct _selectedCountryCode = CountryModelStruct();
-  CountryModelStruct get selectedCountryCode => _selectedCountryCode;
-  set selectedCountryCode(CountryModelStruct value) {
-    _selectedCountryCode = value;
+  ProjectModelStruct _newProjectCreatedModel = ProjectModelStruct();
+  ProjectModelStruct get newProjectCreatedModel => _newProjectCreatedModel;
+  set newProjectCreatedModel(ProjectModelStruct value) {
+    _newProjectCreatedModel = value;
   }
 
-  void updateSelectedCountryCodeStruct(Function(CountryModelStruct) updateFn) {
-    updateFn(_selectedCountryCode);
+  void updateNewProjectCreatedModelStruct(
+      Function(ProjectModelStruct) updateFn) {
+    updateFn(_newProjectCreatedModel);
   }
 }
 

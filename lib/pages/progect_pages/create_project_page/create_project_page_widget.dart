@@ -413,28 +413,21 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                               setState(() {}),
                                                           child:
                                                               TextDropDouwnListComponentWidget(
-                                                            hintName: FFAppState()
-                                                                            .selectedCountryCode
-                                                                            .code !=
-                                                                        ''
-                                                                ? FFLocalizations.of(
-                                                                        context)
-                                                                    .getVariableText(
-                                                                    enText: FFAppState()
-                                                                        .selectedCountryCode
-                                                                        .nameEn,
-                                                                    arText: FFAppState()
-                                                                        .selectedCountryCode
-                                                                        .nameAr,
-                                                                  )
-                                                                : FFLocalizations.of(
-                                                                        context)
-                                                                    .getVariableText(
-                                                                    enText:
-                                                                        'Select ...',
-                                                                    arText:
-                                                                        '...اختر',
-                                                                  ),
+                                                            hintName: functions
+                                                                .getCountryUsing(
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel,
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                    functions
+                                                                        .fromJsonToCountryList(
+                                                                            getJsonField(
+                                                                          functions
+                                                                              .getAllCountrJsonArray(),
+                                                                          r'''$.data''',
+                                                                        ))
+                                                                        .toList()),
                                                           ),
                                                         ),
                                                       ),
@@ -497,75 +490,166 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                         10.0,
                                                                         0.0,
                                                                         0.0),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  width: 2.0,
-                                                                ),
-                                                              ),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                final datePickedDate =
+                                                                    await showDatePicker(
+                                                                  context:
+                                                                      context,
+                                                                  initialDate:
+                                                                      getCurrentTimestamp,
+                                                                  firstDate:
+                                                                      getCurrentTimestamp,
+                                                                  lastDate:
+                                                                      DateTime(
+                                                                          2050),
+                                                                  builder:
+                                                                      (context,
+                                                                          child) {
+                                                                    return wrapInMaterialDatePickerTheme(
+                                                                      context,
+                                                                      child!,
+                                                                      headerBackgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .beyondBlueColor,
+                                                                      headerForegroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .info,
+                                                                      headerTextStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .getText(
-                                                                        'itmpwwo5' /* 22 / 05 / 2023 */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
+                                                                          .headlineLarge
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Almarai',
-                                                                            color:
-                                                                                const Color(0xFF797979),
                                                                             fontSize:
-                                                                                16.0,
+                                                                                32.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                           ),
-                                                                    ),
-                                                                  ),
-                                                                  const Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            10.0,
-                                                                            5.0,
-                                                                            10.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .calendar_month,
-                                                                      color: Color(
-                                                                          0xFF797979),
-                                                                      size:
+                                                                      pickerBackgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      pickerForegroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryText,
+                                                                      selectedDateTimeBackgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .beyondBlueColor,
+                                                                      selectedDateTimeForegroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .info,
+                                                                      actionButtonForegroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryText,
+                                                                      iconSize:
                                                                           24.0,
-                                                                    ),
+                                                                    );
+                                                                  },
+                                                                );
+
+                                                                if (datePickedDate !=
+                                                                    null) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.datePicked =
+                                                                        DateTime(
+                                                                      datePickedDate
+                                                                          .year,
+                                                                      datePickedDate
+                                                                          .month,
+                                                                      datePickedDate
+                                                                          .day,
+                                                                    );
+                                                                  });
+                                                                }
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                      .updateNewProjectCreatedModelStruct(
+                                                                    (e) => e
+                                                                      ..startDate =
+                                                                          dateTimeFormat(
+                                                                        'yyyy-MM-DDT00:00:00.000Z',
+                                                                        _model
+                                                                            .datePicked,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                  );
+                                                                });
+                                                              },
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    width: 2.0,
                                                                   ),
-                                                                ],
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        functions.convertDateString(FFAppState()
+                                                                            .newProjectCreatedModel
+                                                                            .startDate),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Almarai',
+                                                                              color: const Color(0xFF797979),
+                                                                              fontSize: 16.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: false,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    const Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          10.0,
+                                                                          5.0,
+                                                                          10.0),
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .calendar_month,
+                                                                        color: Color(
+                                                                            0xFF797979),
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
@@ -582,7 +666,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'vmzp7t3l' /* Start Date */,
+                                                              'vmzp7t3l' /* End Date */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
