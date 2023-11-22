@@ -117,6 +117,54 @@ class FFAppState extends ChangeNotifier {
       Function(ProjectStatisticModelStruct) updateFn) {
     updateFn(_ProjectStatisticsModel);
   }
+
+  bool _projectIsOpend = false;
+  bool get projectIsOpend => _projectIsOpend;
+  set projectIsOpend(bool value) {
+    _projectIsOpend = value;
+  }
+
+  List<ProjectModelStruct> _projectListCreationAppState = [];
+  List<ProjectModelStruct> get projectListCreationAppState =>
+      _projectListCreationAppState;
+  set projectListCreationAppState(List<ProjectModelStruct> value) {
+    _projectListCreationAppState = value;
+  }
+
+  void addToProjectListCreationAppState(ProjectModelStruct value) {
+    _projectListCreationAppState.add(value);
+  }
+
+  void removeFromProjectListCreationAppState(ProjectModelStruct value) {
+    _projectListCreationAppState.remove(value);
+  }
+
+  void removeAtIndexFromProjectListCreationAppState(int index) {
+    _projectListCreationAppState.removeAt(index);
+  }
+
+  void updateProjectListCreationAppStateAtIndex(
+    int index,
+    ProjectModelStruct Function(ProjectModelStruct) updateFn,
+  ) {
+    _projectListCreationAppState[index] =
+        updateFn(_projectListCreationAppState[index]);
+  }
+
+  void insertAtIndexInProjectListCreationAppState(
+      int index, ProjectModelStruct value) {
+    _projectListCreationAppState.insert(index, value);
+  }
+
+  CountryModelStruct _selectedCountryCode = CountryModelStruct();
+  CountryModelStruct get selectedCountryCode => _selectedCountryCode;
+  set selectedCountryCode(CountryModelStruct value) {
+    _selectedCountryCode = value;
+  }
+
+  void updateSelectedCountryCodeStruct(Function(CountryModelStruct) updateFn) {
+    updateFn(_selectedCountryCode);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

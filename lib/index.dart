@@ -5,3 +5,5 @@ export '/pages/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;
 export '/pages/main_dash_board_page/main_dash_board_page_widget.dart'
     show MainDashBoardPageWidget;
+export '/pages/progect_pages/create_project_page/create_project_page_widget.dart'
+    show CreateProjectPageWidget;

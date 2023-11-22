@@ -151,13 +151,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Financial Target',
       'ar': 'الهدف المالي',
     },
-    'saxd53ww': {
-      'en': '/ 250 K',
-      'ar': '',
-    },
     'o6gz17pe': {
       'en': 'Client Satisfaction',
       'ar': 'رضا العملاء',
+    },
+    '4jec6r2c': {
+      'en': 'Targets',
+      'ar': 'الأهداف',
+    },
+    'sl1su7q1': {
+      'en': 'Financial Target',
+      'ar': 'الهدف المالي',
+    },
+    '8wy9h4n2': {
+      'en': 'Client Satisfaction',
+      'ar': 'رضا العملاء',
+    },
+    '33fu4n6u': {
+      'en': 'Home',
+      'ar': 'بيت',
     },
     'bxzhzz5i': {
       'en': 'Home',
@@ -237,16 +249,143 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // CreateProjectPage
+  {
+    'yetzisu7': {
+      'en': 'Project Name',
+      'ar': 'اسم المشروع',
+    },
+    'zc3vx4b7': {
+      'en': 'Project Name here...',
+      'ar': 'اسم المشروع هنا...',
+    },
+    'hxr81z1z': {
+      'en': 'Country',
+      'ar': 'دولة',
+    },
+    'vxqutv5s': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    'itmpwwo5': {
+      'en': '22 / 05 / 2023',
+      'ar': '',
+    },
+    'vmzp7t3l': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    '9hw2v4ki': {
+      'en': '22 / 05 / 2023',
+      'ar': '',
+    },
+    '7e3n65l6': {
+      'en': 'Project Type',
+      'ar': 'نوع المشروع',
+    },
+    'tigectmn': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    '0f3agi1z': {
+      'en': 'Select...',
+      'ar': 'يختار...',
+    },
+    '8zb6wnc7': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    'm82bknwe': {
+      'en': 'Project Team',
+      'ar': 'فريق المشروع',
+    },
+    '3kz1i5c3': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    '0xpx8djr': {
+      'en': 'Select...',
+      'ar': 'يختار...',
+    },
+    '9awcb9zx': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    '7rslfzxy': {
+      'en': 'Project Roles',
+      'ar': 'أدوار المشروع',
+    },
+    '0ywrkhfu': {
+      'en': 'Status Updates',
+      'ar': 'تحديثات الحالة',
+    },
+    '26d7hs6m': {
+      'en': 'Messages',
+      'ar': 'رسائل',
+    },
+    'ehgglkkl': {
+      'en': 'Project Description',
+      'ar': 'وصف المشروع',
+    },
+    '4f4wu7pt': {
+      'en': 'Description  here...',
+      'ar': 'الوصف هنا...',
+    },
+    'ltj8zkqs': {
+      'en': 'Client',
+      'ar': 'عميل',
+    },
+    'n41ktdj0': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    'jzepo0wv': {
+      'en': 'Select...',
+      'ar': 'يختار...',
+    },
+    '6ocmb705': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    '8bbtfm7u': {
+      'en': 'Project MileStones',
+      'ar': 'معالم المشروع',
+    },
+    '694r7i2j': {
+      'en': 'Project Costs',
+      'ar': 'تكاليف المشروع',
+    },
+    'eucx8q56': {
+      'en': 'Milestone',
+      'ar': '',
+    },
+    '7hbe6co6': {
+      'en': 'Milestone',
+      'ar': '',
+    },
+    'hp9fsteq': {
+      'en': 'Add Milestone',
+      'ar': 'إضافة معلم',
+    },
+    'viq1jpse': {
+      'en': 'Add Cost',
+      'ar': 'أضف التكلفة',
+    },
+    'l3au3awf': {
+      'en': 'Save',
+      'ar': 'يحفظ',
+    },
+    'vojhpdrf': {
+      'en': 'Create a Project',
+      'ar': 'إنشاء مشروع',
+    },
+    'lxt7h52v': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
-    's6yt7m33': {
-      'en': 'BEYOND CONSULTING',
-      'ar': 'ما وراء الاستشارة',
-    },
-    '8z03ntxz': {
-      'en': 'Management and Business Consulting',
-      'ar': 'استشارات الإدارة والأعمال',
-    },
     'zdq4e0la': {
       'en': 'Home',
       'ar': 'بيت',
@@ -254,6 +393,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'p7ziaqge': {
       'en': 'Main DashBoard',
       'ar': 'لوحة المعلومات الرئيسية',
+    },
+    '8iucc20h': {
+      'en': 'Create a Project',
+      'ar': 'إنشاء مشروع',
+    },
+  },
+  // countriesListDialog
+  {
+    'dmxwgmwz': {
+      'en': 'Select Country',
+      'ar': 'حدد الدولة',
     },
   },
   // Miscellaneous

@@ -3,6 +3,7 @@ import 'package:collection/collection.dart';
 enum SideMenuEnum {
   HOME,
   MAIN_DASHBOARD,
+  CREATE_PROJECT,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {

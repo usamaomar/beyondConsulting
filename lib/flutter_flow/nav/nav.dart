@@ -56,6 +56,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MainDashBoardPage',
           path: '/mainDashBoardPage',
           builder: (context, params) => const MainDashBoardPageWidget(),
+        ),
+        FFRoute(
+          name: 'CreateProjectPage',
+          path: '/createProjectPage',
+          builder: (context, params) => const CreateProjectPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

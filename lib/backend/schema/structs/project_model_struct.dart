@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,6 +25,14 @@ class ProjectModelStruct extends BaseStruct {
     String? seniorPicture,
     bool? seniorStatus,
     String? clientLogo,
+    List<MemberModelStruct>? midManagers,
+    List<MemberModelStruct>? associates,
+    List<MilestoneModelStruct>? milestones,
+    List<CostModelStruct>? costs,
+    double? approvedPricing,
+    double? approvedCost,
+    double? profit,
+    double? profitPercentage,
   })  : _id = id,
         _name = name,
         _type = type,
@@ -44,7 +51,15 @@ class ProjectModelStruct extends BaseStruct {
         _seniorId = seniorId,
         _seniorPicture = seniorPicture,
         _seniorStatus = seniorStatus,
-        _clientLogo = clientLogo;
+        _clientLogo = clientLogo,
+        _midManagers = midManagers,
+        _associates = associates,
+        _milestones = milestones,
+        _costs = costs,
+        _approvedPricing = approvedPricing,
+        _approvedCost = approvedCost,
+        _profit = profit,
+        _profitPercentage = profitPercentage;
 
   // "id" field.
   int? _id;
@@ -168,6 +183,69 @@ class ProjectModelStruct extends BaseStruct {
   set clientLogo(String? val) => _clientLogo = val;
   bool hasClientLogo() => _clientLogo != null;
 
+  // "midManagers" field.
+  List<MemberModelStruct>? _midManagers;
+  List<MemberModelStruct> get midManagers => _midManagers ?? const [];
+  set midManagers(List<MemberModelStruct>? val) => _midManagers = val;
+  void updateMidManagers(Function(List<MemberModelStruct>) updateFn) =>
+      updateFn(_midManagers ??= []);
+  bool hasMidManagers() => _midManagers != null;
+
+  // "associates" field.
+  List<MemberModelStruct>? _associates;
+  List<MemberModelStruct> get associates => _associates ?? const [];
+  set associates(List<MemberModelStruct>? val) => _associates = val;
+  void updateAssociates(Function(List<MemberModelStruct>) updateFn) =>
+      updateFn(_associates ??= []);
+  bool hasAssociates() => _associates != null;
+
+  // "milestones" field.
+  List<MilestoneModelStruct>? _milestones;
+  List<MilestoneModelStruct> get milestones => _milestones ?? const [];
+  set milestones(List<MilestoneModelStruct>? val) => _milestones = val;
+  void updateMilestones(Function(List<MilestoneModelStruct>) updateFn) =>
+      updateFn(_milestones ??= []);
+  bool hasMilestones() => _milestones != null;
+
+  // "costs" field.
+  List<CostModelStruct>? _costs;
+  List<CostModelStruct> get costs => _costs ?? const [];
+  set costs(List<CostModelStruct>? val) => _costs = val;
+  void updateCosts(Function(List<CostModelStruct>) updateFn) =>
+      updateFn(_costs ??= []);
+  bool hasCosts() => _costs != null;
+
+  // "approvedPricing" field.
+  double? _approvedPricing;
+  double get approvedPricing => _approvedPricing ?? 0.0;
+  set approvedPricing(double? val) => _approvedPricing = val;
+  void incrementApprovedPricing(double amount) =>
+      _approvedPricing = approvedPricing + amount;
+  bool hasApprovedPricing() => _approvedPricing != null;
+
+  // "approvedCost" field.
+  double? _approvedCost;
+  double get approvedCost => _approvedCost ?? 0.0;
+  set approvedCost(double? val) => _approvedCost = val;
+  void incrementApprovedCost(double amount) =>
+      _approvedCost = approvedCost + amount;
+  bool hasApprovedCost() => _approvedCost != null;
+
+  // "profit" field.
+  double? _profit;
+  double get profit => _profit ?? 0.0;
+  set profit(double? val) => _profit = val;
+  void incrementProfit(double amount) => _profit = profit + amount;
+  bool hasProfit() => _profit != null;
+
+  // "profitPercentage" field.
+  double? _profitPercentage;
+  double get profitPercentage => _profitPercentage ?? 0.0;
+  set profitPercentage(double? val) => _profitPercentage = val;
+  void incrementProfitPercentage(double amount) =>
+      _profitPercentage = profitPercentage + amount;
+  bool hasProfitPercentage() => _profitPercentage != null;
+
   static ProjectModelStruct fromMap(Map<String, dynamic> data) =>
       ProjectModelStruct(
         id: castToType<int>(data['id']),
@@ -189,6 +267,26 @@ class ProjectModelStruct extends BaseStruct {
         seniorPicture: data['seniorPicture'] as String?,
         seniorStatus: data['seniorStatus'] as bool?,
         clientLogo: data['clientLogo'] as String?,
+        midManagers: getStructList(
+          data['midManagers'],
+          MemberModelStruct.fromMap,
+        ),
+        associates: getStructList(
+          data['associates'],
+          MemberModelStruct.fromMap,
+        ),
+        milestones: getStructList(
+          data['milestones'],
+          MilestoneModelStruct.fromMap,
+        ),
+        costs: getStructList(
+          data['costs'],
+          CostModelStruct.fromMap,
+        ),
+        approvedPricing: castToType<double>(data['approvedPricing']),
+        approvedCost: castToType<double>(data['approvedCost']),
+        profit: castToType<double>(data['profit']),
+        profitPercentage: castToType<double>(data['profitPercentage']),
       );
 
   static ProjectModelStruct? maybeFromMap(dynamic data) =>
@@ -214,6 +312,14 @@ class ProjectModelStruct extends BaseStruct {
         'seniorPicture': _seniorPicture,
         'seniorStatus': _seniorStatus,
         'clientLogo': _clientLogo,
+        'midManagers': _midManagers?.map((e) => e.toMap()).toList(),
+        'associates': _associates?.map((e) => e.toMap()).toList(),
+        'milestones': _milestones?.map((e) => e.toMap()).toList(),
+        'costs': _costs?.map((e) => e.toMap()).toList(),
+        'approvedPricing': _approvedPricing,
+        'approvedCost': _approvedCost,
+        'profit': _profit,
+        'profitPercentage': _profitPercentage,
       }.withoutNulls;
 
   @override
@@ -293,6 +399,42 @@ class ProjectModelStruct extends BaseStruct {
         'clientLogo': serializeParam(
           _clientLogo,
           ParamType.String,
+        ),
+        'midManagers': serializeParam(
+          _midManagers,
+          ParamType.DataStruct,
+          true,
+        ),
+        'associates': serializeParam(
+          _associates,
+          ParamType.DataStruct,
+          true,
+        ),
+        'milestones': serializeParam(
+          _milestones,
+          ParamType.DataStruct,
+          true,
+        ),
+        'costs': serializeParam(
+          _costs,
+          ParamType.DataStruct,
+          true,
+        ),
+        'approvedPricing': serializeParam(
+          _approvedPricing,
+          ParamType.double,
+        ),
+        'approvedCost': serializeParam(
+          _approvedCost,
+          ParamType.double,
+        ),
+        'profit': serializeParam(
+          _profit,
+          ParamType.double,
+        ),
+        'profitPercentage': serializeParam(
+          _profitPercentage,
+          ParamType.double,
         ),
       }.withoutNulls;
 
@@ -393,6 +535,50 @@ class ProjectModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        midManagers: deserializeStructParam<MemberModelStruct>(
+          data['midManagers'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: MemberModelStruct.fromSerializableMap,
+        ),
+        associates: deserializeStructParam<MemberModelStruct>(
+          data['associates'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: MemberModelStruct.fromSerializableMap,
+        ),
+        milestones: deserializeStructParam<MilestoneModelStruct>(
+          data['milestones'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: MilestoneModelStruct.fromSerializableMap,
+        ),
+        costs: deserializeStructParam<CostModelStruct>(
+          data['costs'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: CostModelStruct.fromSerializableMap,
+        ),
+        approvedPricing: deserializeParam(
+          data['approvedPricing'],
+          ParamType.double,
+          false,
+        ),
+        approvedCost: deserializeParam(
+          data['approvedCost'],
+          ParamType.double,
+          false,
+        ),
+        profit: deserializeParam(
+          data['profit'],
+          ParamType.double,
+          false,
+        ),
+        profitPercentage: deserializeParam(
+          data['profitPercentage'],
+          ParamType.double,
+          false,
+        ),
       );
 
   @override
@@ -400,6 +586,7 @@ class ProjectModelStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is ProjectModelStruct &&
         id == other.id &&
         name == other.name &&
@@ -419,7 +606,15 @@ class ProjectModelStruct extends BaseStruct {
         seniorId == other.seniorId &&
         seniorPicture == other.seniorPicture &&
         seniorStatus == other.seniorStatus &&
-        clientLogo == other.clientLogo;
+        clientLogo == other.clientLogo &&
+        listEquality.equals(midManagers, other.midManagers) &&
+        listEquality.equals(associates, other.associates) &&
+        listEquality.equals(milestones, other.milestones) &&
+        listEquality.equals(costs, other.costs) &&
+        approvedPricing == other.approvedPricing &&
+        approvedCost == other.approvedCost &&
+        profit == other.profit &&
+        profitPercentage == other.profitPercentage;
   }
 
   @override
@@ -442,7 +637,15 @@ class ProjectModelStruct extends BaseStruct {
         seniorId,
         seniorPicture,
         seniorStatus,
-        clientLogo
+        clientLogo,
+        midManagers,
+        associates,
+        milestones,
+        costs,
+        approvedPricing,
+        approvedCost,
+        profit,
+        profitPercentage
       ]);
 }
 
@@ -466,6 +669,10 @@ ProjectModelStruct createProjectModelStruct({
   String? seniorPicture,
   bool? seniorStatus,
   String? clientLogo,
+  double? approvedPricing,
+  double? approvedCost,
+  double? profit,
+  double? profitPercentage,
 }) =>
     ProjectModelStruct(
       id: id,
@@ -487,4 +694,8 @@ ProjectModelStruct createProjectModelStruct({
       seniorPicture: seniorPicture,
       seniorStatus: seniorStatus,
       clientLogo: clientLogo,
+      approvedPricing: approvedPricing,
+      approvedCost: approvedCost,
+      profit: profit,
+      profitPercentage: profitPercentage,
     );
