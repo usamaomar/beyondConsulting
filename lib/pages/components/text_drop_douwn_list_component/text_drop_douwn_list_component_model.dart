@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'side_nav_widget.dart' show SideNavWidget;
+import 'text_drop_douwn_list_component_widget.dart'
+    show TextDropDouwnListComponentWidget;
 import 'package:flutter/material.dart';
 
-class SideNavModel extends FlutterFlowModel<SideNavWidget> {
+class TextDropDouwnListComponentModel
+    extends FlutterFlowModel<TextDropDouwnListComponentWidget> {
   /// Initialization and disposal methods.
 
   @override

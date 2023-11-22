@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/side_nav/side_nav_widget.dart';
+import '/pages/components/side_nav/side_nav_widget.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';

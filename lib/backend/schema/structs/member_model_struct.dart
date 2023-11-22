@@ -10,9 +10,11 @@ class MemberModelStruct extends BaseStruct {
     String? id,
     String? name,
     String? picture,
+    bool? status,
   })  : _id = id,
         _name = name,
-        _picture = picture;
+        _picture = picture,
+        _status = status;
 
   // "id" field.
   String? _id;
@@ -32,11 +34,18 @@ class MemberModelStruct extends BaseStruct {
   set picture(String? val) => _picture = val;
   bool hasPicture() => _picture != null;
 
+  // "status" field.
+  bool? _status;
+  bool get status => _status ?? false;
+  set status(bool? val) => _status = val;
+  bool hasStatus() => _status != null;
+
   static MemberModelStruct fromMap(Map<String, dynamic> data) =>
       MemberModelStruct(
         id: data['id'] as String?,
         name: data['name'] as String?,
         picture: data['picture'] as String?,
+        status: data['status'] as bool?,
       );
 
   static MemberModelStruct? maybeFromMap(dynamic data) =>
@@ -46,6 +55,7 @@ class MemberModelStruct extends BaseStruct {
         'id': _id,
         'name': _name,
         'picture': _picture,
+        'status': _status,
       }.withoutNulls;
 
   @override
@@ -61,6 +71,10 @@ class MemberModelStruct extends BaseStruct {
         'picture': serializeParam(
           _picture,
           ParamType.String,
+        ),
+        'status': serializeParam(
+          _status,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -81,6 +95,11 @@ class MemberModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        status: deserializeParam(
+          data['status'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -91,20 +110,23 @@ class MemberModelStruct extends BaseStruct {
     return other is MemberModelStruct &&
         id == other.id &&
         name == other.name &&
-        picture == other.picture;
+        picture == other.picture &&
+        status == other.status;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, name, picture]);
+  int get hashCode => const ListEquality().hash([id, name, picture, status]);
 }
 
 MemberModelStruct createMemberModelStruct({
   String? id,
   String? name,
   String? picture,
+  bool? status,
 }) =>
     MemberModelStruct(
       id: id,
       name: name,
       picture: picture,
+      status: status,
     );
