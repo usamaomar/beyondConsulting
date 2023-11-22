@@ -31,6 +31,7 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   // Model for TextDropDouwnListComponent component.
   late TextDropDouwnListComponentModel textDropDouwnListComponentModel;
+  DateTime? datePicked;
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;

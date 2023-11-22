@@ -267,13 +267,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Start Date',
       'ar': 'تاريخ البدء',
     },
-    'itmpwwo5': {
-      'en': '22 / 05 / 2023',
-      'ar': '',
-    },
     'vmzp7t3l': {
-      'en': 'Start Date',
-      'ar': 'تاريخ البدء',
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
     },
     '9hw2v4ki': {
       'en': '22 / 05 / 2023',

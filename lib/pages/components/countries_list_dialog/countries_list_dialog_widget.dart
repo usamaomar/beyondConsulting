@@ -71,7 +71,7 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
           children: [
             Expanded(
               child: Column(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
                     decoration: const BoxDecoration(
@@ -127,48 +127,47 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                       ),
                     ),
                   ),
-                  Builder(
-                    builder: (context) {
-                      final countryListModel = _model.countryList.toList();
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: countryListModel.length,
-                        itemBuilder: (context, countryListModelIndex) {
-                          final countryListModelItem =
-                              countryListModel[countryListModelIndex];
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              setState(() {
-                                FFAppState().selectedCountryCode =
-                                    countryListModelItem;
-                              });
-                            },
-                            child: Container(
-                              width: 1.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).info,
-                                borderRadius: BorderRadius.circular(0.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                  Expanded(
+                    child: Builder(
+                      builder: (context) {
+                        final countryListModel = _model.countryList.toList();
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: countryListModel.length,
+                          itemBuilder: (context, countryListModelIndex) {
+                            final countryListModelItem =
+                                countryListModel[countryListModelIndex];
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  FFAppState()
+                                      .updateNewProjectCreatedModelStruct(
+                                    (e) => e
+                                      ..countryCode = countryListModelItem.code,
+                                  );
+                                });
+                                Navigator.pop(context);
+                                _model.updatePage(() {});
+                              },
+                              child: Container(
+                                width: 1.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).info,
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 0.0, 20.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    setState(() {});
-                                  },
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 20.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -210,11 +209,11 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
