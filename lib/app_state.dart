@@ -166,6 +166,43 @@ class FFAppState extends ChangeNotifier {
       Function(ProjectModelStruct) updateFn) {
     updateFn(_newProjectCreatedModel);
   }
+
+  List<ProjectTypeModelStruct> _projectTypesList = [
+    ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"آ","nameEn":"A","color":"#ea0202","type":"4"}')),
+    ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"ب","nameEn":"B","color":"#008000","type":"2"}')),
+    ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"ج","nameEn":"C","color":"#ffd600","type":"1"}'))
+  ];
+  List<ProjectTypeModelStruct> get projectTypesList => _projectTypesList;
+  set projectTypesList(List<ProjectTypeModelStruct> value) {
+    _projectTypesList = value;
+  }
+
+  void addToProjectTypesList(ProjectTypeModelStruct value) {
+    _projectTypesList.add(value);
+  }
+
+  void removeFromProjectTypesList(ProjectTypeModelStruct value) {
+    _projectTypesList.remove(value);
+  }
+
+  void removeAtIndexFromProjectTypesList(int index) {
+    _projectTypesList.removeAt(index);
+  }
+
+  void updateProjectTypesListAtIndex(
+    int index,
+    ProjectTypeModelStruct Function(ProjectTypeModelStruct) updateFn,
+  ) {
+    _projectTypesList[index] = updateFn(_projectTypesList[index]);
+  }
+
+  void insertAtIndexInProjectTypesList(
+      int index, ProjectTypeModelStruct value) {
+    _projectTypesList.insert(index, value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

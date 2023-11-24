@@ -64,6 +64,7 @@ class GetMyDataApiCall {
 class GetPersonalsApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
+    String? startDate = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetPersonalsApi',
@@ -73,7 +74,9 @@ class GetPersonalsApiCall {
         'Accept': 'application/json',
         'Authorization': 'Bearer $token',
       },
-      params: {},
+      params: {
+        'StartDate': startDate,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

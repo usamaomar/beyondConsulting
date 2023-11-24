@@ -271,41 +271,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End Date',
       'ar': 'تاريخ الانتهاء',
     },
-    '9hw2v4ki': {
-      'en': '22 / 05 / 2023',
-      'ar': '',
-    },
     '7e3n65l6': {
       'en': 'Project Type',
       'ar': 'نوع المشروع',
     },
-    'tigectmn': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    '0f3agi1z': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '8zb6wnc7': {
-      'en': 'Search for an item...',
-      'ar': '',
-    },
     'm82bknwe': {
       'en': 'Project Team',
       'ar': 'فريق المشروع',
-    },
-    '3kz1i5c3': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    '0xpx8djr': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '9awcb9zx': {
-      'en': 'Search for an item...',
-      'ar': '',
     },
     '7rslfzxy': {
       'en': 'Project Roles',
@@ -400,6 +372,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'dmxwgmwz': {
       'en': 'Select Country',
       'ar': 'حدد الدولة',
+    },
+  },
+  // projectTypeListDialog
+  {
+    'zpdjhv2w': {
+      'en': 'Select Country',
+      'ar': 'حدد الدولة',
+    },
+  },
+  // personalsTeamListDialog
+  {
+    '62b9b7qt': {
+      'en': 'Select Project Team',
+      'ar': 'حدد فريق المشروع',
+    },
+    '96fq2z21': {
+      'en': 'Senior',
+      'ar': 'كبير',
+    },
+    'a5dxvek5': {
+      'en': 'Medmanagers',
+      'ar': 'مدراء الطب',
+    },
+    'ibsbdvsu': {
+      'en': 'Assosites',
+      'ar': 'أسوسيتس',
+    },
+    'mm1varod': {
+      'en': 'Add',
+      'ar': 'يضيف',
     },
   },
   // Miscellaneous

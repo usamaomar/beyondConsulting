@@ -20,6 +20,8 @@ class UserModelStruct extends BaseStruct {
     String? profilePictureDataUrl,
     bool? isActive,
     bool? emailConfirmed,
+    int? fullCapacity,
+    int? currentCapacity,
   })  : _id = id,
         _userName = userName,
         _firstName = firstName,
@@ -32,7 +34,9 @@ class UserModelStruct extends BaseStruct {
         _accessRole = accessRole,
         _profilePictureDataUrl = profilePictureDataUrl,
         _isActive = isActive,
-        _emailConfirmed = emailConfirmed;
+        _emailConfirmed = emailConfirmed,
+        _fullCapacity = fullCapacity,
+        _currentCapacity = currentCapacity;
 
   // "id" field.
   String? _id;
@@ -113,6 +117,22 @@ class UserModelStruct extends BaseStruct {
   set emailConfirmed(bool? val) => _emailConfirmed = val;
   bool hasEmailConfirmed() => _emailConfirmed != null;
 
+  // "fullCapacity" field.
+  int? _fullCapacity;
+  int get fullCapacity => _fullCapacity ?? 0;
+  set fullCapacity(int? val) => _fullCapacity = val;
+  void incrementFullCapacity(int amount) =>
+      _fullCapacity = fullCapacity + amount;
+  bool hasFullCapacity() => _fullCapacity != null;
+
+  // "currentCapacity" field.
+  int? _currentCapacity;
+  int get currentCapacity => _currentCapacity ?? 0;
+  set currentCapacity(int? val) => _currentCapacity = val;
+  void incrementCurrentCapacity(int amount) =>
+      _currentCapacity = currentCapacity + amount;
+  bool hasCurrentCapacity() => _currentCapacity != null;
+
   static UserModelStruct fromMap(Map<String, dynamic> data) => UserModelStruct(
         id: data['id'] as String?,
         userName: data['userName'] as String?,
@@ -127,6 +147,8 @@ class UserModelStruct extends BaseStruct {
         profilePictureDataUrl: data['profilePictureDataUrl'] as String?,
         isActive: data['isActive'] as bool?,
         emailConfirmed: data['emailConfirmed'] as bool?,
+        fullCapacity: castToType<int>(data['fullCapacity']),
+        currentCapacity: castToType<int>(data['currentCapacity']),
       );
 
   static UserModelStruct? maybeFromMap(dynamic data) =>
@@ -146,6 +168,8 @@ class UserModelStruct extends BaseStruct {
         'profilePictureDataUrl': _profilePictureDataUrl,
         'isActive': _isActive,
         'emailConfirmed': _emailConfirmed,
+        'fullCapacity': _fullCapacity,
+        'currentCapacity': _currentCapacity,
       }.withoutNulls;
 
   @override
@@ -201,6 +225,14 @@ class UserModelStruct extends BaseStruct {
         'emailConfirmed': serializeParam(
           _emailConfirmed,
           ParamType.bool,
+        ),
+        'fullCapacity': serializeParam(
+          _fullCapacity,
+          ParamType.int,
+        ),
+        'currentCapacity': serializeParam(
+          _currentCapacity,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -271,6 +303,16 @@ class UserModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        fullCapacity: deserializeParam(
+          data['fullCapacity'],
+          ParamType.int,
+          false,
+        ),
+        currentCapacity: deserializeParam(
+          data['currentCapacity'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -291,7 +333,9 @@ class UserModelStruct extends BaseStruct {
         accessRole == other.accessRole &&
         profilePictureDataUrl == other.profilePictureDataUrl &&
         isActive == other.isActive &&
-        emailConfirmed == other.emailConfirmed;
+        emailConfirmed == other.emailConfirmed &&
+        fullCapacity == other.fullCapacity &&
+        currentCapacity == other.currentCapacity;
   }
 
   @override
@@ -308,7 +352,9 @@ class UserModelStruct extends BaseStruct {
         accessRole,
         profilePictureDataUrl,
         isActive,
-        emailConfirmed
+        emailConfirmed,
+        fullCapacity,
+        currentCapacity
       ]);
 }
 
@@ -326,6 +372,8 @@ UserModelStruct createUserModelStruct({
   String? profilePictureDataUrl,
   bool? isActive,
   bool? emailConfirmed,
+  int? fullCapacity,
+  int? currentCapacity,
 }) =>
     UserModelStruct(
       id: id,
@@ -341,4 +389,6 @@ UserModelStruct createUserModelStruct({
       profilePictureDataUrl: profilePictureDataUrl,
       isActive: isActive,
       emailConfirmed: emailConfirmed,
+      fullCapacity: fullCapacity,
+      currentCapacity: currentCapacity,
     );

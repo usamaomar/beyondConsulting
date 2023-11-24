@@ -174,3 +174,47 @@ String convertDateString(String dateString) {
     return '----/--/--';
   }
 }
+
+DateTime parseDateString(String dateString) {
+  if (dateString != null && dateString.isNotEmpty) {
+    try {
+      return DateTime.parse(dateString);
+    } catch (e) {
+      // Handle parsing error if the provided string is not a valid date
+      print('Error parsing date: $e');
+    }
+  }
+
+  // Return current date if the input string is null or empty
+  return DateTime.now();
+}
+
+List<UserModelStruct> fromJsonToUserList(dynamic jsonBudy) {
+  return jsonBudy
+      .map((e) => e != null && e != '' ? UserModelStruct.fromMap(e) : null)
+      .toList()
+      .toList()
+      .cast<UserModelStruct>();
+}
+
+bool findMatchingUsers(
+  UserModelStruct empsModel,
+  List<UserModelStruct> listOfIds,
+) {
+  for (var user in listOfIds) {
+    if (empsModel.id == user.id) {
+      return true;
+    }
+  }
+  return false;
+}
+
+List<MemberModelStruct> convertFomrUserToMembers(
+    List<UserModelStruct> userList) {
+  List<MemberModelStruct> listOfUsers = [];
+  for (UserModelStruct item in userList) {
+    listOfUsers.add(MemberModelStruct(
+        id: item.id, name: "%{item.firstName} %{item.lastName}", status: true));
+  }
+  return listOfUsers;
+}
