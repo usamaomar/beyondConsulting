@@ -248,6 +248,71 @@ class GetAllClientsApiCall {
       );
 }
 
+class UploadFileCall {
+  static Future<ApiCallResponse> call({
+    FFUploadedFile? file,
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'UploadFile',
+      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Uploud/Create',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'file': file,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class CreateClintCall {
+  static Future<ApiCallResponse> call({
+    String? name = '',
+    String? email = '',
+    String? phoneNumber = '',
+    String? address = '',
+    String? contactName = '',
+    String? alternativePhoneNumber = '',
+    String? logoImageUrl = '',
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "name": "$name",
+  "email": "$email",
+  "phoneNumber": "$phoneNumber",
+  "address": "$address",
+  "contactName": "$contactName",
+  "alternativePhoneNumber": "$alternativePhoneNumber",
+  "logoImageUrl": "$logoImageUrl"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateClint',
+      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Clients/Post',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
