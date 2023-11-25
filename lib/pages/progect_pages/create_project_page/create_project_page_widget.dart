@@ -1613,9 +1613,9 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                         child:
                                                             ClintDropDouwnListComponentWidget(
                                                           hintName: FFAppState()
-                                                                      .newProjectCreatedModel
-                                                                      .client !=
-                                                                  'null'
+                                                                          .newProjectCreatedModel
+                                                                          .client !=
+                                                                      ''
                                                               ? FFAppState()
                                                                   .newProjectCreatedModel
                                                                   .client
