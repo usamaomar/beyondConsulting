@@ -395,8 +395,98 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'حدد العميل',
     },
   },
+  // CreatClientDialog
+  {
+    'vltr3g3k': {
+      'en': 'Create Client',
+      'ar': 'إنشاء عميل',
+    },
+    'b3mc21pu': {
+      'en': 'Client Name here...',
+      'ar': 'اسم العميل هنا...',
+    },
+    'd2fs2xrj': {
+      'en': 'Email here...',
+      'ar': 'البريد الالكتروني هنا...',
+    },
+    'knw6c9lu': {
+      'en': 'Phone Number here...',
+      'ar': 'رقم الهاتف هنا...',
+    },
+    'lu6mbcg4': {
+      'en': 'Address here...',
+      'ar': 'العنوان هنا...',
+    },
+    'o4jhbkzy': {
+      'en': 'Alternative Phone Number here...',
+      'ar': 'رقم الهاتف البديل هنا...',
+    },
+    'tje6fbcr': {
+      'en': 'Save',
+      'ar': 'يحفظ',
+    },
+  },
+  // AddMilestoneDialog
+  {
+    'ptu7uaey': {
+      'en': 'Add Milestone',
+      'ar': 'إضافة معلم',
+    },
+    'ji4u2658': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    '08at8l00': {
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
+    },
+    '1ht17vej': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    '2tesgtrl': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'kt6wql7g': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'r68agp4p': {
+      'en': 'Cost',
+      'ar': 'يكلف',
+    },
+    'u7cboteo': {
+      'en': 'Cost here...',
+      'ar': 'التكلفة هنا...',
+    },
+    'necckuhq': {
+      'en': 'Reminder',
+      'ar': 'تذكير',
+    },
+    '47ght3fs': {
+      'en': 'Upload Invoice File',
+      'ar': 'تحميل ملف الفاتورة',
+    },
+    'a9ixzmja': {
+      'en': 'Add Only',
+      'ar': 'أضف فقط',
+    },
+  },
   // Miscellaneous
   {
+    'qdvdhcpe': {
+      'en': '',
+      'ar': '',
+    },
+    'qa16qxqj': {
+      'en': '',
+      'ar': '',
+    },
+    '0d0sgpbb': {
+      'en': 'We would like to access google callender',
+      'ar': '',
+    },
     'yagh9fqi': {
       'en': '',
       'ar': '',

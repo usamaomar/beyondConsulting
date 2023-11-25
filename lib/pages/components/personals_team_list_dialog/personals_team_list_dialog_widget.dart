@@ -797,7 +797,7 @@ class _PersonalsTeamListDialogWidgetState
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            setState(() {
+                            _model.updatePage(() {
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..midManagers = functions
@@ -807,7 +807,7 @@ class _PersonalsTeamListDialogWidgetState
                                       .toList(),
                               );
                             });
-                            setState(() {
+                            _model.updatePage(() {
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..associates = functions
@@ -824,7 +824,7 @@ class _PersonalsTeamListDialogWidgetState
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
+                                34.0, 0.0, 34.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: const Color(0xFF01A3E2),

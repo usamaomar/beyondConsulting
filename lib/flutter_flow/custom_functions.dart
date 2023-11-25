@@ -257,5 +257,5 @@ ClientModelStruct? findeMatchingClient(
       return client;
     }
   }
-  return null;
+  return ClientModelStruct();
 }
