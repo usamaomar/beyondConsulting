@@ -79,6 +79,16 @@ class _PersonalsTeamListDialogWidgetState
               ))
               .toList()
               .cast<UserModelStruct>();
+          _model.midManagersSelectedIds = functions
+              .convertFromMemberToUserList(
+                  FFAppState().newProjectCreatedModel.midManagers.toList())
+              .toList()
+              .cast<UserModelStruct>();
+          _model.associatesSelectedIds = functions
+              .convertFromMemberToUserList(
+                  FFAppState().newProjectCreatedModel.associates.toList())
+              .toList()
+              .cast<UserModelStruct>();
         });
       }
     });
@@ -791,8 +801,9 @@ class _PersonalsTeamListDialogWidgetState
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..midManagers = functions
-                                      .convertFomrUserToMembers(
-                                          _model.associatesSelectedIds.toList())
+                                      .convertFomrUserToMembers(_model
+                                          .midManagersSelectedIds
+                                          .toList())
                                       .toList(),
                               );
                             });

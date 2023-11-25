@@ -287,10 +287,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Status Updates',
       'ar': 'تحديثات الحالة',
     },
-    '26d7hs6m': {
-      'en': 'Messages',
-      'ar': 'رسائل',
-    },
     'ehgglkkl': {
       'en': 'Project Description',
       'ar': 'وصف المشروع',
@@ -302,18 +298,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ltj8zkqs': {
       'en': 'Client',
       'ar': 'عميل',
-    },
-    'n41ktdj0': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    'jzepo0wv': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '6ocmb705': {
-      'en': 'Search for an item...',
-      'ar': '',
     },
     '8bbtfm7u': {
       'en': 'Project MileStones',
@@ -402,6 +386,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'mm1varod': {
       'en': 'Add',
       'ar': 'يضيف',
+    },
+  },
+  // ClintListDialog
+  {
+    '5tklh7gn': {
+      'en': 'Select Client',
+      'ar': 'حدد العميل',
     },
   },
   // Miscellaneous
