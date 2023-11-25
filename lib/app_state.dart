@@ -203,6 +203,35 @@ class FFAppState extends ChangeNotifier {
       int index, ProjectTypeModelStruct value) {
     _projectTypesList.insert(index, value);
   }
+
+  List<ClientModelStruct> _clientList = [];
+  List<ClientModelStruct> get clientList => _clientList;
+  set clientList(List<ClientModelStruct> value) {
+    _clientList = value;
+  }
+
+  void addToClientList(ClientModelStruct value) {
+    _clientList.add(value);
+  }
+
+  void removeFromClientList(ClientModelStruct value) {
+    _clientList.remove(value);
+  }
+
+  void removeAtIndexFromClientList(int index) {
+    _clientList.removeAt(index);
+  }
+
+  void updateClientListAtIndex(
+    int index,
+    ClientModelStruct Function(ClientModelStruct) updateFn,
+  ) {
+    _clientList[index] = updateFn(_clientList[index]);
+  }
+
+  void insertAtIndexInClientList(int index, ClientModelStruct value) {
+    _clientList.insert(index, value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

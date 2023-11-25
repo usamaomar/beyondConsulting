@@ -214,7 +214,48 @@ List<MemberModelStruct> convertFomrUserToMembers(
   List<MemberModelStruct> listOfUsers = [];
   for (UserModelStruct item in userList) {
     listOfUsers.add(MemberModelStruct(
-        id: item.id, name: "%{item.firstName} %{item.lastName}", status: true));
+        id: item.id, name: "${item.firstName} ${item.lastName}"));
   }
   return listOfUsers;
+}
+
+List<UserModelStruct> convertFromMemberToUserList(
+    List<MemberModelStruct> meberList) {
+  List<UserModelStruct> listOfUsers = [];
+  for (MemberModelStruct item in meberList) {
+    listOfUsers.add(UserModelStruct(
+        id: item.id, firstName: item.name, lastName: item.name));
+  }
+  return listOfUsers;
+}
+
+List<MemberModelStruct> addMidsAndAssositsToRoleList(
+  List<MemberModelStruct> listOfMids,
+  List<MemberModelStruct> listOfAssosits,
+) {
+  List<MemberModelStruct> listOf = [];
+
+  listOf.addAll(listOfMids);
+  listOf.addAll(listOfAssosits);
+  return listOf;
+}
+
+List<ClientModelStruct> fromJsonToClientList(dynamic jsonBody) {
+  return jsonBody
+      .map((e) => e != null && e != '' ? ClientModelStruct.fromMap(e) : null)
+      .toList()
+      .toList()
+      .cast<ClientModelStruct>();
+}
+
+ClientModelStruct? findeMatchingClient(
+  int clientId,
+  List<ClientModelStruct> liesntList,
+) {
+  for (var client in liesntList) {
+    if (client.id == clientId) {
+      return client;
+    }
+  }
+  return null;
 }

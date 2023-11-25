@@ -1,9 +1,9 @@
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_component_widget.dart';
 import '/pages/components/countries_list_dialog/countries_list_dialog_widget.dart';
 import '/pages/components/personals_team_list_dialog/personals_team_list_dialog_widget.dart';
 import '/pages/components/project_type_list_dialog/project_type_list_dialog_widget.dart';
@@ -14,6 +14,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -37,6 +38,18 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateProjectPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.listOfRols = functions
+            .addMidsAndAssositsToRoleList(
+                FFAppState().newProjectCreatedModel.midManagers.toList(),
+                FFAppState().newProjectCreatedModel.associates.toList())
+            .toList()
+            .cast<MemberModelStruct>();
+      });
+    });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -1217,30 +1230,6 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                               ),
                                                             ),
                                                           ),
-                                                          DataColumn2(
-                                                            label:
-                                                                DefaultTextStyle
-                                                                    .merge(
-                                                              softWrap: true,
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  '26d7hs6m' /* Messages */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .info,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ),
                                                         ],
                                                         rows: dataTableList
                                                             .mapIndexed((dataTableListIndex,
@@ -1287,11 +1276,6 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).bodyMedium,
                                                                           ),
-                                                                          Text(
-                                                                            dataTableListItem.status.toString(),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
                                                                         ],
                                                                       ),
                                                                     ],
@@ -1318,51 +1302,31 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                     child:
                                                                         Checkbox(
                                                                       value: _model
-                                                                              .checkboxValueMap1[dataTableListItem] ??=
-                                                                          true,
+                                                                              .checkboxValueMap[dataTableListItem] ??=
+                                                                          dataTableListItem
+                                                                              .status,
                                                                       onChanged:
                                                                           (newValue) async {
                                                                         setState(() =>
-                                                                            _model.checkboxValueMap1[dataTableListItem] =
+                                                                            _model.checkboxValueMap[dataTableListItem] =
                                                                                 newValue!);
-                                                                      },
-                                                                      activeColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      checkColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .info,
-                                                                    ),
-                                                                  ),
-                                                                  Theme(
-                                                                    data:
-                                                                        ThemeData(
-                                                                      checkboxTheme:
-                                                                          CheckboxThemeData(
-                                                                        visualDensity:
-                                                                            VisualDensity.compact,
-                                                                        materialTapTargetSize:
-                                                                            MaterialTapTargetSize.shrinkWrap,
-                                                                        shape:
-                                                                            RoundedRectangleBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      unselectedWidgetColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondaryText,
-                                                                    ),
-                                                                    child:
-                                                                        Checkbox(
-                                                                      value: _model
-                                                                              .checkboxValueMap2[dataTableListItem] ??=
-                                                                          true,
-                                                                      onChanged:
-                                                                          (newValue) async {
-                                                                        setState(() =>
-                                                                            _model.checkboxValueMap2[dataTableListItem] =
-                                                                                newValue!);
+                                                                        if (newValue!) {
+                                                                          setState(
+                                                                              () {
+                                                                            _model.updateListOfRolsAtIndex(
+                                                                              dataTableListIndex,
+                                                                              (e) => e..status = true,
+                                                                            );
+                                                                          });
+                                                                        } else {
+                                                                          setState(
+                                                                              () {
+                                                                            _model.updateListOfRolsAtIndex(
+                                                                              dataTableListIndex,
+                                                                              (e) => e..status = false,
+                                                                            );
+                                                                          });
+                                                                        }
                                                                       },
                                                                       activeColor:
                                                                           FlutterFlowTheme.of(context)
@@ -1641,83 +1605,28 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                      wrapWithModel(
+                                                        model: _model
+                                                            .clintDropDouwnListComponentModel,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
                                                         child:
-                                                            FlutterFlowDropDown<
-                                                                String>(
-                                                          controller: _model
-                                                                  .dropDownValueController ??=
-                                                              FormFieldController<
-                                                                  String>(
-                                                            _model.dropDownValue ??=
-                                                                '',
-                                                          ),
-                                                          options:
-                                                              List<String>.from(
-                                                                  ['Option 1']),
-                                                          optionLabels: [
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'n41ktdj0' /* Option 1 */,
-                                                            )
-                                                          ],
-                                                          onChanged: (val) =>
-                                                              setState(() =>
-                                                                  _model.dropDownValue =
-                                                                      val),
-                                                          width: MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width <
-                                                                  400.0
-                                                              ? 310.0
-                                                              : 520.0,
-                                                          height: 50.0,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium,
-                                                          hintText:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'jzepo0wv' /* Select... */,
-                                                          ),
-                                                          icon: Icon(
-                                                            Icons
-                                                                .keyboard_arrow_down_rounded,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 24.0,
-                                                          ),
-                                                          fillColor: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          elevation: 2.0,
-                                                          borderColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .alternate,
-                                                          borderWidth: 2.0,
-                                                          borderRadius: 0.0,
-                                                          margin:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      4.0,
-                                                                      16.0,
-                                                                      4.0),
-                                                          hidesUnderline: true,
-                                                          isSearchable: false,
-                                                          isMultiSelect: false,
+                                                            ClintDropDouwnListComponentWidget(
+                                                          hintName: FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .client !=
+                                                                  'null'
+                                                              ? FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .client
+                                                              : FFLocalizations
+                                                                      .of(context)
+                                                                  .getVariableText(
+                                                                  enText:
+                                                                      'Select...',
+                                                                  arText:
+                                                                      '... اختر',
+                                                                ),
                                                         ),
                                                       ),
                                                     ],

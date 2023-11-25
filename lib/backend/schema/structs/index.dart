@@ -1,5 +1,6 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'client_model_struct.dart';
 export 'cost_model_struct.dart';
 export 'country_model_struct.dart';
 export 'member_model_struct.dart';

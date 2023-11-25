@@ -1,6 +1,6 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/pages/components/text_drop_douwn_list_component/text_drop_douwn_list_component_widget.dart';
 import '/pages/components/type_drop_douwn_list_component/type_drop_douwn_list_component_widget.dart';
@@ -40,27 +40,16 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   late TextDropDouwnListComponentModel textDropDouwnListComponentModel2;
   // State field(s) for Checkbox widget.
 
-  Map<MemberModelStruct, bool> checkboxValueMap1 = {};
-  List<MemberModelStruct> get checkboxCheckedItems1 => checkboxValueMap1.entries
-      .where((e) => e.value)
-      .map((e) => e.key)
-      .toList();
-
-  // State field(s) for Checkbox widget.
-
-  Map<MemberModelStruct, bool> checkboxValueMap2 = {};
-  List<MemberModelStruct> get checkboxCheckedItems2 => checkboxValueMap2.entries
-      .where((e) => e.value)
-      .map((e) => e.key)
-      .toList();
+  Map<MemberModelStruct, bool> checkboxValueMap = {};
+  List<MemberModelStruct> get checkboxCheckedItems =>
+      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // Model for ClintDropDouwnListComponent component.
+  late ClintDropDouwnListComponentModel clintDropDouwnListComponentModel;
 
   /// Initialization and disposal methods.
 
@@ -74,6 +63,8 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
     textDropDouwnListComponentModel2 =
         createModel(context, () => TextDropDouwnListComponentModel());
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
+    clintDropDouwnListComponentModel =
+        createModel(context, () => ClintDropDouwnListComponentModel());
   }
 
   @override
@@ -88,6 +79,8 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
     textDropDouwnListComponentModel2.dispose();
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
+    clintDropDouwnListComponentModel.dispose();
   }
 
   /// Action blocks are added here.
