@@ -45,9 +45,33 @@ class _UpdateMilestoneDialogWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.componentMileStoneModel = FFAppState()
-            .newProjectCreatedModel
-            .milestones[widget.selectedIndex!];
+        _model.updateComponentMileStoneModelStruct(
+          (e) => e
+            ..startDate = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .startDate
+            ..endDate = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .endDate
+            ..invoiceUrl = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .invoiceUrl
+            ..title = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .title
+            ..mileStoneStateModel = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .mileStoneStateModel
+            ..reminderModel = FFAppState()
+                .newProjectCreatedModel
+                .milestones[widget.selectedIndex!]
+                .reminderModel,
+        );
       });
     });
 
