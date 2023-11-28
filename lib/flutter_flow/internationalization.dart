@@ -307,10 +307,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Project Costs',
       'ar': 'تكاليف المشروع',
     },
-    'eucx8q56': {
-      'en': 'Milestone',
-      'ar': '',
-    },
     '7hbe6co6': {
       'en': 'Milestone',
       'ar': '',
@@ -473,17 +469,78 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'أضف فقط',
     },
   },
+  // mileStoneStateListDialog
+  {
+    'dvqpa2xr': {
+      'en': 'Select State',
+      'ar': 'اختر حالة',
+    },
+  },
+  // remindersMileStoneStateListDialog
+  {
+    '4sjcvfs0': {
+      'en': 'Select Reminders',
+      'ar': 'حدد التذكيرات',
+    },
+  },
+  // UpdateMilestoneDialog
+  {
+    'v3mqiiwf': {
+      'en': 'Update Milestone',
+      'ar': 'تحديث المعلم',
+    },
+    'jjwovfh8': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    '8fgym8x2': {
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
+    },
+    'b12tkyg5': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    'bihf22yw': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'dbdr07n4': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'q9gg1544': {
+      'en': 'Cost',
+      'ar': 'يكلف',
+    },
+    '8xrziy8p': {
+      'en': 'Cost here...',
+      'ar': 'التكلفة هنا...',
+    },
+    '55ya2r1m': {
+      'en': 'Reminder',
+      'ar': 'تذكير',
+    },
+    'u3o6lmwc': {
+      'en': 'Upload Invoice File',
+      'ar': 'تحميل ملف الفاتورة',
+    },
+    'pm1zom5o': {
+      'en': 'Update Only',
+      'ar': 'التحديث فقط',
+    },
+  },
   // Miscellaneous
   {
-    'qdvdhcpe': {
+    'hjb0uoxv': {
       'en': '',
       'ar': '',
     },
-    'qa16qxqj': {
+    'zdozqsku': {
       'en': '',
       'ar': '',
     },
-    '0d0sgpbb': {
+    'hubdme86': {
       'en': 'We would like to access google callender',
       'ar': '',
     },

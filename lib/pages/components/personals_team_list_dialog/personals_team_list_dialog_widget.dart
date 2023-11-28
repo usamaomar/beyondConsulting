@@ -807,7 +807,7 @@ class _PersonalsTeamListDialogWidgetState
                                       .toList(),
                               );
                             });
-                            _model.updatePage(() {
+                            FFAppState().update(() {
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..associates = functions
@@ -815,6 +815,20 @@ class _PersonalsTeamListDialogWidgetState
                                           _model.associatesSelectedIds.toList())
                                       .toList(),
                               );
+                            });
+                            setState(() {
+                              FFAppState().listOfRols = functions
+                                  .addMidsAndAssositsToRoleList(
+                                      FFAppState()
+                                          .newProjectCreatedModel
+                                          .midManagers
+                                          .toList(),
+                                      FFAppState()
+                                          .newProjectCreatedModel
+                                          .associates
+                                          .toList())
+                                  .toList()
+                                  .cast<MemberModelStruct>();
                             });
                             Navigator.pop(context);
                           },

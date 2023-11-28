@@ -259,3 +259,10 @@ ClientModelStruct? findeMatchingClient(
   }
   return ClientModelStruct();
 }
+
+String convertToFormattedString(DateTime dateTime) {
+  String formattedString =
+      DateFormat("yyyy-MM-ddTHH:mm:ss.SSSZ").format(dateTime.toUtc());
+
+  return formattedString;
+}

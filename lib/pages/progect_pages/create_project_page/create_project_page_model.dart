@@ -9,18 +9,6 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
-  ///  Local state fields for this page.
-
-  List<MemberModelStruct> listOfRols = [];
-  void addToListOfRols(MemberModelStruct item) => listOfRols.add(item);
-  void removeFromListOfRols(MemberModelStruct item) => listOfRols.remove(item);
-  void removeAtIndexFromListOfRols(int index) => listOfRols.removeAt(index);
-  void insertAtIndexInListOfRols(int index, MemberModelStruct item) =>
-      listOfRols.insert(index, item);
-  void updateListOfRolsAtIndex(
-          int index, Function(MemberModelStruct) updateFn) =>
-      listOfRols[index] = updateFn(listOfRols[index]);
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
