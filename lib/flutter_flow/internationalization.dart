@@ -271,41 +271,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End Date',
       'ar': 'تاريخ الانتهاء',
     },
-    '9hw2v4ki': {
-      'en': '22 / 05 / 2023',
-      'ar': '',
-    },
     '7e3n65l6': {
       'en': 'Project Type',
       'ar': 'نوع المشروع',
     },
-    'tigectmn': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    '0f3agi1z': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '8zb6wnc7': {
-      'en': 'Search for an item...',
-      'ar': '',
-    },
     'm82bknwe': {
       'en': 'Project Team',
       'ar': 'فريق المشروع',
-    },
-    '3kz1i5c3': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    '0xpx8djr': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '9awcb9zx': {
-      'en': 'Search for an item...',
-      'ar': '',
     },
     '7rslfzxy': {
       'en': 'Project Roles',
@@ -314,10 +286,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '0ywrkhfu': {
       'en': 'Status Updates',
       'ar': 'تحديثات الحالة',
-    },
-    '26d7hs6m': {
-      'en': 'Messages',
-      'ar': 'رسائل',
     },
     'ehgglkkl': {
       'en': 'Project Description',
@@ -331,18 +299,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Client',
       'ar': 'عميل',
     },
-    'n41ktdj0': {
-      'en': 'Option 1',
-      'ar': '',
-    },
-    'jzepo0wv': {
-      'en': 'Select...',
-      'ar': 'يختار...',
-    },
-    '6ocmb705': {
-      'en': 'Search for an item...',
-      'ar': '',
-    },
     '8bbtfm7u': {
       'en': 'Project MileStones',
       'ar': 'معالم المشروع',
@@ -350,10 +306,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '694r7i2j': {
       'en': 'Project Costs',
       'ar': 'تكاليف المشروع',
-    },
-    'eucx8q56': {
-      'en': 'Milestone',
-      'ar': '',
     },
     '7hbe6co6': {
       'en': 'Milestone',
@@ -402,8 +354,196 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'حدد الدولة',
     },
   },
+  // projectTypeListDialog
+  {
+    'zpdjhv2w': {
+      'en': 'Select Country',
+      'ar': 'حدد الدولة',
+    },
+  },
+  // personalsTeamListDialog
+  {
+    '62b9b7qt': {
+      'en': 'Select Project Team',
+      'ar': 'حدد فريق المشروع',
+    },
+    '96fq2z21': {
+      'en': 'Senior',
+      'ar': 'كبير',
+    },
+    'a5dxvek5': {
+      'en': 'Medmanagers',
+      'ar': 'مدراء الطب',
+    },
+    'ibsbdvsu': {
+      'en': 'Assosites',
+      'ar': 'أسوسيتس',
+    },
+    'mm1varod': {
+      'en': 'Add',
+      'ar': 'يضيف',
+    },
+  },
+  // ClintListDialog
+  {
+    '5tklh7gn': {
+      'en': 'Select Client',
+      'ar': 'حدد العميل',
+    },
+  },
+  // CreatClientDialog
+  {
+    'vltr3g3k': {
+      'en': 'Create Client',
+      'ar': 'إنشاء عميل',
+    },
+    'b3mc21pu': {
+      'en': 'Client Name here...',
+      'ar': 'اسم العميل هنا...',
+    },
+    'd2fs2xrj': {
+      'en': 'Email here...',
+      'ar': 'البريد الالكتروني هنا...',
+    },
+    'knw6c9lu': {
+      'en': 'Phone Number here...',
+      'ar': 'رقم الهاتف هنا...',
+    },
+    'lu6mbcg4': {
+      'en': 'Address here...',
+      'ar': 'العنوان هنا...',
+    },
+    'o4jhbkzy': {
+      'en': 'Alternative Phone Number here...',
+      'ar': 'رقم الهاتف البديل هنا...',
+    },
+    'tje6fbcr': {
+      'en': 'Save',
+      'ar': 'يحفظ',
+    },
+  },
+  // AddMilestoneDialog
+  {
+    'ptu7uaey': {
+      'en': 'Add Milestone',
+      'ar': 'إضافة معلم',
+    },
+    'ji4u2658': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    '08at8l00': {
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
+    },
+    '1ht17vej': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    '2tesgtrl': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'kt6wql7g': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'r68agp4p': {
+      'en': 'Cost',
+      'ar': 'يكلف',
+    },
+    'u7cboteo': {
+      'en': 'Cost here...',
+      'ar': 'التكلفة هنا...',
+    },
+    'necckuhq': {
+      'en': 'Reminder',
+      'ar': 'تذكير',
+    },
+    '47ght3fs': {
+      'en': 'Upload Invoice File',
+      'ar': 'تحميل ملف الفاتورة',
+    },
+    'a9ixzmja': {
+      'en': 'Add Only',
+      'ar': 'أضف فقط',
+    },
+  },
+  // mileStoneStateListDialog
+  {
+    'dvqpa2xr': {
+      'en': 'Select State',
+      'ar': 'اختر حالة',
+    },
+  },
+  // remindersMileStoneStateListDialog
+  {
+    '4sjcvfs0': {
+      'en': 'Select Reminders',
+      'ar': 'حدد التذكيرات',
+    },
+  },
+  // UpdateMilestoneDialog
+  {
+    'v3mqiiwf': {
+      'en': 'Update Milestone',
+      'ar': 'تحديث المعلم',
+    },
+    'jjwovfh8': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    '8fgym8x2': {
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
+    },
+    'b12tkyg5': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    'bihf22yw': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'dbdr07n4': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'q9gg1544': {
+      'en': 'Cost',
+      'ar': 'يكلف',
+    },
+    '8xrziy8p': {
+      'en': 'Cost here...',
+      'ar': 'التكلفة هنا...',
+    },
+    '55ya2r1m': {
+      'en': 'Reminder',
+      'ar': 'تذكير',
+    },
+    'u3o6lmwc': {
+      'en': 'Upload Invoice File',
+      'ar': 'تحميل ملف الفاتورة',
+    },
+    'pm1zom5o': {
+      'en': 'Update Only',
+      'ar': 'التحديث فقط',
+    },
+  },
   // Miscellaneous
   {
+    'hjb0uoxv': {
+      'en': '',
+      'ar': '',
+    },
+    'zdozqsku': {
+      'en': '',
+      'ar': '',
+    },
+    'hubdme86': {
+      'en': 'We would like to access google callender',
+      'ar': '',
+    },
     'yagh9fqi': {
       'en': '',
       'ar': '',

@@ -174,3 +174,95 @@ String convertDateString(String dateString) {
     return '----/--/--';
   }
 }
+
+DateTime parseDateString(String dateString) {
+  if (dateString != null && dateString.isNotEmpty) {
+    try {
+      return DateTime.parse(dateString);
+    } catch (e) {
+      // Handle parsing error if the provided string is not a valid date
+      print('Error parsing date: $e');
+    }
+  }
+
+  // Return current date if the input string is null or empty
+  return DateTime.now();
+}
+
+List<UserModelStruct> fromJsonToUserList(dynamic jsonBudy) {
+  return jsonBudy
+      .map((e) => e != null && e != '' ? UserModelStruct.fromMap(e) : null)
+      .toList()
+      .toList()
+      .cast<UserModelStruct>();
+}
+
+bool findMatchingUsers(
+  UserModelStruct empsModel,
+  List<UserModelStruct> listOfIds,
+) {
+  for (var user in listOfIds) {
+    if (empsModel.id == user.id) {
+      return true;
+    }
+  }
+  return false;
+}
+
+List<MemberModelStruct> convertFomrUserToMembers(
+    List<UserModelStruct> userList) {
+  List<MemberModelStruct> listOfUsers = [];
+  for (UserModelStruct item in userList) {
+    listOfUsers.add(MemberModelStruct(
+        id: item.id, name: "${item.firstName} ${item.lastName}"));
+  }
+  return listOfUsers;
+}
+
+List<UserModelStruct> convertFromMemberToUserList(
+    List<MemberModelStruct> meberList) {
+  List<UserModelStruct> listOfUsers = [];
+  for (MemberModelStruct item in meberList) {
+    listOfUsers.add(UserModelStruct(
+        id: item.id, firstName: item.name, lastName: item.name));
+  }
+  return listOfUsers;
+}
+
+List<MemberModelStruct> addMidsAndAssositsToRoleList(
+  List<MemberModelStruct> listOfMids,
+  List<MemberModelStruct> listOfAssosits,
+) {
+  List<MemberModelStruct> listOf = [];
+
+  listOf.addAll(listOfMids);
+  listOf.addAll(listOfAssosits);
+  return listOf;
+}
+
+List<ClientModelStruct> fromJsonToClientList(dynamic jsonBody) {
+  return jsonBody
+      .map((e) => e != null && e != '' ? ClientModelStruct.fromMap(e) : null)
+      .toList()
+      .toList()
+      .cast<ClientModelStruct>();
+}
+
+ClientModelStruct? findeMatchingClient(
+  int clientId,
+  List<ClientModelStruct> liesntList,
+) {
+  for (var client in liesntList) {
+    if (client.id == clientId) {
+      return client;
+    }
+  }
+  return ClientModelStruct();
+}
+
+String convertToFormattedString(DateTime dateTime) {
+  String formattedString =
+      DateFormat("yyyy-MM-ddTHH:mm:ss.SSSZ").format(dateTime.toUtc());
+
+  return formattedString;
+}
