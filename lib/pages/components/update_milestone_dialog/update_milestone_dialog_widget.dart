@@ -12,19 +12,25 @@ import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
-import 'add_milestone_dialog_model.dart';
-export 'add_milestone_dialog_model.dart';
+import 'update_milestone_dialog_model.dart';
+export 'update_milestone_dialog_model.dart';
 
-class AddMilestoneDialogWidget extends StatefulWidget {
-  const AddMilestoneDialogWidget({super.key});
+class UpdateMilestoneDialogWidget extends StatefulWidget {
+  const UpdateMilestoneDialogWidget({
+    super.key,
+    required this.index,
+  });
+
+  final int? index;
 
   @override
-  _AddMilestoneDialogWidgetState createState() =>
-      _AddMilestoneDialogWidgetState();
+  _UpdateMilestoneDialogWidgetState createState() =>
+      _UpdateMilestoneDialogWidgetState();
 }
 
-class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
-  late AddMilestoneDialogModel _model;
+class _UpdateMilestoneDialogWidgetState
+    extends State<UpdateMilestoneDialogWidget> {
+  late UpdateMilestoneDialogModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +41,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddMilestoneDialogModel());
+    _model = createModel(context, () => UpdateMilestoneDialogModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -47,9 +53,14 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
       setState(() {
         FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
       });
+      setState(() {
+        FFAppState().SelectedMileStoneModel =
+            FFAppState().newProjectCreatedModel.milestones[widget.index!];
+      });
     });
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??=
+        TextEditingController(text: FFAppState().SelectedMileStoneModel.title);
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
@@ -104,7 +115,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'ptu7uaey' /* Add Milestone */,
+                              'v7gokofl' /* Update Milestone */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -168,7 +179,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'ji4u2658' /* Start Date */,
+                                          'f4xpr0qz' /* Start Date */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -335,7 +346,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '08at8l00' /* End Date */,
+                                          'y92vn12k' /* End Date */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -512,7 +523,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '1ht17vej' /* Status */,
+                                    'ak6fu04d' /* Status */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -602,7 +613,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '2tesgtrl' /* Title */,
+                                    '87y130ud' /* Title */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -631,7 +642,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'kt6wql7g' /* Title here... */,
+                                    '8nxu77ww' /* Title here... */,
                                   ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
@@ -682,7 +693,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'r68agp4p' /* Cost */,
+                                    'cithxj3s' /* Cost */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -711,7 +722,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'u7cboteo' /* Cost here... */,
+                                    'dotfa10f' /* Cost here... */,
                                   ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
@@ -762,7 +773,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'necckuhq' /* Reminder */,
+                                    've8m7q3v' /* Reminder */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -870,7 +881,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '47ght3fs' /* Upload Invoice File */,
+                                    'ewqr7uh7' /* Upload Invoice File */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1088,34 +1099,18 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               setState(() {
-                                FFAppState().updateSelectedMileStoneModelStruct(
-                                  (e) => e
-                                    ..title = _model.textController1.text
-                                    ..amount = double.tryParse(
-                                        _model.textController2.text)
-                                    ..invoiceUrl = getJsonField(
-                                      (_model.outUpload?.jsonBody ?? ''),
-                                      r'''$.data''',
-                                    ),
-                                );
-                              });
-                              setState(() {
                                 FFAppState().updateNewProjectCreatedModelStruct(
                                   (e) => e
                                     ..updateMilestones(
-                                      (e) => e.add(
-                                          FFAppState().SelectedMileStoneModel),
+                                      (e) => e[widget.index!] =
+                                          FFAppState().SelectedMileStoneModel,
                                     ),
                                 );
-                              });
-                              _model.updatePage(() {
-                                FFAppState().SelectedMileStoneModel =
-                                    MilestoneModelStruct();
                               });
                               Navigator.pop(context);
                             },
                             text: FFLocalizations.of(context).getText(
-                              'a9ixzmja' /* Add Only */,
+                              'iwcw8i19' /* Update Only */,
                             ),
                             options: FFButtonOptions(
                               height: 40.0,

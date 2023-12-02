@@ -268,50 +268,52 @@ class _PersonalsTeamListDialogWidgetState
                                                 ),
                                               ),
                                             ),
-                                            Container(
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFF9F7F7),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  15.0,
-                                                                  20.0,
-                                                                  15.0),
-                                                      child: Text(
-                                                        '${_model.seniorModel?.firstName} ${_model.seniorModel?.lastName}',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Almarai',
-                                                              fontSize: 14.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              useGoogleFonts:
-                                                                  false,
-                                                            ),
+                                            if ('${_model.seniorModel?.firstName == 'null' ? ' ' : _model.seniorModel?.firstName} ${_model.seniorModel?.lastName == 'null' ? ' ' : _model.seniorModel?.lastName}' !=
+                                                    '')
+                                              Container(
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFFF9F7F7),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    15.0,
+                                                                    20.0,
+                                                                    15.0),
+                                                        child: Text(
+                                                          '${_model.seniorModel?.firstName == 'null' ? ' ' : _model.seniorModel?.firstName} ${_model.seniorModel?.lastName == 'null' ? ' ' : _model.seniorModel?.lastName}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
-                                            ),
                                           ],
                                         ),
                                       ),
@@ -807,7 +809,7 @@ class _PersonalsTeamListDialogWidgetState
                                       .toList(),
                               );
                             });
-                            _model.updatePage(() {
+                            FFAppState().update(() {
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..associates = functions
@@ -815,6 +817,23 @@ class _PersonalsTeamListDialogWidgetState
                                           _model.associatesSelectedIds.toList())
                                       .toList(),
                               );
+                            });
+                            FFAppState().update(() {
+                              FFAppState().listOfRols = [];
+                            });
+                            setState(() {
+                              FFAppState().listOfRols = functions
+                                  .addMidsAndAssositsToRoleList(
+                                      FFAppState()
+                                          .newProjectCreatedModel
+                                          .midManagers
+                                          .toList(),
+                                      FFAppState()
+                                          .newProjectCreatedModel
+                                          .associates
+                                          .toList())
+                                  .toList()
+                                  .cast<MemberModelStruct>();
                             });
                             Navigator.pop(context);
                           },

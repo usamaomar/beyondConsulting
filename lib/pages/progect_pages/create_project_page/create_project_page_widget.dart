@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/components/add_cost_dialog/add_cost_dialog_widget.dart';
 import '/pages/components/add_milestone_dialog/add_milestone_dialog_widget.dart';
 import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_component_widget.dart';
 import '/pages/components/clint_list_dialog/clint_list_dialog_widget.dart';
@@ -13,6 +14,8 @@ import '/pages/components/project_type_list_dialog/project_type_list_dialog_widg
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/pages/components/text_drop_douwn_list_component/text_drop_douwn_list_component_widget.dart';
 import '/pages/components/type_drop_douwn_list_component/type_drop_douwn_list_component_widget.dart';
+import '/pages/components/update_cost_dialog/update_cost_dialog_widget.dart';
+import '/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -45,7 +48,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.listOfRols = functions
+        FFAppState().listOfRols = functions
             .addMidsAndAssositsToRoleList(
                 FFAppState().newProjectCreatedModel.midManagers.toList(),
                 FFAppState().newProjectCreatedModel.associates.toList())
@@ -1180,7 +1183,8 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   child: Builder(
                                                     builder: (context) {
                                                       final dataTableList =
-                                                          _model.listOfRols
+                                                          FFAppState()
+                                                              .listOfRols
                                                               .map((e) => e)
                                                               .toList();
                                                       return DataTable2(
@@ -1316,7 +1320,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                         if (newValue!) {
                                                                           setState(
                                                                               () {
-                                                                            _model.updateListOfRolsAtIndex(
+                                                                            FFAppState().updateListOfRolsAtIndex(
                                                                               dataTableListIndex,
                                                                               (e) => e..status = true,
                                                                             );
@@ -1324,7 +1328,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                         } else {
                                                                           setState(
                                                                               () {
-                                                                            _model.updateListOfRolsAtIndex(
+                                                                            FFAppState().updateListOfRolsAtIndex(
                                                                               dataTableListIndex,
                                                                               (e) => e..status = false,
                                                                             );
@@ -1859,102 +1863,153 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                         0.0,
                                                                         5.0,
                                                                         0.0),
-                                                            child: ListView(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              shrinkWrap: true,
-                                                              scrollDirection:
-                                                                  Axis.vertical,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: const Color(
-                                                                          0xFFF0F0F0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: const Color(
-                                                                            0xFFF0F0F0),
-                                                                        width:
-                                                                            2.0,
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                SvgPicture.asset(
-                                                                              'assets/images/Group_1923.svg',
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                0.0,
-                                                                                5.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'eucx8q56' /* Milestone */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Almarai',
-                                                                                    color: const Color(0xFF797979),
-                                                                                    fontSize: 16.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: false,
+                                                            child: Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                final localMilstoneList =
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .milestones
+                                                                        .map((e) =>
+                                                                            e)
+                                                                        .toList();
+                                                                return ListView
+                                                                    .builder(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  shrinkWrap:
+                                                                      true,
+                                                                  scrollDirection:
+                                                                      Axis.vertical,
+                                                                  itemCount:
+                                                                      localMilstoneList
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          localMilstoneListIndex) {
+                                                                    final localMilstoneListItem =
+                                                                        localMilstoneList[
+                                                                            localMilstoneListIndex];
+                                                                    return Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            setState(() {
+                                                                              FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
+                                                                            });
+                                                                            await showAlignedDialog(
+                                                                              context: context,
+                                                                              isGlobal: true,
+                                                                              avoidOverflow: false,
+                                                                              targetAnchor: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              followerAnchor: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              builder: (dialogContext) {
+                                                                                return Material(
+                                                                                  color: Colors.transparent,
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: UpdateMilestoneDialogWidget(
+                                                                                      index: localMilstoneListIndex,
+                                                                                    ),
                                                                                   ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                setState(() {}));
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: const Color(0xFFF0F0F0),
+                                                                              border: Border.all(
+                                                                                color: const Color(0xFFF0F0F0),
+                                                                                width: 2.0,
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                10.0,
-                                                                                5.0,
-                                                                                10.0),
                                                                             child:
-                                                                                Icon(
-                                                                              Icons.delete_rounded,
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              size: 24.0,
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                    child: SvgPicture.asset(
+                                                                                      'assets/images/Group_1923.svg',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                                                    child: Text(
+                                                                                      localMilstoneListItem.title,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Almarai',
+                                                                                            color: const Color(0xFF797979),
+                                                                                            fontSize: 16.0,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            useGoogleFonts: false,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 5.0, 10.0),
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        setState(() {
+                                                                                          FFAppState().updateNewProjectCreatedModelStruct(
+                                                                                            (e) => e
+                                                                                              ..updateMilestones(
+                                                                                                (e) => e.remove(localMilstoneListItem),
+                                                                                              ),
+                                                                                          );
+                                                                                        });
+                                                                                      },
+                                                                                      child: Icon(
+                                                                                        Icons.delete_rounded,
+                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                        size: 24.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ],
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
                                                             ),
                                                           ),
                                                         ),
-                                                        Expanded(
+                                                        Flexible(
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
@@ -1963,98 +2018,130 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
-                                                            child: ListView(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              shrinkWrap: true,
-                                                              scrollDirection:
-                                                                  Axis.vertical,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: const Color(
-                                                                          0xFFF0F0F0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: const Color(
-                                                                            0xFFF0F0F0),
-                                                                        width:
-                                                                            2.0,
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                SvgPicture.asset(
-                                                                              'assets/images/Group_1923.svg',
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                0.0,
-                                                                                5.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                '7hbe6co6' /* Milestone */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Almarai',
-                                                                                    color: const Color(0xFF797979),
-                                                                                    fontSize: 16.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                    useGoogleFonts: false,
+                                                            child: Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                final listOfCostes =
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .costs
+                                                                        .map((e) =>
+                                                                            e)
+                                                                        .toList();
+                                                                return ListView
+                                                                    .builder(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  shrinkWrap:
+                                                                      true,
+                                                                  scrollDirection:
+                                                                      Axis.vertical,
+                                                                  itemCount:
+                                                                      listOfCostes
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          listOfCostesIndex) {
+                                                                    final listOfCostesItem =
+                                                                        listOfCostes[
+                                                                            listOfCostesIndex];
+                                                                    return Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            await showAlignedDialog(
+                                                                              context: context,
+                                                                              isGlobal: true,
+                                                                              avoidOverflow: false,
+                                                                              targetAnchor: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              followerAnchor: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              builder: (dialogContext) {
+                                                                                return Material(
+                                                                                  color: Colors.transparent,
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: UpdateCostDialogWidget(
+                                                                                      index: listOfCostesIndex,
+                                                                                    ),
                                                                                   ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                setState(() {}));
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: const Color(0xFFF0F0F0),
+                                                                              border: Border.all(
+                                                                                color: const Color(0xFFF0F0F0),
+                                                                                width: 2.0,
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                10.0,
-                                                                                5.0,
-                                                                                10.0),
                                                                             child:
-                                                                                Icon(
-                                                                              Icons.delete_rounded,
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              size: 24.0,
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                    child: SvgPicture.asset(
+                                                                                      'assets/images/Group_1923.svg',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listOfCostesItem.title,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Almarai',
+                                                                                            color: const Color(0xFF797979),
+                                                                                            fontSize: 16.0,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                            useGoogleFonts: false,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 5.0, 10.0),
+                                                                                    child: Icon(
+                                                                                      Icons.delete_rounded,
+                                                                                      color: FlutterFlowTheme.of(context).error,
+                                                                                      size: 24.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ],
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
                                                             ),
                                                           ),
                                                         ),
@@ -2211,85 +2298,132 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                           ),
                                                         ),
                                                         Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: const Color(
-                                                                    0xFFF0F0F0),
-                                                                border:
-                                                                    Border.all(
-                                                                  color: const Color(
-                                                                      0xFFF0F0F0),
-                                                                  width: 2.0,
-                                                                ),
-                                                              ),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                          child: Builder(
+                                                            builder:
+                                                                (context) =>
+                                                                    Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await showAlignedDialog(
+                                                                    context:
+                                                                        context,
+                                                                    isGlobal:
+                                                                        true,
+                                                                    avoidOverflow:
+                                                                        false,
+                                                                    targetAnchor: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0)
+                                                                        .resolve(
+                                                                            Directionality.of(context)),
+                                                                    followerAnchor: const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0)
+                                                                        .resolve(
+                                                                            Directionality.of(context)),
+                                                                    builder:
+                                                                        (dialogContext) {
+                                                                      return Material(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        child:
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
+                                                                          child:
+                                                                              const AddCostDialogWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      setState(
+                                                                          () {}));
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: const Color(
+                                                                        0xFFF0F0F0),
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: const Color(
+                                                                          0xFFF0F0F0),
+                                                                      width:
+                                                                          2.0,
+                                                                    ),
+                                                                  ),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             5.0,
                                                                             12.0,
                                                                             5.0,
                                                                             12.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      child: SvgPicture
-                                                                          .asset(
-                                                                        'assets/images/Group_2015.svg',
-                                                                        fit: BoxFit
-                                                                            .cover,
+                                                                        child:
+                                                                            ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
+                                                                          child:
+                                                                              SvgPicture.asset(
+                                                                            'assets/images/Group_2015.svg',
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             5.0,
                                                                             0.0,
                                                                             5.0,
                                                                             0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'viq1jpse' /* Add Cost */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Almarai',
-                                                                            color:
-                                                                                const Color(0xFF797979),
-                                                                            fontSize:
-                                                                                16.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            useGoogleFonts:
-                                                                                false,
+                                                                        child:
+                                                                            Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            'viq1jpse' /* Add Cost */,
                                                                           ),
-                                                                    ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Almarai',
+                                                                                color: const Color(0xFF797979),
+                                                                                fontSize: 16.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                useGoogleFonts: false,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),

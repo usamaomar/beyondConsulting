@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -19,6 +18,8 @@ class MilestoneModelStruct extends BaseStruct {
     double? progress,
     String? invoiceUrl,
     int? invoiceStatus,
+    MileStoneStateModelStruct? mileStoneStateModel,
+    ReminderModelStruct? reminderModel,
   })  : _id = id,
         _title = title,
         _description = description,
@@ -30,7 +31,9 @@ class MilestoneModelStruct extends BaseStruct {
         _milestoneType = milestoneType,
         _progress = progress,
         _invoiceUrl = invoiceUrl,
-        _invoiceStatus = invoiceStatus;
+        _invoiceStatus = invoiceStatus,
+        _mileStoneStateModel = mileStoneStateModel,
+        _reminderModel = reminderModel;
 
   // "id" field.
   int? _id;
@@ -114,6 +117,26 @@ class MilestoneModelStruct extends BaseStruct {
       _invoiceStatus = invoiceStatus + amount;
   bool hasInvoiceStatus() => _invoiceStatus != null;
 
+  // "mileStoneStateModel" field.
+  MileStoneStateModelStruct? _mileStoneStateModel;
+  MileStoneStateModelStruct get mileStoneStateModel =>
+      _mileStoneStateModel ?? MileStoneStateModelStruct();
+  set mileStoneStateModel(MileStoneStateModelStruct? val) =>
+      _mileStoneStateModel = val;
+  void updateMileStoneStateModel(
+          Function(MileStoneStateModelStruct) updateFn) =>
+      updateFn(_mileStoneStateModel ??= MileStoneStateModelStruct());
+  bool hasMileStoneStateModel() => _mileStoneStateModel != null;
+
+  // "reminderModel" field.
+  ReminderModelStruct? _reminderModel;
+  ReminderModelStruct get reminderModel =>
+      _reminderModel ?? ReminderModelStruct();
+  set reminderModel(ReminderModelStruct? val) => _reminderModel = val;
+  void updateReminderModel(Function(ReminderModelStruct) updateFn) =>
+      updateFn(_reminderModel ??= ReminderModelStruct());
+  bool hasReminderModel() => _reminderModel != null;
+
   static MilestoneModelStruct fromMap(Map<String, dynamic> data) =>
       MilestoneModelStruct(
         id: castToType<int>(data['id']),
@@ -128,6 +151,9 @@ class MilestoneModelStruct extends BaseStruct {
         progress: castToType<double>(data['progress']),
         invoiceUrl: data['invoiceUrl'] as String?,
         invoiceStatus: castToType<int>(data['invoiceStatus']),
+        mileStoneStateModel:
+            MileStoneStateModelStruct.maybeFromMap(data['mileStoneStateModel']),
+        reminderModel: ReminderModelStruct.maybeFromMap(data['reminderModel']),
       );
 
   static MilestoneModelStruct? maybeFromMap(dynamic data) =>
@@ -146,6 +172,8 @@ class MilestoneModelStruct extends BaseStruct {
         'progress': _progress,
         'invoiceUrl': _invoiceUrl,
         'invoiceStatus': _invoiceStatus,
+        'mileStoneStateModel': _mileStoneStateModel?.toMap(),
+        'reminderModel': _reminderModel?.toMap(),
       }.withoutNulls;
 
   @override
@@ -197,6 +225,14 @@ class MilestoneModelStruct extends BaseStruct {
         'invoiceStatus': serializeParam(
           _invoiceStatus,
           ParamType.int,
+        ),
+        'mileStoneStateModel': serializeParam(
+          _mileStoneStateModel,
+          ParamType.DataStruct,
+        ),
+        'reminderModel': serializeParam(
+          _reminderModel,
+          ParamType.DataStruct,
         ),
       }.withoutNulls;
 
@@ -262,6 +298,18 @@ class MilestoneModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        mileStoneStateModel: deserializeStructParam(
+          data['mileStoneStateModel'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: MileStoneStateModelStruct.fromSerializableMap,
+        ),
+        reminderModel: deserializeStructParam(
+          data['reminderModel'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: ReminderModelStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -281,7 +329,9 @@ class MilestoneModelStruct extends BaseStruct {
         milestoneType == other.milestoneType &&
         progress == other.progress &&
         invoiceUrl == other.invoiceUrl &&
-        invoiceStatus == other.invoiceStatus;
+        invoiceStatus == other.invoiceStatus &&
+        mileStoneStateModel == other.mileStoneStateModel &&
+        reminderModel == other.reminderModel;
   }
 
   @override
@@ -297,7 +347,9 @@ class MilestoneModelStruct extends BaseStruct {
         milestoneType,
         progress,
         invoiceUrl,
-        invoiceStatus
+        invoiceStatus,
+        mileStoneStateModel,
+        reminderModel
       ]);
 }
 
@@ -314,6 +366,8 @@ MilestoneModelStruct createMilestoneModelStruct({
   double? progress,
   String? invoiceUrl,
   int? invoiceStatus,
+  MileStoneStateModelStruct? mileStoneStateModel,
+  ReminderModelStruct? reminderModel,
 }) =>
     MilestoneModelStruct(
       id: id,
@@ -328,4 +382,6 @@ MilestoneModelStruct createMilestoneModelStruct({
       progress: progress,
       invoiceUrl: invoiceUrl,
       invoiceStatus: invoiceStatus,
+      mileStoneStateModel: mileStoneStateModel ?? MileStoneStateModelStruct(),
+      reminderModel: reminderModel ?? ReminderModelStruct(),
     );

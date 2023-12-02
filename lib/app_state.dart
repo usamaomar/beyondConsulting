@@ -232,6 +232,129 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInClientList(int index, ClientModelStruct value) {
     _clientList.insert(index, value);
   }
+
+  List<MileStoneStateModelStruct> _mileStoneModelAppState = [
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"لم يبدأ","nameEn":"Not Started","stateId":"0"}')),
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"عن مسارها","nameEn":"Offtrack","stateId":"1"}')),
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"في تَقَدم","nameEn":"In Progress","stateId":"2"}')),
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"في خطر","nameEn":"At Risk","stateId":"3"}')),
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"ألغيت","nameEn":"Canceled","stateId":"4"}')),
+    MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
+        '{"nameAr":"مكتمل","nameEn":"Completed","stateId":"5"}'))
+  ];
+  List<MileStoneStateModelStruct> get mileStoneModelAppState =>
+      _mileStoneModelAppState;
+  set mileStoneModelAppState(List<MileStoneStateModelStruct> value) {
+    _mileStoneModelAppState = value;
+  }
+
+  void addToMileStoneModelAppState(MileStoneStateModelStruct value) {
+    _mileStoneModelAppState.add(value);
+  }
+
+  void removeFromMileStoneModelAppState(MileStoneStateModelStruct value) {
+    _mileStoneModelAppState.remove(value);
+  }
+
+  void removeAtIndexFromMileStoneModelAppState(int index) {
+    _mileStoneModelAppState.removeAt(index);
+  }
+
+  void updateMileStoneModelAppStateAtIndex(
+    int index,
+    MileStoneStateModelStruct Function(MileStoneStateModelStruct) updateFn,
+  ) {
+    _mileStoneModelAppState[index] = updateFn(_mileStoneModelAppState[index]);
+  }
+
+  void insertAtIndexInMileStoneModelAppState(
+      int index, MileStoneStateModelStruct value) {
+    _mileStoneModelAppState.insert(index, value);
+  }
+
+  List<int> _reminderIntList = [1, 2, 4, 5];
+  List<int> get reminderIntList => _reminderIntList;
+  set reminderIntList(List<int> value) {
+    _reminderIntList = value;
+  }
+
+  void addToReminderIntList(int value) {
+    _reminderIntList.add(value);
+  }
+
+  void removeFromReminderIntList(int value) {
+    _reminderIntList.remove(value);
+  }
+
+  void removeAtIndexFromReminderIntList(int index) {
+    _reminderIntList.removeAt(index);
+  }
+
+  void updateReminderIntListAtIndex(
+    int index,
+    int Function(int) updateFn,
+  ) {
+    _reminderIntList[index] = updateFn(_reminderIntList[index]);
+  }
+
+  void insertAtIndexInReminderIntList(int index, int value) {
+    _reminderIntList.insert(index, value);
+  }
+
+  List<MemberModelStruct> _listOfRols = [];
+  List<MemberModelStruct> get listOfRols => _listOfRols;
+  set listOfRols(List<MemberModelStruct> value) {
+    _listOfRols = value;
+  }
+
+  void addToListOfRols(MemberModelStruct value) {
+    _listOfRols.add(value);
+  }
+
+  void removeFromListOfRols(MemberModelStruct value) {
+    _listOfRols.remove(value);
+  }
+
+  void removeAtIndexFromListOfRols(int index) {
+    _listOfRols.removeAt(index);
+  }
+
+  void updateListOfRolsAtIndex(
+    int index,
+    MemberModelStruct Function(MemberModelStruct) updateFn,
+  ) {
+    _listOfRols[index] = updateFn(_listOfRols[index]);
+  }
+
+  void insertAtIndexInListOfRols(int index, MemberModelStruct value) {
+    _listOfRols.insert(index, value);
+  }
+
+  MilestoneModelStruct _SelectedMileStoneModel = MilestoneModelStruct();
+  MilestoneModelStruct get SelectedMileStoneModel => _SelectedMileStoneModel;
+  set SelectedMileStoneModel(MilestoneModelStruct value) {
+    _SelectedMileStoneModel = value;
+  }
+
+  void updateSelectedMileStoneModelStruct(
+      Function(MilestoneModelStruct) updateFn) {
+    updateFn(_SelectedMileStoneModel);
+  }
+
+  CostModelStruct _SelectedCostModel = CostModelStruct();
+  CostModelStruct get SelectedCostModel => _SelectedCostModel;
+  set SelectedCostModel(CostModelStruct value) {
+    _SelectedCostModel = value;
+  }
+
+  void updateSelectedCostModelStruct(Function(CostModelStruct) updateFn) {
+    updateFn(_SelectedCostModel);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
