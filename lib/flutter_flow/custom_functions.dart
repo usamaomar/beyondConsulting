@@ -266,3 +266,45 @@ String convertToFormattedString(DateTime dateTime) {
 
   return formattedString;
 }
+
+String? convertAnyThingToString(dynamic any) {
+  return any.toString();
+}
+
+int getTypeofExpensesiD(
+  String lang,
+  String selection,
+) {
+  if (lang == 'en') {
+    if (selection == 'OPEX') {
+      return 1;
+    } else {
+      return 2;
+    }
+  } else {
+    if (selection == 'النفقات التشغيلية') {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
+}
+
+String getIdByExpensesName(
+  String lang,
+  int selection,
+) {
+  if (lang == 'en') {
+    if (selection == 1) {
+      return 'OPEX';
+    } else {
+      return 'COGS';
+    }
+  } else {
+    if (selection == 1) {
+      return 'النفقات التشغيلية';
+    } else {
+      return 'تكلفة البضائع المباعة';
+    }
+  }
+}

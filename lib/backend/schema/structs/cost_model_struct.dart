@@ -17,8 +17,8 @@ class CostModelStruct extends BaseStruct {
     double? duration,
     String? durationUnit,
     double? total,
-    double? costType,
     int? costStatus,
+    int? costType,
   })  : _id = id,
         _title = title,
         _date = date,
@@ -29,8 +29,8 @@ class CostModelStruct extends BaseStruct {
         _duration = duration,
         _durationUnit = durationUnit,
         _total = total,
-        _costType = costType,
-        _costStatus = costStatus;
+        _costStatus = costStatus,
+        _costType = costType;
 
   // "id" field.
   int? _id;
@@ -96,19 +96,19 @@ class CostModelStruct extends BaseStruct {
   void incrementTotal(double amount) => _total = total + amount;
   bool hasTotal() => _total != null;
 
-  // "costType" field.
-  double? _costType;
-  double get costType => _costType ?? 0.0;
-  set costType(double? val) => _costType = val;
-  void incrementCostType(double amount) => _costType = costType + amount;
-  bool hasCostType() => _costType != null;
-
   // "costStatus" field.
   int? _costStatus;
   int get costStatus => _costStatus ?? 0;
   set costStatus(int? val) => _costStatus = val;
   void incrementCostStatus(int amount) => _costStatus = costStatus + amount;
   bool hasCostStatus() => _costStatus != null;
+
+  // "costType" field.
+  int? _costType;
+  int get costType => _costType ?? 0;
+  set costType(int? val) => _costType = val;
+  void incrementCostType(int amount) => _costType = costType + amount;
+  bool hasCostType() => _costType != null;
 
   static CostModelStruct fromMap(Map<String, dynamic> data) => CostModelStruct(
         id: castToType<int>(data['id']),
@@ -121,8 +121,8 @@ class CostModelStruct extends BaseStruct {
         duration: castToType<double>(data['duration']),
         durationUnit: data['durationUnit'] as String?,
         total: castToType<double>(data['total']),
-        costType: castToType<double>(data['costType']),
         costStatus: castToType<int>(data['costStatus']),
+        costType: castToType<int>(data['costType']),
       );
 
   static CostModelStruct? maybeFromMap(dynamic data) =>
@@ -139,8 +139,8 @@ class CostModelStruct extends BaseStruct {
         'duration': _duration,
         'durationUnit': _durationUnit,
         'total': _total,
-        'costType': _costType,
         'costStatus': _costStatus,
+        'costType': _costType,
       }.withoutNulls;
 
   @override
@@ -185,12 +185,12 @@ class CostModelStruct extends BaseStruct {
           _total,
           ParamType.double,
         ),
-        'costType': serializeParam(
-          _costType,
-          ParamType.double,
-        ),
         'costStatus': serializeParam(
           _costStatus,
+          ParamType.int,
+        ),
+        'costType': serializeParam(
+          _costType,
           ParamType.int,
         ),
       }.withoutNulls;
@@ -247,13 +247,13 @@ class CostModelStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
-        costType: deserializeParam(
-          data['costType'],
-          ParamType.double,
-          false,
-        ),
         costStatus: deserializeParam(
           data['costStatus'],
+          ParamType.int,
+          false,
+        ),
+        costType: deserializeParam(
+          data['costType'],
           ParamType.int,
           false,
         ),
@@ -275,8 +275,8 @@ class CostModelStruct extends BaseStruct {
         duration == other.duration &&
         durationUnit == other.durationUnit &&
         total == other.total &&
-        costType == other.costType &&
-        costStatus == other.costStatus;
+        costStatus == other.costStatus &&
+        costType == other.costType;
   }
 
   @override
@@ -291,8 +291,8 @@ class CostModelStruct extends BaseStruct {
         duration,
         durationUnit,
         total,
-        costType,
-        costStatus
+        costStatus,
+        costType
       ]);
 }
 
@@ -307,8 +307,8 @@ CostModelStruct createCostModelStruct({
   double? duration,
   String? durationUnit,
   double? total,
-  double? costType,
   int? costStatus,
+  int? costType,
 }) =>
     CostModelStruct(
       id: id,
@@ -321,6 +321,6 @@ CostModelStruct createCostModelStruct({
       duration: duration,
       durationUnit: durationUnit,
       total: total,
-      costType: costType,
       costStatus: costStatus,
+      costType: costType,
     );

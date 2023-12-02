@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -17,10 +18,10 @@ export 'update_milestone_dialog_model.dart';
 class UpdateMilestoneDialogWidget extends StatefulWidget {
   const UpdateMilestoneDialogWidget({
     super.key,
-    required this.selectedIndex,
+    required this.index,
   });
 
-  final int? selectedIndex;
+  final int? index;
 
   @override
   _UpdateMilestoneDialogWidgetState createState() =>
@@ -45,42 +46,24 @@ class _UpdateMilestoneDialogWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.updateComponentMileStoneModelStruct(
-          (e) => e
-            ..startDate = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .startDate
-            ..endDate = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .endDate
-            ..invoiceUrl = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .invoiceUrl
-            ..title = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .title
-            ..mileStoneStateModel = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .mileStoneStateModel
-            ..reminderModel = FFAppState()
-                .newProjectCreatedModel
-                .milestones[widget.selectedIndex!]
-                .reminderModel,
-        );
+        _model.startDate = functions
+            .parseDateString(FFAppState().SelectedMileStoneModel.startDate);
+        _model.endDate = _model.startDate;
+      });
+      setState(() {
+        FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
+      });
+      setState(() {
+        FFAppState().SelectedMileStoneModel =
+            FFAppState().newProjectCreatedModel.milestones[widget.index!];
       });
     });
 
     _model.textController1 ??=
-        TextEditingController(text: _model.componentMileStoneModel?.title);
+        TextEditingController(text: FFAppState().SelectedMileStoneModel.title);
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(
-        text: _model.componentMileStoneModel?.amount.toString());
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -132,7 +115,7 @@ class _UpdateMilestoneDialogWidgetState
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'v3mqiiwf' /* Update Milestone */,
+                              'v7gokofl' /* Update Milestone */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -196,7 +179,7 @@ class _UpdateMilestoneDialogWidgetState
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'jjwovfh8' /* Start Date */,
+                                          'f4xpr0qz' /* Start Date */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -210,56 +193,147 @@ class _UpdateMilestoneDialogWidgetState
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            border: Border.all(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final datePicked1Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: (_model.startDate ??
+                                                  DateTime.now()),
+                                              firstDate: (_model.startDate ??
+                                                  DateTime.now()),
+                                              lastDate: DateTime(2050),
+                                              builder: (context, child) {
+                                                return wrapInMaterialDatePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .beyondBlueColor,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Almarai',
+                                                            fontSize: 32.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .beyondBlueColor,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+
+                                            if (datePicked1Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked1 = DateTime(
+                                                  datePicked1Date.year,
+                                                  datePicked1Date.month,
+                                                  datePicked1Date.day,
+                                                );
+                                              });
+                                            }
+                                            setState(() {
+                                              FFAppState()
+                                                  .updateSelectedMileStoneModelStruct(
+                                                (e) => e
+                                                  ..startDate = dateTimeFormat(
+                                                    'yyyy-MM-ddT00:00:00.000Z',
+                                                    _model.datePicked1,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
+                                              );
+                                            });
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
                                             ),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: Text(
-                                                  functions.convertDateString(
-                                                      _model
-                                                          .componentMileStoneModel!
-                                                          .startDate),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Almarai',
-                                                        color:
-                                                            const Color(0xFF797979),
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: false,
-                                                      ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: Text(
+                                                    functions.convertDateString(
+                                                        FFAppState()
+                                                            .SelectedMileStoneModel
+                                                            .startDate),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFF797979),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
                                                 ),
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 10.0, 5.0, 10.0),
-                                                child: Icon(
-                                                  Icons.calendar_month,
-                                                  color: Color(0xFF797979),
-                                                  size: 24.0,
+                                                const Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 10.0, 5.0, 10.0),
+                                                  child: Icon(
+                                                    Icons.calendar_month,
+                                                    color: Color(0xFF797979),
+                                                    size: 24.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -272,7 +346,7 @@ class _UpdateMilestoneDialogWidgetState
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '8fgym8x2' /* End Date */,
+                                          'y92vn12k' /* End Date */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -286,56 +360,152 @@ class _UpdateMilestoneDialogWidgetState
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            border: Border.all(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final datePicked2Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate:
+                                                  functions.parseDateString(
+                                                      _model.endDate!
+                                                          .toString()),
+                                              firstDate:
+                                                  (functions.parseDateString(
+                                                          _model.endDate!
+                                                              .toString()) ??
+                                                      DateTime(1900)),
+                                              lastDate: DateTime(2050),
+                                              builder: (context, child) {
+                                                return wrapInMaterialDatePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .beyondBlueColor,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Almarai',
+                                                            fontSize: 32.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .beyondBlueColor,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+
+                                            if (datePicked2Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked2 = DateTime(
+                                                  datePicked2Date.year,
+                                                  datePicked2Date.month,
+                                                  datePicked2Date.day,
+                                                );
+                                              });
+                                            }
+                                            setState(() {
+                                              FFAppState()
+                                                  .updateSelectedMileStoneModelStruct(
+                                                (e) => e
+                                                  ..endDate = dateTimeFormat(
+                                                    'yyyy-MM-ddT00:00:00.000Z',
+                                                    _model.datePicked2,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
+                                              );
+                                            });
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
                                             ),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: Text(
-                                                  functions.convertDateString(
-                                                      _model
-                                                          .componentMileStoneModel!
-                                                          .endDate),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Almarai',
-                                                        color:
-                                                            const Color(0xFF797979),
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: false,
-                                                      ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: Text(
+                                                    functions.convertDateString(
+                                                        FFAppState()
+                                                            .SelectedMileStoneModel
+                                                            .endDate),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFF797979),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
                                                 ),
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 10.0, 5.0, 10.0),
-                                                child: Icon(
-                                                  Icons.calendar_month,
-                                                  color: Color(0xFF797979),
-                                                  size: 24.0,
+                                                const Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 10.0, 5.0, 10.0),
+                                                  child: Icon(
+                                                    Icons.calendar_month,
+                                                    color: Color(0xFF797979),
+                                                    size: 24.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -353,7 +523,7 @@ class _UpdateMilestoneDialogWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'b12tkyg5' /* Status */,
+                                    'ak6fu04d' /* Status */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -407,18 +577,20 @@ class _UpdateMilestoneDialogWidgetState
                                       updateCallback: () => setState(() {}),
                                       child:
                                           DialogTextDropDouwnListComponentWidget(
-                                        hintName: _model.componentMileStoneModel
-                                                    ?.mileStoneStateModel !=
+                                        hintName: FFAppState()
+                                                    .SelectedMileStoneModel
+                                                    .mileStoneStateModel
+                                                    .stateId !=
                                                 null
                                             ? FFLocalizations.of(context)
                                                 .getVariableText(
-                                                enText: _model
-                                                    .componentMileStoneModel
-                                                    ?.mileStoneStateModel
+                                                enText: FFAppState()
+                                                    .SelectedMileStoneModel
+                                                    .mileStoneStateModel
                                                     .nameEn,
-                                                arText: _model
-                                                    .componentMileStoneModel
-                                                    ?.mileStoneStateModel
+                                                arText: FFAppState()
+                                                    .SelectedMileStoneModel
+                                                    .mileStoneStateModel
                                                     .nameAr,
                                               )
                                             : FFLocalizations.of(context)
@@ -441,7 +613,7 @@ class _UpdateMilestoneDialogWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'bihf22yw' /* Title */,
+                                    '87y130ud' /* Title */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -470,7 +642,7 @@ class _UpdateMilestoneDialogWidgetState
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'dbdr07n4' /* Title here... */,
+                                    '8nxu77ww' /* Title here... */,
                                   ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
@@ -521,7 +693,7 @@ class _UpdateMilestoneDialogWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'q9gg1544' /* Cost */,
+                                    'cithxj3s' /* Cost */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -550,7 +722,7 @@ class _UpdateMilestoneDialogWidgetState
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    '8xrziy8p' /* Cost here... */,
+                                    'dotfa10f' /* Cost here... */,
                                   ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).labelMedium,
@@ -601,7 +773,7 @@ class _UpdateMilestoneDialogWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '55ya2r1m' /* Reminder */,
+                                    've8m7q3v' /* Reminder */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -684,11 +856,13 @@ class _UpdateMilestoneDialogWidgetState
                                       child:
                                           DialogTextDropDouwnListComponentWidget(
                                         hintName: '${valueOrDefault<String>(
-                                          _model.componentMileStoneModel
-                                              ?.reminderModel.day
+                                          FFAppState()
+                                              .SelectedMileStoneModel
+                                              .reminderModel
+                                              .day
                                               .toString(),
                                           '0',
-                                        )}  ${FFLocalizations.of(context).getVariableText(
+                                        )} ${FFLocalizations.of(context).getVariableText(
                                           enText: 'Days',
                                           arText: 'ايام',
                                         )}',
@@ -707,7 +881,7 @@ class _UpdateMilestoneDialogWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'u3o6lmwc' /* Upload Invoice File */,
+                                    'ewqr7uh7' /* Upload Invoice File */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -924,11 +1098,19 @@ class _UpdateMilestoneDialogWidgetState
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              _model.updatePage(() {});
+                              setState(() {
+                                FFAppState().updateNewProjectCreatedModelStruct(
+                                  (e) => e
+                                    ..updateMilestones(
+                                      (e) => e[widget.index!] =
+                                          FFAppState().SelectedMileStoneModel,
+                                    ),
+                                );
+                              });
                               Navigator.pop(context);
                             },
                             text: FFLocalizations.of(context).getText(
-                              'pm1zom5o' /* Update Only */,
+                              'iwcw8i19' /* Update Only */,
                             ),
                             options: FFButtonOptions(
                               height: 40.0,

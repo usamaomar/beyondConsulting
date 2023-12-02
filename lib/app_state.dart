@@ -345,6 +345,16 @@ class FFAppState extends ChangeNotifier {
       Function(MilestoneModelStruct) updateFn) {
     updateFn(_SelectedMileStoneModel);
   }
+
+  CostModelStruct _SelectedCostModel = CostModelStruct();
+  CostModelStruct get SelectedCostModel => _SelectedCostModel;
+  set SelectedCostModel(CostModelStruct value) {
+    _SelectedCostModel = value;
+  }
+
+  void updateSelectedCostModelStruct(Function(CostModelStruct) updateFn) {
+    updateFn(_SelectedCostModel);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

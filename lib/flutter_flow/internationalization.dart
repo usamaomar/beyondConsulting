@@ -307,10 +307,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Project Costs',
       'ar': 'تكاليف المشروع',
     },
-    '7hbe6co6': {
-      'en': 'Milestone',
-      'ar': '',
-    },
     'hp9fsteq': {
       'en': 'Add Milestone',
       'ar': 'إضافة معلم',
@@ -485,49 +481,215 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // UpdateMilestoneDialog
   {
-    'v3mqiiwf': {
+    'v7gokofl': {
       'en': 'Update Milestone',
       'ar': 'تحديث المعلم',
     },
-    'jjwovfh8': {
+    'f4xpr0qz': {
       'en': 'Start Date',
       'ar': 'تاريخ البدء',
     },
-    '8fgym8x2': {
+    'y92vn12k': {
       'en': 'End Date',
       'ar': 'تاريخ الانتهاء',
     },
-    'b12tkyg5': {
+    'ak6fu04d': {
       'en': 'Status',
       'ar': 'حالة',
     },
-    'bihf22yw': {
+    '87y130ud': {
       'en': 'Title',
       'ar': 'عنوان',
     },
-    'dbdr07n4': {
+    '8nxu77ww': {
       'en': 'Title here...',
       'ar': 'العنوان هنا...',
     },
-    'q9gg1544': {
+    'cithxj3s': {
       'en': 'Cost',
       'ar': 'يكلف',
     },
-    '8xrziy8p': {
+    'dotfa10f': {
       'en': 'Cost here...',
       'ar': 'التكلفة هنا...',
     },
-    '55ya2r1m': {
+    've8m7q3v': {
       'en': 'Reminder',
       'ar': 'تذكير',
     },
-    'u3o6lmwc': {
+    'ewqr7uh7': {
       'en': 'Upload Invoice File',
       'ar': 'تحميل ملف الفاتورة',
     },
-    'pm1zom5o': {
+    'iwcw8i19': {
       'en': 'Update Only',
       'ar': 'التحديث فقط',
+    },
+  },
+  // AddCostDialog
+  {
+    'c3jdvr1m': {
+      'en': 'Add Cost',
+      'ar': 'أضف التكلفة',
+    },
+    'lm3zedn1': {
+      'en': 'Date',
+      'ar': 'تاريخ',
+    },
+    'mxfxb80v': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'zkt22qmr': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'ee1q6h82': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    'pzg19n00': {
+      'en': 'Category here...',
+      'ar': 'الفئة هنا...',
+    },
+    'y7cvyqed': {
+      'en': 'Cost Perunit',
+      'ar': 'التكلفة لكل وحدة',
+    },
+    'fvukj19a': {
+      'en': 'Cost  here...',
+      'ar': 'التكلفة هنا...',
+    },
+    'oj7ajm2a': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    'hk88b1a6': {
+      'en': 'Unit here...',
+      'ar': 'الوحدة هنا...',
+    },
+    'rehbmmzq': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'ingrrt1r': {
+      'en': 'Duration  here...',
+      'ar': 'المدة هنا...',
+    },
+    '889p8aw8': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    'msv6rvv4': {
+      'en': 'Duration Unit here...',
+      'ar': 'وحدة المدة هنا...',
+    },
+    'sllygyce': {
+      'en': 'Type of Expenses',
+      'ar': 'نوع المصاريف',
+    },
+    '39ny05o5': {
+      'en': 'OPEX',
+      'ar': 'النفقات التشغيلية',
+    },
+    'py3kqgje': {
+      'en': 'COGS',
+      'ar': 'تكلفة البضائع المباعة',
+    },
+    'bc0p87c2': {
+      'en': 'Please select...',
+      'ar': '',
+    },
+    'rfnvdu3b': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    'x3yypxo7': {
+      'en': 'Add Only',
+      'ar': 'أضف فقط',
+    },
+  },
+  // UpdateCostDialog
+  {
+    'gfhd1oke': {
+      'en': 'Update Cost',
+      'ar': 'تحديث التكلفة',
+    },
+    'kkpkuv1u': {
+      'en': 'Date',
+      'ar': 'تاريخ',
+    },
+    'l9iyzqn3': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    'feayu4ed': {
+      'en': 'Title here...',
+      'ar': 'العنوان هنا...',
+    },
+    'bo8web8p': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    '9qwk1or7': {
+      'en': 'Category here...',
+      'ar': 'الفئة هنا...',
+    },
+    'pnruzvd8': {
+      'en': 'Cost Perunit',
+      'ar': 'التكلفة لكل وحدة',
+    },
+    'sl46gav1': {
+      'en': 'Cost  here...',
+      'ar': 'التكلفة هنا...',
+    },
+    'k7h0zat4': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    'bnh2izd2': {
+      'en': 'Unit here...',
+      'ar': 'الوحدة هنا...',
+    },
+    'rhlssbwp': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'k6jacsti': {
+      'en': 'Duration  here...',
+      'ar': 'المدة هنا...',
+    },
+    '1mzavyud': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    'znwwggqf': {
+      'en': 'Duration Unit here...',
+      'ar': 'وحدة المدة هنا...',
+    },
+    'xw4rehmu': {
+      'en': 'Type of Expenses',
+      'ar': 'نوع المصاريف',
+    },
+    'r4qbnecj': {
+      'en': 'OPEX',
+      'ar': 'النفقات التشغيلية',
+    },
+    'kehnlegj': {
+      'en': 'COGS',
+      'ar': 'تكلفة البضائع المباعة',
+    },
+    'dk9htpvy': {
+      'en': 'Please select...',
+      'ar': '',
+    },
+    '19ra4thg': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    '3nm8kibz': {
+      'en': 'Update',
+      'ar': 'تحديث',
     },
   },
   // Miscellaneous

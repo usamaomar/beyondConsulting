@@ -49,8 +49,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
       });
     });
 
-    _model.textController1 ??=
-        TextEditingController(text: FFAppState().SelectedMileStoneModel.title);
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();

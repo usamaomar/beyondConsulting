@@ -1,5 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/dialog_text_drop_douwn_list_component/dialog_text_drop_douwn_list_component_widget.dart';
 import 'update_milestone_dialog_widget.dart' show UpdateMilestoneDialogWidget;
@@ -11,13 +10,14 @@ class UpdateMilestoneDialogModel
 
   FFUploadedFile? invoiceFile;
 
-  MilestoneModelStruct? componentMileStoneModel;
-  void updateComponentMileStoneModelStruct(
-          Function(MilestoneModelStruct) updateFn) =>
-      updateFn(componentMileStoneModel ??= MilestoneModelStruct());
+  DateTime? startDate;
+
+  DateTime? endDate;
 
   ///  State fields for stateful widgets in this component.
 
+  DateTime? datePicked1;
+  DateTime? datePicked2;
   // Model for DialogTextDropDouwnListComponent component.
   late DialogTextDropDouwnListComponentModel
       dialogTextDropDouwnListComponentModel1;
