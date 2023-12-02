@@ -1,0 +1,71 @@
+Index: lib/custom_code/widgets/panner_progress_par_custom_widget.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Automatic FlutterFlow imports\nimport '/backend/schema/structs/index.dart';\nimport '/backend/schema/enums/enums.dart';\nimport '/flutter_flow/flutter_flow_theme.dart';\nimport '/flutter_flow/flutter_flow_util.dart';\nimport 'index.dart'; // Imports other custom widgets\nimport '/flutter_flow/custom_functions.dart'; // Imports custom functions\nimport 'package:flutter/material.dart';\n// Begin custom widget code\n// DO NOT REMOVE OR MODIFY THE CODE ABOVE!\n\nclass PannerProgressParCustomWidget extends StatefulWidget {\n  const PannerProgressParCustomWidget(\n      {Key? key, this.width, this.height, this.progress, this.color})\n      : super(key: key);\n\n  final double? width;\n  final double? height;\n  final double? progress;\n  final Color? color;\n\n  @override\n  _PannerProgressParCustomWidgetState createState() =>\n      _PannerProgressParCustomWidgetState();\n}\n\nclass _PannerProgressParCustomWidgetState\n    extends State<PannerProgressParCustomWidget> {\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      mainAxisAlignment: MainAxisAlignment.center,\n      children: [\n        LinearProgressIndicator(\n          borderRadius: BorderRadius.all(Radius.circular(20)),\n          minHeight: 10,\n          value: (widget.progress ?? 0) / 100,\n          backgroundColor: Colors.grey[300],\n          valueColor:\n              AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),\n        ),\n      ],\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/custom_code/widgets/panner_progress_par_custom_widget.dart b/lib/custom_code/widgets/panner_progress_par_custom_widget.dart
+--- a/lib/custom_code/widgets/panner_progress_par_custom_widget.dart	
++++ b/lib/custom_code/widgets/panner_progress_par_custom_widget.dart	
+@@ -6,6 +6,7 @@
+ import 'index.dart'; // Imports other custom widgets
+ import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+ import 'package:flutter/material.dart';
++
+ // Begin custom widget code
+ // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+ 
+@@ -31,14 +32,44 @@
+     return Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       children: [
+-        LinearProgressIndicator(
+-          borderRadius: BorderRadius.all(Radius.circular(20)),
+-          minHeight: 10,
+-          value: (widget.progress ?? 0) / 100,
+-          backgroundColor: Colors.grey[300],
+-          valueColor:
+-              AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),
+-        ),
++        Stack(children: [
++          LinearProgressIndicator(
++            borderRadius: BorderRadius.all(Radius.circular(20)),
++            minHeight: 17,
++            value: (widget.progress ?? 0) / 100,
++            backgroundColor: Colors.grey[300],
++            valueColor:
++                AlwaysStoppedAnimation<Color>(widget.color ?? Colors.grey),
++          ),
++          Row(
++            crossAxisAlignment: CrossAxisAlignment.center,
++            mainAxisAlignment: MainAxisAlignment.spaceAround,
++            children: [
++              Visibility(
++                child: Container(child: Text(
++                  '${(widget.progress ?? 0)}%',
++                  style: TextStyle(color: Colors.white),
++                ),width: 50,),
++                visible: (widget.progress ?? 0) <= 25,
++              ),
++              Visibility(
++                child: Container(child: Text(
++                  '${(widget.progress ?? 0)}%',
++                  style: TextStyle(color: Colors.white),
++                ),width: 50,),
++                visible:
++                    (widget.progress ?? 0) > 25 && (widget.progress ?? 0) <= 50,
++              ),
++              Visibility(
++                child: Container(child: Text(
++                  '${(widget.progress ?? 0)}%',
++                  style: TextStyle(color: Colors.white),
++                ),width: 50,),
++                visible: (widget.progress ?? 0) > 50,
++              )
++            ],
++          )
++        ])
+       ],
+     );
+   }
