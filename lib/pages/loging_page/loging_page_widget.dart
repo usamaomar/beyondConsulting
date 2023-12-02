@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'loging_page_model.dart';
@@ -25,6 +26,16 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LogingPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.textController1?.text = 'usamaomarsoftware@gmail.com';
+      });
+      setState(() {
+        _model.textController2?.text = 'password';
+      });
+    });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -82,8 +93,7 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                             20.0, 0.0, 20.0, 0.0),
                         child: Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           elevation: 4.0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
@@ -455,7 +465,8 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                           if (Navigator.of(context).canPop()) {
                                             context.pop();
                                           }
-                                          context.pushNamed('HomePage');
+                                          context
+                                              .pushNamed('CreateProjectPage');
                                         } else {
                                           await showDialog(
                                             context: context,
