@@ -465,7 +465,8 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                           if (Navigator.of(context).canPop()) {
                                             context.pop();
                                           }
-                                          context.pushNamed('HomePage');
+                                          context
+                                              .pushNamed('CreateProjectPage');
                                         } else {
                                           await showDialog(
                                             context: context,
