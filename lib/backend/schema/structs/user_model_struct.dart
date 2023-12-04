@@ -22,6 +22,7 @@ class UserModelStruct extends BaseStruct {
     bool? emailConfirmed,
     int? fullCapacity,
     int? currentCapacity,
+    bool? isSelected,
   })  : _id = id,
         _userName = userName,
         _firstName = firstName,
@@ -36,7 +37,8 @@ class UserModelStruct extends BaseStruct {
         _isActive = isActive,
         _emailConfirmed = emailConfirmed,
         _fullCapacity = fullCapacity,
-        _currentCapacity = currentCapacity;
+        _currentCapacity = currentCapacity,
+        _isSelected = isSelected;
 
   // "id" field.
   String? _id;
@@ -133,6 +135,12 @@ class UserModelStruct extends BaseStruct {
       _currentCapacity = currentCapacity + amount;
   bool hasCurrentCapacity() => _currentCapacity != null;
 
+  // "isSelected" field.
+  bool? _isSelected;
+  bool get isSelected => _isSelected ?? false;
+  set isSelected(bool? val) => _isSelected = val;
+  bool hasIsSelected() => _isSelected != null;
+
   static UserModelStruct fromMap(Map<String, dynamic> data) => UserModelStruct(
         id: data['id'] as String?,
         userName: data['userName'] as String?,
@@ -149,6 +157,7 @@ class UserModelStruct extends BaseStruct {
         emailConfirmed: data['emailConfirmed'] as bool?,
         fullCapacity: castToType<int>(data['fullCapacity']),
         currentCapacity: castToType<int>(data['currentCapacity']),
+        isSelected: data['isSelected'] as bool?,
       );
 
   static UserModelStruct? maybeFromMap(dynamic data) =>
@@ -170,6 +179,7 @@ class UserModelStruct extends BaseStruct {
         'emailConfirmed': _emailConfirmed,
         'fullCapacity': _fullCapacity,
         'currentCapacity': _currentCapacity,
+        'isSelected': _isSelected,
       }.withoutNulls;
 
   @override
@@ -233,6 +243,10 @@ class UserModelStruct extends BaseStruct {
         'currentCapacity': serializeParam(
           _currentCapacity,
           ParamType.int,
+        ),
+        'isSelected': serializeParam(
+          _isSelected,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -313,6 +327,11 @@ class UserModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        isSelected: deserializeParam(
+          data['isSelected'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -335,7 +354,8 @@ class UserModelStruct extends BaseStruct {
         isActive == other.isActive &&
         emailConfirmed == other.emailConfirmed &&
         fullCapacity == other.fullCapacity &&
-        currentCapacity == other.currentCapacity;
+        currentCapacity == other.currentCapacity &&
+        isSelected == other.isSelected;
   }
 
   @override
@@ -354,7 +374,8 @@ class UserModelStruct extends BaseStruct {
         isActive,
         emailConfirmed,
         fullCapacity,
-        currentCapacity
+        currentCapacity,
+        isSelected
       ]);
 }
 
@@ -374,6 +395,7 @@ UserModelStruct createUserModelStruct({
   bool? emailConfirmed,
   int? fullCapacity,
   int? currentCapacity,
+  bool? isSelected,
 }) =>
     UserModelStruct(
       id: id,
@@ -391,4 +413,5 @@ UserModelStruct createUserModelStruct({
       emailConfirmed: emailConfirmed,
       fullCapacity: fullCapacity,
       currentCapacity: currentCapacity,
+      isSelected: isSelected,
     );

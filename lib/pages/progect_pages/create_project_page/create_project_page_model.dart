@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_component_widget.dart';
@@ -38,6 +39,8 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // Model for ClintDropDouwnListComponent component.
   late ClintDropDouwnListComponentModel clintDropDouwnListComponentModel;
+  // Stores action output result for [Backend Call - API (CreateProjectApi)] action in Button widget.
+  ApiCallResponse? apiResultb91;
 
   /// Initialization and disposal methods.
 

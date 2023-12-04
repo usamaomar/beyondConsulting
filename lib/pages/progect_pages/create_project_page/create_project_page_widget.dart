@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1272,18 +1273,25 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                      Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          Text(
-                                                                            dataTableListItem.name,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ],
+                                                                      Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.min,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              dataTableListItem.firstName,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -2441,9 +2449,115 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         FFButtonWidget(
-                                                          onPressed: () {
-                                                            print(
-                                                                'Button pressed ...');
+                                                          onPressed: () async {
+                                                            _model.apiResultb91 =
+                                                                await CreateProjectApiCall
+                                                                    .call(
+                                                              token: FFAppState()
+                                                                  .tokenModelAppState
+                                                                  .token,
+                                                              type: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .type,
+                                                              costBudget: 0,
+                                                              name: _model
+                                                                  .textController1
+                                                                  .text,
+                                                              countryCode: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .countryCode,
+                                                              description: _model
+                                                                  .textController2
+                                                                  .text,
+                                                              clientSatisfaction:
+                                                                  3,
+                                                              startDate: FFAppState()
+                                                                  .SelectedMileStoneModel
+                                                                  .startDate,
+                                                              endDate: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .endDate,
+                                                              clientId: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .clientId,
+                                                              teamId: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .teamId,
+                                                              seniorId: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .seniorId,
+                                                              seniorStatus:
+                                                                  true,
+                                                              midManagersJson: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .midManagers
+                                                                  .map((e) =>
+                                                                      e.toMap())
+                                                                  .toList(),
+                                                              associatesJson: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .associates
+                                                                  .map((e) =>
+                                                                      e.toMap())
+                                                                  .toList(),
+                                                              milestonesJson: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .milestones
+                                                                  .map((e) =>
+                                                                      e.toMap())
+                                                                  .toList(),
+                                                              costsJson: FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .costs
+                                                                  .map((e) =>
+                                                                      e.toMap())
+                                                                  .toList(),
+                                                            );
+                                                            if ((_model
+                                                                    .apiResultb91
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              context.pushNamed(
+                                                                  'HomePage');
+                                                            } else {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return AlertDialog(
+                                                                    title: Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getVariableText(
+                                                                      enText:
+                                                                          'Error',
+                                                                      arText:
+                                                                          'مشكله',
+                                                                    )),
+                                                                    content: Text((_model
+                                                                            .apiResultb91
+                                                                            ?.bodyText ??
+                                                                        '')),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            FFLocalizations.of(context).getVariableText(
+                                                                          enText:
+                                                                              'Ok',
+                                                                          arText:
+                                                                              'حسنا',
+                                                                        )),
+                                                                      ),
+                                                                    ],
+                                                                  );
+                                                                },
+                                                              );
+                                                            }
+
+                                                            setState(() {});
                                                           },
                                                           text: FFLocalizations
                                                                   .of(context)

@@ -39,32 +39,6 @@ class PersonalsTeamListDialogModel
           int index, Function(UserModelStruct) updateFn) =>
       associatesModelList[index] = updateFn(associatesModelList[index]);
 
-  List<UserModelStruct> midManagersSelectedIds = [];
-  void addToMidManagersSelectedIds(UserModelStruct item) =>
-      midManagersSelectedIds.add(item);
-  void removeFromMidManagersSelectedIds(UserModelStruct item) =>
-      midManagersSelectedIds.remove(item);
-  void removeAtIndexFromMidManagersSelectedIds(int index) =>
-      midManagersSelectedIds.removeAt(index);
-  void insertAtIndexInMidManagersSelectedIds(int index, UserModelStruct item) =>
-      midManagersSelectedIds.insert(index, item);
-  void updateMidManagersSelectedIdsAtIndex(
-          int index, Function(UserModelStruct) updateFn) =>
-      midManagersSelectedIds[index] = updateFn(midManagersSelectedIds[index]);
-
-  List<UserModelStruct> associatesSelectedIds = [];
-  void addToAssociatesSelectedIds(UserModelStruct item) =>
-      associatesSelectedIds.add(item);
-  void removeFromAssociatesSelectedIds(UserModelStruct item) =>
-      associatesSelectedIds.remove(item);
-  void removeAtIndexFromAssociatesSelectedIds(int index) =>
-      associatesSelectedIds.removeAt(index);
-  void insertAtIndexInAssociatesSelectedIds(int index, UserModelStruct item) =>
-      associatesSelectedIds.insert(index, item);
-  void updateAssociatesSelectedIdsAtIndex(
-          int index, Function(UserModelStruct) updateFn) =>
-      associatesSelectedIds[index] = updateFn(associatesSelectedIds[index]);
-
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (GetPersonalsApi)] action in personalsTeamListDialog widget.
