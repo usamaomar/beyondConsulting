@@ -11,10 +11,16 @@ class MemberModelStruct extends BaseStruct {
     String? name,
     String? picture,
     bool? status,
+    String? firstName,
+    String? lastName,
+    bool? isSelected,
   })  : _id = id,
         _name = name,
         _picture = picture,
-        _status = status;
+        _status = status,
+        _firstName = firstName,
+        _lastName = lastName,
+        _isSelected = isSelected;
 
   // "id" field.
   String? _id;
@@ -40,12 +46,33 @@ class MemberModelStruct extends BaseStruct {
   set status(bool? val) => _status = val;
   bool hasStatus() => _status != null;
 
+  // "firstName" field.
+  String? _firstName;
+  String get firstName => _firstName ?? '';
+  set firstName(String? val) => _firstName = val;
+  bool hasFirstName() => _firstName != null;
+
+  // "lastName" field.
+  String? _lastName;
+  String get lastName => _lastName ?? '';
+  set lastName(String? val) => _lastName = val;
+  bool hasLastName() => _lastName != null;
+
+  // "isSelected" field.
+  bool? _isSelected;
+  bool get isSelected => _isSelected ?? false;
+  set isSelected(bool? val) => _isSelected = val;
+  bool hasIsSelected() => _isSelected != null;
+
   static MemberModelStruct fromMap(Map<String, dynamic> data) =>
       MemberModelStruct(
         id: data['id'] as String?,
         name: data['name'] as String?,
         picture: data['picture'] as String?,
         status: data['status'] as bool?,
+        firstName: data['firstName'] as String?,
+        lastName: data['lastName'] as String?,
+        isSelected: data['isSelected'] as bool?,
       );
 
   static MemberModelStruct? maybeFromMap(dynamic data) =>
@@ -56,6 +83,9 @@ class MemberModelStruct extends BaseStruct {
         'name': _name,
         'picture': _picture,
         'status': _status,
+        'firstName': _firstName,
+        'lastName': _lastName,
+        'isSelected': _isSelected,
       }.withoutNulls;
 
   @override
@@ -74,6 +104,18 @@ class MemberModelStruct extends BaseStruct {
         ),
         'status': serializeParam(
           _status,
+          ParamType.bool,
+        ),
+        'firstName': serializeParam(
+          _firstName,
+          ParamType.String,
+        ),
+        'lastName': serializeParam(
+          _lastName,
+          ParamType.String,
+        ),
+        'isSelected': serializeParam(
+          _isSelected,
           ParamType.bool,
         ),
       }.withoutNulls;
@@ -100,6 +142,21 @@ class MemberModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        firstName: deserializeParam(
+          data['firstName'],
+          ParamType.String,
+          false,
+        ),
+        lastName: deserializeParam(
+          data['lastName'],
+          ParamType.String,
+          false,
+        ),
+        isSelected: deserializeParam(
+          data['isSelected'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -111,11 +168,15 @@ class MemberModelStruct extends BaseStruct {
         id == other.id &&
         name == other.name &&
         picture == other.picture &&
-        status == other.status;
+        status == other.status &&
+        firstName == other.firstName &&
+        lastName == other.lastName &&
+        isSelected == other.isSelected;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, name, picture, status]);
+  int get hashCode => const ListEquality()
+      .hash([id, name, picture, status, firstName, lastName, isSelected]);
 }
 
 MemberModelStruct createMemberModelStruct({
@@ -123,10 +184,16 @@ MemberModelStruct createMemberModelStruct({
   String? name,
   String? picture,
   bool? status,
+  String? firstName,
+  String? lastName,
+  bool? isSelected,
 }) =>
     MemberModelStruct(
       id: id,
       name: name,
       picture: picture,
       status: status,
+      firstName: firstName,
+      lastName: lastName,
+      isSelected: isSelected,
     );

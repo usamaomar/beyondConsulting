@@ -79,14 +79,18 @@ class _PersonalsTeamListDialogWidgetState
               ))
               .toList()
               .cast<UserModelStruct>();
-          _model.midManagersSelectedIds = functions
-              .convertFromMemberToUserList(
-                  FFAppState().newProjectCreatedModel.midManagers.toList())
+        });
+        setState(() {
+          _model.midManagersModelList = functions
+              .addIsSelectedValue(
+                  FFAppState().newProjectCreatedModel.midManagers.toList(),
+                  _model.midManagersModelList.toList())
               .toList()
               .cast<UserModelStruct>();
-          _model.associatesSelectedIds = functions
-              .convertFromMemberToUserList(
-                  FFAppState().newProjectCreatedModel.associates.toList())
+          _model.associatesModelList = functions
+              .addIsSelectedValue(
+                  FFAppState().newProjectCreatedModel.associates.toList(),
+                  _model.associatesModelList.toList())
               .toList()
               .cast<UserModelStruct>();
         });
@@ -161,10 +165,7 @@ class _PersonalsTeamListDialogWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  _model.midManagersSelectedIds = [];
-                                  _model.associatesSelectedIds = [];
-                                });
+                                setState(() {});
                                 Navigator.pop(context);
                               },
                               child: Icon(
@@ -503,11 +504,8 @@ class _PersonalsTeamListDialogWidgetState
                                                                 value: _model
                                                                             .checkboxValueMap1[
                                                                         listOfMedmanagersModelItem] ??=
-                                                                    functions.findMatchingUsers(
-                                                                        listOfMedmanagersModelItem,
-                                                                        _model
-                                                                            .midManagersSelectedIds
-                                                                            .toList()),
+                                                                    listOfMedmanagersModelItem
+                                                                        .isSelected,
                                                                 onChanged:
                                                                     (newValue) async {
                                                                   setState(() =>
@@ -517,14 +515,24 @@ class _PersonalsTeamListDialogWidgetState
                                                                   if (newValue!) {
                                                                     setState(
                                                                         () {
-                                                                      _model.addToMidManagersSelectedIds(
-                                                                          listOfMedmanagersModelItem);
+                                                                      _model
+                                                                          .updateMidManagersModelListAtIndex(
+                                                                        listOfMedmanagersModelIndex,
+                                                                        (e) => e
+                                                                          ..isSelected =
+                                                                              true,
+                                                                      );
                                                                     });
                                                                   } else {
                                                                     setState(
                                                                         () {
-                                                                      _model.removeFromMidManagersSelectedIds(
-                                                                          listOfMedmanagersModelItem);
+                                                                      _model
+                                                                          .updateMidManagersModelListAtIndex(
+                                                                        listOfMedmanagersModelIndex,
+                                                                        (e) => e
+                                                                          ..isSelected =
+                                                                              !true,
+                                                                      );
                                                                     });
                                                                   }
                                                                 },
@@ -735,11 +743,8 @@ class _PersonalsTeamListDialogWidgetState
                                                                 value: _model
                                                                             .checkboxValueMap2[
                                                                         listOfAssositesModelItem] ??=
-                                                                    functions.findMatchingUsers(
-                                                                        listOfAssositesModelItem,
-                                                                        _model
-                                                                            .midManagersSelectedIds
-                                                                            .toList()),
+                                                                    listOfAssositesModelItem
+                                                                        .isSelected,
                                                                 onChanged:
                                                                     (newValue) async {
                                                                   setState(() =>
@@ -749,14 +754,24 @@ class _PersonalsTeamListDialogWidgetState
                                                                   if (newValue!) {
                                                                     setState(
                                                                         () {
-                                                                      _model.addToMidManagersSelectedIds(
-                                                                          listOfAssositesModelItem);
+                                                                      _model
+                                                                          .updateAssociatesModelListAtIndex(
+                                                                        listOfAssositesModelIndex,
+                                                                        (e) => e
+                                                                          ..isSelected =
+                                                                              true,
+                                                                      );
                                                                     });
                                                                   } else {
                                                                     setState(
                                                                         () {
-                                                                      _model.removeFromMidManagersSelectedIds(
-                                                                          listOfAssositesModelItem);
+                                                                      _model
+                                                                          .updateAssociatesModelListAtIndex(
+                                                                        listOfAssositesModelIndex,
+                                                                        (e) => e
+                                                                          ..isSelected =
+                                                                              !true,
+                                                                      );
                                                                     });
                                                                   }
                                                                 },
@@ -803,9 +818,8 @@ class _PersonalsTeamListDialogWidgetState
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..midManagers = functions
-                                      .convertFomrUserToMembers(_model
-                                          .midManagersSelectedIds
-                                          .toList())
+                                      .convertFomrUserToMembersCheck(
+                                          _model.midManagersModelList.toList())
                                       .toList(),
                               );
                             });
@@ -813,13 +827,10 @@ class _PersonalsTeamListDialogWidgetState
                               FFAppState().updateNewProjectCreatedModelStruct(
                                 (e) => e
                                   ..associates = functions
-                                      .convertFomrUserToMembers(
-                                          _model.associatesSelectedIds.toList())
+                                      .convertFomrUserToMembersCheck(
+                                          _model.associatesModelList.toList())
                                       .toList(),
                               );
-                            });
-                            FFAppState().update(() {
-                              FFAppState().listOfRols = [];
                             });
                             setState(() {
                               FFAppState().listOfRols = functions
