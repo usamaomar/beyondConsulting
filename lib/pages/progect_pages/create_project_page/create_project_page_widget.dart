@@ -2488,30 +2488,46 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                   .seniorId,
                                                               seniorStatus:
                                                                   true,
-                                                              midManagersJson: FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .midManagers
-                                                                  .map((e) =>
-                                                                      e.toMap())
-                                                                  .toList(),
-                                                              associatesJson: FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .associates
-                                                                  .map((e) =>
-                                                                      e.toMap())
-                                                                  .toList(),
-                                                              milestonesJson: FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .milestones
-                                                                  .map((e) =>
-                                                                      e.toMap())
-                                                                  .toList(),
-                                                              costsJson: FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .costs
-                                                                  .map((e) =>
-                                                                      e.toMap())
-                                                                  .toList(),
+                                                              midManagersJson:
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .midManagers
+                                                                      .map((e) =>
+                                                                          getJsonField(
+                                                                            e.toMap(),
+                                                                            r'''$[:]''',
+                                                                          ))
+                                                                      .toList(),
+                                                              associatesJson:
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .associates
+                                                                      .map((e) =>
+                                                                          getJsonField(
+                                                                            e.toMap(),
+                                                                            r'''$[:]''',
+                                                                          ))
+                                                                      .toList(),
+                                                              milestonesJson:
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .milestones
+                                                                      .map((e) =>
+                                                                          getJsonField(
+                                                                            e.toMap(),
+                                                                            r'''$[:]''',
+                                                                          ))
+                                                                      .toList(),
+                                                              costsJson:
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .costs
+                                                                      .map((e) =>
+                                                                          getJsonField(
+                                                                            e.toMap(),
+                                                                            r'''$[:]''',
+                                                                          ))
+                                                                      .toList(),
                                                             );
                                                             if ((_model
                                                                     .apiResultb91
