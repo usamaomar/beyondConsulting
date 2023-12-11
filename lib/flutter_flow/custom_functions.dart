@@ -144,6 +144,31 @@ List<CountryModelStruct> fromJsonToCountryList(dynamic jsonArray) {
       .cast<CountryModelStruct>();
 }
 
+List<dynamic> convertMilestoneModelStruct(
+    List<MilestoneModelStruct> milestonesList) {
+  List<dynamic> jsonArray = [];
+
+  for (MilestoneModelStruct milestone in milestonesList) {
+    Map<String, dynamic> jsonMember = {
+      "title": milestone.title,
+      "description": milestone.description,
+      "amount": milestone.amount,
+      "reminderOffset": milestone.reminderOffset,
+      "startDate": milestone.startDate,
+      "endDate": milestone.endDate,
+      "status": milestone.status,
+      "milestoneType": milestone.milestoneType,
+      "progress": milestone.progress,
+      "invoiceUrl": milestone.invoiceUrl,
+      "invoiceStatus": milestone.invoiceStatus
+    };
+
+    jsonArray.add(jsonMember);
+  }
+
+  return jsonArray;
+}
+
 String getCountryUsing(
   ProjectModelStruct projectObject,
   String lang,
