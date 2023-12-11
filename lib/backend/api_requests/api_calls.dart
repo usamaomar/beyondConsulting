@@ -344,25 +344,17 @@ class CreateProjectApiCall {
   "costBudget": $costBudget,
   "countryCode": "$countryCode",
   "description": "$description",
-  "clientSatisfaction":  $clientSatisfaction ,
+  "clientSatisfaction": $clientSatisfaction,
   "startDate": "$startDate",
   "endDate": "$endDate",
   "clientId": $clientId,
   "teamId": $teamId,
   "seniorId": "$seniorId",
   "seniorStatus": $seniorStatus,
-  "midManagers": [
-    $midManagers
-  ],
-  "associates": [
-    $associates
-  ],
-  "milestones": [
-    $milestones
-  ],
-  "costs": [
-    $costs
-  ]
+  "midManagers": $midManagers,
+  "associates": $associates,
+  "milestones": $milestones,
+  "costs": $costs
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateProjectApi',
