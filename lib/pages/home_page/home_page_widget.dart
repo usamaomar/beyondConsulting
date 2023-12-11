@@ -1865,12 +1865,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           MainAxisSize.min,
                                                       children: [
                                                         SizedBox(
-                                                          width: 200.0,
-                                                          height: 200.0,
+                                                          width: 150.0,
+                                                          height: 150.0,
                                                           child: custom_widgets
                                                               .CircularProgressParCustomWidget(
-                                                            width: 200.0,
-                                                            height: 200.0,
+                                                            width: 150.0,
+                                                            height: 150.0,
                                                             progress: FFAppState()
                                                                 .ProjectStatisticsModel
                                                                 .profitPercentage,
@@ -1904,7 +1904,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     color: const Color(
                                                                         0xFF808080),
                                                                     fontSize:
-                                                                        20.0,
+                                                                        15.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -1941,7 +1941,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           color:
                                                                               const Color(0xFF01A3E2),
                                                                           fontSize:
-                                                                              35.0,
+                                                                              15.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                           useGoogleFonts:
@@ -1974,7 +1974,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           color:
                                                                               const Color(0xFF808080),
                                                                           fontSize:
-                                                                              25.0,
+                                                                              15.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                           useGoogleFonts:
@@ -2009,12 +2009,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           MainAxisSize.min,
                                                       children: [
                                                         SizedBox(
-                                                          width: 200.0,
-                                                          height: 200.0,
+                                                          width: 150.0,
+                                                          height: 150.0,
                                                           child: custom_widgets
                                                               .CircularProgressParCustomWidget(
-                                                            width: 200.0,
-                                                            height: 200.0,
+                                                            width: 150.0,
+                                                            height: 150.0,
                                                             progress: FFAppState()
                                                                 .ProjectStatisticsModel
                                                                 .averageClientSatisfaction
@@ -2048,7 +2048,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     color: const Color(
                                                                         0xFF808080),
                                                                     fontSize:
-                                                                        20.0,
+                                                                        15.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -2080,7 +2080,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           color:
                                                                               const Color(0xFFB1D77B),
                                                                           fontSize:
-                                                                              35.0,
+                                                                              15.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                           useGoogleFonts:

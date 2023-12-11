@@ -2471,12 +2471,10 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                   .text,
                                                               clientSatisfaction:
                                                                   3,
-                                                              startDate: FFAppState()
-                                                                  .SelectedMileStoneModel
-                                                                  .startDate,
-                                                              endDate: FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .endDate,
+                                                              startDate:
+                                                                  '${FFAppState().newProjectCreatedModel.startDate}Z',
+                                                              endDate:
+                                                                  '${FFAppState().newProjectCreatedModel.endDate}Z',
                                                               clientId: FFAppState()
                                                                   .newProjectCreatedModel
                                                                   .clientId,
@@ -2495,7 +2493,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                       .map((e) =>
                                                                           getJsonField(
                                                                             e.toMap(),
-                                                                            r'''$[:]''',
+                                                                            r'''$''',
                                                                           ))
                                                                       .toList(),
                                                               associatesJson:
