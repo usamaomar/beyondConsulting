@@ -846,6 +846,11 @@ class _PersonalsTeamListDialogWidgetState
                                   .toList()
                                   .cast<MemberModelStruct>();
                             });
+                            setState(() {
+                              FFAppState().updateNewProjectCreatedModelStruct(
+                                (e) => e..seniorId = _model.seniorModel?.id,
+                              );
+                            });
                             Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(

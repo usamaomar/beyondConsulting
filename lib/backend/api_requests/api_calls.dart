@@ -344,7 +344,7 @@ class CreateProjectApiCall {
   "costBudget": $costBudget,
   "countryCode": "$countryCode",
   "description": "$description",
-  "clientSatisfaction": "$clientSatisfaction",
+  "clientSatisfaction":  $clientSatisfaction ,
   "startDate": "$startDate",
   "endDate": "$endDate",
   "clientId": $clientId,
