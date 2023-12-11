@@ -347,3 +347,19 @@ List<UserModelStruct> addIsSelectedValue(
 
   return listOfBackendUseres;
 }
+
+List<dynamic> convertMembertModelStruct(
+    List<MemberModelStruct> memberModelList) {
+  List<dynamic> jsonArray = [];
+
+  for (MemberModelStruct member in memberModelList) {
+    Map<String, dynamic> jsonMember = {
+      "userId": member.id,
+      "status": member.status,
+    };
+
+    jsonArray.add(jsonMember);
+  }
+
+  return jsonArray;
+}

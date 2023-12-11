@@ -2486,26 +2486,16 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                   .seniorId,
                                                               seniorStatus:
                                                                   true,
-                                                              midManagersJson:
-                                                                  FFAppState()
+                                                              midManagersJson: functions
+                                                                  .convertMembertModelStruct(FFAppState()
                                                                       .newProjectCreatedModel
                                                                       .midManagers
-                                                                      .map((e) =>
-                                                                          getJsonField(
-                                                                            e.toMap(),
-                                                                            r'''$''',
-                                                                          ))
-                                                                      .toList(),
-                                                              associatesJson:
-                                                                  FFAppState()
+                                                                      .toList()),
+                                                              associatesJson: functions
+                                                                  .convertMembertModelStruct(FFAppState()
                                                                       .newProjectCreatedModel
                                                                       .associates
-                                                                      .map((e) =>
-                                                                          getJsonField(
-                                                                            e.toMap(),
-                                                                            r'''$[:]''',
-                                                                          ))
-                                                                      .toList(),
+                                                                      .toList()),
                                                               milestonesJson:
                                                                   FFAppState()
                                                                       .newProjectCreatedModel
