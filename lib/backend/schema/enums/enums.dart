@@ -4,6 +4,13 @@ enum SideMenuEnum {
   HOME,
   MAIN_DASHBOARD,
   CREATE_PROJECT,
+  PROJECT_PAGE,
+}
+
+enum FinancialOutlookBar {
+  Total,
+  Spent,
+  Remaining,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {
@@ -19,6 +26,8 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (SideMenuEnum):
       return SideMenuEnum.values.deserialize(value) as T?;
+    case (FinancialOutlookBar):
+      return FinancialOutlookBar.values.deserialize(value) as T?;
     default:
       return null;
   }

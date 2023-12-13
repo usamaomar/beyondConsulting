@@ -61,6 +61,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateProjectPage',
           path: '/createProjectPage',
           builder: (context, params) => const CreateProjectPageWidget(),
+        ),
+        FFRoute(
+          name: 'ProjectPage',
+          path: '/projectPage',
+          builder: (context, params) => ProjectPageWidget(
+            projectJaonModel:
+                params.getParam('projectJaonModel', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

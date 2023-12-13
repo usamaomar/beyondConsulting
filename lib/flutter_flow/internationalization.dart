@@ -328,6 +328,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // ProjectPage
+  {
+    '7ogjhx51': {
+      'en': 'Financial Outlook',
+      'ar': 'التوقعات المالية',
+    },
+    'vi0lsg97': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {

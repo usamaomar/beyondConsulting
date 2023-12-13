@@ -13,8 +13,6 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for SideNav component.
-  late SideNavModel sideNavModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -41,12 +39,13 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   late ClintDropDouwnListComponentModel clintDropDouwnListComponentModel;
   // Stores action output result for [Backend Call - API (CreateProjectApi)] action in Button widget.
   ApiCallResponse? apiResultb91;
+  // Model for SideNav component.
+  late SideNavModel sideNavModel;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
-    sideNavModel = createModel(context, () => SideNavModel());
     textDropDouwnListComponentModel1 =
         createModel(context, () => TextDropDouwnListComponentModel());
     typeDropDouwnListComponentModel =
@@ -56,12 +55,12 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
     clintDropDouwnListComponentModel =
         createModel(context, () => ClintDropDouwnListComponentModel());
+    sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    sideNavModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
@@ -72,6 +71,7 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
     textController2?.dispose();
 
     clintDropDouwnListComponentModel.dispose();
+    sideNavModel.dispose();
   }
 
   /// Action blocks are added here.
