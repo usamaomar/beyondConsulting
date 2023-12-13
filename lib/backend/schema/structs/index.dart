@@ -1,11 +1,13 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'bar_chart_model_struct.dart';
 export 'client_model_struct.dart';
 export 'cost_model_struct.dart';
 export 'country_model_struct.dart';
 export 'member_model_struct.dart';
 export 'mile_stone_state_model_struct.dart';
 export 'milestone_model_struct.dart';
+export 'ordinal_sales_struct.dart';
 export 'prioritie_model_struct.dart';
 export 'project_model_struct.dart';
 export 'project_statistic_model_struct.dart';
