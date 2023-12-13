@@ -255,7 +255,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           ),
                                         ],
                                       ),
-                                      const Row(
+                                      Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           SizedBox(
@@ -265,6 +265,12 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                 .SyncFusionFlutterBarCharts(
                                               width: 390.0,
                                               height: 400.0,
+                                              listOfTotal:
+                                                  _model.totalLableList,
+                                              listOfSpent:
+                                                  _model.spentLableList,
+                                              listOfRemainingBudget:
+                                                  _model.remainingLableList,
                                             ),
                                           ),
                                         ],
