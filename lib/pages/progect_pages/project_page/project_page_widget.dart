@@ -255,7 +255,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           ),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           SizedBox(

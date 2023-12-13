@@ -9,5 +9,31 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-// Set your widget name, define your parameter, and then add the
-// boilerplate code using the green button on the right!
+class SyncFusionFlutterBarCharts extends StatefulWidget {
+  const SyncFusionFlutterBarCharts({
+    Key? key,
+    this.width,
+    this.height,
+    required this.listOfTotal,
+    required this.listOfSpent,
+    required this.listOfRemainingBudget,
+  }) : super(key: key);
+
+  final double? width;
+  final double? height;
+  final List<BarChartModelStruct> listOfTotal;
+  final List<BarChartModelStruct> listOfSpent;
+  final List<BarChartModelStruct> listOfRemainingBudget;
+
+  @override
+  _SyncFusionFlutterBarChartsState createState() =>
+      _SyncFusionFlutterBarChartsState();
+}
+
+class _SyncFusionFlutterBarChartsState
+    extends State<SyncFusionFlutterBarCharts> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
