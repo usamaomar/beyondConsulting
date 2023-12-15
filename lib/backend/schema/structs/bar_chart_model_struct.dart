@@ -9,8 +9,10 @@ class BarChartModelStruct extends BaseStruct {
   BarChartModelStruct({
     String? lable,
     int? number,
+    Color? color,
   })  : _lable = lable,
-        _number = number;
+        _number = number,
+        _color = color;
 
   // "lable" field.
   String? _lable;
@@ -25,10 +27,17 @@ class BarChartModelStruct extends BaseStruct {
   void incrementNumber(int amount) => _number = number + amount;
   bool hasNumber() => _number != null;
 
+  // "color" field.
+  Color? _color;
+  Color? get color => _color;
+  set color(Color? val) => _color = val;
+  bool hasColor() => _color != null;
+
   static BarChartModelStruct fromMap(Map<String, dynamic> data) =>
       BarChartModelStruct(
         lable: data['lable'] as String?,
         number: castToType<int>(data['number']),
+        color: getSchemaColor(data['color']),
       );
 
   static BarChartModelStruct? maybeFromMap(dynamic data) =>
@@ -37,6 +46,7 @@ class BarChartModelStruct extends BaseStruct {
   Map<String, dynamic> toMap() => {
         'lable': _lable,
         'number': _number,
+        'color': _color,
       }.withoutNulls;
 
   @override
@@ -48,6 +58,10 @@ class BarChartModelStruct extends BaseStruct {
         'number': serializeParam(
           _number,
           ParamType.int,
+        ),
+        'color': serializeParam(
+          _color,
+          ParamType.Color,
         ),
       }.withoutNulls;
 
@@ -63,6 +77,11 @@ class BarChartModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        color: deserializeParam(
+          data['color'],
+          ParamType.Color,
+          false,
+        ),
       );
 
   @override
@@ -72,18 +91,21 @@ class BarChartModelStruct extends BaseStruct {
   bool operator ==(Object other) {
     return other is BarChartModelStruct &&
         lable == other.lable &&
-        number == other.number;
+        number == other.number &&
+        color == other.color;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([lable, number]);
+  int get hashCode => const ListEquality().hash([lable, number, color]);
 }
 
 BarChartModelStruct createBarChartModelStruct({
   String? lable,
   int? number,
+  Color? color,
 }) =>
     BarChartModelStruct(
       lable: lable,
       number: number,
+      color: color,
     );
