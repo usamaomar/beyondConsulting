@@ -112,7 +112,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           decoration: const BoxDecoration(
                                             color: Colors.white,
@@ -133,7 +133,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -163,7 +163,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)

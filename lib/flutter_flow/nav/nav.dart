@@ -69,6 +69,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             projectJaonModel:
                 params.getParam('projectJaonModel', ParamType.JSON),
           ),
+        ),
+        FFRoute(
+          name: 'TeamCapacitiesPage',
+          path: '/teamCapacitiesPage',
+          builder: (context, params) => const TeamCapacitiesPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -197,13 +202,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

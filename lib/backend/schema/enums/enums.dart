@@ -5,6 +5,7 @@ enum SideMenuEnum {
   MAIN_DASHBOARD,
   CREATE_PROJECT,
   PROJECT_PAGE,
+  TEAM_CAPACITIES,
 }
 
 enum FinancialOutlookBar {

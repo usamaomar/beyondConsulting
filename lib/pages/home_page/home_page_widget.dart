@@ -329,12 +329,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -389,12 +384,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                10.0,
-                                                                10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -454,12 +444,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       400.0)
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          const EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -506,9 +491,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .width <
                                                   450.0)
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(10.0, 10.0,
-                                                          10.0, 10.0),
+                                                  padding: const EdgeInsets.all(10.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
@@ -585,12 +568,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20.0,
-                                                                20.0,
-                                                                20.0,
-                                                                20.0),
+                                                        const EdgeInsets.all(20.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -811,7 +789,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                     ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                padding: const EdgeInsets.all(5.0),
                                                                                 child: Container(
                                                                                   decoration: BoxDecoration(
                                                                                     color: const Color(0xFFB00612),
@@ -822,7 +800,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                     mainAxisAlignment: MainAxisAlignment.start,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                        padding: const EdgeInsets.all(5.0),
                                                                                         child: Text(
                                                                                           prioritiesDatatTableItem.projectName,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -950,12 +928,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  20.0,
-                                                                  20.0,
-                                                                  20.0,
-                                                                  20.0),
+                                                          const EdgeInsets.all(20.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1221,9 +1194,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 20.0, 20.0, 20.0),
+                                                padding: const EdgeInsets.all(20.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1505,9 +1476,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 20.0, 20.0, 20.0),
+                                                padding: const EdgeInsets.all(20.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1815,16 +1784,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: const EdgeInsets.all(10.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(20.0, 20.0,
-                                                          20.0, 20.0),
+                                                  padding: const EdgeInsets.all(20.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.min,

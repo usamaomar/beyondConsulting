@@ -9,3 +9,5 @@ export '/pages/progect_pages/create_project_page/create_project_page_widget.dart
     show CreateProjectPageWidget;
 export '/pages/progect_pages/project_page/project_page_widget.dart'
     show ProjectPageWidget;
+export '/pages/team_capacities_page/team_capacities_page_widget.dart'
+    show TeamCapacitiesPageWidget;

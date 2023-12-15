@@ -126,7 +126,7 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           decoration: const BoxDecoration(
                                             color: Colors.white,
@@ -147,7 +147,7 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -177,7 +177,7 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)

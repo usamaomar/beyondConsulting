@@ -1,9 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
-import 'main_dash_board_page_widget.dart' show MainDashBoardPageWidget;
+import 'team_capacities_page_widget.dart' show TeamCapacitiesPageWidget;
 import 'package:flutter/material.dart';
 
-class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
+class TeamCapacitiesPageModel
+    extends FlutterFlowModel<TeamCapacitiesPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
