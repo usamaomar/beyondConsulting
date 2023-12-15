@@ -173,9 +173,10 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
+                Flexible(
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -200,7 +201,17 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                             child: const Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
-                              children: [],
+                              children: [
+                                SizedBox(
+                                  width: 390.0,
+                                  height: 500.0,
+                                  child:
+                                      custom_widgets.ProjectTrackerCustomWidget(
+                                    width: 390.0,
+                                    height: 500.0,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
