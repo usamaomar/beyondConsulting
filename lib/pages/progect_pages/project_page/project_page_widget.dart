@@ -48,6 +48,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             arText: 'المجموع',
           ),
           number: 1,
+          color: const Color(0xFFFFD600),
         ));
         _model.addToSpentLableList(BarChartModelStruct(
           lable: FFLocalizations.of(context).getVariableText(
@@ -55,6 +56,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             arText: 'أنفق',
           ),
           number: 5,
+          color: const Color(0xFF2C8CB6),
         ));
         _model.addToRemainingLableList(BarChartModelStruct(
           lable: FFLocalizations.of(context).getVariableText(
@@ -62,6 +64,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             arText: 'متبقي',
           ),
           number: 7,
+          color: const Color(0xFFC8C9CC),
         ));
       });
     });
@@ -238,42 +241,334 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 0.0),
+                                      10.0, 20.0, 10.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '7ogjhx51' /* Financial Outlook */,
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 15.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '7ogjhx51' /* Financial Outlook */,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Almarai',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: false,
+                                                      ),
                                             ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          ],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              SizedBox(
+                                                width: 390.0,
+                                                height: 400.0,
+                                                child: custom_widgets
+                                                    .SyncFusionFlutterBarCharts(
+                                                  width: 390.0,
+                                                  height: 400.0,
+                                                  listOfTotal:
+                                                      _model.totalLableList,
+                                                  listOfSpent:
+                                                      _model.spentLableList,
+                                                  listOfRemainingBudget:
+                                                      _model.remainingLableList,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          SizedBox(
-                                            width: 390.0,
-                                            height: 400.0,
-                                            child: custom_widgets
-                                                .SyncFusionFlutterBarCharts(
-                                              width: 390.0,
-                                              height: 400.0,
-                                              listOfTotal:
-                                                  _model.totalLableList,
-                                              listOfSpent:
-                                                  _model.spentLableList,
-                                              listOfRemainingBudget:
-                                                  _model.remainingLableList,
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'hki296sc' /* Total Budgets */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Almarai',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '${valueOrDefault<String>(
+                                                      _model.projectModel
+                                                          ?.approvedPricing
+                                                          .toString(),
+                                                      '0',
+                                                    )} ${FFLocalizations.of(context).getVariableText(
+                                                      enText: 'JOD',
+                                                      arText: 'د.أ',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFFFFD600),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '6g45g0s6' /* Spent Budgets */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Almarai',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '${valueOrDefault<String>(
+                                                      _model.projectModel
+                                                          ?.approvedCost
+                                                          .toString(),
+                                                      '0',
+                                                    )} ${FFLocalizations.of(context).getVariableText(
+                                                      enText: 'JOD',
+                                                      arText: 'د.أ',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFF2C8CB6),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    15.0, 15.0, 15.0, 15.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '69xkzumz' /* Remaining Budgets */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Almarai',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      _model
+                                                          .projectModel?.profit
+                                                          .toString(),
+                                                      '0',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFFC8C9CC),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],
+                                      ),
+                                      Container(
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFFBCD1AE),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(5.0),
+                                            bottomRight: Radius.circular(5.0),
+                                            topLeft: Radius.circular(5.0),
+                                            topRight: Radius.circular(5.0),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ofm4073h' /* Revenue */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            const Color(0xFF339259),
+                                                      ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'mhnpt9xj' /* JOD */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            const Color(0xFF339259),
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 56.0,
+                                              child: VerticalDivider(
+                                                thickness: 1.0,
+                                                indent: 5.0,
+                                                endIndent: 5.0,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'x8rgmtig' /* 30k/ */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            const Color(0xFF339259),
+                                                      ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '239ewb9m' /* 30k */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            const Color(0xFF339259),
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
