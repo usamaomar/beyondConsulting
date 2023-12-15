@@ -798,9 +798,7 @@ class _UpdateMilestoneDialogWidgetState
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 5.0, 5.0, 5.0),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Icon(
                                             Icons.notifications_active_sharp,
                                             color: FlutterFlowTheme.of(context)
@@ -901,8 +899,7 @@ class _UpdateMilestoneDialogWidgetState
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Icon(
                                         Icons.drive_folder_upload_rounded,
                                         color:
@@ -986,7 +983,7 @@ class _UpdateMilestoneDialogWidgetState
                                               (_model.outUpload?.jsonBody ??
                                                   ''),
                                               r'''$.data''',
-                                            ),
+                                            ).toString(),
                                         );
                                       });
                                     } else {

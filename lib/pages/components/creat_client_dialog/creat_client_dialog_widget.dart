@@ -201,7 +201,7 @@ class _CreatClientDialogWidgetState extends State<CreatClientDialogWidget> {
                                       _model.clientPhotoUrl = getJsonField(
                                         (_model.apiResultsr2?.jsonBody ?? ''),
                                         r'''$.data''',
-                                      );
+                                      ).toString();
                                     });
                                   } else {
                                     await showDialog(

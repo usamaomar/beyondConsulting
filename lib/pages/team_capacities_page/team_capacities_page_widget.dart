@@ -5,26 +5,26 @@ import '/pages/components/side_nav/side_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'main_dash_board_page_model.dart';
-export 'main_dash_board_page_model.dart';
+import 'team_capacities_page_model.dart';
+export 'team_capacities_page_model.dart';
 
-class MainDashBoardPageWidget extends StatefulWidget {
-  const MainDashBoardPageWidget({super.key});
+class TeamCapacitiesPageWidget extends StatefulWidget {
+  const TeamCapacitiesPageWidget({super.key});
 
   @override
-  _MainDashBoardPageWidgetState createState() =>
-      _MainDashBoardPageWidgetState();
+  _TeamCapacitiesPageWidgetState createState() =>
+      _TeamCapacitiesPageWidgetState();
 }
 
-class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
-  late MainDashBoardPageModel _model;
+class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
+  late TeamCapacitiesPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MainDashBoardPageModel());
+    _model = createModel(context, () => TeamCapacitiesPageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -62,7 +62,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
             model: _model.sideNavModel,
             updateCallback: () => setState(() {}),
             child: const SideNavWidget(
-              sideMenuEnum: SideMenuEnum.MAIN_DASHBOARD,
+              sideMenuEnum: SideMenuEnum.TEAM_CAPACITIES,
             ),
           ),
         ),
@@ -90,7 +90,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    '8bj5guab' /* Main DashBoard */,
+                    'z0yohwm5' /* Team Capacities */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Almarai',

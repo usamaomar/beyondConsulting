@@ -240,9 +240,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MainDashBoardPage
   {
-    'cxuwk8l9': {
-      'en': 'Page Title',
-      'ar': '',
+    '8bj5guab': {
+      'en': 'Main DashBoard',
+      'ar': 'لوحة التحكم الرئيسية',
     },
     'q3s2giuq': {
       'en': 'Home',
@@ -339,6 +339,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // TeamCapacitiesPage
+  {
+    'z0yohwm5': {
+      'en': 'Team Capacities',
+      'ar': 'قدرات الفريق',
+    },
+    'waxkqn18': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
@@ -352,6 +363,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '8iucc20h': {
       'en': 'Create a Project',
       'ar': 'إنشاء مشروع',
+    },
+    'eq8mamhx': {
+      'en': 'Team Capacities',
+      'ar': 'قدرات الفريق',
     },
   },
   // countriesListDialog

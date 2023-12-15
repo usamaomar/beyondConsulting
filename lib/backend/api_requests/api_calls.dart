@@ -26,6 +26,7 @@ class LoginApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -52,6 +53,7 @@ class GetMyDataApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -81,6 +83,7 @@ class GetPersonalsApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -102,6 +105,7 @@ class GetStatisticsApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -129,14 +133,15 @@ class GetMyPrioritiesApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic proioritesJsonArray(dynamic response) => getJsonField(
+  static List? proioritesJsonArray(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
+      ) as List?;
 }
 
 class GetMyProjectsApiCall {
@@ -156,14 +161,15 @@ class GetMyProjectsApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic projectsJsonArray(dynamic response) => getJsonField(
+  static List? projectsJsonArray(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
+      ) as List?;
 }
 
 class GetProjectStatisticsApiCall {
@@ -184,14 +190,15 @@ class GetProjectStatisticsApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic projectStatisticsJsonArray(dynamic response) => getJsonField(
+  static List? projectStatisticsJsonArray(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
+      ) as List?;
 }
 
 class GetMyProjectsCreationApiCall {
@@ -211,14 +218,15 @@ class GetMyProjectsCreationApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic projectsJsonArray(dynamic response) => getJsonField(
+  static List? projectsJsonArray(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
+      ) as List?;
 }
 
 class GetAllClientsApiCall {
@@ -238,14 +246,43 @@ class GetAllClientsApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic projectsJsonArray(dynamic response) => getJsonField(
+  static List? projectsJsonArray(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
+      ) as List?;
+}
+
+class GetAllClientsApiCopyCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetAllClientsApi Copy',
+      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Clients/GetAllClients',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
 }
 
 class UploadFileCall {
@@ -269,6 +306,7 @@ class UploadFileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -309,6 +347,7 @@ class CreateClintCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -371,6 +410,7 @@ class CreateProjectApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }

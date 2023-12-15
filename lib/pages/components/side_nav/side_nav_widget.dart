@@ -146,8 +146,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -227,8 +226,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -281,8 +279,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -420,8 +417,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
+                                        padding: const EdgeInsets.all(15.0),
                                         child: Container(
                                           width: 22.0,
                                           height: 22.0,
@@ -500,8 +496,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 10.0, 10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Container(
                                   width: 22.0,
                                   height: 22.0,
@@ -544,6 +539,91 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     ),
                   ],
                 ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Opacity(
+                      opacity: 0.2,
+                      child: Divider(
+                        thickness: 1.0,
+                        color: FlutterFlowTheme.of(context).accent4,
+                      ),
+                    ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        if (widget.sideMenuEnum !=
+                            SideMenuEnum.TEAM_CAPACITIES) {
+                          context.pushNamed(
+                            'TeamCapacitiesPage',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
+                        } else {
+                          return;
+                        }
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                          color: widget.sideMenuEnum ==
+                                  SideMenuEnum.TEAM_CAPACITIES
+                              ? const Color(0x73FFFFFF)
+                              : const Color(0x00000000),
+                          borderRadius: BorderRadius.circular(0.0),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: SvgPicture.asset(
+                                  'assets/images/Group_2055.svg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'eq8mamhx' /* Team Capacities */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Opacity(
+                      opacity: 0.2,
+                      child: Divider(
+                        thickness: 1.0,
+                        color: FlutterFlowTheme.of(context).accent4,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -552,7 +632,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                padding: const EdgeInsets.all(15.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
