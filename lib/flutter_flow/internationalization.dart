@@ -334,6 +334,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Financial Outlook',
       'ar': 'التوقعات المالية',
     },
+    'hki296sc': {
+      'en': 'Total Budgets',
+      'ar': 'إجمالي الميزانيات',
+    },
+    '6g45g0s6': {
+      'en': 'Spent Budgets',
+      'ar': 'الميزانيات المنفقة',
+    },
+    '69xkzumz': {
+      'en': 'Remaining Budgets',
+      'ar': 'الميزانيات المتبقية',
+    },
+    'ofm4073h': {
+      'en': 'Revenue',
+      'ar': 'ربح',
+    },
+    'mhnpt9xj': {
+      'en': 'JOD',
+      'ar': 'دينار',
+    },
+    'x8rgmtig': {
+      'en': '30k/',
+      'ar': 'ربح',
+    },
+    '239ewb9m': {
+      'en': '30k',
+      'ar': 'دينار',
+    },
     'vi0lsg97': {
       'en': 'Home',
       'ar': '',
