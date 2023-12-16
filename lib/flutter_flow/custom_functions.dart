@@ -434,3 +434,18 @@ String getCostStatusName(
     }
   }
 }
+
+List<MemberModelStruct> addMemberItemsToList(
+  String seniorName,
+  String seniorId,
+  String seniorPicture,
+  List<MemberModelStruct> midManagers,
+  List<MemberModelStruct> associates,
+) {
+  List<MemberModelStruct> members = [];
+  members.add(MemberModelStruct(
+      name: seniorName, id: seniorId, picture: seniorPicture));
+  members.addAll(midManagers);
+  members.addAll(associates);
+  return members;
+}

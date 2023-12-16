@@ -396,21 +396,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Collaborators',
       'ar': 'المتعاونون',
     },
-    '8mb1rhja': {
-      'en': 'Hello World',
-      'ar': '',
-    },
-    'as0qwxrd': {
-      'en': 'Hello World',
-      'ar': '',
-    },
     '9932hy4l': {
-      'en': 'Hello World',
-      'ar': '',
-    },
-    'bcrj3eno': {
-      'en': 'Hello World',
-      'ar': '',
+      'en': 'Client',
+      'ar': 'عميل',
     },
     '16m5oc28': {
       'en': 'CollaboratProject Financial Detailsors',
@@ -420,25 +408,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Estimated Cost',
       'ar': 'التكلفة المتوقعة',
     },
-    '9gkubrvi': {
-      'en': 'Hello World',
-      'ar': '',
-    },
     'aoyg0qx6': {
-      'en': 'Collaborators',
-      'ar': 'المتعاونون',
-    },
-    'd1sboetb': {
       'en': 'Collaborators',
       'ar': 'المتعاونون',
     },
     'x5ely4t0': {
       'en': 'Gross Profit',
       'ar': 'اجمالي الربح',
-    },
-    'uywbw1tn': {
-      'en': 'Collaborators',
-      'ar': 'المتعاونون',
     },
     'bgiqcti4': {
       'en': 'Gross Profit Margin',

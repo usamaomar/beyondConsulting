@@ -44,6 +44,20 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                 ? ProjectModelStruct.fromMap(widget.projectJsonObject)
                 : null;
       });
+      setState(() {
+        _model.listOfMemebrslocal = [];
+      });
+      setState(() {
+        _model.listOfMemebrslocal = functions
+            .addMemberItemsToList(
+                _model.projectModel!.senior,
+                _model.projectModel!.seniorId,
+                _model.projectModel!.seniorPicture,
+                _model.projectModel!.midManagers.toList(),
+                _model.projectModel!.associates.toList())
+            .toList()
+            .cast<MemberModelStruct>();
+      });
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -181,63 +195,160 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  30.0, 30.0, 30.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(50.0),
-                                      bottomRight: Radius.circular(50.0),
-                                      topLeft: Radius.circular(50.0),
-                                      topRight: Radius.circular(50.0),
-                                    ),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/748/600',
-                                      width: 80.0,
-                                      height: 80.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '8mb1rhja' /* Hello World */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Almarai',
-                                                color: const Color(0xFF032734),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.bold,
-                                                useGoogleFonts: false,
+                                  30.0, 20.0, 0.0, 0.0),
+                              child: Container(
+                                height: 100.0,
+                                decoration: const BoxDecoration(),
+                                child: Builder(
+                                  builder: (context) {
+                                    final listOfMemebersLocal = _model
+                                        .listOfMemebrslocal
+                                        .map((e) => e)
+                                        .toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: listOfMemebersLocal.length,
+                                      itemBuilder:
+                                          (context, listOfMemebersLocalIndex) {
+                                        final listOfMemebersLocalItem =
+                                            listOfMemebersLocal[
+                                                listOfMemebersLocalIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius: const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(50.0),
+                                                bottomRight:
+                                                    Radius.circular(50.0),
+                                                topLeft: Radius.circular(50.0),
+                                                topRight: Radius.circular(50.0),
                                               ),
-                                        ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'as0qwxrd' /* Hello World */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Almarai',
-                                                color: const Color(0xFF032734),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
+                                              child: Image.network(
+                                                functions.getFullImage(
+                                                    listOfMemebersLocalItem
+                                                        .picture)!,
+                                                width: 100.0,
+                                                height: 100.0,
+                                                fit: BoxFit.cover,
                                               ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    listOfMemebersLocalItem
+                                                        .name,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          color:
+                                                              const Color(0xFF032734),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 5.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      () {
+                                                        if (_model.projectModel
+                                                                ?.seniorId ==
+                                                            listOfMemebersLocalItem
+                                                                .id) {
+                                                          return FFLocalizations
+                                                                  .of(context)
+                                                              .getVariableText(
+                                                            enText: 'Senior',
+                                                            arText: 'أول',
+                                                          );
+                                                        } else if ((_model
+                                                                        .projectModel
+                                                                        ?.midManagers
+                                                                        .where((e) =>
+                                                                            getJsonField(
+                                                                              e.toMap(),
+                                                                              r'''$.id''',
+                                                                            ))
+                                                                        .toList() !=
+                                                                    null &&
+                                                                _model
+                                                                    .projectModel
+                                                                    ?.midManagers
+                                                                    .where((e) =>
+                                                                        getJsonField(
+                                                                          e.toMap(),
+                                                                          r'''$.id''',
+                                                                        ))
+                                                                    .toList().isNotEmpty) ==
+                                                            getJsonField(
+                                                              listOfMemebersLocalItem
+                                                                  .toMap(),
+                                                              r'''$.id''',
+                                                            )) {
+                                                          return FFLocalizations
+                                                                  .of(context)
+                                                              .getVariableText(
+                                                            enText:
+                                                                'Mid Manager',
+                                                            arText:
+                                                                'مدير منتصف',
+                                                          );
+                                                        } else {
+                                                          return FFLocalizations
+                                                                  .of(context)
+                                                              .getVariableText(
+                                                            enText:
+                                                                'Associates',
+                                                            arText: 'مساعد',
+                                                          );
+                                                        }
+                                                      }(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                color: const Color(
+                                                                    0xFF032734),
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                             Padding(
@@ -252,41 +363,54 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                       30.0, 20.0, 30.0, 20.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '9932hy4l' /* Hello World */,
+                                          '9932hy4l' /* Client */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Almarai',
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              useGoogleFonts: false,
+                                            ),
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          ClipRRect(
-                                            borderRadius: const BorderRadius.only(
-                                              bottomLeft: Radius.circular(30.0),
-                                              bottomRight:
-                                                  Radius.circular(30.0),
-                                              topLeft: Radius.circular(30.0),
-                                              topRight: Radius.circular(30.0),
-                                            ),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/829/600',
-                                              width: 40.0,
-                                              height: 40.0,
-                                              fit: BoxFit.cover,
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 5.0, 0.0),
+                                            child: ClipRRect(
+                                              borderRadius: const BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(30.0),
+                                                bottomRight:
+                                                    Radius.circular(30.0),
+                                                topLeft: Radius.circular(30.0),
+                                                topRight: Radius.circular(30.0),
+                                              ),
+                                              child: Image.network(
+                                                _model.projectModel!.clientLogo,
+                                                width: 40.0,
+                                                height: 40.0,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'bcrj3eno' /* Hello World */,
-                                            ),
+                                            _model.projectModel!.client,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Almarai',
                                                   fontSize: 18.0,
+                                                  fontWeight: FontWeight.w500,
                                                   useGoogleFonts: false,
                                                 ),
                                           ),
@@ -331,6 +455,7 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                   FFLocalizations.of(context).getText(
                                     '16m5oc28' /* CollaboratProject Financial De... */,
                                   ),
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -402,10 +527,11 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 30.0),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '9gkubrvi' /* Hello World */,
-                                              ),
+                                              '${valueOrDefault<String>(
+                                                _model.projectModel?.costBudget
+                                                    .toString(),
+                                                '0',
+                                              )} JOD',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -471,9 +597,11 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                         ),
                                   ),
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'd1sboetb' /* Collaborators */,
-                                    ),
+                                    '${valueOrDefault<String>(
+                                      _model.projectModel?.approvedPricing
+                                          .toString(),
+                                      '0',
+                                    )} JOD',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -509,14 +637,15 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                         ),
                                   ),
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'uywbw1tn' /* Collaborators */,
-                                    ),
+                                    '${valueOrDefault<String>(
+                                      _model.projectModel?.profit.toString(),
+                                      '0',
+                                    )} JOD',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Almarai',
-                                          color: const Color(0xFF9DCD5A),
+                                          color: const Color(0xFFE58A44),
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
@@ -554,7 +683,7 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Almarai',
-                                          color: const Color(0xFF9DCD5A),
+                                          color: const Color(0xFFE58A44),
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: false,
