@@ -316,6 +316,29 @@ String convertToFormattedString(DateTime dateTime) {
   return formattedString;
 }
 
+int getCostStatusId(
+  String lang,
+  String selection,
+) {
+  if (lang == 'en') {
+    if (selection == "Pending") {
+      return 0;
+    } else if (selection == "Approved") {
+      return 1;
+    } else {
+      return 2;
+    }
+  } else {
+    if (selection == "قيد الانتظار") {
+      return 0;
+    } else if (selection == "موافقة") {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
+}
+
 String? convertAnyThingToString(dynamic any) {
   return any.toString();
 }
@@ -387,4 +410,27 @@ List<dynamic> convertMembertModelStruct(
   }
 
   return jsonArray;
+}
+
+String getCostStatusName(
+  String lang,
+  int selection,
+) {
+  if (lang == 'en') {
+    if (selection == 0) {
+      return "Pending";
+    } else if (selection == 1) {
+      return "Approved";
+    } else {
+      return "Rejected";
+    }
+  } else {
+    if (selection == 0) {
+      return "قيد الانتظار";
+    } else if (selection == 1) {
+      return "موافقة";
+    } else {
+      return "مرفوض";
+    }
+  }
 }

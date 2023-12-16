@@ -107,63 +107,63 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
-    '98mqarv5': {
+    'ra0xsiiu': {
       'en': 'My Priorities',
       'ar': 'أولوياتي',
     },
-    '0ll3yfl3': {
+    'ohwwc2sp': {
       'en': 'Upcoming',
       'ar': 'القادمة',
     },
-    'l4kkia6u': {
+    'y3hqn22l': {
       'en': 'Overdue',
       'ar': 'متأخرة',
     },
-    '0jmhf24m': {
+    '5v6lf3da': {
       'en': 'Completed',
       'ar': 'مكتمل',
     },
-    'fdhvt9kh': {
+    'q3lp8obk': {
       'en': ' ',
       'ar': '',
     },
-    'jheuilak': {
+    '6pv65e2v': {
       'en': 'Projects',
       'ar': 'المشاريع',
     },
-    'r94z50ch': {
+    'l3ntj3oh': {
       'en': 'See More >>',
       'ar': 'شاهد المزيد >>',
     },
-    'h087oxl9': {
+    'a5wbit0k': {
       'en': 'Projects',
       'ar': 'المشاريع',
     },
-    'cdqd2nva': {
+    'bwv8f0k5': {
       'en': 'See More >>',
       'ar': 'شاهد المزيد >>',
     },
-    'irpi5f45': {
+    'zv1tgsjl': {
       'en': 'Targets',
       'ar': 'الأهداف',
     },
-    'e3i7s6lq': {
+    'q87jn3s3': {
       'en': 'Financial Target',
       'ar': 'الهدف المالي',
     },
-    'o6gz17pe': {
+    'zwtl76zx': {
       'en': 'Client Satisfaction',
       'ar': 'رضا العملاء',
     },
-    '4jec6r2c': {
+    'bhxknzuf': {
       'en': 'Targets',
       'ar': 'الأهداف',
     },
-    'sl1su7q1': {
+    'nhgqpzos': {
       'en': 'Financial Target',
       'ar': 'الهدف المالي',
     },
-    '8wy9h4n2': {
+    '1cdtx7kp': {
       'en': 'Client Satisfaction',
       'ar': 'رضا العملاء',
     },
@@ -330,6 +330,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ProjectPage
   {
+    '72aclu09': {
+      'en': 'Projects Tracker',
+      'ar': 'متتبع المشاريع',
+    },
+    'ehbk578f': {
+      'en': 'USAID BGA',
+      'ar': '',
+    },
+    '652l05v1': {
+      'en': '4/7 Milestones',
+      'ar': '',
+    },
     '7ogjhx51': {
       'en': 'Financial Outlook',
       'ar': 'التوقعات المالية',
@@ -378,6 +390,101 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // CostManagement
+  {
+    's298oagd': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    '8mb1rhja': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    'as0qwxrd': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    '9932hy4l': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    'bcrj3eno': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    '16m5oc28': {
+      'en': 'CollaboratProject Financial Detailsors',
+      'ar': 'التفاصيل المالية لمشروع Collaborat',
+    },
+    'w643ruv4': {
+      'en': 'Estimated Cost',
+      'ar': 'التكلفة المتوقعة',
+    },
+    '9gkubrvi': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+    'aoyg0qx6': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'd1sboetb': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'x5ely4t0': {
+      'en': 'Gross Profit',
+      'ar': 'اجمالي الربح',
+    },
+    'uywbw1tn': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'bgiqcti4': {
+      'en': 'Gross Profit Margin',
+      'ar': 'هامش الربح الإجمالي',
+    },
+    '18qqdvdt': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    '71093bt5': {
+      'en': 'Item',
+      'ar': 'غرض',
+    },
+    'ly1zu7bn': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    '4qtx9pn2': {
+      'en': 'Cost per Unit (JOD)',
+      'ar': 'تكلفة الوحدة (دينار أردني)',
+    },
+    'uag90mi3': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    'zdb85tbu': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'nqugrs9i': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    'ge0cegel': {
+      'en': 'Note',
+      'ar': 'ملحوظة',
+    },
+    'e7u4kwtt': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    'rmel2kpi': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
@@ -388,7 +495,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Main DashBoard',
       'ar': 'لوحة المعلومات الرئيسية',
     },
-    '8iucc20h': {
+    'i4cv7m8y': {
+      'en': 'Cost Managment',
+      'ar': 'إدارة التكاليف',
+    },
+    'h61xrlo6': {
       'en': 'Create a Project',
       'ar': 'إنشاء مشروع',
     },
@@ -744,6 +855,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '3nm8kibz': {
       'en': 'Update',
       'ar': 'تحديث',
+    },
+  },
+  // CostDropComponent
+  {
+    'dk28h0ck': {
+      'en': 'Pending',
+      'ar': 'قيد الانتظار',
+    },
+    'cr6o15rt': {
+      'en': 'Approved',
+      'ar': 'موافقة',
+    },
+    '1dk4akoh': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
+    },
+    'yqlvpthd': {
+      'en': 'Search for an item...',
+      'ar': '',
     },
   },
   // Miscellaneous
