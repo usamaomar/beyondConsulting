@@ -13,6 +13,19 @@ class CostManagementModel extends FlutterFlowModel<CostManagementWidget> {
   void updateProjectModelStruct(Function(ProjectModelStruct) updateFn) =>
       updateFn(projectModel ??= ProjectModelStruct());
 
+  List<MemberModelStruct> listOfMemebrslocal = [];
+  void addToListOfMemebrslocal(MemberModelStruct item) =>
+      listOfMemebrslocal.add(item);
+  void removeFromListOfMemebrslocal(MemberModelStruct item) =>
+      listOfMemebrslocal.remove(item);
+  void removeAtIndexFromListOfMemebrslocal(int index) =>
+      listOfMemebrslocal.removeAt(index);
+  void insertAtIndexInListOfMemebrslocal(int index, MemberModelStruct item) =>
+      listOfMemebrslocal.insert(index, item);
+  void updateListOfMemebrslocalAtIndex(
+          int index, Function(MemberModelStruct) updateFn) =>
+      listOfMemebrslocal[index] = updateFn(listOfMemebrslocal[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

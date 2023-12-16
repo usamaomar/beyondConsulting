@@ -62,9 +62,6 @@ class _CostDropComponentWidgetState extends State<CostDropComponentWidget> {
         } else if (FFAppState().userModelAppState.accessRole.toString() ==
             '5') {
           return true;
-        } else if (FFAppState().userModelAppState.accessRole.toString() ==
-            '2') {
-          return true;
         } else {
           return false;
         }
