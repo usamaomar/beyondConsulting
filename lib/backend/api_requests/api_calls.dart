@@ -415,6 +415,38 @@ class CreateProjectApiCall {
   }
 }
 
+class UpdateCostStatusApiCall {
+  static Future<ApiCallResponse> call({
+    int? costId,
+    bool? isApproved,
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "costId": $costId,
+  "isApproved": $isApproved
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateCostStatusApi',
+      apiUrl:
+          'https://beyond.api.matterhr.com/api/v1/Projects/UpdateCostStatus',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

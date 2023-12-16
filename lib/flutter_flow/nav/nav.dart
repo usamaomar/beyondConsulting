@@ -74,6 +74,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TeamCapacitiesPage',
           path: '/teamCapacitiesPage',
           builder: (context, params) => const TeamCapacitiesPageWidget(),
+        ),
+        FFRoute(
+          name: 'CostManagement',
+          path: '/costManagement',
+          builder: (context, params) => CostManagementWidget(
+            projectJsonObject:
+                params.getParam('projectJsonObject', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

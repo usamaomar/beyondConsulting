@@ -31,8 +31,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   @override
   void initState(BuildContext context) {
-    sideNavModel = createModel(context, () => SideNavModel());
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
+    sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override

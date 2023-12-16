@@ -290,6 +290,199 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(
+                                    'assets/images/Group_2159.svg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'i4cv7m8y' /* Cost Managment */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  FFAppState().costIsOpend =
+                                      FFAppState().costIsOpend ? false : true;
+                                });
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 10.0),
+                                    child: Stack(
+                                      children: [
+                                        if (FFAppState().costIsOpend == false)
+                                          Icon(
+                                            Icons.keyboard_arrow_down,
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            size: 24.0,
+                                          ),
+                                        if (FFAppState().costIsOpend == true)
+                                          Icon(
+                                            Icons.keyboard_arrow_up,
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            size: 24.0,
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    if (FFAppState().projectIsOpend == false)
+                      Opacity(
+                        opacity: 0.2,
+                        child: Divider(
+                          thickness: 1.0,
+                          color: FlutterFlowTheme.of(context).accent4,
+                        ),
+                      ),
+                    if (FFAppState().costIsOpend == true)
+                      Container(
+                        decoration: const BoxDecoration(),
+                        child: Builder(
+                          builder: (context) {
+                            final projectsSidList = FFAppState()
+                                .projectListCreationAppState
+                                .map((e) => e)
+                                .toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: projectsSidList.length,
+                              itemBuilder: (context, projectsSidListIndex) {
+                                final projectsSidListItem =
+                                    projectsSidList[projectsSidListIndex];
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'CostManagement',
+                                      queryParameters: {
+                                        'projectJsonObject': serializeParam(
+                                          projectsSidListItem.toMap(),
+                                          ParamType.JSON,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 0),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Container(
+                                          width: 22.0,
+                                          height: 22.0,
+                                          decoration: BoxDecoration(
+                                            color: () {
+                                              if (projectsSidListItem.type ==
+                                                  4) {
+                                                return const Color(0xFFB00712);
+                                              } else if (projectsSidListItem
+                                                      .type ==
+                                                  4) {
+                                                return const Color(0xFFECAD7C);
+                                              } else {
+                                                return const Color(0xFF9DCD5A);
+                                              }
+                                            }(),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 2.0, 15.0, 0.0),
+                                        child: Text(
+                                          projectsSidListItem.name,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Almarai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                  ],
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF032734),
+                        borderRadius: BorderRadius.circular(12.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  child: SvgPicture.asset(
                                     'assets/images/Group_1912.svg',
                                     fit: BoxFit.cover,
                                   ),
@@ -336,15 +529,15 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         10.0, 0.0, 10.0, 10.0),
                                     child: Stack(
                                       children: [
-                                        if (FFAppState().projectIsOpend == true)
+                                        if (FFAppState().projectIsOpend ==
+                                            false)
                                           Icon(
                                             Icons.keyboard_arrow_down,
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             size: 24.0,
                                           ),
-                                        if (FFAppState().projectIsOpend ==
-                                            false)
+                                        if (FFAppState().projectIsOpend == true)
                                           Icon(
                                             Icons.keyboard_arrow_up,
                                             color: FlutterFlowTheme.of(context)
@@ -516,7 +709,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     15.0, 2.0, 15.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '8iucc20h' /* Create a Project */,
+                                    'h61xrlo6' /* Create a Project */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -542,13 +735,14 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity: 0.2,
-                      child: Divider(
-                        thickness: 1.0,
-                        color: FlutterFlowTheme.of(context).accent4,
+                    if (FFAppState().projectIsOpend == true)
+                      Opacity(
+                        opacity: 0.2,
+                        child: Divider(
+                          thickness: 1.0,
+                          color: FlutterFlowTheme.of(context).accent4,
+                        ),
                       ),
-                    ),
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,

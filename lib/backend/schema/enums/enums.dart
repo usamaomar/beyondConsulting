@@ -6,12 +6,21 @@ enum SideMenuEnum {
   CREATE_PROJECT,
   PROJECT_PAGE,
   TEAM_CAPACITIES,
+  COST_MANAGEMENT,
 }
 
 enum FinancialOutlookBar {
   Total,
   Spent,
   Remaining,
+}
+
+enum AccessRole {
+  Developer,
+  GeneralManager,
+  Senior,
+  Middle,
+  Associate,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {
@@ -29,6 +38,8 @@ T? deserializeEnum<T>(String? value) {
       return SideMenuEnum.values.deserialize(value) as T?;
     case (FinancialOutlookBar):
       return FinancialOutlookBar.values.deserialize(value) as T?;
+    case (AccessRole):
+      return AccessRole.values.deserialize(value) as T?;
     default:
       return null;
   }
