@@ -41,6 +41,8 @@ class CostManagementModel extends FlutterFlowModel<CostManagementWidget> {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
     costDropComponentModels =
         FlutterFlowDynamicModels(() => CostDropComponentModel());
+    dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
+    dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
     sideNavModel = createModel(context, () => SideNavModel());
   }
 
