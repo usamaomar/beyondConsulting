@@ -369,9 +369,16 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                           Radius.circular(30.0),
                                                     ),
                                                     child: Image.network(
-                                                      functions.getFullImage(
-                                                          _model.projectModel!
-                                                              .clientLogo)!,
+                                                      functions.getFullImage(_model
+                                                                      .projectModel
+                                                                      ?.clientLogo !=
+                                                                  null &&
+                                                              _model.projectModel
+                                                                      ?.clientLogo !=
+                                                                  ''
+                                                          ? _model.projectModel!
+                                                              .clientLogo
+                                                          : ' ')!,
                                                       width: 40.0,
                                                       height: 40.0,
                                                       fit: BoxFit.cover,
@@ -379,7 +386,14 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  _model.projectModel!.client,
+                                                  _model.projectModel?.client !=
+                                                              null &&
+                                                          _model.projectModel
+                                                                  ?.client !=
+                                                              ''
+                                                      ? _model
+                                                          .projectModel!.client
+                                                      : ' ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
