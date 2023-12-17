@@ -465,8 +465,26 @@ List<MemberModelStruct> addMemberItemsToList(
 ) {
   List<MemberModelStruct> members = [];
   members.add(MemberModelStruct(
-      name: seniorName, id: seniorId, picture: seniorPicture));
-  members.addAll(midManagers);
-  members.addAll(associates);
+      name: seniorName,
+      id: seniorId,
+      picture: seniorPicture,
+      firstName: 'Senior'));
+
+  midManagers.forEach((MemberModelStruct item) {
+    members.add(MemberModelStruct(
+        name: item.name,
+        id: item.id,
+        picture: item.picture,
+        firstName: 'Mid Manager'));
+  });
+
+  associates.forEach((MemberModelStruct item) {
+    members.add(MemberModelStruct(
+        name: item.name,
+        id: item.id,
+        picture: item.picture,
+        firstName: 'Associates'));
+  });
+
   return members;
 }

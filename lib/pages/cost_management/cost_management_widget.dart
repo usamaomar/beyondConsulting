@@ -287,27 +287,8 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            functions
-                                                                .getMemberType(
-                                                                    _model
-                                                                        .projectModel!
-                                                                        .senior,
-                                                                    _model
-                                                                        .projectModel!
-                                                                        .seniorId,
-                                                                    _model
-                                                                        .projectModel!
-                                                                        .seniorPicture,
-                                                                    _model
-                                                                        .projectModel!
-                                                                        .midManagers
-                                                                        .toList(),
-                                                                    _model
-                                                                        .projectModel!
-                                                                        .associates
-                                                                        .toList())[
-                                                                    listOfMemebersLocalIndex]
-                                                                .name,
+                                                            listOfMemebersLocalItem
+                                                                .firstName,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1115,27 +1096,8 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        functions
-                                                            .getMemberType(
-                                                                _model
-                                                                    .projectModel!
-                                                                    .senior,
-                                                                _model
-                                                                    .projectModel!
-                                                                    .seniorId,
-                                                                _model
-                                                                    .projectModel!
-                                                                    .seniorPicture,
-                                                                _model
-                                                                    .projectModel!
-                                                                    .midManagers
-                                                                    .toList(),
-                                                                _model
-                                                                    .projectModel!
-                                                                    .associates
-                                                                    .toList())[
-                                                                listOfMemebersLocalIndex]
-                                                            .name,
+                                                        listOfMemebersLocalItem
+                                                            .firstName,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
