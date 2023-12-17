@@ -20,7 +20,14 @@ class TeamCapacitiesPageModel
   // Stores action output result for [Backend Call - API (GetMyTeamApi)] action in TeamCapacitiesPage widget.
   ApiCallResponse? apiResult1xv;
   // Models for ReadMemberCpacity dynamic component.
-  late FlutterFlowDynamicModels<ReadMemberCpacityModel> readMemberCpacityModels;
+  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
+      readMemberCpacityModels1;
+  // Models for ReadMemberCpacity dynamic component.
+  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
+      readMemberCpacityModels2;
+  // Models for ReadMemberCpacity dynamic component.
+  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
+      readMemberCpacityModels3;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -28,7 +35,11 @@ class TeamCapacitiesPageModel
 
   @override
   void initState(BuildContext context) {
-    readMemberCpacityModels =
+    readMemberCpacityModels1 =
+        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
+    readMemberCpacityModels2 =
+        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
+    readMemberCpacityModels3 =
         FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
     sideNavModel = createModel(context, () => SideNavModel());
   }
@@ -36,7 +47,9 @@ class TeamCapacitiesPageModel
   @override
   void dispose() {
     unfocusNode.dispose();
-    readMemberCpacityModels.dispose();
+    readMemberCpacityModels1.dispose();
+    readMemberCpacityModels2.dispose();
+    readMemberCpacityModels3.dispose();
     sideNavModel.dispose();
   }
 

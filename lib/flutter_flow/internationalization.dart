@@ -381,13 +381,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TeamCapacitiesPage
   {
-    'bmexg8xr': {
-      'en': 'Hello World',
-      'ar': '',
+    '835w2hj5': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
     },
     'h8uowkgw': {
-      'en': 'Hello World',
-      'ar': '',
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    'bqsruo7f': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
     },
     'z0yohwm5': {
       'en': 'Team Capacities',

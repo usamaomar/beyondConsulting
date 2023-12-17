@@ -38,12 +38,21 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
       );
       if ((_model.apiResult1xv?.succeeded ?? true)) {
         setState(() {
-          _model.teamMemberModel =
-              (_model.apiResult1xv?.jsonBody ?? '') != null &&
-                      (_model.apiResult1xv?.jsonBody ?? '') != ''
-                  ? TeamMembersModelStruct.fromMap(
-                      (_model.apiResult1xv?.jsonBody ?? ''))
-                  : null;
+          _model.teamMemberModel = getJsonField(
+                        (_model.apiResult1xv?.jsonBody ?? ''),
+                        r'''$.data''',
+                      ) !=
+                      null &&
+                  getJsonField(
+                        (_model.apiResult1xv?.jsonBody ?? ''),
+                        r'''$.data''',
+                      ) !=
+                      ''
+              ? TeamMembersModelStruct.fromMap(getJsonField(
+                  (_model.apiResult1xv?.jsonBody ?? ''),
+                  r'''$.data''',
+                ))
+              : null;
         });
       }
     });
@@ -167,9 +176,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               30.0, 20.0, 30.0, 20.0),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'bmexg8xr' /* Hello World */,
-                            ),
+                            _model.teamMemberModel!.name,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -194,14 +201,14 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                         Icon(
                           Icons.star_rate_sharp,
                           color: FlutterFlowTheme.of(context).warning,
-                          size: 30.0,
+                          size: 40.0,
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 10.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'h8uowkgw' /* Hello World */,
+                              '835w2hj5' /* Seniors */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -217,80 +224,233 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                       ],
                     ),
                   ),
-                  Builder(
-                    builder: (context) {
-                      final listOfLocalSeniorsList =
-                          _model.teamMemberModel?.seniors.toList() ?? [];
-                      return GridView.builder(
-                        padding: EdgeInsets.zero,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 10.0,
-                          childAspectRatio: 1.0,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listOfLocalSeniorsList.length,
-                        itemBuilder: (context, listOfLocalSeniorsListIndex) {
-                          final listOfLocalSeniorsListItem =
-                              listOfLocalSeniorsList[
-                                  listOfLocalSeniorsListIndex];
-                          return Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: wrapWithModel(
-                              model: _model.readMemberCpacityModels.getModel(
-                                listOfLocalSeniorsListItem.id,
-                                listOfLocalSeniorsListIndex,
-                              ),
-                              updateCallback: () => setState(() {}),
-                              child: ReadMemberCpacityWidget(
-                                key: Key(
-                                  'Keycyp_${listOfLocalSeniorsListItem.id}',
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                    child: Builder(
+                      builder: (context) {
+                        final listOfLocalSeniorsList =
+                            _model.teamMemberModel?.seniors.toList() ?? [];
+                        return GridView.builder(
+                          padding: EdgeInsets.zero,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 5.0,
+                            mainAxisSpacing: 5.0,
+                            childAspectRatio: 5.0,
+                          ),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listOfLocalSeniorsList.length,
+                          itemBuilder: (context, listOfLocalSeniorsListIndex) {
+                            final listOfLocalSeniorsListItem =
+                                listOfLocalSeniorsList[
+                                    listOfLocalSeniorsListIndex];
+                            return Align(
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              child: wrapWithModel(
+                                model: _model.readMemberCpacityModels1.getModel(
+                                  listOfLocalSeniorsListItem.id,
+                                  listOfLocalSeniorsListIndex,
                                 ),
-                                memberName: listOfLocalSeniorsListItem.userName,
-                                projectType: functions.getAccessRoleName(
-                                    listOfLocalSeniorsListItem.accessRole),
-                                imagePath: listOfLocalSeniorsListItem
-                                    .profilePictureDataUrl,
+                                updateCallback: () => setState(() {}),
+                                child: ReadMemberCpacityWidget(
+                                  key: Key(
+                                    'Keycyp_${listOfLocalSeniorsListItem.id}',
+                                  ),
+                                  memberName:
+                                      listOfLocalSeniorsListItem.userName,
+                                  projectType: functions.getAccessRoleName(
+                                      listOfLocalSeniorsListItem.accessRole),
+                                  imagePath: listOfLocalSeniorsListItem
+                                      .profilePictureDataUrl,
+                                  currentCapacity: listOfLocalSeniorsListItem
+                                      .currentCapacity,
+                                ),
                               ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 20.0, 30.0, 20.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.star_rate_sharp,
+                          color: FlutterFlowTheme.of(context).warning,
+                          size: 40.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'h8uowkgw' /* Middle Managers */,
                             ),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                  const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                  GridView(
-                    padding: EdgeInsets.zero,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 10.0,
-                      childAspectRatio: 1.0,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Almarai',
+                                  color: const Color(0xFF01A3E2),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
+                                ),
+                          ),
+                        ),
+                      ],
                     ),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: const [],
                   ),
-                  const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                  GridView(
-                    padding: EdgeInsets.zero,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 10.0,
-                      childAspectRatio: 1.0,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                    child: Builder(
+                      builder: (context) {
+                        final listOfLocalMedsList = _model
+                                .teamMemberModel?.members
+                                .where((e) => e.accessRole == 3 ? true : false)
+                                .toList()
+                                .toList() ??
+                            [];
+                        return GridView.builder(
+                          padding: EdgeInsets.zero,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 5.0,
+                            mainAxisSpacing: 5.0,
+                            childAspectRatio: 5.0,
+                          ),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listOfLocalMedsList.length,
+                          itemBuilder: (context, listOfLocalMedsListIndex) {
+                            final listOfLocalMedsListItem =
+                                listOfLocalMedsList[listOfLocalMedsListIndex];
+                            return Align(
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              child: wrapWithModel(
+                                model: _model.readMemberCpacityModels2.getModel(
+                                  listOfLocalMedsListItem.id,
+                                  listOfLocalMedsListIndex,
+                                ),
+                                updateCallback: () => setState(() {}),
+                                child: ReadMemberCpacityWidget(
+                                  key: Key(
+                                    'Keyb0i_${listOfLocalMedsListItem.id}',
+                                  ),
+                                  memberName: listOfLocalMedsListItem.userName,
+                                  projectType: functions.getAccessRoleName(
+                                      listOfLocalMedsListItem.accessRole),
+                                  imagePath: listOfLocalMedsListItem
+                                      .profilePictureDataUrl,
+                                  currentCapacity:
+                                      listOfLocalMedsListItem.currentCapacity,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
                     ),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: const [],
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 20.0, 30.0, 20.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.star_rate_sharp,
+                          color: FlutterFlowTheme.of(context).warning,
+                          size: 40.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'bqsruo7f' /* Associate */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Almarai',
+                                  color: const Color(0xFF01A3E2),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  useGoogleFonts: false,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+                    child: Builder(
+                      builder: (context) {
+                        final listOfLocalAssociatesList = _model
+                                .teamMemberModel?.members
+                                .where((e) => e.accessRole == 4 ? true : false)
+                                .toList()
+                                .toList() ??
+                            [];
+                        return GridView.builder(
+                          padding: EdgeInsets.zero,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 5.0,
+                            mainAxisSpacing: 5.0,
+                            childAspectRatio: 5.0,
+                          ),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listOfLocalAssociatesList.length,
+                          itemBuilder:
+                              (context, listOfLocalAssociatesListIndex) {
+                            final listOfLocalAssociatesListItem =
+                                listOfLocalAssociatesList[
+                                    listOfLocalAssociatesListIndex];
+                            return Align(
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              child: wrapWithModel(
+                                model: _model.readMemberCpacityModels3.getModel(
+                                  listOfLocalAssociatesListItem.id,
+                                  listOfLocalAssociatesListIndex,
+                                ),
+                                updateCallback: () => setState(() {}),
+                                child: ReadMemberCpacityWidget(
+                                  key: Key(
+                                    'Key47y_${listOfLocalAssociatesListItem.id}',
+                                  ),
+                                  memberName:
+                                      listOfLocalAssociatesListItem.userName,
+                                  projectType: functions.getAccessRoleName(
+                                      listOfLocalAssociatesListItem.accessRole),
+                                  imagePath: listOfLocalAssociatesListItem
+                                      .profilePictureDataUrl,
+                                  currentCapacity: listOfLocalAssociatesListItem
+                                      .currentCapacity,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
