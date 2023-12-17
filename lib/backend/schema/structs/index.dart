@@ -14,5 +14,6 @@ export 'project_statistic_model_struct.dart';
 export 'project_type_model_struct.dart';
 export 'reminder_model_struct.dart';
 export 'statistics_model_struct.dart';
+export 'team_members_model_struct.dart';
 export 'token_model_struct.dart';
 export 'user_model_struct.dart';
