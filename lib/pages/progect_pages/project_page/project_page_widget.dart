@@ -1,3 +1,7 @@
+import 'package:beyond_consulting/pages/progect_pages/project_page/sync.dart';
+import 'package:beyond_consulting/pages/progect_pages/project_page/test.dart';
+import 'package:beyond_consulting/pages/progect_pages/project_page/test_project_tracker_custom_widget.dart';
+
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +13,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'milestone_chart_widget.dart';
 import 'project_page_model.dart';
 export 'project_page_model.dart';
 
@@ -502,8 +507,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                               SizedBox(
                                                 width: 390.0,
                                                 height: 400.0,
-                                                child: custom_widgets
-                                                    .SyncFusionFlutterBarCharts(
+                                                child: Sync(
                                                   width: 390.0,
                                                   height: 400.0,
                                                   listOfTotal:
