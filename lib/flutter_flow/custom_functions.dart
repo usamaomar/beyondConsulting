@@ -488,3 +488,15 @@ List<MemberModelStruct> addMemberItemsToList(
 
   return members;
 }
+
+String getAccessRoleName(int accessRole) {
+  if (accessRole == 1) {
+    return "General Manager";
+  } else if (accessRole == 2) {
+    return "Senior";
+  } else if (accessRole == 3) {
+    return "Middle Manager";
+  } else {
+    return "Leader";
+  }
+}

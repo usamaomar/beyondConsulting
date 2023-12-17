@@ -14,13 +14,27 @@ class MemberModelStruct extends BaseStruct {
     String? firstName,
     String? lastName,
     bool? isSelected,
+    String? userName,
+    String? email,
+    String? phoneNumber,
+    String? profilePictureDataUrl,
+    int? accessRole,
+    int? fullCapacity,
+    int? currentCapacity,
   })  : _id = id,
         _name = name,
         _picture = picture,
         _status = status,
         _firstName = firstName,
         _lastName = lastName,
-        _isSelected = isSelected;
+        _isSelected = isSelected,
+        _userName = userName,
+        _email = email,
+        _phoneNumber = phoneNumber,
+        _profilePictureDataUrl = profilePictureDataUrl,
+        _accessRole = accessRole,
+        _fullCapacity = fullCapacity,
+        _currentCapacity = currentCapacity;
 
   // "id" field.
   String? _id;
@@ -64,6 +78,53 @@ class MemberModelStruct extends BaseStruct {
   set isSelected(bool? val) => _isSelected = val;
   bool hasIsSelected() => _isSelected != null;
 
+  // "userName" field.
+  String? _userName;
+  String get userName => _userName ?? '';
+  set userName(String? val) => _userName = val;
+  bool hasUserName() => _userName != null;
+
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  set email(String? val) => _email = val;
+  bool hasEmail() => _email != null;
+
+  // "phoneNumber" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  set phoneNumber(String? val) => _phoneNumber = val;
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "profilePictureDataUrl" field.
+  String? _profilePictureDataUrl;
+  String get profilePictureDataUrl => _profilePictureDataUrl ?? '';
+  set profilePictureDataUrl(String? val) => _profilePictureDataUrl = val;
+  bool hasProfilePictureDataUrl() => _profilePictureDataUrl != null;
+
+  // "accessRole" field.
+  int? _accessRole;
+  int get accessRole => _accessRole ?? 0;
+  set accessRole(int? val) => _accessRole = val;
+  void incrementAccessRole(int amount) => _accessRole = accessRole + amount;
+  bool hasAccessRole() => _accessRole != null;
+
+  // "fullCapacity" field.
+  int? _fullCapacity;
+  int get fullCapacity => _fullCapacity ?? 0;
+  set fullCapacity(int? val) => _fullCapacity = val;
+  void incrementFullCapacity(int amount) =>
+      _fullCapacity = fullCapacity + amount;
+  bool hasFullCapacity() => _fullCapacity != null;
+
+  // "currentCapacity" field.
+  int? _currentCapacity;
+  int get currentCapacity => _currentCapacity ?? 0;
+  set currentCapacity(int? val) => _currentCapacity = val;
+  void incrementCurrentCapacity(int amount) =>
+      _currentCapacity = currentCapacity + amount;
+  bool hasCurrentCapacity() => _currentCapacity != null;
+
   static MemberModelStruct fromMap(Map<String, dynamic> data) =>
       MemberModelStruct(
         id: data['id'] as String?,
@@ -73,6 +134,13 @@ class MemberModelStruct extends BaseStruct {
         firstName: data['firstName'] as String?,
         lastName: data['lastName'] as String?,
         isSelected: data['isSelected'] as bool?,
+        userName: data['userName'] as String?,
+        email: data['email'] as String?,
+        phoneNumber: data['phoneNumber'] as String?,
+        profilePictureDataUrl: data['profilePictureDataUrl'] as String?,
+        accessRole: castToType<int>(data['accessRole']),
+        fullCapacity: castToType<int>(data['fullCapacity']),
+        currentCapacity: castToType<int>(data['currentCapacity']),
       );
 
   static MemberModelStruct? maybeFromMap(dynamic data) =>
@@ -86,6 +154,13 @@ class MemberModelStruct extends BaseStruct {
         'firstName': _firstName,
         'lastName': _lastName,
         'isSelected': _isSelected,
+        'userName': _userName,
+        'email': _email,
+        'phoneNumber': _phoneNumber,
+        'profilePictureDataUrl': _profilePictureDataUrl,
+        'accessRole': _accessRole,
+        'fullCapacity': _fullCapacity,
+        'currentCapacity': _currentCapacity,
       }.withoutNulls;
 
   @override
@@ -117,6 +192,34 @@ class MemberModelStruct extends BaseStruct {
         'isSelected': serializeParam(
           _isSelected,
           ParamType.bool,
+        ),
+        'userName': serializeParam(
+          _userName,
+          ParamType.String,
+        ),
+        'email': serializeParam(
+          _email,
+          ParamType.String,
+        ),
+        'phoneNumber': serializeParam(
+          _phoneNumber,
+          ParamType.String,
+        ),
+        'profilePictureDataUrl': serializeParam(
+          _profilePictureDataUrl,
+          ParamType.String,
+        ),
+        'accessRole': serializeParam(
+          _accessRole,
+          ParamType.int,
+        ),
+        'fullCapacity': serializeParam(
+          _fullCapacity,
+          ParamType.int,
+        ),
+        'currentCapacity': serializeParam(
+          _currentCapacity,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -157,6 +260,41 @@ class MemberModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        userName: deserializeParam(
+          data['userName'],
+          ParamType.String,
+          false,
+        ),
+        email: deserializeParam(
+          data['email'],
+          ParamType.String,
+          false,
+        ),
+        phoneNumber: deserializeParam(
+          data['phoneNumber'],
+          ParamType.String,
+          false,
+        ),
+        profilePictureDataUrl: deserializeParam(
+          data['profilePictureDataUrl'],
+          ParamType.String,
+          false,
+        ),
+        accessRole: deserializeParam(
+          data['accessRole'],
+          ParamType.int,
+          false,
+        ),
+        fullCapacity: deserializeParam(
+          data['fullCapacity'],
+          ParamType.int,
+          false,
+        ),
+        currentCapacity: deserializeParam(
+          data['currentCapacity'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -171,12 +309,33 @@ class MemberModelStruct extends BaseStruct {
         status == other.status &&
         firstName == other.firstName &&
         lastName == other.lastName &&
-        isSelected == other.isSelected;
+        isSelected == other.isSelected &&
+        userName == other.userName &&
+        email == other.email &&
+        phoneNumber == other.phoneNumber &&
+        profilePictureDataUrl == other.profilePictureDataUrl &&
+        accessRole == other.accessRole &&
+        fullCapacity == other.fullCapacity &&
+        currentCapacity == other.currentCapacity;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([id, name, picture, status, firstName, lastName, isSelected]);
+  int get hashCode => const ListEquality().hash([
+        id,
+        name,
+        picture,
+        status,
+        firstName,
+        lastName,
+        isSelected,
+        userName,
+        email,
+        phoneNumber,
+        profilePictureDataUrl,
+        accessRole,
+        fullCapacity,
+        currentCapacity
+      ]);
 }
 
 MemberModelStruct createMemberModelStruct({
@@ -187,6 +346,13 @@ MemberModelStruct createMemberModelStruct({
   String? firstName,
   String? lastName,
   bool? isSelected,
+  String? userName,
+  String? email,
+  String? phoneNumber,
+  String? profilePictureDataUrl,
+  int? accessRole,
+  int? fullCapacity,
+  int? currentCapacity,
 }) =>
     MemberModelStruct(
       id: id,
@@ -196,4 +362,11 @@ MemberModelStruct createMemberModelStruct({
       firstName: firstName,
       lastName: lastName,
       isSelected: isSelected,
+      userName: userName,
+      email: email,
+      phoneNumber: phoneNumber,
+      profilePictureDataUrl: profilePictureDataUrl,
+      accessRole: accessRole,
+      fullCapacity: fullCapacity,
+      currentCapacity: currentCapacity,
     );
