@@ -13,11 +13,13 @@ class ReadMemberCpacityWidget extends StatefulWidget {
     required this.memberName,
     required this.projectType,
     required this.imagePath,
+    required this.currentCapacity,
   });
 
   final String? memberName;
   final String? projectType;
   final String? imagePath;
+  final int? currentCapacity;
 
   @override
   _ReadMemberCpacityWidgetState createState() =>
@@ -63,11 +65,23 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
             child: Stack(
               alignment: const AlignmentDirectional(0.0, 0.0),
               children: [
-                const Align(
-                  alignment: AlignmentDirectional(1.0, -1.0),
+                Align(
+                  alignment: const AlignmentDirectional(1.0, -1.1),
                   child: Icon(
                     Icons.lock,
-                    color: Color(0xFFEA0202),
+                    color: () {
+                      if (widget.currentCapacity == 0) {
+                        return const Color(0xFFE9E9E9);
+                      } else if (widget.currentCapacity == 1) {
+                        return const Color(0xFF9DCD5A);
+                      } else if (widget.currentCapacity == 2) {
+                        return const Color(0xFFFFD612);
+                      } else if (widget.currentCapacity! >= 3) {
+                        return const Color(0xFFEA2903);
+                      } else {
+                        return const Color(0x00000000);
+                      }
+                    }(),
                     size: 30.0,
                   ),
                 ),
@@ -92,17 +106,53 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                           width: 130.0,
                           height: 130.0,
                           fit: BoxFit.cover,
+                          alignment: const Alignment(0.0, 0.0),
                         ),
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(0.0),
-                        child: SvgPicture.asset(
-                          'assets/images/svgviewer-output_(1).svg',
-                          width: 140.0,
-                          height: 140.0,
-                          fit: BoxFit.fill,
+                      if (widget.currentCapacity == 0 ? true : false)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: SvgPicture.asset(
+                            'assets/images/svgviewer-output_(2).svg',
+                            width: 140.0,
+                            height: 140.0,
+                            fit: BoxFit.fill,
+                            alignment: const Alignment(0.0, 0.0),
+                          ),
                         ),
-                      ),
+                      if (widget.currentCapacity == 2 ? true : false)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: SvgPicture.asset(
+                            'assets/images/svgviewer-output_(1).svg',
+                            width: 140.0,
+                            height: 140.0,
+                            fit: BoxFit.fill,
+                            alignment: const Alignment(0.0, 0.0),
+                          ),
+                        ),
+                      if (widget.currentCapacity! >= 3 ? true : false)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: SvgPicture.asset(
+                            'assets/images/Group_2082.svg',
+                            width: 140.0,
+                            height: 140.0,
+                            fit: BoxFit.fill,
+                            alignment: const Alignment(0.0, 0.0),
+                          ),
+                        ),
+                      if (widget.currentCapacity == 1 ? true : false)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: SvgPicture.asset(
+                            'assets/images/Group_2085.svg',
+                            width: 140.0,
+                            height: 140.0,
+                            fit: BoxFit.fill,
+                            alignment: const Alignment(0.0, 0.0),
+                          ),
+                        ),
                     ],
                   ),
                 ),
