@@ -40,6 +40,27 @@ String calculateFutureDate(String dateString) {
   }
 }
 
+List<MemberModelStruct> getMemberType(
+  String seniorName,
+  String seniorId,
+  String seniorPicture,
+  List<MemberModelStruct> midManagers,
+  List<MemberModelStruct> associates,
+) {
+  List<MemberModelStruct> members = [];
+  members.add(MemberModelStruct(name: 'Senior'));
+
+  midManagers.forEach((MemberModelStruct age) {
+    members.add(MemberModelStruct(name: 'MidManager'));
+  });
+
+  midManagers.forEach((MemberModelStruct age) {
+    associates.add(MemberModelStruct(name: 'Associates'));
+  });
+
+  return members;
+}
+
 List<ProjectModelStruct>? fromProjectJsonToModelList(dynamic jsonBody) {
   return jsonBody
       .map((e) => e != null && e != '' ? ProjectModelStruct.fromMap(e) : null)

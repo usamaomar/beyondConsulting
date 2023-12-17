@@ -456,6 +456,70 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Status',
       'ar': 'حالة',
     },
+    'hjwlvl4n': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'kdii3s5p': {
+      'en': 'Client',
+      'ar': 'عميل',
+    },
+    'lbe0phnu': {
+      'en': 'CollaboratProject Financial Detailsors',
+      'ar': 'التفاصيل المالية لمشروع Collaborat',
+    },
+    'd51tj9o4': {
+      'en': 'Estimated Cost',
+      'ar': 'التكلفة المتوقعة',
+    },
+    '40l9li6h': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'ec0usot4': {
+      'en': 'Gross Profit',
+      'ar': 'اجمالي الربح',
+    },
+    '278fk90p': {
+      'en': 'Gross Profit Margin',
+      'ar': 'هامش الربح الإجمالي',
+    },
+    'mrp2gved': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'oshhm79q': {
+      'en': 'Item',
+      'ar': 'غرض',
+    },
+    '2he35hvm': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    'u9zt9j4c': {
+      'en': 'Cost per Unit (JOD)',
+      'ar': 'تكلفة الوحدة (دينار أردني)',
+    },
+    'cckol1qx': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    'l0jly4l8': {
+      'en': 'Note',
+      'ar': 'ملحوظة',
+    },
+    'o3ivf3ho': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'tnznvsnl': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    'rhfm6z6m': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
     'rmel2kpi': {
       'en': 'Home',
       'ar': '',
