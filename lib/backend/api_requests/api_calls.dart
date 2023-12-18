@@ -326,7 +326,9 @@ class GetTeamByIdApiCall {
         'Accept': 'application/json',
         'Authorization': 'Bearer $token',
       },
-      params: {},
+      params: {
+        'id': id,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
