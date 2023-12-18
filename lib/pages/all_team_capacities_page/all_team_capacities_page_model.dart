@@ -27,13 +27,15 @@ class AllTeamCapacitiesPageModel
 
   int selectedIndex = 0;
 
+  int selectedId = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (GetTeamByIdApi)] action in AllTeamCapacitiesPage widget.
-  ApiCallResponse? apiResult1xv;
   // Stores action output result for [Backend Call - API (GetAllTeamsApi)] action in AllTeamCapacitiesPage widget.
   ApiCallResponse? apiResultdlx;
+  // Stores action output result for [Backend Call - API (GetTeamByIdApi)] action in AllTeamCapacitiesPage widget.
+  ApiCallResponse? apiResult1xv;
   // Stores action output result for [Backend Call - API (GetTeamByIdApi)] action in Container widget.
   ApiCallResponse? apiResultt61;
   // Models for ReadMemberCpacity dynamic component.
