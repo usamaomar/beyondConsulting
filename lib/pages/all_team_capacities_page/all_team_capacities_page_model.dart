@@ -25,11 +25,17 @@ class AllTeamCapacitiesPageModel
           int index, Function(TeamTapModelStruct) updateFn) =>
       teamTabModel[index] = updateFn(teamTabModel[index]);
 
+  int selectedIndex = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (GetMyTeamApi)] action in AllTeamCapacitiesPage widget.
+  // Stores action output result for [Backend Call - API (GetTeamByIdApi)] action in AllTeamCapacitiesPage widget.
   ApiCallResponse? apiResult1xv;
+  // Stores action output result for [Backend Call - API (GetAllTeamsApi)] action in AllTeamCapacitiesPage widget.
+  ApiCallResponse? apiResultdlx;
+  // Stores action output result for [Backend Call - API (GetTeamByIdApi)] action in Container widget.
+  ApiCallResponse? apiResultt61;
   // Models for ReadMemberCpacity dynamic component.
   late FlutterFlowDynamicModels<ReadMemberCpacityModel>
       readMemberCpacityModels1;
@@ -39,15 +45,6 @@ class AllTeamCapacitiesPageModel
   // Models for ReadMemberCpacity dynamic component.
   late FlutterFlowDynamicModels<ReadMemberCpacityModel>
       readMemberCpacityModels3;
-  // Models for ReadMemberCpacity dynamic component.
-  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
-      readMemberCpacityModels4;
-  // Models for ReadMemberCpacity dynamic component.
-  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
-      readMemberCpacityModels5;
-  // Models for ReadMemberCpacity dynamic component.
-  late FlutterFlowDynamicModels<ReadMemberCpacityModel>
-      readMemberCpacityModels6;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -61,12 +58,6 @@ class AllTeamCapacitiesPageModel
         FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
     readMemberCpacityModels3 =
         FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
-    readMemberCpacityModels4 =
-        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
-    readMemberCpacityModels5 =
-        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
-    readMemberCpacityModels6 =
-        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
     sideNavModel = createModel(context, () => SideNavModel());
   }
 
@@ -76,9 +67,6 @@ class AllTeamCapacitiesPageModel
     readMemberCpacityModels1.dispose();
     readMemberCpacityModels2.dispose();
     readMemberCpacityModels3.dispose();
-    readMemberCpacityModels4.dispose();
-    readMemberCpacityModels5.dispose();
-    readMemberCpacityModels6.dispose();
     sideNavModel.dispose();
   }
 

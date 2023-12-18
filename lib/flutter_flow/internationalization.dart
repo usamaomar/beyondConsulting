@@ -551,6 +551,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AllTeamCapacitiesPage
   {
+    '7j4aa15z': {
+      'en': 'Select Team',
+      'ar': 'اختر فريق',
+    },
     '2679ikqu': {
       'en': 'Seniors',
       'ar': 'كبار الاداريين',
@@ -560,18 +564,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'مسير وسيط',
     },
     'o1jemtrg': {
-      'en': 'Associate',
-      'ar': 'مساعدين',
-    },
-    'vnqjjbg5': {
-      'en': 'Seniors',
-      'ar': 'كبار الاداريين',
-    },
-    'fyg0a8m9': {
-      'en': 'Middle Managers',
-      'ar': 'مسير وسيط',
-    },
-    'tqh8zeij': {
       'en': 'Associate',
       'ar': 'مساعدين',
     },
