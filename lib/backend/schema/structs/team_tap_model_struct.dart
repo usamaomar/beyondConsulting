@@ -10,9 +10,11 @@ class TeamTapModelStruct extends BaseStruct {
     int? id,
     String? name,
     int? membersCount,
+    List<TeamTapModelStruct>? data,
   })  : _id = id,
         _name = name,
-        _membersCount = membersCount;
+        _membersCount = membersCount,
+        _data = data;
 
   // "id" field.
   int? _id;
@@ -35,11 +37,23 @@ class TeamTapModelStruct extends BaseStruct {
       _membersCount = membersCount + amount;
   bool hasMembersCount() => _membersCount != null;
 
+  // "data" field.
+  List<TeamTapModelStruct>? _data;
+  List<TeamTapModelStruct> get data => _data ?? const [];
+  set data(List<TeamTapModelStruct>? val) => _data = val;
+  void updateData(Function(List<TeamTapModelStruct>) updateFn) =>
+      updateFn(_data ??= []);
+  bool hasData() => _data != null;
+
   static TeamTapModelStruct fromMap(Map<String, dynamic> data) =>
       TeamTapModelStruct(
         id: castToType<int>(data['id']),
         name: data['name'] as String?,
         membersCount: castToType<int>(data['membersCount']),
+        data: getStructList(
+          data['data'],
+          TeamTapModelStruct.fromMap,
+        ),
       );
 
   static TeamTapModelStruct? maybeFromMap(dynamic data) =>
@@ -49,6 +63,7 @@ class TeamTapModelStruct extends BaseStruct {
         'id': _id,
         'name': _name,
         'membersCount': _membersCount,
+        'data': _data?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -64,6 +79,11 @@ class TeamTapModelStruct extends BaseStruct {
         'membersCount': serializeParam(
           _membersCount,
           ParamType.int,
+        ),
+        'data': serializeParam(
+          _data,
+          ParamType.DataStruct,
+          true,
         ),
       }.withoutNulls;
 
@@ -84,6 +104,12 @@ class TeamTapModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        data: deserializeStructParam<TeamTapModelStruct>(
+          data['data'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: TeamTapModelStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -91,14 +117,16 @@ class TeamTapModelStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is TeamTapModelStruct &&
         id == other.id &&
         name == other.name &&
-        membersCount == other.membersCount;
+        membersCount == other.membersCount &&
+        listEquality.equals(data, other.data);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, name, membersCount]);
+  int get hashCode => const ListEquality().hash([id, name, membersCount, data]);
 }
 
 TeamTapModelStruct createTeamTapModelStruct({
