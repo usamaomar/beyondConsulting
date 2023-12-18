@@ -34,9 +34,24 @@ class _AllTeamCapacitiesPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResultdlx = await GetAllTeamsApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResultdlx?.succeeded ?? true)) {
+        setState(() {
+          _model.teamTabModel =
+              TeamTapModelStruct.fromMap((_model.apiResultdlx?.jsonBody ?? ''))
+                  .data
+                  .toList()
+                  .cast<TeamTapModelStruct>();
+        });
+        setState(() {
+          _model.selectedId = _model.teamTabModel.first.id;
+        });
+      }
       _model.apiResult1xv = await GetTeamByIdApiCall.call(
         token: FFAppState().tokenModelAppState.token,
-        id: 0,
+        id: _model.selectedId,
       );
       if ((_model.apiResult1xv?.succeeded ?? true)) {
         setState(() {
@@ -55,18 +70,6 @@ class _AllTeamCapacitiesPageWidgetState
                   r'''$.data''',
                 ))
               : null;
-        });
-      }
-      _model.apiResultdlx = await GetAllTeamsApiCall.call(
-        token: FFAppState().tokenModelAppState.token,
-      );
-      if ((_model.apiResultdlx?.succeeded ?? true)) {
-        setState(() {
-          _model.teamTabModel =
-              TeamTapModelStruct.fromMap((_model.apiResultdlx?.jsonBody ?? ''))
-                  .data
-                  .toList()
-                  .cast<TeamTapModelStruct>();
         });
       }
     });
@@ -240,11 +243,14 @@ class _AllTeamCapacitiesPageWidgetState
                                     setState(() {
                                       _model.selectedIndex = listOfTeamsIndex;
                                     });
+                                    setState(() {
+                                      _model.selectedId = listOfTeamsItem.id;
+                                    });
                                     _model.apiResultt61 =
                                         await GetTeamByIdApiCall.call(
                                       token:
                                           FFAppState().tokenModelAppState.token,
-                                      id: _model.selectedIndex,
+                                      id: _model.selectedId,
                                     );
                                     if ((_model.apiResultt61?.succeeded ??
                                         true)) {
