@@ -13,3 +13,5 @@ export '/pages/team_capacities_page/team_capacities_page_widget.dart'
     show TeamCapacitiesPageWidget;
 export '/pages/cost_management/cost_management_widget.dart'
     show CostManagementWidget;
+export '/pages/all_team_capacities_page/all_team_capacities_page_widget.dart'
+    show AllTeamCapacitiesPageWidget;

@@ -10,26 +10,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'team_capacities_page_model.dart';
-export 'team_capacities_page_model.dart';
+import 'all_team_capacities_page_model.dart';
+export 'all_team_capacities_page_model.dart';
 
-class TeamCapacitiesPageWidget extends StatefulWidget {
-  const TeamCapacitiesPageWidget({super.key});
+class AllTeamCapacitiesPageWidget extends StatefulWidget {
+  const AllTeamCapacitiesPageWidget({super.key});
 
   @override
-  _TeamCapacitiesPageWidgetState createState() =>
-      _TeamCapacitiesPageWidgetState();
+  _AllTeamCapacitiesPageWidgetState createState() =>
+      _AllTeamCapacitiesPageWidgetState();
 }
 
-class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
-  late TeamCapacitiesPageModel _model;
+class _AllTeamCapacitiesPageWidgetState
+    extends State<AllTeamCapacitiesPageWidget> {
+  late AllTeamCapacitiesPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TeamCapacitiesPageModel());
+    _model = createModel(context, () => AllTeamCapacitiesPageModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -121,7 +122,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'z0yohwm5' /* Team Capacities */,
+                    '4xrxiqlo' /* Team Capacities */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Almarai',
@@ -160,6 +161,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                   if (MediaQuery.sizeOf(context).width > 450.0)
                     ListView(
                       padding: EdgeInsets.zero,
+                      shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
                         Container(
@@ -214,7 +216,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '835w2hj5' /* Seniors */,
+                                    '2679ikqu' /* Seniors */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -266,7 +268,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       updateCallback: () => setState(() {}),
                                       child: ReadMemberCpacityWidget(
                                         key: Key(
-                                          'Keycyp_${listOfLocalSeniorsListItem.id}',
+                                          'Keyz1a_${listOfLocalSeniorsListItem.id}',
                                         ),
                                         memberName:
                                             '${listOfLocalSeniorsListItem.firstName} ${listOfLocalSeniorsListItem.lastName}',
@@ -305,7 +307,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'h8uowkgw' /* Middle Managers */,
+                                    '84p82kg1' /* Middle Managers */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -361,7 +363,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       updateCallback: () => setState(() {}),
                                       child: ReadMemberCpacityWidget(
                                         key: Key(
-                                          'Keyb0i_${listOfLocalMedsListItem.id}',
+                                          'Keyh19_${listOfLocalMedsListItem.id}',
                                         ),
                                         memberName:
                                             '${listOfLocalMedsListItem.firstName} ${listOfLocalMedsListItem.lastName}',
@@ -399,7 +401,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'bqsruo7f' /* Associate */,
+                                    'o1jemtrg' /* Associate */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -455,7 +457,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       updateCallback: () => setState(() {}),
                                       child: ReadMemberCpacityWidget(
                                         key: Key(
-                                          'Key47y_${listOfLocalAssociatesListItem.id}',
+                                          'Keygds_${listOfLocalAssociatesListItem.id}',
                                         ),
                                         memberName:
                                             '${listOfLocalAssociatesListItem.firstName} ${listOfLocalAssociatesListItem.lastName}',
@@ -535,7 +537,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       10.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'i5qzl25v' /* Seniors */,
+                                      'vnqjjbg5' /* Seniors */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -578,7 +580,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                         updateCallback: () => setState(() {}),
                                         child: ReadMemberCpacityWidget(
                                           key: Key(
-                                            'Key2nb_${sensList1Item.id}',
+                                            'Keyj3h_${sensList1Item.id}',
                                           ),
                                           memberName:
                                               '${sensList1Item.firstName} ${sensList1Item.lastName}',
@@ -615,7 +617,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       10.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'gqw9wmag' /* Middle Managers */,
+                                      'fyg0a8m9' /* Middle Managers */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -661,7 +663,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                         updateCallback: () => setState(() {}),
                                         child: ReadMemberCpacityWidget(
                                           key: Key(
-                                            'Keyvt1_${sensList2Item.id}',
+                                            'Key08b_${sensList2Item.id}',
                                           ),
                                           memberName:
                                               '${sensList2Item.firstName} ${sensList2Item.lastName}',
@@ -698,7 +700,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                       10.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      's3iip1dt' /* Associate */,
+                                      'tqh8zeij' /* Associate */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -744,7 +746,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                         updateCallback: () => setState(() {}),
                                         child: ReadMemberCpacityWidget(
                                           key: Key(
-                                            'Keyijz_${sensList4Item.id}',
+                                            'Keyigr_${sensList4Item.id}',
                                           ),
                                           memberName:
                                               '${sensList4Item.firstName} ${sensList4Item.lastName}',

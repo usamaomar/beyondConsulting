@@ -285,13 +285,13 @@ class GetAllClientsApiCall {
       ) as List?;
 }
 
-class GetAllClientsApiCopyCall {
+class GetAllTeamsApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'GetAllClientsApi Copy',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Clients/GetAllClients',
+      callName: 'GetAllTeamsApi',
+      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Teams/GetAllTeams',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',

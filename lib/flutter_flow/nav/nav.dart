@@ -82,6 +82,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             projectJsonObject:
                 params.getParam('projectJsonObject', ParamType.JSON),
           ),
+        ),
+        FFRoute(
+          name: 'AllTeamCapacitiesPage',
+          path: '/allTeamCapacitiesPage',
+          builder: (context, params) => const AllTeamCapacitiesPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -393,6 +393,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Associate',
       'ar': 'مساعدين',
     },
+    'i5qzl25v': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
+    },
+    'gqw9wmag': {
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    's3iip1dt': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
+    },
     'z0yohwm5': {
       'en': 'Team Capacities',
       'ar': 'قدرات الفريق',
@@ -533,6 +545,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'حالة',
     },
     'rmel2kpi': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // AllTeamCapacitiesPage
+  {
+    '2679ikqu': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
+    },
+    '84p82kg1': {
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    'o1jemtrg': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
+    },
+    'vnqjjbg5': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
+    },
+    'fyg0a8m9': {
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    'tqh8zeij': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
+    },
+    '4xrxiqlo': {
+      'en': 'Team Capacities',
+      'ar': 'قدرات الفريق',
+    },
+    'zthxm6nx': {
       'en': 'Home',
       'ar': '',
     },

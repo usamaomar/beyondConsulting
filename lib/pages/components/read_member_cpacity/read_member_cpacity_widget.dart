@@ -60,8 +60,8 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
         Align(
           alignment: const AlignmentDirectional(0.0, 0.0),
           child: SizedBox(
-            width: 150.0,
-            height: 150.0,
+            width: MediaQuery.sizeOf(context).width > 390.0 ? 150.0 : 75.0,
+            height: MediaQuery.sizeOf(context).width > 390.0 ? 150.0 : 75.0,
             child: Stack(
               alignment: const AlignmentDirectional(0.0, 0.0),
               children: [
@@ -82,12 +82,15 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                         return const Color(0x00000000);
                       }
                     }(),
-                    size: 30.0,
+                    size:
+                        MediaQuery.sizeOf(context).width > 390.0 ? 30.0 : 15.0,
                   ),
                 ),
                 Container(
-                  width: 130.0,
-                  height: 130.0,
+                  width:
+                      MediaQuery.sizeOf(context).width > 390.0 ? 130.0 : 55.0,
+                  height:
+                      MediaQuery.sizeOf(context).width > 390.0 ? 130.0 : 55.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     shape: BoxShape.circle,
@@ -103,8 +106,12 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                         ),
                         child: Image.network(
                           functions.getFullImage(widget.imagePath!)!,
-                          width: 130.0,
-                          height: 130.0,
+                          width: MediaQuery.sizeOf(context).width > 390.0
+                              ? 130.0
+                              : 55.0,
+                          height: MediaQuery.sizeOf(context).width > 390.0
+                              ? 130.0
+                              : 55.0,
                           fit: BoxFit.cover,
                           alignment: const Alignment(0.0, 0.0),
                         ),
@@ -114,8 +121,12 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                           borderRadius: BorderRadius.circular(0.0),
                           child: SvgPicture.asset(
                             'assets/images/svgviewer-output_(2).svg',
-                            width: 140.0,
-                            height: 140.0,
+                            width: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
+                            height: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
                             fit: BoxFit.fill,
                             alignment: const Alignment(0.0, 0.0),
                           ),
@@ -124,9 +135,13 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: SvgPicture.asset(
-                            'assets/images/svgviewer-output_(1).svg',
-                            width: 140.0,
-                            height: 140.0,
+                            'assets/images/Group_2082.svg',
+                            width: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
+                            height: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
                             fit: BoxFit.fill,
                             alignment: const Alignment(0.0, 0.0),
                           ),
@@ -135,9 +150,13 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: SvgPicture.asset(
-                            'assets/images/Group_2082.svg',
-                            width: 140.0,
-                            height: 140.0,
+                            'assets/images/svgviewer-output_(1).svg',
+                            width: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
+                            height: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
                             fit: BoxFit.fill,
                             alignment: const Alignment(0.0, 0.0),
                           ),
@@ -147,8 +166,12 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                           borderRadius: BorderRadius.circular(0.0),
                           child: SvgPicture.asset(
                             'assets/images/Group_2085.svg',
-                            width: 140.0,
-                            height: 140.0,
+                            width: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
+                            height: MediaQuery.sizeOf(context).width > 390.0
+                                ? 140.0
+                                : 65.0,
                             fit: BoxFit.fill,
                             alignment: const Alignment(0.0, 0.0),
                           ),
