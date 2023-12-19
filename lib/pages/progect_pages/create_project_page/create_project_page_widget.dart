@@ -162,8 +162,9 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
+                Flexible(
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -1283,7 +1284,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                   phone: false,
                   tablet: false,
                 ))
-                  Expanded(
+                  Flexible(
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),

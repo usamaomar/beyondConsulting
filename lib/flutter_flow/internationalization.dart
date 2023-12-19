@@ -393,6 +393,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Associate',
       'ar': 'مساعدين',
     },
+    'i5qzl25v': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
+    },
+    'gqw9wmag': {
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    's3iip1dt': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
+    },
     'z0yohwm5': {
       'en': 'Team Capacities',
       'ar': 'قدرات الفريق',
@@ -533,6 +545,72 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'حالة',
     },
     'rmel2kpi': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // AllTeamCapacitiesPage
+  {
+    '7j4aa15z': {
+      'en': 'Select Team',
+      'ar': 'اختر فريق',
+    },
+    '2679ikqu': {
+      'en': 'Seniors',
+      'ar': 'كبار الاداريين',
+    },
+    '84p82kg1': {
+      'en': 'Middle Managers',
+      'ar': 'مسير وسيط',
+    },
+    'o1jemtrg': {
+      'en': 'Associate',
+      'ar': 'مساعدين',
+    },
+    '4xrxiqlo': {
+      'en': 'Team Capacities',
+      'ar': 'قدرات الفريق',
+    },
+    'zthxm6nx': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // HomePageSeeAll
+  {
+    'i9iws4tw': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'qjt01qp3': {
+      'en': 'Type of Projects',
+      'ar': 'نوع المشاريع',
+    },
+    'sl19nb58': {
+      'en': 'Client',
+      'ar': 'عميل',
+    },
+    'gkxp4m94': {
+      'en': 'Original Estimate',
+      'ar': 'تقدير الأصلي',
+    },
+    'qcbtalbt': {
+      'en': 'Remaining',
+      'ar': 'متبقي',
+    },
+    'b3yvqi4n': {
+      'en': 'Remaining(%)',
+      'ar': 'متبقي(٪)',
+    },
+    'kolof0nk': {
+      'en': 'Lead',
+      'ar': 'يقود',
+    },
+    'i6acbjzx': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'nf3anpme': {
       'en': 'Home',
       'ar': '',
     },

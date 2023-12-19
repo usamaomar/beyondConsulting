@@ -751,16 +751,18 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                       onTap: () async {
                         if (widget.sideMenuEnum !=
                             SideMenuEnum.TEAM_CAPACITIES) {
-                          context.pushNamed(
-                            'TeamCapacitiesPage',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
-                          );
+                          if ((FFAppState().userModelAppState.accessRole ==
+                                      0) ||
+                                  (FFAppState().userModelAppState.accessRole ==
+                                      1) ||
+                                  (FFAppState().userModelAppState.accessRole ==
+                                      5)
+                              ? true
+                              : false) {
+                            context.pushNamed('AllTeamCapacitiesPage');
+                          } else {
+                            context.pushNamed('AllTeamCapacitiesPage');
+                          }
                         } else {
                           return;
                         }

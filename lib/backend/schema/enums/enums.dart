@@ -7,6 +7,7 @@ enum SideMenuEnum {
   PROJECT_PAGE,
   TEAM_CAPACITIES,
   COST_MANAGEMENT,
+  HOME_PAGE_SEE_ALL,
 }
 
 enum FinancialOutlookBar {
