@@ -576,6 +576,45 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // HomePageSeeAll
+  {
+    'i9iws4tw': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'qjt01qp3': {
+      'en': 'Type of Projects',
+      'ar': 'نوع المشاريع',
+    },
+    'sl19nb58': {
+      'en': 'Client',
+      'ar': 'عميل',
+    },
+    'gkxp4m94': {
+      'en': 'Original Estimate',
+      'ar': 'تقدير الأصلي',
+    },
+    'qcbtalbt': {
+      'en': 'Remaining',
+      'ar': 'متبقي',
+    },
+    'b3yvqi4n': {
+      'en': 'Remaining(%)',
+      'ar': 'متبقي(٪)',
+    },
+    'kolof0nk': {
+      'en': 'Lead',
+      'ar': 'يقود',
+    },
+    'i6acbjzx': {
+      'en': 'Projects',
+      'ar': 'المشاريع',
+    },
+    'nf3anpme': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {

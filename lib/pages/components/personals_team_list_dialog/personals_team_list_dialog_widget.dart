@@ -95,6 +95,20 @@ class _PersonalsTeamListDialogWidgetState
               .cast<UserModelStruct>();
         });
       }
+      _model.apiResultzeq = await GetMyTeamApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResultzeq?.succeeded ?? true)) {
+        setState(() {
+          FFAppState().updateNewProjectCreatedModelStruct(
+            (e) => e
+              ..teamId = getJsonField(
+                (_model.apiResultzeq?.jsonBody ?? ''),
+                r'''$.data.id''',
+              ),
+          );
+        });
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

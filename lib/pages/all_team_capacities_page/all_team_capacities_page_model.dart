@@ -29,6 +29,8 @@ class AllTeamCapacitiesPageModel
 
   int selectedId = 0;
 
+  bool isLoading = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

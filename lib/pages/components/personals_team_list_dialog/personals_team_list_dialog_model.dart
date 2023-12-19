@@ -43,6 +43,8 @@ class PersonalsTeamListDialogModel
 
   // Stores action output result for [Backend Call - API (GetPersonalsApi)] action in personalsTeamListDialog widget.
   ApiCallResponse? apiResult4a6;
+  // Stores action output result for [Backend Call - API (GetMyTeamApi)] action in personalsTeamListDialog widget.
+  ApiCallResponse? apiResultzeq;
   // State field(s) for Checkbox widget.
 
   Map<UserModelStruct, bool> checkboxValueMap1 = {};
