@@ -185,10 +185,10 @@ List<dynamic> convertMilestoneModelStruct(
       "title": milestone.title,
       "description": milestone.description,
       "amount": milestone.amount,
-      "reminderOffset": milestone.reminderOffset,
+      "reminderOffset": milestone.reminderModel.day,
       "startDate": milestone.startDate,
       "endDate": milestone.endDate,
-      "status": milestone.status,
+      "status": milestone.mileStoneStateModel.stateId,
       "milestoneType": milestone.milestoneType,
       "progress": milestone.progress,
       "invoiceUrl": milestone.invoiceUrl,
@@ -230,6 +230,28 @@ String getCountryUsing(
   return lang == 'en'
       ? "Select..."
       : "...اختر"; // Handle the case when country is not found in the list
+}
+
+List<dynamic> convertCostModelStruct(List<CostModelStruct> costsList) {
+  List<dynamic> jsonArray = [];
+
+  for (CostModelStruct cost in costsList) {
+    Map<String, dynamic> jsonMember = {
+      "title": cost.title,
+      "category": cost.category,
+      "notes": cost.notes,
+      "date": cost.date,
+      "unitCost": cost.unitCost,
+      "unit": cost.unit,
+      "duration": cost.duration,
+      "durationUnit": cost.durationUnit,
+      "costType": cost.costType,
+    };
+
+    jsonArray.add(jsonMember);
+  }
+
+  return jsonArray;
 }
 
 String convertDateString(String dateString) {
