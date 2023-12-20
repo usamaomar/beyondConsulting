@@ -61,6 +61,17 @@ List<MemberModelStruct> getMemberType(
   return members;
 }
 
+List<MemberModelStruct> addMidsAndAssositsToRoleListCopy(
+  List<MemberModelStruct> listOfMids,
+  List<MemberModelStruct> listOfAssosits,
+) {
+  List<MemberModelStruct> listOf = [];
+
+  listOf.addAll(listOfMids);
+  listOf.addAll(listOfAssosits);
+  return listOf;
+}
+
 List<ProjectModelStruct>? fromProjectJsonToModelList(dynamic jsonBody) {
   return jsonBody
       .map((e) => e != null && e != '' ? ProjectModelStruct.fromMap(e) : null)
@@ -330,6 +341,39 @@ ClientModelStruct? findeMatchingClient(
   return ClientModelStruct();
 }
 
+String fromStartEndToConcatCurrentDate(
+  String startDateFromModel,
+  String endDateFromModel,
+) {
+  String startDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+
+  String endDate =
+      DateFormat('yyyy-MM-dd').format(DateTime.parse(endDateFromModel));
+
+  DateTime start = DateTime.parse(startDate);
+  DateTime end = DateTime.parse(endDate);
+
+  Duration difference = end.difference(start);
+
+  int weeks = difference.inDays ~/ 7;
+  int days = difference.inDays % 7;
+
+  String result = '';
+
+  if (weeks > 0) {
+    result += '$weeks ${weeks == 1 ? 'Week' : 'Weeks'}';
+    if (days > 0) {
+      result += ' & ';
+    }
+  }
+
+  if (days > 0) {
+    result += '$days ${days == 1 ? 'day' : 'days'}';
+  }
+
+  return result.isEmpty ? '0 days' : result;
+}
+
 String convertToFormattedString(DateTime dateTime) {
   String formattedString =
       DateFormat("yyyy-MM-ddTHH:mm:ss.SSSZ").format(dateTime.toUtc());
@@ -499,4 +543,60 @@ String getAccessRoleName(int accessRole) {
   } else {
     return "Leader";
   }
+}
+
+String fromStartEndToConcat(
+  String startDateFromModel,
+  String endDateFromModel,
+) {
+  String startDate =
+      DateFormat('yyyy-MM-dd').format(DateTime.parse(startDateFromModel));
+
+  String endDate =
+      DateFormat('yyyy-MM-dd').format(DateTime.parse(endDateFromModel));
+
+  DateTime start = DateTime.parse(startDate);
+  DateTime end = DateTime.parse(endDate);
+
+  Duration difference = end.difference(start);
+
+  int weeks = difference.inDays ~/ 7;
+  int days = difference.inDays % 7;
+
+  String result = '';
+
+  if (weeks > 0) {
+    result += '$weeks ${weeks == 1 ? 'Week' : 'Weeks'}';
+    if (days > 0) {
+      result += ' & ';
+    }
+  }
+
+  if (days > 0) {
+    result += '$days ${days == 1 ? 'day' : 'days'}';
+  }
+
+  return result.isEmpty ? '0 days' : result;
+}
+
+int calculateRemainingPercentage(
+  String startDate,
+  String endDate,
+) {
+  DateTime startDateTime = DateTime.parse(startDate);
+  DateTime endDateTime = DateTime.parse(endDate);
+  DateTime currentDateTime = DateTime.now();
+
+  if (currentDateTime.isAfter(endDateTime)) {
+    // If the end date is in the past, return 0% remaining
+    return 0;
+  }
+
+  Duration totalDuration = endDateTime.difference(startDateTime);
+  Duration remainingDuration = endDateTime.difference(currentDateTime);
+
+  double remainingPercentage =
+      (remainingDuration.inMilliseconds / totalDuration.inMilliseconds) * 100;
+
+  return remainingPercentage.round();
 }

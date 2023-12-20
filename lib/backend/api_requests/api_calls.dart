@@ -344,6 +344,34 @@ class GetTeamByIdApiCall {
       ) as List?;
 }
 
+class GetAllProjectsApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetAllProjectsApi',
+      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Projects/GetAllProjects',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
 class UploadFileCall {
   static Future<ApiCallResponse> call({
     FFUploadedFile? file,
