@@ -2413,15 +2413,12 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                 .newProjectCreatedModel
                                                                 .associates
                                                                 .toList()),
-                                                    milestonesJson: FFAppState()
-                                                        .newProjectCreatedModel
-                                                        .milestones
-                                                        .map(
-                                                            (e) => getJsonField(
-                                                                  e.toMap(),
-                                                                  r'''$[:]''',
-                                                                ))
-                                                        .toList(),
+                                                    milestonesJson: functions
+                                                        .convertMilestoneModelStruct(
+                                                            FFAppState()
+                                                                .newProjectCreatedModel
+                                                                .milestones
+                                                                .toList()),
                                                     costsJson: FFAppState()
                                                         .newProjectCreatedModel
                                                         .costs
