@@ -409,17 +409,35 @@ class _AllTeamCapacitiesPageWidgetState
                               ),
                               child: Visibility(
                                 visible: () {
-                                  if (_model.teamMemberModel!.seniors.isNotEmpty) {
+                                  if ((_model.teamMemberModel?.seniors.length != null) &&
+                                          (_model.teamMemberModel!.seniors.isNotEmpty)
+                                      ? true
+                                      : false) {
                                     return true;
-                                  } else if (_model.teamMemberModel!.members
-                                          .where((e) =>
-                                              e.accessRole == 3 ? true : false)
-                                          .toList().isNotEmpty) {
+                                  } else if ((_model.teamMemberModel?.members
+                                                  .where((e) =>
+                                                      e.accessRole == 3
+                                                          ? true
+                                                          : false)
+                                                  .toList()
+                                                  .length !=
+                                              null) &&
+                                          (_model.teamMemberModel!.members
+                                                  .where((e) => e.accessRole == 3
+                                                      ? true
+                                                      : false)
+                                                  .toList().isNotEmpty)
+                                      ? true
+                                      : false) {
                                     return true;
-                                  } else if (_model.teamMemberModel!.members
-                                          .where((e) =>
-                                              e.accessRole == 4 ? true : false)
-                                          .toList().isNotEmpty) {
+                                  } else if ((_model.teamMemberModel?.members
+                                                  .where((e) => e.accessRole == 4 ? true : false)
+                                                  .toList()
+                                                  .length !=
+                                              null) &&
+                                          (_model.teamMemberModel!.members.where((e) => e.accessRole == 4 ? true : false).toList().isNotEmpty)
+                                      ? true
+                                      : false) {
                                     return true;
                                   } else {
                                     return false;
