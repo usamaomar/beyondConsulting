@@ -4,10 +4,15 @@ import 'package:beyond_consulting/pages/progect_pages/project_page/test_project_
 
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/satisfaction_component_widget.dart';
+import '/components/stick_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/components/read_member_cpacity/read_member_cpacity_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -172,7 +177,6 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
         body: SafeArea(
           top: true,
           child: Container(
-            width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).info,
@@ -182,18 +186,16 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
+                Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 45.0, 10.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width < 400.0
-                                ? 340.0
-                                : 550.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -432,6 +434,476 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 20.0, 10.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20.0),
+                                      bottomRight: Radius.circular(20.0),
+                                      topLeft: Radius.circular(20.0),
+                                      topRight: Radius.circular(20.0),
+                                    ),
+                                    border: Border.all(
+                                      color: const Color(0xFF01A3E2),
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 30.0, 0.0, 20.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'lriocr9t' /* Collaborators */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Almarai',
+                                                fontSize:
+                                                    MediaQuery.sizeOf(context)
+                                                                .width <
+                                                            400.0
+                                                        ? 14.0
+                                                        : 18.0,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                      ),
+                                      const Divider(
+                                        thickness: 1.0,
+                                        indent: 30.0,
+                                        endIndent: 30.0,
+                                        color: Color(0xFFC8C9CC),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 20.0, 0.0, 20.0),
+                                        child: Container(
+                                          height: 100.0,
+                                          decoration: const BoxDecoration(),
+                                          child: Builder(
+                                            builder: (context) {
+                                              final listOfMemebersLocal =
+                                                  functions
+                                                      .addMemberItemsToList(
+                                                          _model.projectModel!
+                                                              .senior,
+                                                          _model.projectModel!
+                                                              .seniorId,
+                                                          _model.projectModel!
+                                                              .seniorPicture,
+                                                          _model.projectModel!
+                                                              .midManagers
+                                                              .toList(),
+                                                          _model.projectModel!
+                                                              .associates
+                                                              .toList())
+                                                      .toList();
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                primary: false,
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                itemCount:
+                                                    listOfMemebersLocal.length,
+                                                itemBuilder: (context,
+                                                    listOfMemebersLocalIndex) {
+                                                  final listOfMemebersLocalItem =
+                                                      listOfMemebersLocal[
+                                                          listOfMemebersLocalIndex];
+                                                  return Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model: _model
+                                                              .readMemberCpacityModels
+                                                              .getModel(
+                                                            listOfMemebersLocalItem
+                                                                .id,
+                                                            listOfMemebersLocalIndex,
+                                                          ),
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ReadMemberCpacityWidget(
+                                                            key: Key(
+                                                              'Keyl7c_${listOfMemebersLocalItem.id}',
+                                                            ),
+                                                            memberName:
+                                                                listOfMemebersLocalItem
+                                                                    .name,
+                                                            projectType: functions
+                                                                .getAccessRoleName(
+                                                                    listOfMemebersLocalItem
+                                                                        .accessRole),
+                                                            imagePath:
+                                                                listOfMemebersLocalItem
+                                                                    .profilePictureDataUrl,
+                                                            currentCapacity:
+                                                                listOfMemebersLocalItem
+                                                                    .currentCapacity,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(20.0),
+                                        bottomRight: Radius.circular(20.0),
+                                        topLeft: Radius.circular(20.0),
+                                        topRight: Radius.circular(20.0),
+                                      ),
+                                      border: Border.all(
+                                        color: const Color(0xFF01A3E2),
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  30.0, 30.0, 30.0, 30.0),
+                                          child: RichText(
+                                            textScaleFactor:
+                                                MediaQuery.of(context)
+                                                    .textScaleFactor,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text:
+                                                      '${_model.projectModel?.client} are ',
+                                                  style: const TextStyle(),
+                                                ),
+                                                TextSpan(
+                                                  text: functions
+                                                      .convertFromIdToTextClientSatisfaction(
+                                                          _model.projectModel!
+                                                              .clientSatisfaction,
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color: FFAppState()
+                                                            .clintSatisfactionList[_model
+                                                                    .projectModel!
+                                                                    .clientSatisfaction -
+                                                                1]
+                                                            .color,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                )
+                                              ],
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                        const Divider(
+                                          thickness: 1.0,
+                                          indent: 30.0,
+                                          endIndent: 30.0,
+                                          color: Color(0xFFC8C9CC),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 20.0),
+                                          child: Container(
+                                            height: 100.0,
+                                            decoration: const BoxDecoration(),
+                                            child: wrapWithModel(
+                                              model: _model
+                                                  .satisfactionComponentModel,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child:
+                                                  SatisfactionComponentWidget(
+                                                satisfactionType: _model
+                                                    .projectModel!
+                                                    .clientSatisfaction,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 20.0, 10.0, 0.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context)
+                                    .beyondBlueColor,
+                                width: 2.0,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 20.0, 10.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'vokc4jta' /* Upcoming Milestones */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Almarai',
+                                              color: const Color(0xFF032734),
+                                              fontSize:
+                                                  MediaQuery.sizeOf(context)
+                                                              .width <
+                                                          400.0
+                                                      ? 14.0
+                                                      : 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              useGoogleFonts: false,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 15.0, 0.0, 15.0),
+                                        child: Container(
+                                          height: 450.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Builder(
+                                            builder: (context) {
+                                              final upcomingMilestoneItem =
+                                                  _model.projectModel
+                                                          ?.milestones
+                                                          .toList() ??
+                                                      [];
+                                              return DataTable2(
+                                                columns: [
+                                                  DataColumn2(
+                                                    label:
+                                                        DefaultTextStyle.merge(
+                                                      softWrap: true,
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'uu017afu' /* Milestone */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  DataColumn2(
+                                                    label:
+                                                        DefaultTextStyle.merge(
+                                                      softWrap: true,
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'k9kpljxf' /* Description */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  DataColumn2(
+                                                    label:
+                                                        DefaultTextStyle.merge(
+                                                      softWrap: true,
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'mmrwuywi' /* Deadline */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  DataColumn2(
+                                                    label:
+                                                        DefaultTextStyle.merge(
+                                                      softWrap: true,
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'ab7ejsgk' /* Status */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                                rows: upcomingMilestoneItem
+                                                    .mapIndexed(
+                                                        (upcomingMilestoneItemIndex,
+                                                                upcomingMilestoneItemItem) =>
+                                                            [
+                                                              Text(
+                                                                upcomingMilestoneItemItem
+                                                                    .title,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                              Text(
+                                                                upcomingMilestoneItemItem
+                                                                    .description,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                              Text(
+                                                                functions.convertDateFromStamp(
+                                                                    upcomingMilestoneItemItem
+                                                                        .endDate),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                              Text(
+                                                                FFAppState()
+                                                                    .mileStoneModelAppState[
+                                                                        upcomingMilestoneItemItem
+                                                                            .status]
+                                                                    .nameEn,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ]
+                                                                .map((c) =>
+                                                                    DataCell(c))
+                                                                .toList())
+                                                    .map((e) =>
+                                                        DataRow(cells: e))
+                                                    .toList(),
+                                                headingRowColor:
+                                                    MaterialStateProperty.all(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                                ),
+                                                headingRowHeight: 56.0,
+                                                dataRowColor:
+                                                    MaterialStateProperty.all(
+                                                  const Color(0x00000000),
+                                                ),
+                                                dataRowHeight: 56.0,
+                                                border: TableBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                dividerThickness: 0.0,
+                                                showBottomBorder: false,
+                                                minWidth: 49.0,
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -454,9 +926,6 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 45.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width < 400.0
-                                    ? 340.0
-                                    : 550.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -795,6 +1264,204 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                               ],
                                             ),
                                           ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context)
+                                        .beyondBlueColor,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 20.0, 10.0, 20.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .beyondBlueColor,
+                                                borderRadius: const BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(0.0),
+                                                  bottomRight:
+                                                      Radius.circular(0.0),
+                                                  topLeft:
+                                                      Radius.circular(25.0),
+                                                  topRight:
+                                                      Radius.circular(25.0),
+                                                ),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 15.0, 15.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      dateTimeFormat(
+                                                        'MMMM',
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                    ),
+                                                    Text(
+                                                      dateTimeFormat(
+                                                        'yyyy',
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Almarai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            height: 65.0,
+                                            decoration: const BoxDecoration(),
+                                            child: ListView(
+                                              padding: const EdgeInsets.fromLTRB(
+                                                15.0,
+                                                0,
+                                                15.0,
+                                                0,
+                                              ),
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.horizontal,
+                                              children: [
+                                                wrapWithModel(
+                                                  model: _model.stickModel1,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel2,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel3,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel4,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel5,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel6,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel7,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                                wrapWithModel(
+                                                  model: _model.stickModel8,
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child: const StickWidget(),
+                                                ),
+                                              ].divide(const SizedBox(width: 50.0)),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        height: 490.0,
+                                        child: custom_widgets
+                                            .MilestoneCalendarWidget(
+                                          width: double.infinity,
+                                          height: 490.0,
+                                          milestones: functions
+                                              .convertToDateTimeList(_model
+                                                  .projectModel!.milestones
+                                                  .toList()),
                                         ),
                                       ),
                                     ],

@@ -13,6 +13,7 @@ export 'project_model_struct.dart';
 export 'project_statistic_model_struct.dart';
 export 'project_type_model_struct.dart';
 export 'reminder_model_struct.dart';
+export 'satisfaction_model_struct.dart';
 export 'statistics_model_struct.dart';
 export 'team_members_model_struct.dart';
 export 'team_tap_model_struct.dart';

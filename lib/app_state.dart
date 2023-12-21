@@ -210,6 +210,22 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _costIsOpend = prefs.getBool('ff_costIsOpend') ?? _costIsOpend;
     });
+    _safeInit(() {
+      _clintSatisfactionList = prefs
+              .getStringList('ff_clintSatisfactionList')
+              ?.map((x) {
+                try {
+                  return SatisfactionModelStruct.fromSerializableMap(
+                      jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _clintSatisfactionList;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -670,6 +686,60 @@ class FFAppState extends ChangeNotifier {
   set costIsOpend(bool value) {
     _costIsOpend = value;
     prefs.setBool('ff_costIsOpend', value);
+  }
+
+  List<SatisfactionModelStruct> _clintSatisfactionList = [
+    SatisfactionModelStruct.fromSerializableMap(jsonDecode(
+        '{"type":"1","isSelected":"false","color":"#e6000b","notColor":"#472a21"}')),
+    SatisfactionModelStruct.fromSerializableMap(jsonDecode(
+        '{"type":"2","isSelected":"false","color":"#ee8b60","notColor":"#4d3820"}')),
+    SatisfactionModelStruct.fromSerializableMap(jsonDecode(
+        '{"type":"3","isSelected":"false","color":"#ffe851","notColor":"#524624"}')),
+    SatisfactionModelStruct.fromSerializableMap(jsonDecode(
+        '{"type":"4","isSelected":"false","color":"#249689","notColor":"#363e27"}')),
+    SatisfactionModelStruct.fromSerializableMap(jsonDecode(
+        '{"type":"5","isSelected":"false","color":"#0bf352","notColor":"#468a61"}'))
+  ];
+  List<SatisfactionModelStruct> get clintSatisfactionList =>
+      _clintSatisfactionList;
+  set clintSatisfactionList(List<SatisfactionModelStruct> value) {
+    _clintSatisfactionList = value;
+    prefs.setStringList(
+        'ff_clintSatisfactionList', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToClintSatisfactionList(SatisfactionModelStruct value) {
+    _clintSatisfactionList.add(value);
+    prefs.setStringList('ff_clintSatisfactionList',
+        _clintSatisfactionList.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromClintSatisfactionList(SatisfactionModelStruct value) {
+    _clintSatisfactionList.remove(value);
+    prefs.setStringList('ff_clintSatisfactionList',
+        _clintSatisfactionList.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromClintSatisfactionList(int index) {
+    _clintSatisfactionList.removeAt(index);
+    prefs.setStringList('ff_clintSatisfactionList',
+        _clintSatisfactionList.map((x) => x.serialize()).toList());
+  }
+
+  void updateClintSatisfactionListAtIndex(
+    int index,
+    SatisfactionModelStruct Function(SatisfactionModelStruct) updateFn,
+  ) {
+    _clintSatisfactionList[index] = updateFn(_clintSatisfactionList[index]);
+    prefs.setStringList('ff_clintSatisfactionList',
+        _clintSatisfactionList.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInClintSatisfactionList(
+      int index, SatisfactionModelStruct value) {
+    _clintSatisfactionList.insert(index, value);
+    prefs.setStringList('ff_clintSatisfactionList',
+        _clintSatisfactionList.map((x) => x.serialize()).toList());
   }
 }
 
