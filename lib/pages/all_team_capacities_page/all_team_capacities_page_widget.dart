@@ -473,8 +473,12 @@ class _AllTeamCapacitiesPageWidgetState
                                           ],
                                         ),
                                       ),
-                                      if (_model
-                                              .teamMemberModel!.seniors.isNotEmpty)
+                                      if ((_model.teamMemberModel?.seniors
+                                                      .length !=
+                                                  null) &&
+                                              (_model.teamMemberModel!.seniors.isNotEmpty)
+                                          ? true
+                                          : false)
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -585,11 +589,22 @@ class _AllTeamCapacitiesPageWidgetState
                                           },
                                         ),
                                       ),
-                                      if (_model.teamMemberModel!.members
-                                              .where((e) => e.accessRole == 3
-                                                  ? true
-                                                  : false)
-                                              .toList().isNotEmpty)
+                                      if ((_model.teamMemberModel?.members
+                                                      .where((e) =>
+                                                          e.accessRole == 3
+                                                              ? true
+                                                              : false)
+                                                      .toList()
+                                                      .length !=
+                                                  null) &&
+                                              (_model.teamMemberModel!.members
+                                                      .where((e) =>
+                                                          e.accessRole == 3
+                                                              ? true
+                                                              : false)
+                                                      .toList().isNotEmpty)
+                                          ? true
+                                          : false)
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -705,11 +720,22 @@ class _AllTeamCapacitiesPageWidgetState
                                           },
                                         ),
                                       ),
-                                      if (_model.teamMemberModel!.members
-                                              .where((e) => e.accessRole == 4
-                                                  ? true
-                                                  : false)
-                                              .toList().isNotEmpty)
+                                      if ((_model.teamMemberModel?.members
+                                                      .where((e) =>
+                                                          e.accessRole == 4
+                                                              ? true
+                                                              : false)
+                                                      .toList()
+                                                      .length !=
+                                                  null) &&
+                                              (_model.teamMemberModel!.members
+                                                      .where((e) =>
+                                                          e.accessRole == 4
+                                                              ? true
+                                                              : false)
+                                                      .toList().isNotEmpty)
+                                          ? true
+                                          : false)
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
