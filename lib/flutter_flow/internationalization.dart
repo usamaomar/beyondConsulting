@@ -342,6 +342,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '4/7 Milestones',
       'ar': '',
     },
+    'lriocr9t': {
+      'en': 'Collaborators',
+      'ar': 'المتعاونون',
+    },
+    'vokc4jta': {
+      'en': 'Upcoming Milestones',
+      'ar': 'المعالم القادمة',
+    },
+    'uu017afu': {
+      'en': 'Milestone',
+      'ar': 'منعطف',
+    },
+    'k9kpljxf': {
+      'en': 'Description',
+      'ar': 'وصف',
+    },
+    'mmrwuywi': {
+      'en': 'Deadline',
+      'ar': 'موعد التسليم',
+    },
+    'ab7ejsgk': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
     '7ogjhx51': {
       'en': 'Financial Outlook',
       'ar': 'التوقعات المالية',

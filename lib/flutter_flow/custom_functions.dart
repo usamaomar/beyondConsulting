@@ -622,3 +622,45 @@ int calculateRemainingPercentage(
 
   return remainingPercentage.round();
 }
+
+String convertFromIdToTextClientSatisfaction(
+  int clientSatisfactionId,
+  String lang,
+) {
+  Map<int, String> satisfactionLevels = {
+    1: 'HighlyDissatisfied',
+    2: 'Dissatisfied',
+    3: 'Neutral',
+    4: 'Satisfied',
+    5: 'HighlySatisfied',
+  };
+
+  // Check if the ID is valid
+  if (satisfactionLevels.containsKey(clientSatisfactionId)) {
+    // Check if the language is English
+    if (lang == 'en') {
+      return satisfactionLevels[clientSatisfactionId] ?? '';
+    } else {
+      // Return empty string for other languages
+      return '';
+    }
+  } else {
+    // Return empty string for invalid IDs
+    return '';
+  }
+}
+
+String convertDateFromStamp(String inputDate) {
+  DateTime dateTime = DateTime.parse(inputDate);
+
+  // Format the date to "13 / 5 / 2023"
+  String formattedDate = DateFormat('d / M / y').format(dateTime);
+
+  return formattedDate;
+}
+
+List<DateTime> convertToDateTimeList(List<MilestoneModelStruct> milestones) {
+  return milestones
+      .map((milestone) => DateTime.parse(milestone.endDate))
+      .toList();
+}

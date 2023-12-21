@@ -1,7 +1,11 @@
 import '/backend/schema/structs/index.dart';
+import '/components/satisfaction_component_widget.dart';
+import '/components/stick_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/components/read_member_cpacity/read_member_cpacity_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import 'project_page_widget.dart' show ProjectPageWidget;
+import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 class ProjectPageModel extends FlutterFlowModel<ProjectPageWidget> {
@@ -55,18 +59,61 @@ class ProjectPageModel extends FlutterFlowModel<ProjectPageWidget> {
   final unfocusNode = FocusNode();
   // Model for SideNav component.
   late SideNavModel sideNavModel;
+  // Models for ReadMemberCpacity dynamic component.
+  late FlutterFlowDynamicModels<ReadMemberCpacityModel> readMemberCpacityModels;
+  // Model for satisfactionComponent component.
+  late SatisfactionComponentModel satisfactionComponentModel;
+  // Model for stick component.
+  late StickModel stickModel1;
+  // Model for stick component.
+  late StickModel stickModel2;
+  // Model for stick component.
+  late StickModel stickModel3;
+  // Model for stick component.
+  late StickModel stickModel4;
+  // Model for stick component.
+  late StickModel stickModel5;
+  // Model for stick component.
+  late StickModel stickModel6;
+  // Model for stick component.
+  late StickModel stickModel7;
+  // Model for stick component.
+  late StickModel stickModel8;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
     sideNavModel = createModel(context, () => SideNavModel());
+    readMemberCpacityModels =
+        FlutterFlowDynamicModels(() => ReadMemberCpacityModel());
+    satisfactionComponentModel =
+        createModel(context, () => SatisfactionComponentModel());
+    dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
+    stickModel1 = createModel(context, () => StickModel());
+    stickModel2 = createModel(context, () => StickModel());
+    stickModel3 = createModel(context, () => StickModel());
+    stickModel4 = createModel(context, () => StickModel());
+    stickModel5 = createModel(context, () => StickModel());
+    stickModel6 = createModel(context, () => StickModel());
+    stickModel7 = createModel(context, () => StickModel());
+    stickModel8 = createModel(context, () => StickModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     sideNavModel.dispose();
+    readMemberCpacityModels.dispose();
+    satisfactionComponentModel.dispose();
+    stickModel1.dispose();
+    stickModel2.dispose();
+    stickModel3.dispose();
+    stickModel4.dispose();
+    stickModel5.dispose();
+    stickModel6.dispose();
+    stickModel7.dispose();
+    stickModel8.dispose();
   }
 
   /// Action blocks are added here.
