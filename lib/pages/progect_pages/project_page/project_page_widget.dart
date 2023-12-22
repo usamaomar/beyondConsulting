@@ -263,34 +263,25 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                     ],
                                   ),
                                 ),
-                                ListView(
-                                  padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 20.0, 10.0, 10.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: 90.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 20.0, 10.0, 10.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        width: 90.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      const Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
