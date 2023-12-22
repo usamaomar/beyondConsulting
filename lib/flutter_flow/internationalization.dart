@@ -334,14 +334,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Projects Tracker',
       'ar': 'متتبع المشاريع',
     },
-    'ehbk578f': {
-      'en': 'USAID BGA',
-      'ar': '',
-    },
-    '652l05v1': {
-      'en': '4/7 Milestones',
-      'ar': '',
-    },
     'lriocr9t': {
       'en': 'Collaborators',
       'ar': 'المتعاونون',
