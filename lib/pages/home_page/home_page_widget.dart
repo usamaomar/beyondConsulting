@@ -40,19 +40,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       );
       if ((_model.apiResult8gj?.statusCode ?? 200) == 200) {
         setState(() {
-          _model.statisticsModel = GetStatisticsApiCall.statisticsJsonModel(
-                        (_model.apiResult8gj?.jsonBody ?? ''),
-                      ) !=
-                      null &&
-                  GetStatisticsApiCall.statisticsJsonModel(
-                        (_model.apiResult8gj?.jsonBody ?? ''),
-                      ) !=
-                      ''
-              ? StatisticsModelStruct.fromMap(
-                  GetStatisticsApiCall.statisticsJsonModel(
-                  (_model.apiResult8gj?.jsonBody ?? ''),
-                ))
-              : null;
+          _model.statisticsModel = StatisticsModelStruct.maybeFromMap(
+              GetStatisticsApiCall.statisticsJsonModel(
+            (_model.apiResult8gj?.jsonBody ?? ''),
+          ));
         });
         _model.apiResultscn = await GetMyPrioritiesApiCall.call(
           token: FFAppState().tokenModelAppState.token,
@@ -86,10 +77,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             if ((_model.apiProjectStats?.statusCode ?? 200) == 200) {
               setState(() {
                 FFAppState().ProjectStatisticsModel =
-                    ProjectStatisticModelStruct.fromMap(getJsonField(
+                    ProjectStatisticModelStruct.maybeFromMap(getJsonField(
                   (_model.apiProjectStats?.jsonBody ?? ''),
                   r'''$.data''',
-                ));
+                ))!;
               });
             }
           }

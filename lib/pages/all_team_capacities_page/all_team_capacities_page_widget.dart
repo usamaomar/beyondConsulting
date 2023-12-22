@@ -61,11 +61,11 @@ class _AllTeamCapacitiesPageWidgetState
       );
       if ((_model.apiResultdlx?.succeeded ?? true)) {
         setState(() {
-          _model.teamTabModel =
-              TeamTapModelStruct.fromMap((_model.apiResultdlx?.jsonBody ?? ''))
-                  .data
-                  .toList()
-                  .cast<TeamTapModelStruct>();
+          _model.teamTabModel = TeamTapModelStruct.maybeFromMap(
+                  (_model.apiResultdlx?.jsonBody ?? ''))!
+              .data
+              .toList()
+              .cast<TeamTapModelStruct>();
         });
         setState(() {
           _model.selectedId = _model.teamTabModel.first.id;
@@ -77,21 +77,11 @@ class _AllTeamCapacitiesPageWidgetState
       );
       if ((_model.apiResult1xv?.succeeded ?? true)) {
         setState(() {
-          _model.teamMemberModel = getJsonField(
-                        (_model.apiResult1xv?.jsonBody ?? ''),
-                        r'''$.data''',
-                      ) !=
-                      null &&
-                  getJsonField(
-                        (_model.apiResult1xv?.jsonBody ?? ''),
-                        r'''$.data''',
-                      ) !=
-                      ''
-              ? TeamMembersModelStruct.fromMap(getJsonField(
-                  (_model.apiResult1xv?.jsonBody ?? ''),
-                  r'''$.data''',
-                ))
-              : null;
+          _model.teamMemberModel =
+              TeamMembersModelStruct.maybeFromMap(getJsonField(
+            (_model.apiResult1xv?.jsonBody ?? ''),
+            r'''$.data''',
+          ));
         });
       }
       setState(() {
@@ -187,64 +177,65 @@ class _AllTeamCapacitiesPageWidgetState
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 370.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            30.0, 20.0, 30.0, 0.0),
-                        child: Container(
-                          height: 60.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).beyondBlueColor,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(20.0),
-                              topRight: Radius.circular(20.0),
-                            ),
-                            border: Border.all(
+              Flexible(
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              30.0, 20.0, 30.0, 0.0),
+                          child: Container(
+                            height: 60.0,
+                            decoration: BoxDecoration(
                               color:
                                   FlutterFlowTheme.of(context).beyondBlueColor,
-                              width: 2.0,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    30.0, 16.0, 30.0, 16.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '7j4aa15z' /* Select Team */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Almarai',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent4,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold,
-                                        useGoogleFonts: false,
-                                      ),
-                                ),
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(0.0),
+                                bottomRight: Radius.circular(0.0),
+                                topLeft: Radius.circular(20.0),
+                                topRight: Radius.circular(20.0),
                               ),
-                            ],
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context)
+                                    .beyondBlueColor,
+                                width: 2.0,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      30.0, 16.0, 30.0, 16.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '7j4aa15z' /* Select Team */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Almarai',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent4,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Flexible(
-                      child: Builder(
+                      Builder(
                         builder: (context) {
                           final listOfTeams =
                               _model.teamTabModel.map((e) => e).toList();
@@ -283,28 +274,12 @@ class _AllTeamCapacitiesPageWidgetState
                                     if ((_model.apiResultt61?.succeeded ??
                                         true)) {
                                       setState(() {
-                                        _model.teamMemberModel = getJsonField(
-                                                      (_model.apiResultt61
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                      r'''$.data''',
-                                                    ) !=
-                                                    null &&
+                                        _model.teamMemberModel =
+                                            TeamMembersModelStruct.maybeFromMap(
                                                 getJsonField(
-                                                      (_model.apiResultt61
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                      r'''$.data''',
-                                                    ) !=
-                                                    ''
-                                            ? TeamMembersModelStruct.fromMap(
-                                                getJsonField(
-                                                (_model.apiResultt61
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.data''',
-                                              ))
-                                            : null;
+                                          (_model.apiResultt61?.jsonBody ?? ''),
+                                          r'''$.data''',
+                                        ));
                                       });
                                     }
                                     setState(() {
@@ -377,8 +352,8 @@ class _AllTeamCapacitiesPageWidgetState
                           );
                         },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Flexible(

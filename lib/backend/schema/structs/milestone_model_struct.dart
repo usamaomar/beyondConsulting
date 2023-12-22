@@ -156,8 +156,9 @@ class MilestoneModelStruct extends BaseStruct {
         reminderModel: ReminderModelStruct.maybeFromMap(data['reminderModel']),
       );
 
-  static MilestoneModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? MilestoneModelStruct.fromMap(data) : null;
+  static MilestoneModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? MilestoneModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

@@ -85,8 +85,9 @@ class ClientModelStruct extends BaseStruct {
         logoImageUrl: data['logoImageUrl'] as String?,
       );
 
-  static ClientModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ClientModelStruct.fromMap(data) : null;
+  static ClientModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? ClientModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

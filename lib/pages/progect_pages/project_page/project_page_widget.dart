@@ -43,9 +43,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         _model.projectModel =
-            widget.projectJaonModel != null && widget.projectJaonModel != ''
-                ? ProjectModelStruct.fromMap(widget.projectJaonModel)
-                : null;
+            ProjectModelStruct.maybeFromMap(widget.projectJaonModel);
       });
       setState(() {
         _model.addToTotalLableList(BarChartModelStruct(
@@ -233,8 +231,21 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             ),
                                       ),
                                       Text(
-                                        _model.projectModel!.milestones.length
-                                            .toString(),
+                                        valueOrDefault<String>(
+                                          _model.projectModel?.milestones
+                                                          .length
+                                                          .toString() !=
+                                                      null &&
+                                                  _model.projectModel
+                                                          ?.milestones.length
+                                                          .toString() !=
+                                                      ''
+                                              ? _model.projectModel?.milestones
+                                                  .length
+                                                  .toString()
+                                              : '0',
+                                          '0',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -371,56 +382,6 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             ],
                                           ),
                                         ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width <
-                                              400.0
-                                          ? 250.0
-                                          : 460.0,
-                                      height: 50.0,
-                                      decoration: const BoxDecoration(),
-                                      child: Builder(
-                                        builder: (context) {
-                                          final listOfDatesMilStones = _model
-                                                  .projectModel?.milestones
-                                                  .map((e) => e.startDate)
-                                                  .toList()
-                                                  .toList() ??
-                                              [];
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount:
-                                                listOfDatesMilStones.length,
-                                            itemBuilder: (context,
-                                                listOfDatesMilStonesIndex) {
-                                              final listOfDatesMilStonesItem =
-                                                  listOfDatesMilStones[
-                                                      listOfDatesMilStonesIndex];
-                                              return Text(
-                                                listOfDatesMilStonesItem,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Almarai',
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          useGoogleFonts: false,
-                                                        ),
-                                              );
-                                            },
-                                          );
-                                        },
                                       ),
                                     ),
                                   ],

@@ -40,8 +40,9 @@ class BarChartModelStruct extends BaseStruct {
         color: getSchemaColor(data['color']),
       );
 
-  static BarChartModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? BarChartModelStruct.fromMap(data) : null;
+  static BarChartModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? BarChartModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'lable': _lable,

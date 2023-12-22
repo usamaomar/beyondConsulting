@@ -69,10 +69,9 @@ class TeamMembersModelStruct extends BaseStruct {
         ),
       );
 
-  static TeamMembersModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? TeamMembersModelStruct.fromMap(data)
-          : null;
+  static TeamMembersModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? TeamMembersModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

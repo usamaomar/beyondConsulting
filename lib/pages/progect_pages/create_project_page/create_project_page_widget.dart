@@ -161,21 +161,18 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
+                Expanded(
                   child: SingleChildScrollView(
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 45.0, 10.0, 0.0),
+                              10.0, 45.0, 10.0, 40.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width < 400.0
-                                ? 340.0
-                                : 550.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -213,81 +210,88 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width <
-                                                      400.0
-                                                  ? 310.0
-                                                  : 520.0,
-                                          decoration: const BoxDecoration(),
-                                          child: TextFormField(
-                                            controller: _model.textController1,
-                                            focusNode:
-                                                _model.textFieldFocusNode1,
-                                            autofocus: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              labelText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'zc3vx4b7' /* Project Name here... */,
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: 310.0,
+                                            decoration: const BoxDecoration(),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController1,
+                                              focusNode:
+                                                  _model.textFieldFocusNode1,
+                                              autofocus: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'zc3vx4b7' /* Project Name here... */,
+                                                ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .beyondBlueColor,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
                                               ),
-                                              labelStyle:
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelMedium,
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium,
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(0.0),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .beyondBlueColor,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(0.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(0.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(0.0),
-                                              ),
+                                                      .bodyMedium,
+                                              validator: _model
+                                                  .textController1Validator
+                                                  .asValidator(context),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                            validator: _model
-                                                .textController1Validator
-                                                .asValidator(context),
                                           ),
                                         ),
                                       ),
@@ -318,78 +322,82 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Builder(
-                                        builder: (context) => Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showAlignedDialog(
-                                                barrierColor: const Color(0x4F000000),
-                                                context: context,
-                                                isGlobal: true,
-                                                avoidOverflow: false,
-                                                targetAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                followerAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                builder: (dialogContext) {
-                                                  return Material(
-                                                    color: Colors.transparent,
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
+                                      Expanded(
+                                        child: Builder(
+                                          builder: (context) => Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showAlignedDialog(
+                                                  barrierColor:
+                                                      const Color(0x4F000000),
+                                                  context: context,
+                                                  isGlobal: true,
+                                                  avoidOverflow: false,
+                                                  targetAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  followerAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  builder: (dialogContext) {
+                                                    return Material(
+                                                      color: Colors.transparent,
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child:
+                                                            const CountriesListDialogWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
+                                              child: wrapWithModel(
+                                                model: _model
+                                                    .textDropDouwnListComponentModel1,
+                                                updateCallback: () =>
+                                                    setState(() {}),
+                                                child:
+                                                    TextDropDouwnListComponentWidget(
+                                                  hintName:
+                                                      functions.getCountryUsing(
+                                                          FFAppState()
+                                                              .newProjectCreatedModel,
+                                                          FFLocalizations.of(
                                                                   context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child:
-                                                          const CountriesListDialogWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then(
-                                                  (value) => setState(() {}));
-                                            },
-                                            child: wrapWithModel(
-                                              model: _model
-                                                  .textDropDouwnListComponentModel1,
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              child:
-                                                  TextDropDouwnListComponentWidget(
-                                                hintName:
-                                                    functions.getCountryUsing(
-                                                        FFAppState()
-                                                            .newProjectCreatedModel,
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                        functions
-                                                            .fromJsonToCountryList(
-                                                                getJsonField(
-                                                              functions
-                                                                  .getAllCountrJsonArray(),
-                                                              r'''$.data''',
-                                                            ))
-                                                            .toList()),
+                                                              .languageCode,
+                                                          functions
+                                                              .fromJsonToCountryList(
+                                                                  getJsonField(
+                                                                functions
+                                                                    .getAllCountrJsonArray(),
+                                                                r'''$.data''',
+                                                              ))
+                                                              .toList()),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -398,10 +406,6 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                     ],
                                   ),
                                   Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width < 400.0
-                                            ? 310.0
-                                            : 520.0,
                                     decoration: const BoxDecoration(),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -411,412 +415,436 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'vxqutv5s' /* Start Date */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: const Color(0xFF032734),
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
+                                          Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'vxqutv5s' /* Start Date */,
                                                     ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    final datePicked1Date =
-                                                        await showDatePicker(
-                                                      context: context,
-                                                      initialDate: functions
-                                                          .parseDateString(
-                                                              FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .startDate),
-                                                      firstDate: functions
-                                                          .parseDateString(
-                                                              FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .startDate),
-                                                      lastDate: DateTime(2050),
-                                                      builder:
-                                                          (context, child) {
-                                                        return wrapInMaterialDatePickerTheme(
-                                                          context,
-                                                          child!,
-                                                          headerBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .beyondBlueColor,
-                                                          headerForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .info,
-                                                          headerTextStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .headlineLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Almarai',
-                                                                    fontSize:
-                                                                        32.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
-                                                          pickerBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryBackground,
-                                                          pickerForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          selectedDateTimeBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .beyondBlueColor,
-                                                          selectedDateTimeForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .info,
-                                                          actionButtonForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          iconSize: 24.0,
-                                                        );
-                                                      },
-                                                    );
-
-                                                    if (datePicked1Date !=
-                                                        null) {
-                                                      safeSetState(() {
-                                                        _model.datePicked1 =
-                                                            DateTime(
-                                                          datePicked1Date.year,
-                                                          datePicked1Date
-                                                              .month,
-                                                          datePicked1Date.day,
-                                                        );
-                                                      });
-                                                    }
-                                                    setState(() {
-                                                      FFAppState()
-                                                          .updateNewProjectCreatedModelStruct(
-                                                        (e) => e
-                                                          ..startDate =
-                                                              dateTimeFormat(
-                                                            'yyyy-MM-ddT00:00:00.000Z',
-                                                            _model.datePicked1,
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          ),
-                                                      );
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        width: 2.0,
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            functions.convertDateString(
-                                                                FFAppState()
-                                                                    .newProjectCreatedModel
-                                                                    .startDate),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Almarai',
-                                                                  color: const Color(
-                                                                      0xFF797979),
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts:
-                                                                      false,
-                                                                ),
-                                                          ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color:
+                                                              const Color(0xFF032734),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                         ),
-                                                        const Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      10.0,
-                                                                      5.0,
-                                                                      10.0),
-                                                          child: Icon(
-                                                            Icons
-                                                                .calendar_month,
-                                                            color: Color(
-                                                                0xFF797979),
-                                                            size: 24.0,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'vmzp7t3l' /* End Date */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: const Color(0xFF032734),
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    final datePicked2Date =
-                                                        await showDatePicker(
-                                                      context: context,
-                                                      initialDate: functions
-                                                          .parseDateString(
-                                                              FFAppState()
-                                                                  .newProjectCreatedModel
-                                                                  .endDate),
-                                                      firstDate: (functions
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        final datePicked1Date =
+                                                            await showDatePicker(
+                                                          context: context,
+                                                          initialDate: functions
                                                               .parseDateString(
                                                                   FFAppState()
                                                                       .newProjectCreatedModel
-                                                                      .endDate) ??
-                                                          DateTime(1900)),
-                                                      lastDate: DateTime(2050),
-                                                      builder:
-                                                          (context, child) {
-                                                        return wrapInMaterialDatePickerTheme(
-                                                          context,
-                                                          child!,
-                                                          headerBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .beyondBlueColor,
-                                                          headerForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .info,
-                                                          headerTextStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .headlineLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Almarai',
-                                                                    fontSize:
-                                                                        32.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
-                                                          pickerBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryBackground,
-                                                          pickerForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          selectedDateTimeBackgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .beyondBlueColor,
-                                                          selectedDateTimeForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .info,
-                                                          actionButtonForegroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          iconSize: 24.0,
+                                                                      .startDate),
+                                                          firstDate: functions
+                                                              .parseDateString(
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .startDate),
+                                                          lastDate:
+                                                              DateTime(2050),
+                                                          builder:
+                                                              (context, child) {
+                                                            return wrapInMaterialDatePickerTheme(
+                                                              context,
+                                                              child!,
+                                                              headerBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .beyondBlueColor,
+                                                              headerForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              headerTextStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Almarai',
+                                                                        fontSize:
+                                                                            32.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                              pickerBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              pickerForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              selectedDateTimeBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .beyondBlueColor,
+                                                              selectedDateTimeForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              actionButtonForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              iconSize: 24.0,
+                                                            );
+                                                          },
                                                         );
-                                                      },
-                                                    );
 
-                                                    if (datePicked2Date !=
-                                                        null) {
-                                                      safeSetState(() {
-                                                        _model.datePicked2 =
-                                                            DateTime(
-                                                          datePicked2Date.year,
-                                                          datePicked2Date
-                                                              .month,
-                                                          datePicked2Date.day,
-                                                        );
-                                                      });
-                                                    }
-                                                    setState(() {
-                                                      FFAppState()
-                                                          .updateNewProjectCreatedModelStruct(
-                                                        (e) => e
-                                                          ..endDate =
-                                                              dateTimeFormat(
-                                                            'yyyy-MM-ddT00:00:00.000Z',
-                                                            _model.datePicked2,
-                                                            locale: FFLocalizations
+                                                        if (datePicked1Date !=
+                                                            null) {
+                                                          safeSetState(() {
+                                                            _model.datePicked1 =
+                                                                DateTime(
+                                                              datePicked1Date
+                                                                  .year,
+                                                              datePicked1Date
+                                                                  .month,
+                                                              datePicked1Date
+                                                                  .day,
+                                                            );
+                                                          });
+                                                        }
+                                                        setState(() {
+                                                          FFAppState()
+                                                              .updateNewProjectCreatedModelStruct(
+                                                            (e) => e
+                                                              ..startDate =
+                                                                  dateTimeFormat(
+                                                                'yyyy-MM-ddT00:00:00.000Z',
+                                                                _model
+                                                                    .datePicked1,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                          );
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .languageCode,
-                                                          ),
-                                                      );
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
                                                                 .alternate,
-                                                        width: 2.0,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                functions.convertDateString(
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .startDate),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFF797979),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            const Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          10.0,
+                                                                          5.0,
+                                                                          10.0),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .calendar_month,
+                                                                color: Color(
+                                                                    0xFF797979),
+                                                                size: 24.0,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            functions.convertDateString(
-                                                                FFAppState()
-                                                                    .newProjectCreatedModel
-                                                                    .endDate),
-                                                            style: FlutterFlowTheme
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'vmzp7t3l' /* End Date */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color:
+                                                              const Color(0xFF032734),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        final datePicked2Date =
+                                                            await showDatePicker(
+                                                          context: context,
+                                                          initialDate: functions
+                                                              .parseDateString(
+                                                                  FFAppState()
+                                                                      .newProjectCreatedModel
+                                                                      .endDate),
+                                                          firstDate: (functions
+                                                                  .parseDateString(
+                                                                      FFAppState()
+                                                                          .newProjectCreatedModel
+                                                                          .endDate) ??
+                                                              DateTime(1900)),
+                                                          lastDate:
+                                                              DateTime(2050),
+                                                          builder:
+                                                              (context, child) {
+                                                            return wrapInMaterialDatePickerTheme(
+                                                              context,
+                                                              child!,
+                                                              headerBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .beyondBlueColor,
+                                                              headerForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              headerTextStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Almarai',
+                                                                        fontSize:
+                                                                            32.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                              pickerBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              pickerForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              selectedDateTimeBackgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .beyondBlueColor,
+                                                              selectedDateTimeForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              actionButtonForegroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              iconSize: 24.0,
+                                                            );
+                                                          },
+                                                        );
+
+                                                        if (datePicked2Date !=
+                                                            null) {
+                                                          safeSetState(() {
+                                                            _model.datePicked2 =
+                                                                DateTime(
+                                                              datePicked2Date
+                                                                  .year,
+                                                              datePicked2Date
+                                                                  .month,
+                                                              datePicked2Date
+                                                                  .day,
+                                                            );
+                                                          });
+                                                        }
+                                                        setState(() {
+                                                          FFAppState()
+                                                              .updateNewProjectCreatedModelStruct(
+                                                            (e) => e
+                                                              ..endDate =
+                                                                  dateTimeFormat(
+                                                                'yyyy-MM-ddT00:00:00.000Z',
+                                                                _model
+                                                                    .datePicked2,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                          );
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Almarai',
-                                                                  color: const Color(
-                                                                      0xFF797979),
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts:
-                                                                      false,
-                                                                ),
+                                                                .alternate,
+                                                            width: 2.0,
                                                           ),
                                                         ),
-                                                        const Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      10.0,
-                                                                      5.0,
-                                                                      10.0),
-                                                          child: Icon(
-                                                            Icons
-                                                                .calendar_month,
-                                                            color: Color(
-                                                                0xFF797979),
-                                                            size: 24.0,
-                                                          ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                functions.convertDateString(
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .endDate),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFF797979),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            const Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          10.0,
+                                                                          5.0,
+                                                                          10.0),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .calendar_month,
+                                                                color: Color(
+                                                                    0xFF797979),
+                                                                size: 24.0,
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -847,109 +875,113 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Builder(
-                                        builder: (context) => Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showAlignedDialog(
-                                                barrierColor: const Color(0x4F000000),
-                                                context: context,
-                                                isGlobal: true,
-                                                avoidOverflow: false,
-                                                targetAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                followerAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                builder: (dialogContext) {
-                                                  return Material(
-                                                    color: Colors.transparent,
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child:
-                                                          const ProjectTypeListDialogWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then(
-                                                  (value) => setState(() {}));
-                                            },
-                                            child: wrapWithModel(
-                                              model: _model
-                                                  .typeDropDouwnListComponentModel,
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              child:
-                                                  TypeDropDouwnListComponentWidget(
-                                                hintName: FFAppState()
-                                                            .newProjectCreatedModel
-                                                            .type !=
-                                                        0
-                                                    ? () {
-                                                        if (FFAppState()
-                                                                .newProjectCreatedModel
-                                                                .type ==
-                                                            1) {
-                                                          return FFLocalizations
-                                                                  .of(context)
-                                                              .getVariableText(
-                                                            enText:
-                                                                'Project ${FFAppState().projectTypesList[2].nameEn}',
-                                                            arText:
-                                                                'مشروع ${FFAppState().projectTypesList[2].nameAr}',
-                                                          );
-                                                        } else if (FFAppState()
-                                                                .newProjectCreatedModel
-                                                                .type ==
-                                                            2) {
-                                                          return FFLocalizations
-                                                                  .of(context)
-                                                              .getVariableText(
-                                                            enText:
-                                                                'Project ${FFAppState().projectTypesList[1].nameEn}',
-                                                            arText:
-                                                                'مشروع ${FFAppState().projectTypesList[1].nameAr}',
-                                                          );
-                                                        } else {
-                                                          return FFLocalizations
-                                                                  .of(context)
-                                                              .getVariableText(
-                                                            enText:
-                                                                'Project ${FFAppState().projectTypesList[0].nameEn}',
-                                                            arText:
-                                                                'مشروع ${FFAppState().projectTypesList[0].nameAr}',
-                                                          );
-                                                        }
-                                                      }()
-                                                    : FFLocalizations.of(
-                                                            context)
-                                                        .getVariableText(
-                                                        enText: 'Select...',
-                                                        arText: '...اختر',
+                                      Flexible(
+                                        child: Builder(
+                                          builder: (context) => Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showAlignedDialog(
+                                                  barrierColor:
+                                                      const Color(0x4F000000),
+                                                  context: context,
+                                                  isGlobal: true,
+                                                  avoidOverflow: false,
+                                                  targetAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  followerAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  builder: (dialogContext) {
+                                                    return Material(
+                                                      color: Colors.transparent,
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child:
+                                                            const ProjectTypeListDialogWidget(),
                                                       ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
+                                              child: wrapWithModel(
+                                                model: _model
+                                                    .typeDropDouwnListComponentModel,
+                                                updateCallback: () =>
+                                                    setState(() {}),
+                                                child:
+                                                    TypeDropDouwnListComponentWidget(
+                                                  hintName: FFAppState()
+                                                              .newProjectCreatedModel
+                                                              .type !=
+                                                          0
+                                                      ? () {
+                                                          if (FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .type ==
+                                                              1) {
+                                                            return FFLocalizations
+                                                                    .of(context)
+                                                                .getVariableText(
+                                                              enText:
+                                                                  'Project ${FFAppState().projectTypesList[2].nameEn}',
+                                                              arText:
+                                                                  'مشروع ${FFAppState().projectTypesList[2].nameAr}',
+                                                            );
+                                                          } else if (FFAppState()
+                                                                  .newProjectCreatedModel
+                                                                  .type ==
+                                                              2) {
+                                                            return FFLocalizations
+                                                                    .of(context)
+                                                                .getVariableText(
+                                                              enText:
+                                                                  'Project ${FFAppState().projectTypesList[1].nameEn}',
+                                                              arText:
+                                                                  'مشروع ${FFAppState().projectTypesList[1].nameAr}',
+                                                            );
+                                                          } else {
+                                                            return FFLocalizations
+                                                                    .of(context)
+                                                                .getVariableText(
+                                                              enText:
+                                                                  'Project ${FFAppState().projectTypesList[0].nameEn}',
+                                                              arText:
+                                                                  'مشروع ${FFAppState().projectTypesList[0].nameAr}',
+                                                            );
+                                                          }
+                                                        }()
+                                                      : FFLocalizations.of(
+                                                              context)
+                                                          .getVariableText(
+                                                          enText: 'Select...',
+                                                          arText: '...اختر',
+                                                        ),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -982,68 +1014,72 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Builder(
-                                        builder: (context) => Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showAlignedDialog(
-                                                barrierColor: const Color(0x4F000000),
-                                                context: context,
-                                                isGlobal: true,
-                                                avoidOverflow: false,
-                                                targetAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                followerAnchor:
-                                                    const AlignmentDirectional(
-                                                            0.0, 0.0)
-                                                        .resolve(
-                                                            Directionality.of(
-                                                                context)),
-                                                builder: (dialogContext) {
-                                                  return Material(
-                                                    color: Colors.transparent,
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child:
-                                                          const PersonalsTeamListDialogWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then(
-                                                  (value) => setState(() {}));
-                                            },
-                                            child: wrapWithModel(
-                                              model: _model
-                                                  .textDropDouwnListComponentModel2,
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              child:
-                                                  TextDropDouwnListComponentWidget(
-                                                hintName:
-                                                    FFLocalizations.of(context)
-                                                        .getVariableText(
-                                                  enText: 'Select...',
-                                                  arText: '... اختر',
+                                      Expanded(
+                                        child: Builder(
+                                          builder: (context) => Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showAlignedDialog(
+                                                  barrierColor:
+                                                      const Color(0x4F000000),
+                                                  context: context,
+                                                  isGlobal: true,
+                                                  avoidOverflow: false,
+                                                  targetAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  followerAnchor:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  builder: (dialogContext) {
+                                                    return Material(
+                                                      color: Colors.transparent,
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child:
+                                                            const PersonalsTeamListDialogWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
+                                              child: wrapWithModel(
+                                                model: _model
+                                                    .textDropDouwnListComponentModel2,
+                                                updateCallback: () =>
+                                                    setState(() {}),
+                                                child:
+                                                    TextDropDouwnListComponentWidget(
+                                                  hintName: FFLocalizations.of(
+                                                          context)
+                                                      .getVariableText(
+                                                    enText: 'Select...',
+                                                    arText: '... اختر',
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -1056,7 +1092,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: Container(
-                                      height: 200.0,
+                                      height: 300.0,
                                       decoration: const BoxDecoration(),
                                       child: Builder(
                                         builder: (context) {
@@ -1279,27 +1315,20 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                     ),
                   ),
                 ),
-                if (responsiveVisibility(
-                  context: context,
-                  phone: false,
-                  tablet: false,
-                ))
-                  Flexible(
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 45.0, 0.0, 0.0),
+                                  0.0, 45.0, 0.0, 40.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width < 400.0
-                                    ? 340.0
-                                    : 550.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -1343,99 +1372,93 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                                .width <
-                                                            400.0
-                                                        ? 310.0
-                                                        : 520.0,
-                                                decoration: const BoxDecoration(),
-                                                child: TextFormField(
-                                                  controller:
-                                                      _model.textController2,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode2,
-                                                  autofocus: true,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                      '4f4wu7pt' /* Description  here... */,
-                                                    ),
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        width: 2.0,
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 10.0, 0.0, 0.0),
+                                                child: Container(
+                                                  width: 310.0,
+                                                  decoration: const BoxDecoration(),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.textController2,
+                                                    focusNode: _model
+                                                        .textFieldFocusNode2,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '4f4wu7pt' /* Description  here... */,
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .beyondBlueColor,
-                                                        width: 2.0,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 2.0,
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .beyondBlueColor,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 2.0,
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                      ),
                                                     ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                    maxLines: 3,
+                                                    validator: _model
+                                                        .textController2Validator
+                                                        .asValidator(context),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                  maxLines: 3,
-                                                  validator: _model
-                                                      .textController2Validator
-                                                      .asValidator(context),
                                                 ),
                                               ),
                                             ),
@@ -1538,84 +1561,87 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Builder(
-                                              builder: (context) => Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await showAlignedDialog(
-                                                      context: context,
-                                                      isGlobal: true,
-                                                      avoidOverflow: false,
-                                                      targetAnchor:
-                                                          const AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      followerAnchor:
-                                                          const AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      builder: (dialogContext) {
-                                                        return Material(
-                                                          color: Colors
-                                                              .transparent,
-                                                          child:
-                                                              GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                            Expanded(
+                                              child: Builder(
+                                                builder: (context) => Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showAlignedDialog(
+                                                        context: context,
+                                                        isGlobal: true,
+                                                        avoidOverflow: false,
+                                                        targetAnchor:
+                                                            const AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        followerAnchor:
+                                                            const AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        builder:
+                                                            (dialogContext) {
+                                                          return Material(
+                                                            color: Colors
+                                                                .transparent,
                                                             child:
-                                                                const ClintListDialogWidget(),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ).then((value) =>
-                                                        setState(() {}));
-                                                  },
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .clintDropDouwnListComponentModel,
-                                                    updateCallback: () =>
-                                                        setState(() {}),
-                                                    child:
-                                                        ClintDropDouwnListComponentWidget(
-                                                      hintName: FFAppState()
-                                                                      .newProjectCreatedModel
-                                                                      .client !=
-                                                                  ''
-                                                          ? FFAppState()
-                                                              .newProjectCreatedModel
-                                                              .client
-                                                          : FFLocalizations.of(
-                                                                  context)
-                                                              .getVariableText(
-                                                              enText:
-                                                                  'Select...',
-                                                              arText:
-                                                                  '... اختر',
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child:
+                                                                  const ClintListDialogWidget(),
                                                             ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          setState(() {}));
+                                                    },
+                                                    child: wrapWithModel(
+                                                      model: _model
+                                                          .clintDropDouwnListComponentModel,
+                                                      updateCallback: () =>
+                                                          setState(() {}),
+                                                      child:
+                                                          ClintDropDouwnListComponentWidget(
+                                                        hintName: FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .client !=
+                                                                    ''
+                                                            ? FFAppState()
+                                                                .newProjectCreatedModel
+                                                                .client
+                                                            : FFLocalizations
+                                                                    .of(context)
+                                                                .getVariableText(
+                                                                enText:
+                                                                    'Select...',
+                                                                arText:
+                                                                    '... اختر',
+                                                              ),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1677,16 +1703,11 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                           ),
                                         ),
                                         Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width <
-                                                      400.0
-                                                  ? 310.0
-                                                  : 520.0,
                                           decoration: const BoxDecoration(),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
@@ -2070,11 +2091,6 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                           ),
                                         ),
                                         Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width <
-                                                      400.0
-                                                  ? 310.0
-                                                  : 520.0,
                                           decoration: const BoxDecoration(),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -2083,7 +2099,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Expanded(
+                                              Flexible(
                                                 child: Builder(
                                                   builder: (context) => Padding(
                                                     padding:
@@ -2220,7 +2236,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   ),
                                                 ),
                                               ),
-                                              Expanded(
+                                              Flexible(
                                                 child: Builder(
                                                   builder: (context) => Padding(
                                                     padding:
@@ -2515,11 +2531,12 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                ),
               ],
             ),
           ),

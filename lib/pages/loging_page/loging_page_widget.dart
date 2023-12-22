@@ -435,11 +435,11 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                           200) {
                                         setState(() {
                                           FFAppState().tokenModelAppState =
-                                              TokenModelStruct.fromMap(
+                                              TokenModelStruct.maybeFromMap(
                                                   LoginApiCall.tokenJsonModel(
                                             (_model.loginResponse?.jsonBody ??
                                                 ''),
-                                          ));
+                                          ))!;
                                         });
                                         _model.userDataResponse =
                                             await GetMyDataApiCall.call(
@@ -454,13 +454,13 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                             200) {
                                           setState(() {
                                             FFAppState().userModelAppState =
-                                                UserModelStruct.fromMap(
+                                                UserModelStruct.maybeFromMap(
                                                     GetMyDataApiCall
                                                         .userJsonModel(
                                               (_model.userDataResponse
                                                       ?.jsonBody ??
                                                   ''),
-                                            ));
+                                            ))!;
                                           });
                                           if (Navigator.of(context).canPop()) {
                                             context.pop();

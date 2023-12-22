@@ -40,10 +40,9 @@ class MileStoneStateModelStruct extends BaseStruct {
         stateId: castToType<int>(data['stateId']),
       );
 
-  static MileStoneStateModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? MileStoneStateModelStruct.fromMap(data)
-          : null;
+  static MileStoneStateModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? MileStoneStateModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'nameAr': _nameAr,

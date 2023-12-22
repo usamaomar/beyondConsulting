@@ -49,10 +49,9 @@ class ProjectTypeModelStruct extends BaseStruct {
         type: castToType<int>(data['type']),
       );
 
-  static ProjectTypeModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? ProjectTypeModelStruct.fromMap(data)
-          : null;
+  static ProjectTypeModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? ProjectTypeModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'nameAr': _nameAr,

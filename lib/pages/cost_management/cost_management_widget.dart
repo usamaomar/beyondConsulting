@@ -40,9 +40,7 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         _model.projectModel =
-            widget.projectJsonObject != null && widget.projectJsonObject != ''
-                ? ProjectModelStruct.fromMap(widget.projectJsonObject)
-                : null;
+            ProjectModelStruct.maybeFromMap(widget.projectJsonObject);
       });
       setState(() {
         _model.listOfMemebrslocal = [];

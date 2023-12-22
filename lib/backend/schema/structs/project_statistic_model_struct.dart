@@ -85,10 +85,9 @@ class ProjectStatisticModelStruct extends BaseStruct {
             castToType<int>(data['averageClientSatisfaction']),
       );
 
-  static ProjectStatisticModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? ProjectStatisticModelStruct.fromMap(data)
-          : null;
+  static ProjectStatisticModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? ProjectStatisticModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'approvedPricing': _approvedPricing,
