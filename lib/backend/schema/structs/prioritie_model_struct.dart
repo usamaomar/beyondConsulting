@@ -190,8 +190,9 @@ class PrioritieModelStruct extends BaseStruct {
         invoiceUrl: data['invoiceUrl'] as String?,
       );
 
-  static PrioritieModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? PrioritieModelStruct.fromMap(data) : null;
+  static PrioritieModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? PrioritieModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'mileStoneId': _mileStoneId,

@@ -50,21 +50,10 @@ class _PersonalsTeamListDialogWidgetState
       );
       if ((_model.apiResult4a6?.succeeded ?? true)) {
         setState(() {
-          _model.seniorModel = getJsonField(
-                        (_model.apiResult4a6?.jsonBody ?? ''),
-                        r'''$.data.senior''',
-                      ) !=
-                      null &&
-                  getJsonField(
-                        (_model.apiResult4a6?.jsonBody ?? ''),
-                        r'''$.data.senior''',
-                      ) !=
-                      ''
-              ? UserModelStruct.fromMap(getJsonField(
-                  (_model.apiResult4a6?.jsonBody ?? ''),
-                  r'''$.data.senior''',
-                ))
-              : null;
+          _model.seniorModel = UserModelStruct.maybeFromMap(getJsonField(
+            (_model.apiResult4a6?.jsonBody ?? ''),
+            r'''$.data.senior''',
+          ));
           _model.midManagersModelList = functions
               .fromJsonToUserList(getJsonField(
                 (_model.apiResult4a6?.jsonBody ?? ''),

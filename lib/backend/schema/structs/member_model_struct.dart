@@ -143,8 +143,9 @@ class MemberModelStruct extends BaseStruct {
         currentCapacity: castToType<int>(data['currentCapacity']),
       );
 
-  static MemberModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? MemberModelStruct.fromMap(data) : null;
+  static MemberModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? MemberModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

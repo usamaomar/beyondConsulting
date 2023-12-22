@@ -125,8 +125,9 @@ class CostModelStruct extends BaseStruct {
         costType: castToType<int>(data['costType']),
       );
 
-  static CostModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? CostModelStruct.fromMap(data) : null;
+  static CostModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? CostModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

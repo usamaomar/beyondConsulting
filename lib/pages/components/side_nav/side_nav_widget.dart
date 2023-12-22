@@ -793,7 +793,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   : false) {
                                 context.pushNamed('AllTeamCapacitiesPage');
                               } else {
-                                context.pushNamed('AllTeamCapacitiesPage');
+                                context.pushNamed('TeamCapacitiesPage');
                               }
                             } else {
                               return;

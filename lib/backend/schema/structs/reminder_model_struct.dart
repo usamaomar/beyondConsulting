@@ -40,8 +40,9 @@ class ReminderModelStruct extends BaseStruct {
         day: castToType<int>(data['day']),
       );
 
-  static ReminderModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ReminderModelStruct.fromMap(data) : null;
+  static ReminderModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? ReminderModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'nameEn': _nameEn,

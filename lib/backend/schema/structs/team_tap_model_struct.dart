@@ -56,8 +56,9 @@ class TeamTapModelStruct extends BaseStruct {
         ),
       );
 
-  static TeamTapModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? TeamTapModelStruct.fromMap(data) : null;
+  static TeamTapModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? TeamTapModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

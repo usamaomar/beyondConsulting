@@ -48,8 +48,9 @@ class CountryModelStruct extends BaseStruct {
         code: data['code'] as String?,
       );
 
-  static CountryModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? CountryModelStruct.fromMap(data) : null;
+  static CountryModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? CountryModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'nameEn': _nameEn,

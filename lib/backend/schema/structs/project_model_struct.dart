@@ -289,8 +289,9 @@ class ProjectModelStruct extends BaseStruct {
         profitPercentage: castToType<double>(data['profitPercentage']),
       );
 
-  static ProjectModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ProjectModelStruct.fromMap(data) : null;
+  static ProjectModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? ProjectModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,

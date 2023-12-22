@@ -38,21 +38,11 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
       );
       if ((_model.apiResult1xv?.succeeded ?? true)) {
         setState(() {
-          _model.teamMemberModel = getJsonField(
-                        (_model.apiResult1xv?.jsonBody ?? ''),
-                        r'''$.data''',
-                      ) !=
-                      null &&
-                  getJsonField(
-                        (_model.apiResult1xv?.jsonBody ?? ''),
-                        r'''$.data''',
-                      ) !=
-                      ''
-              ? TeamMembersModelStruct.fromMap(getJsonField(
-                  (_model.apiResult1xv?.jsonBody ?? ''),
-                  r'''$.data''',
-                ))
-              : null;
+          _model.teamMemberModel =
+              TeamMembersModelStruct.maybeFromMap(getJsonField(
+            (_model.apiResult1xv?.jsonBody ?? ''),
+            r'''$.data''',
+          ));
         });
       }
     });

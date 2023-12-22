@@ -30,8 +30,9 @@ class TokenModelStruct extends BaseStruct {
         refreshToken: data['refreshToken'] as String?,
       );
 
-  static TokenModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? TokenModelStruct.fromMap(data) : null;
+  static TokenModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? TokenModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'token': _token,

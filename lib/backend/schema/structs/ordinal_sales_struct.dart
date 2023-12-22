@@ -31,8 +31,9 @@ class OrdinalSalesStruct extends BaseStruct {
         sales: castToType<int>(data['sales']),
       );
 
-  static OrdinalSalesStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? OrdinalSalesStruct.fromMap(data) : null;
+  static OrdinalSalesStruct? maybeFromMap(dynamic data) => data is Map
+      ? OrdinalSalesStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'year': _year,

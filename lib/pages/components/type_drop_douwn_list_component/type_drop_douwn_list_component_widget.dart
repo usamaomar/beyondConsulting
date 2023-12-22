@@ -48,7 +48,6 @@ class _TypeDropDouwnListComponentWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.sizeOf(context).width < 400.0 ? 310.0 : 520.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         border: Border.all(

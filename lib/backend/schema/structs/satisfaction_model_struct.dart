@@ -49,10 +49,9 @@ class SatisfactionModelStruct extends BaseStruct {
         notColor: getSchemaColor(data['notColor']),
       );
 
-  static SatisfactionModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? SatisfactionModelStruct.fromMap(data)
-          : null;
+  static SatisfactionModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? SatisfactionModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'type': _type,
