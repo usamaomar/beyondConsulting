@@ -631,6 +631,241 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // FinancialPage
+  {
+    'fzm9nlbq': {
+      'en': 'Financial Budget',
+      'ar': 'الموازنة المالية',
+    },
+    'b16czbs9': {
+      'en': 'Description',
+      'ar': 'وصف',
+    },
+    'tlbo4blx': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    '0bseo92z': {
+      'en': 'Percentage',
+      'ar': 'نسبة مئوية',
+    },
+    'osir63vv': {
+      'en': 'Annual Amount',
+      'ar': 'القيمة السنوية',
+    },
+    'ggdha5hj': {
+      'en': 'Monthly Amount',
+      'ar': 'المبلغ الشهري',
+    },
+    '6tq8uias': {
+      'en': 'Download Report',
+      'ar': 'تنزيل التقرير',
+    },
+    'wdxq142a': {
+      'en': 'Financial Project Summary',
+      'ar': 'ملخص المشروع المالي',
+    },
+    'jm2q5r4p': {
+      'en': 'Client Name',
+      'ar': 'اسم العميل',
+    },
+    '5ar1cv1m': {
+      'en': 'Project Name',
+      'ar': 'اسم المشروع',
+    },
+    '05jrgrh4': {
+      'en': 'Country',
+      'ar': 'دولة',
+    },
+    'w4spmb0g': {
+      'en': 'Revenues',
+      'ar': 'الإيرادات',
+    },
+    'v52eofou': {
+      'en': 'Cost Of Sales',
+      'ar': 'تكلفة المبيعات',
+    },
+    'jfdaq7zu': {
+      'en': 'Cost Of Sales Percentage',
+      'ar': 'النسبة المئوية لتكلفة المبيعات',
+    },
+    '47a8kuz5': {
+      'en': 'Optimal Cost Of Sales',
+      'ar': 'التكلفة المثلى للمبيعات',
+    },
+    'rj3w140m': {
+      'en': 'Gross Profit',
+      'ar': 'اجمالي الربح',
+    },
+    'u0aipz83': {
+      'en': 'Gross Profit Percentage',
+      'ar': 'نسبة إجمالي الربح',
+    },
+    'qx8695q8': {
+      'en': 'Client Satisfaction',
+      'ar': 'رضا العملاء',
+    },
+    'ahjakgux': {
+      'en': 'Project Management',
+      'ar': 'ادارة مشروع',
+    },
+    '4607co4d': {
+      'en': 'Download Report',
+      'ar': 'تنزيل التقرير',
+    },
+    'ohjad6wp': {
+      'en': 'Cost Management Actual Income',
+      'ar': 'إدارة التكاليف الدخل الفعلي',
+    },
+    'urptt7ge': {
+      'en': 'Percentage',
+      'ar': 'نسبة مئوية',
+    },
+    '0sbhcthc': {
+      'en': 'Annual Amount',
+      'ar': 'القيمة السنوية',
+    },
+    'hdpcp8k4': {
+      'en': 'Monthly Amount',
+      'ar': 'المبلغ الشهري',
+    },
+    '34a0ir1k': {
+      'en': 'Description',
+      'ar': 'وصف',
+    },
+    'xcesashc': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    'gk2c8nlk': {
+      'en': 'Up To Date Percentage',
+      'ar': 'نسبة محدثة',
+    },
+    'yhurnlwd': {
+      'en': 'Up To Date Annual Amount',
+      'ar': 'المبلغ السنوي المحدث',
+    },
+    'la2r253y': {
+      'en': 'Up To Date Monthly Amount',
+      'ar': 'ما يصل إلى تاريخ المبلغ الشهري',
+    },
+    'dyp4qn6y': {
+      'en': 'Variance',
+      'ar': 'التباين',
+    },
+    '884ntu0s': {
+      'en': 'Variance Percentage',
+      'ar': 'نسبة التباين',
+    },
+    'pj3e3mo7': {
+      'en': 'Download Report',
+      'ar': 'تنزيل التقرير',
+    },
+    'less2tef': {
+      'en': 'Financial Results',
+      'ar': 'النتائج المالية',
+    },
+    'sq33tzvj': {
+      'en': 'Description',
+      'ar': 'وصف',
+    },
+    'khwf0mao': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    'vqwz0gb6': {
+      'en': 'Percentage',
+      'ar': 'نسبة مئوية',
+    },
+    'f4z49yty': {
+      'en': 'Annual Amount',
+      'ar': 'القيمة السنوية',
+    },
+    'k7n1omej': {
+      'en': 'Monthly Amount',
+      'ar': 'المبلغ الشهري',
+    },
+    'adc9qw7y': {
+      'en': 'Initial Annual Amount',
+      'ar': 'المبلغ السنوي الأولي',
+    },
+    'ebpinxlc': {
+      'en': 'Up To Date Percentage',
+      'ar': 'نسبة محدثة',
+    },
+    'r3cw119o': {
+      'en': 'Up To Date Annual Amount',
+      'ar': 'ما يصل إلى تاريخ المبلغ السنوي',
+    },
+    'y8dw8aw0': {
+      'en': 'Up To Date Monthly Amount',
+      'ar': 'ما يصل إلى تاريخ المبلغ الشهري',
+    },
+    'buqagv4a': {
+      'en': 'Variance',
+      'ar': 'التباين',
+    },
+    'j59qaau4': {
+      'en': 'Variance Percentage',
+      'ar': 'نسبة التباين',
+    },
+    'flhyevtf': {
+      'en': 'Download Report',
+      'ar': 'تنزيل التقرير',
+    },
+    '3y6h8kqm': {
+      'en': 'Financials',
+      'ar': 'المالية',
+    },
+    'nzurunjw': {
+      'en': '2015',
+      'ar': '',
+    },
+    'nh2h6kal': {
+      'en': '2016',
+      'ar': '',
+    },
+    'q7j9xn8x': {
+      'en': '2017',
+      'ar': '',
+    },
+    '69u7odmo': {
+      'en': '2018',
+      'ar': '',
+    },
+    'c0hkztkb': {
+      'en': '2019',
+      'ar': '',
+    },
+    'f0x5vl8i': {
+      'en': '2020',
+      'ar': '',
+    },
+    'tag3mc9k': {
+      'en': '2021',
+      'ar': '',
+    },
+    '2shja1zg': {
+      'en': '2022',
+      'ar': '',
+    },
+    'xelddykb': {
+      'en': '2023',
+      'ar': '',
+    },
+    'og39t28a': {
+      'en': '2024',
+      'ar': '',
+    },
+    'nvre1u8z': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    'w1zpx77f': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
@@ -652,6 +887,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'eq8mamhx': {
       'en': 'Team Capacities',
       'ar': 'قدرات الفريق',
+    },
+    'o38ukczj': {
+      'en': 'Financials',
+      'ar': 'المالية',
     },
   },
   // countriesListDialog

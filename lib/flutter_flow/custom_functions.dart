@@ -82,9 +82,9 @@ List<ProjectModelStruct>? fromProjectJsonToModelList(dynamic jsonBody) {
 
 String? getFullImage(String image) {
   if (image == "null" || image == null || image.isEmpty) {
-    return "https://beyond.api.matterhr.com/Files/Uploads/82b9c31f-49aa-4c2f-8577-fa13f8698289.jpg";
+    return "https://api.beyond.matterhr.com/Files/Uploads/82b9c31f-49aa-4c2f-8577-fa13f8698289.jpg";
   } else {
-    return "https://beyond.api.matterhr.com/${image}";
+    return "https://api.beyond.matterhr.com/${image}";
   }
 }
 

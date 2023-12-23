@@ -92,6 +92,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePageSeeAll',
           path: '/homePageSeeAll',
           builder: (context, params) => const HomePageSeeAllWidget(),
+        ),
+        FFRoute(
+          name: 'FinancialPage',
+          path: '/financialPage',
+          builder: (context, params) => const FinancialPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
