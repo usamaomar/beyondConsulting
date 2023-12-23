@@ -852,6 +852,89 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         ),
                       ],
                     ),
+                    if ((FFAppState().userModelAppState.accessRole == 0) ||
+                            (FFAppState().userModelAppState.accessRole == 1) ||
+                            (FFAppState().userModelAppState.accessRole == 5)
+                        ? true
+                        : false)
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget.sideMenuEnum !=
+                                  SideMenuEnum.FINANCIALS) {
+                                context.pushNamed(
+                                  'FinancialPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
+                              } else {
+                                return;
+                              }
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: widget.sideMenuEnum ==
+                                        SideMenuEnum.FINANCIALS
+                                    ? const Color(0x73FFFFFF)
+                                    : const Color(0x00000000),
+                                borderRadius: BorderRadius.circular(0.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Icon(
+                                      Icons.find_in_page,
+                                      color: FlutterFlowTheme.of(context)
+                                          .beyondBlueColor,
+                                      size: 24.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'o38ukczj' /* Financials */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: 0.2,
+                            child: Divider(
+                              thickness: 1.0,
+                              color: FlutterFlowTheme.of(context).accent4,
+                            ),
+                          ),
+                        ],
+                      ),
                   ],
                 ),
               ),

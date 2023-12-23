@@ -16,7 +16,7 @@ class LoginApiCall {
 { "email" :"$email" , "password" :"$password" }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LoginApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Auth/Login',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Auth/Login',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -42,7 +42,7 @@ class GetMyDataApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetMyDataApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/User/GetMy',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/User/GetMy',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -70,7 +70,7 @@ class GetPersonalsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetPersonalsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Teams/GetPersonals',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Teams/GetPersonals',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -94,7 +94,7 @@ class GetStatisticsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetStatisticsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Dashboard/GetStatistics',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Dashboard/GetStatistics',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -122,7 +122,7 @@ class GetMyPrioritiesApiCall {
     return ApiManager.instance.makeApiCall(
       callName: 'GetMyPrioritiesApi',
       apiUrl:
-          'https://beyond.api.matterhr.com/api/v1/Dashboard/GetMyPriorities',
+          'https://api.beyond.matterhr.com/api/v1/Dashboard/GetMyPriorities',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -150,7 +150,7 @@ class GetMyTeamApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetMyTeamApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Teams/GetMyTeam',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Teams/GetMyTeam',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -178,7 +178,7 @@ class GetMyProjectsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetMyProjectsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Dashboard/GetMyProjects',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Dashboard/GetMyProjects',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -207,7 +207,7 @@ class GetProjectStatisticsApiCall {
     return ApiManager.instance.makeApiCall(
       callName: 'GetProjectStatisticsApi',
       apiUrl:
-          'https://beyond.api.matterhr.com/api/v1/Dashboard/GetProjectStatistics',
+          'https://api.beyond.matterhr.com/api/v1/Dashboard/GetProjectStatistics',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -235,7 +235,7 @@ class GetMyProjectsCreationApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetMyProjectsCreationApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Projects/GetMyProjects',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetMyProjects',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -263,7 +263,7 @@ class GetAllClientsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetAllClientsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Clients/GetAllClients',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Clients/GetAllClients',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -291,7 +291,7 @@ class GetAllTeamsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetAllTeamsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Teams/GetAllTeams',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Teams/GetAllTeams',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -320,7 +320,7 @@ class GetTeamByIdApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetTeamByIdApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Teams/GetTeamById',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Teams/GetTeamById',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
@@ -350,13 +350,269 @@ class GetAllProjectsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetAllProjectsApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Projects/GetAllProjects',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetAllProjects',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer $token',
       },
       params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialBudgetReportApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialBudgetReportApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialBudgetReport',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialBudgetExcelApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialBudgetExcelApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialBudget',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialProjectSummaryReportApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialProjectSummaryReportApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialProjectSummaryReport',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialProjectSummaryExcelApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialProjectSummaryExcelApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialProjectSummary',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetCostManagementActualIncomeReportApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetCostManagementActualIncomeReportApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetCostManagementActualIncomeReport',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetCostManagementActualIncomeExcelApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetCostManagementActualIncomeExcelApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetCostManagementActualIncome',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialResultsReportApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialResultsReportApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialResultsReport',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class GetFinancialResultsExcelApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialResultsExcelApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialResults',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'Year': year,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -379,7 +635,7 @@ class UploadFileCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'UploadFile',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Uploud/Create',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Uploud/Create',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',
@@ -421,7 +677,7 @@ class CreateClintCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateClint',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Clients/Post',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Clients/Post',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',
@@ -484,7 +740,7 @@ class CreateProjectApiCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateProjectApi',
-      apiUrl: 'https://beyond.api.matterhr.com/api/v1/Projects/Post',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/Post',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',
@@ -516,7 +772,7 @@ class UpdateCostStatusApiCall {
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateCostStatusApi',
       apiUrl:
-          'https://beyond.api.matterhr.com/api/v1/Projects/UpdateCostStatus',
+          'https://api.beyond.matterhr.com/api/v1/Projects/UpdateCostStatus',
       callType: ApiCallType.PUT,
       headers: {
         'Accept': 'application/json',

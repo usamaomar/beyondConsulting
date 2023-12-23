@@ -482,10 +482,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     10.0, 40.0, 10.0, 0.0),
                                 child: Container(
                                   height: 471.0,
-                                  constraints: const BoxConstraints(
-                                    minWidth: 370.0,
-                                    maxWidth: 650.0,
-                                  ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -824,9 +820,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               BoxShape.circle,
                                                                         ),
                                                                         child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(25.0),
+                                                                            Container(
+                                                                          width:
+                                                                              25.0,
+                                                                          height:
+                                                                              25.0,
+                                                                          clipBehavior:
+                                                                              Clip.antiAlias,
+                                                                          decoration:
+                                                                              const BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
                                                                           child:
                                                                               Image.network(
                                                                             functions.getFullImage(listOfProiritesImagesItem.picture)!,
@@ -882,10 +887,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       10.0, 40.0, 10.0, 0.0),
                                   child: Container(
                                     height: 471.0,
-                                    constraints: const BoxConstraints(
-                                      minWidth: 370.0,
-                                      maxWidth: 650.0,
-                                    ),
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
