@@ -50,29 +50,15 @@ class _test extends State<test> {
           .inDays / 7);
 
       return ChartSampleData(
-        x: startWeekIndex,
-        y: endWeekIndex,
+        x: 1,
+        y: 5,
         y2: progress, y3: 30,
       );
     }).toList();
 
     return Column(
       children: [
-        // Top side: List of Milestone Names
-        Container(
-          height: 100,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: widget.milestones.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Text(widget.milestones[index].title),
-                ],
-              );
-            },
-          ),
-        ),
+        // Top side: List of Milestone Name
         // Center: SfCartesianChart
         Expanded(
           child: SfCartesianChart(
@@ -81,10 +67,11 @@ class _test extends State<test> {
               axisLine: AxisLine(width: 0),
               majorGridLines: MajorGridLines(width: 0),
             ),
-            primaryXAxis: NumericAxis(
+            primaryXAxis: CategoryAxis(
               title: AxisTitle(text: 'Milestones'),
               axisLine: AxisLine(width: 0),
               majorGridLines: MajorGridLines(width: 0),
+              labelPlacement: LabelPlacement.betweenTicks,
             ),
             series: <ChartSeries<ChartSampleData, double>>[
               RangeColumnSeries<ChartSampleData, double>(
@@ -92,23 +79,10 @@ class _test extends State<test> {
                 xValueMapper: (ChartSampleData data, _) => data.x,
                 lowValueMapper: (ChartSampleData data, _) => data.x,
                 highValueMapper: (ChartSampleData data, _) => data.y,
-                pointColorMapper: (ChartSampleData data, _) =>
-                data.y2 >= 50 ? Colors.green : Colors.red,
+                pointColorMapper: (ChartSampleData data, _) => data.y2 >= 50 ? Colors.green : Colors.red,
                 dataLabelSettings: DataLabelSettings(isVisible: true),
               ),
             ],
-          ),
-        ),
-        // Bottom side: List of Continuous Week Numbers
-        Container(
-          height: 50,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: totalWeeks,
-            itemBuilder: (context, index) {
-              final currentWeek = (index % 4) + 1;
-              return Text(currentWeek.toString());
-            },
           ),
         ),
       ],

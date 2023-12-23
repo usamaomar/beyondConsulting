@@ -18,6 +18,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'milestone_chart_widget.dart';
+import 'milestone_graph.dart';
+import 'milestone_progress_graph.dart';
 import 'project_page_model.dart';
 export 'project_page_model.dart';
 
@@ -142,8 +144,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        25.0, 0.0, 25.0, 0.0),
                     child: Text(
                       _model.projectModel?.name != null &&
                               _model.projectModel?.name != ''
@@ -236,8 +238,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          _model.projectModel?.milestones
-                                                          .length
+                                          _model.projectModel?.milestones.length
                                                           .toString() !=
                                                       null &&
                                                   _model.projectModel
@@ -269,25 +270,16 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 10.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 90.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 20.0, 10.0, 10.0),
+                                    child: Container(
+                                      width: 450,
+                                      height: 450,
+                                      child: test(
+                                        milestones: _model.projectModel?.milestones ?? [],
                                       ),
-                                      const Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [],
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                    )),
                               ],
                             ),
                           ),
@@ -320,8 +312,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 30.0, 0.0, 20.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(10.0, 30.0, 0.0, 20.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'lriocr9t' /* Collaborators */,
@@ -348,8 +340,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                         color: Color(0xFFC8C9CC),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 20.0, 0.0, 20.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 20.0, 0.0, 20.0),
                                         child: Container(
                                           height: 100.0,
                                           decoration: const BoxDecoration(),
@@ -462,9 +454,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  30.0, 30.0, 30.0, 30.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(30.0, 30.0, 30.0, 30.0),
                                           child: RichText(
                                             textScaleFactor:
                                                 MediaQuery.of(context)
@@ -524,9 +515,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           color: Color(0xFFC8C9CC),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 20.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 20.0, 0.0, 20.0),
                                           child: Container(
                                             height: 100.0,
                                             decoration: const BoxDecoration(),
@@ -606,8 +596,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                   children: [
                                     Flexible(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 15.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 15.0, 0.0, 15.0),
                                         child: Container(
                                           height: 450.0,
                                           decoration: BoxDecoration(
@@ -778,8 +768,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                 ))
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 10.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -806,8 +796,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 15.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 0.0, 15.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -858,9 +848,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                15.0, 15.0, 15.0, 15.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -885,8 +875,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
                                                     '${valueOrDefault<String>(
@@ -903,8 +894,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFFFFD600),
+                                                          color: const Color(
+                                                              0xFFFFD600),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -916,9 +907,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                15.0, 15.0, 15.0, 15.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -943,8 +934,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
                                                     '${valueOrDefault<String>(
@@ -961,8 +953,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFF2C8CB6),
+                                                          color: const Color(
+                                                              0xFF2C8CB6),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -974,9 +966,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 15.0, 15.0, 15.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                15.0, 15.0, 15.0, 15.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1001,8 +993,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
                                                     valueOrDefault<String>(
@@ -1016,8 +1009,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFFC8C9CC),
+                                                          color: const Color(
+                                                              0xFFC8C9CC),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -1059,8 +1052,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF339259),
+                                                        color: const Color(
+                                                            0xFF339259),
                                                       ),
                                                 ),
                                                 Text(
@@ -1074,8 +1067,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF339259),
+                                                        color: const Color(
+                                                            0xFF339259),
                                                       ),
                                                 ),
                                               ],
@@ -1105,8 +1098,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF339259),
+                                                        color: const Color(
+                                                            0xFF339259),
                                                       ),
                                                 ),
                                                 Text(
@@ -1120,8 +1113,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF339259),
+                                                        color: const Color(
+                                                            0xFF339259),
                                                       ),
                                                 ),
                                               ],
@@ -1157,9 +1150,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                       Stack(
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 30.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 30.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
                                               height: 100.0,
@@ -1167,7 +1159,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .beyondBlueColor,
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius:
+                                                    const BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(0.0),
                                                   bottomRight:
@@ -1179,8 +1172,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 15.0, 15.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1252,7 +1246,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             height: 65.0,
                                             decoration: const BoxDecoration(),
                                             child: ListView(
-                                              padding: const EdgeInsets.fromLTRB(
+                                              padding:
+                                                  const EdgeInsets.fromLTRB(
                                                 15.0,
                                                 0,
                                                 15.0,
@@ -1309,7 +1304,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       setState(() {}),
                                                   child: const StickWidget(),
                                                 ),
-                                              ].divide(const SizedBox(width: 50.0)),
+                                              ].divide(
+                                                  const SizedBox(width: 50.0)),
                                             ),
                                           ),
                                         ],

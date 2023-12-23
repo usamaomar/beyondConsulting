@@ -1,7 +1,4 @@
-2023/12/02-20:34:02.910 a203 Reusing MANIFEST /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.wan87D/flutter_tools_chrome_device.QliEgL/Default/Extension Scripts/MANIFEST-000001
-2023/12/02-20:34:02.911 a203 Recovering log #3
-2023/12/02-20:34:02.911 a203 Level-0 table #3: started
-2023/12/02-20:34:02.911 a203 Level-0 table #3: 0 bytes OK
-2023/12/02-20:34:02.911 a203 Recovering log #6
-2023/12/02-20:34:02.911 a203 Reusing old log /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.wan87D/flutter_tools_chrome_device.QliEgL/Default/Extension Scripts/000006.log 
-2023/12/02-20:34:02.949 a203 Delete type=0 #3
+2023/12/18-11:12:36.868 13d03 Reusing MANIFEST /private/var/folders/3q/v1zx6fbd3xn5kj6k8758l4cr0000gn/T/flutter_tools.TVerDG/flutter_tools_chrome_device.5OCpKM/Default/Extension Scripts/MANIFEST-000001
+2023/12/18-11:12:36.868 13d03 Recovering log #6
+2023/12/18-11:12:36.868 13d03 Reusing old log /private/var/folders/3q/v1zx6fbd3xn5kj6k8758l4cr0000gn/T/flutter_tools.TVerDG/flutter_tools_chrome_device.5OCpKM/Default/Extension Scripts/000006.log 
+2023/12/18-11:12:36.869 13d03 Delete type=0 #3

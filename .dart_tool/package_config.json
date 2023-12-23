@@ -170,6 +170,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "fl_chart",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/fl_chart-0.65.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/usamaomar/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -758,7 +764,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-22T01:06:12.809158Z",
+  "generated": "2023-12-22T22:37:07.970345Z",
   "generator": "pub",
   "generatorVersion": "3.2.0-210.3.beta"
 }
