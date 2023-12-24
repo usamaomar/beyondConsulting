@@ -172,8 +172,12 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                         'og39t28a' /* 2024 */,
                       )
                     ],
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue = val),
+                    onChanged: (val) async {
+                      setState(() => _model.dropDownValue = val);
+                      setState(() {
+                        _model.currentYear = _model.dropDownValue!;
+                      });
+                    },
                     width: 300.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
