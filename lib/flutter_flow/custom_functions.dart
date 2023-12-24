@@ -19,6 +19,21 @@ List<PrioritieModelStruct> fromJsonToModelList(dynamic jsonBody) {
       .cast<PrioritieModelStruct>();
 }
 
+List<UserModelStruct> addIsSelectedAllTrue(
+  List<MemberModelStruct> listOfLocalUserModels,
+  List<UserModelStruct> listOfBackendUseres,
+) {
+  for (var backendUsere in listOfBackendUseres) {
+    for (var localUserModels in listOfLocalUserModels) {
+      if (backendUsere.id == localUserModels.id) {
+        backendUsere.isSelected = true;
+      }
+    }
+  }
+
+  return listOfBackendUseres;
+}
+
 String calculateFutureDate(String dateString) {
   DateTime currentDate = DateTime.now();
   DateTime inputDate = DateTime.parse(dateString);

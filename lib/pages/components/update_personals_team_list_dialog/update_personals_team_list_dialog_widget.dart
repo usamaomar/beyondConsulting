@@ -71,13 +71,13 @@ class _UpdatePersonalsTeamListDialogWidgetState
         });
         setState(() {
           _model.midManagersModelList = functions
-              .addIsSelectedValue(
+              .addIsSelectedAllTrue(
                   FFAppState().newProjectCreatedModel.midManagers.toList(),
                   _model.midManagersModelList.toList())
               .toList()
               .cast<UserModelStruct>();
           _model.associatesModelList = functions
-              .addIsSelectedValue(
+              .addIsSelectedAllTrue(
                   FFAppState().newProjectCreatedModel.associates.toList(),
                   _model.associatesModelList.toList())
               .toList()
