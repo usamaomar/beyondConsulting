@@ -1,11 +1,14 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ProjectStatisticModelStruct extends BaseStruct {
+class ProjectStatisticModelStruct extends FFFirebaseStruct {
   ProjectStatisticModelStruct({
     double? approvedPricing,
     double? approvedCost,
@@ -14,13 +17,15 @@ class ProjectStatisticModelStruct extends BaseStruct {
     bool? seniorStatus,
     String? lastUpdated,
     int? averageClientSatisfaction,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _approvedPricing = approvedPricing,
         _approvedCost = approvedCost,
         _profit = profit,
         _profitPercentage = profitPercentage,
         _seniorStatus = seniorStatus,
         _lastUpdated = lastUpdated,
-        _averageClientSatisfaction = averageClientSatisfaction;
+        _averageClientSatisfaction = averageClientSatisfaction,
+        super(firestoreUtilData);
 
   // "approvedPricing" field.
   double? _approvedPricing;
@@ -206,6 +211,10 @@ ProjectStatisticModelStruct createProjectStatisticModelStruct({
   bool? seniorStatus,
   String? lastUpdated,
   int? averageClientSatisfaction,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     ProjectStatisticModelStruct(
       approvedPricing: approvedPricing,
@@ -215,4 +224,75 @@ ProjectStatisticModelStruct createProjectStatisticModelStruct({
       seniorStatus: seniorStatus,
       lastUpdated: lastUpdated,
       averageClientSatisfaction: averageClientSatisfaction,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+ProjectStatisticModelStruct? updateProjectStatisticModelStruct(
+  ProjectStatisticModelStruct? projectStatisticModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    projectStatisticModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addProjectStatisticModelStructData(
+  Map<String, dynamic> firestoreData,
+  ProjectStatisticModelStruct? projectStatisticModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (projectStatisticModel == null) {
+    return;
+  }
+  if (projectStatisticModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields = !forFieldValue &&
+      projectStatisticModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final projectStatisticModelData = getProjectStatisticModelFirestoreData(
+      projectStatisticModel, forFieldValue);
+  final nestedData =
+      projectStatisticModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields =
+      projectStatisticModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getProjectStatisticModelFirestoreData(
+  ProjectStatisticModelStruct? projectStatisticModel, [
+  bool forFieldValue = false,
+]) {
+  if (projectStatisticModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(projectStatisticModel.toMap());
+
+  // Add any Firestore field values
+  projectStatisticModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getProjectStatisticModelListFirestoreData(
+  List<ProjectStatisticModelStruct>? projectStatisticModels,
+) =>
+    projectStatisticModels
+        ?.map((e) => getProjectStatisticModelFirestoreData(e, true))
+        .toList() ??
+    [];

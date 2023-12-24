@@ -1,11 +1,14 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class MemberModelStruct extends BaseStruct {
+class MemberModelStruct extends FFFirebaseStruct {
   MemberModelStruct({
     String? id,
     String? name,
@@ -21,6 +24,7 @@ class MemberModelStruct extends BaseStruct {
     int? accessRole,
     int? fullCapacity,
     int? currentCapacity,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _picture = picture,
@@ -34,7 +38,8 @@ class MemberModelStruct extends BaseStruct {
         _profilePictureDataUrl = profilePictureDataUrl,
         _accessRole = accessRole,
         _fullCapacity = fullCapacity,
-        _currentCapacity = currentCapacity;
+        _currentCapacity = currentCapacity,
+        super(firestoreUtilData);
 
   // "id" field.
   String? _id;
@@ -354,6 +359,10 @@ MemberModelStruct createMemberModelStruct({
   int? accessRole,
   int? fullCapacity,
   int? currentCapacity,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     MemberModelStruct(
       id: id,
@@ -370,4 +379,72 @@ MemberModelStruct createMemberModelStruct({
       accessRole: accessRole,
       fullCapacity: fullCapacity,
       currentCapacity: currentCapacity,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+MemberModelStruct? updateMemberModelStruct(
+  MemberModelStruct? memberModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    memberModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addMemberModelStructData(
+  Map<String, dynamic> firestoreData,
+  MemberModelStruct? memberModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (memberModel == null) {
+    return;
+  }
+  if (memberModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && memberModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final memberModelData =
+      getMemberModelFirestoreData(memberModel, forFieldValue);
+  final nestedData =
+      memberModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = memberModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getMemberModelFirestoreData(
+  MemberModelStruct? memberModel, [
+  bool forFieldValue = false,
+]) {
+  if (memberModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(memberModel.toMap());
+
+  // Add any Firestore field values
+  memberModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getMemberModelListFirestoreData(
+  List<MemberModelStruct>? memberModels,
+) =>
+    memberModels?.map((e) => getMemberModelFirestoreData(e, true)).toList() ??
+    [];

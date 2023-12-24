@@ -1,10 +1,13 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ProjectModelStruct extends BaseStruct {
+class ProjectModelStruct extends FFFirebaseStruct {
   ProjectModelStruct({
     int? id,
     String? name,
@@ -33,6 +36,7 @@ class ProjectModelStruct extends BaseStruct {
     double? approvedCost,
     double? profit,
     double? profitPercentage,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _type = type,
@@ -59,7 +63,8 @@ class ProjectModelStruct extends BaseStruct {
         _approvedPricing = approvedPricing,
         _approvedCost = approvedCost,
         _profit = profit,
-        _profitPercentage = profitPercentage;
+        _profitPercentage = profitPercentage,
+        super(firestoreUtilData);
 
   // "id" field.
   int? _id;
@@ -674,6 +679,10 @@ ProjectModelStruct createProjectModelStruct({
   double? approvedCost,
   double? profit,
   double? profitPercentage,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     ProjectModelStruct(
       id: id,
@@ -699,4 +708,72 @@ ProjectModelStruct createProjectModelStruct({
       approvedCost: approvedCost,
       profit: profit,
       profitPercentage: profitPercentage,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+ProjectModelStruct? updateProjectModelStruct(
+  ProjectModelStruct? projectModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    projectModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addProjectModelStructData(
+  Map<String, dynamic> firestoreData,
+  ProjectModelStruct? projectModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (projectModel == null) {
+    return;
+  }
+  if (projectModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && projectModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final projectModelData =
+      getProjectModelFirestoreData(projectModel, forFieldValue);
+  final nestedData =
+      projectModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = projectModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getProjectModelFirestoreData(
+  ProjectModelStruct? projectModel, [
+  bool forFieldValue = false,
+]) {
+  if (projectModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(projectModel.toMap());
+
+  // Add any Firestore field values
+  projectModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getProjectModelListFirestoreData(
+  List<ProjectModelStruct>? projectModels,
+) =>
+    projectModels?.map((e) => getProjectModelFirestoreData(e, true)).toList() ??
+    [];

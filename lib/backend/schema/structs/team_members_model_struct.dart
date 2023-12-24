@@ -1,21 +1,26 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class TeamMembersModelStruct extends BaseStruct {
+class TeamMembersModelStruct extends FFFirebaseStruct {
   TeamMembersModelStruct({
     int? id,
     String? name,
     int? membersCount,
     List<MemberModelStruct>? seniors,
     List<MemberModelStruct>? members,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _membersCount = membersCount,
         _seniors = seniors,
-        _members = members;
+        _members = members,
+        super(firestoreUtilData);
 
   // "id" field.
   int? _id;
@@ -162,9 +167,83 @@ TeamMembersModelStruct createTeamMembersModelStruct({
   int? id,
   String? name,
   int? membersCount,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     TeamMembersModelStruct(
       id: id,
       name: name,
       membersCount: membersCount,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+TeamMembersModelStruct? updateTeamMembersModelStruct(
+  TeamMembersModelStruct? teamMembersModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    teamMembersModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addTeamMembersModelStructData(
+  Map<String, dynamic> firestoreData,
+  TeamMembersModelStruct? teamMembersModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (teamMembersModel == null) {
+    return;
+  }
+  if (teamMembersModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && teamMembersModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final teamMembersModelData =
+      getTeamMembersModelFirestoreData(teamMembersModel, forFieldValue);
+  final nestedData =
+      teamMembersModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = teamMembersModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getTeamMembersModelFirestoreData(
+  TeamMembersModelStruct? teamMembersModel, [
+  bool forFieldValue = false,
+]) {
+  if (teamMembersModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(teamMembersModel.toMap());
+
+  // Add any Firestore field values
+  teamMembersModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getTeamMembersModelListFirestoreData(
+  List<TeamMembersModelStruct>? teamMembersModels,
+) =>
+    teamMembersModels
+        ?.map((e) => getTeamMembersModelFirestoreData(e, true))
+        .toList() ??
+    [];

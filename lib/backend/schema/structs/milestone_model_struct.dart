@@ -1,10 +1,13 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class MilestoneModelStruct extends BaseStruct {
+class MilestoneModelStruct extends FFFirebaseStruct {
   MilestoneModelStruct({
     int? id,
     String? title,
@@ -20,6 +23,7 @@ class MilestoneModelStruct extends BaseStruct {
     int? invoiceStatus,
     MileStoneStateModelStruct? mileStoneStateModel,
     ReminderModelStruct? reminderModel,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _title = title,
         _description = description,
@@ -33,7 +37,8 @@ class MilestoneModelStruct extends BaseStruct {
         _invoiceUrl = invoiceUrl,
         _invoiceStatus = invoiceStatus,
         _mileStoneStateModel = mileStoneStateModel,
-        _reminderModel = reminderModel;
+        _reminderModel = reminderModel,
+        super(firestoreUtilData);
 
   // "id" field.
   int? _id;
@@ -369,6 +374,10 @@ MilestoneModelStruct createMilestoneModelStruct({
   int? invoiceStatus,
   MileStoneStateModelStruct? mileStoneStateModel,
   ReminderModelStruct? reminderModel,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     MilestoneModelStruct(
       id: id,
@@ -383,6 +392,96 @@ MilestoneModelStruct createMilestoneModelStruct({
       progress: progress,
       invoiceUrl: invoiceUrl,
       invoiceStatus: invoiceStatus,
-      mileStoneStateModel: mileStoneStateModel ?? MileStoneStateModelStruct(),
-      reminderModel: reminderModel ?? ReminderModelStruct(),
+      mileStoneStateModel: mileStoneStateModel ??
+          (clearUnsetFields ? MileStoneStateModelStruct() : null),
+      reminderModel:
+          reminderModel ?? (clearUnsetFields ? ReminderModelStruct() : null),
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+MilestoneModelStruct? updateMilestoneModelStruct(
+  MilestoneModelStruct? milestoneModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    milestoneModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addMilestoneModelStructData(
+  Map<String, dynamic> firestoreData,
+  MilestoneModelStruct? milestoneModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (milestoneModel == null) {
+    return;
+  }
+  if (milestoneModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && milestoneModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final milestoneModelData =
+      getMilestoneModelFirestoreData(milestoneModel, forFieldValue);
+  final nestedData =
+      milestoneModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = milestoneModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getMilestoneModelFirestoreData(
+  MilestoneModelStruct? milestoneModel, [
+  bool forFieldValue = false,
+]) {
+  if (milestoneModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(milestoneModel.toMap());
+
+  // Handle nested data for "mileStoneStateModel" field.
+  addMileStoneStateModelStructData(
+    firestoreData,
+    milestoneModel.hasMileStoneStateModel()
+        ? milestoneModel.mileStoneStateModel
+        : null,
+    'mileStoneStateModel',
+    forFieldValue,
+  );
+
+  // Handle nested data for "reminderModel" field.
+  addReminderModelStructData(
+    firestoreData,
+    milestoneModel.hasReminderModel() ? milestoneModel.reminderModel : null,
+    'reminderModel',
+    forFieldValue,
+  );
+
+  // Add any Firestore field values
+  milestoneModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getMilestoneModelListFirestoreData(
+  List<MilestoneModelStruct>? milestoneModels,
+) =>
+    milestoneModels
+        ?.map((e) => getMilestoneModelFirestoreData(e, true))
+        .toList() ??
+    [];

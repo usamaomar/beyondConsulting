@@ -1,20 +1,25 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class TeamTapModelStruct extends BaseStruct {
+class TeamTapModelStruct extends FFFirebaseStruct {
   TeamTapModelStruct({
     int? id,
     String? name,
     int? membersCount,
     List<TeamTapModelStruct>? data,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _membersCount = membersCount,
-        _data = data;
+        _data = data,
+        super(firestoreUtilData);
 
   // "id" field.
   int? _id;
@@ -134,9 +139,81 @@ TeamTapModelStruct createTeamTapModelStruct({
   int? id,
   String? name,
   int? membersCount,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     TeamTapModelStruct(
       id: id,
       name: name,
       membersCount: membersCount,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+TeamTapModelStruct? updateTeamTapModelStruct(
+  TeamTapModelStruct? teamTapModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    teamTapModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addTeamTapModelStructData(
+  Map<String, dynamic> firestoreData,
+  TeamTapModelStruct? teamTapModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (teamTapModel == null) {
+    return;
+  }
+  if (teamTapModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && teamTapModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final teamTapModelData =
+      getTeamTapModelFirestoreData(teamTapModel, forFieldValue);
+  final nestedData =
+      teamTapModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = teamTapModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getTeamTapModelFirestoreData(
+  TeamTapModelStruct? teamTapModel, [
+  bool forFieldValue = false,
+]) {
+  if (teamTapModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(teamTapModel.toMap());
+
+  // Add any Firestore field values
+  teamTapModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getTeamTapModelListFirestoreData(
+  List<TeamTapModelStruct>? teamTapModels,
+) =>
+    teamTapModels?.map((e) => getTeamTapModelFirestoreData(e, true)).toList() ??
+    [];
