@@ -10,13 +10,13 @@ import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_
 import '/pages/components/clint_list_dialog/clint_list_dialog_widget.dart';
 import '/pages/components/countries_list_dialog/countries_list_dialog_widget.dart';
 import '/pages/components/creat_client_dialog/creat_client_dialog_widget.dart';
-import '/pages/components/personals_team_list_dialog/personals_team_list_dialog_widget.dart';
 import '/pages/components/project_type_list_dialog/project_type_list_dialog_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/pages/components/text_drop_douwn_list_component/text_drop_douwn_list_component_widget.dart';
 import '/pages/components/type_drop_douwn_list_component/type_drop_douwn_list_component_widget.dart';
 import '/pages/components/update_cost_dialog/update_cost_dialog_widget.dart';
 import '/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart';
+import '/pages/components/update_personals_team_list_dialog/update_personals_team_list_dialog_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -1104,7 +1104,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                       context)
                                                                   .unfocus(),
                                                           child:
-                                                              const PersonalsTeamListDialogWidget(),
+                                                              const UpdatePersonalsTeamListDialogWidget(),
                                                         ),
                                                       );
                                                     },
