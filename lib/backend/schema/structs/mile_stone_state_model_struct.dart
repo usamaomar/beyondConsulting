@@ -1,18 +1,23 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class MileStoneStateModelStruct extends BaseStruct {
+class MileStoneStateModelStruct extends FFFirebaseStruct {
   MileStoneStateModelStruct({
     String? nameAr,
     String? nameEn,
     int? stateId,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _nameAr = nameAr,
         _nameEn = nameEn,
-        _stateId = stateId;
+        _stateId = stateId,
+        super(firestoreUtilData);
 
   // "nameAr" field.
   String? _nameAr;
@@ -105,9 +110,84 @@ MileStoneStateModelStruct createMileStoneStateModelStruct({
   String? nameAr,
   String? nameEn,
   int? stateId,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     MileStoneStateModelStruct(
       nameAr: nameAr,
       nameEn: nameEn,
       stateId: stateId,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+MileStoneStateModelStruct? updateMileStoneStateModelStruct(
+  MileStoneStateModelStruct? mileStoneStateModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    mileStoneStateModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addMileStoneStateModelStructData(
+  Map<String, dynamic> firestoreData,
+  MileStoneStateModelStruct? mileStoneStateModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (mileStoneStateModel == null) {
+    return;
+  }
+  if (mileStoneStateModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && mileStoneStateModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final mileStoneStateModelData =
+      getMileStoneStateModelFirestoreData(mileStoneStateModel, forFieldValue);
+  final nestedData =
+      mileStoneStateModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields =
+      mileStoneStateModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getMileStoneStateModelFirestoreData(
+  MileStoneStateModelStruct? mileStoneStateModel, [
+  bool forFieldValue = false,
+]) {
+  if (mileStoneStateModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(mileStoneStateModel.toMap());
+
+  // Add any Firestore field values
+  mileStoneStateModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getMileStoneStateModelListFirestoreData(
+  List<MileStoneStateModelStruct>? mileStoneStateModels,
+) =>
+    mileStoneStateModels
+        ?.map((e) => getMileStoneStateModelFirestoreData(e, true))
+        .toList() ??
+    [];

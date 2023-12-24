@@ -2,6 +2,7 @@ import 'package:beyond_consulting/pages/progect_pages/project_page/sync.dart';
 import 'package:beyond_consulting/pages/progect_pages/project_page/test.dart';
 import 'package:beyond_consulting/pages/progect_pages/project_page/test_project_tracker_custom_widget.dart';
 
+import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/satisfaction_component_widget.dart';

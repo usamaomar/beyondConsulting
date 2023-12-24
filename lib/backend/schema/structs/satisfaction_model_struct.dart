@@ -1,20 +1,25 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class SatisfactionModelStruct extends BaseStruct {
+class SatisfactionModelStruct extends FFFirebaseStruct {
   SatisfactionModelStruct({
     int? type,
     bool? isSelected,
     Color? color,
     Color? notColor,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _type = type,
         _isSelected = isSelected,
         _color = color,
-        _notColor = notColor;
+        _notColor = notColor,
+        super(firestoreUtilData);
 
   // "type" field.
   int? _type;
@@ -127,10 +132,84 @@ SatisfactionModelStruct createSatisfactionModelStruct({
   bool? isSelected,
   Color? color,
   Color? notColor,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     SatisfactionModelStruct(
       type: type,
       isSelected: isSelected,
       color: color,
       notColor: notColor,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+SatisfactionModelStruct? updateSatisfactionModelStruct(
+  SatisfactionModelStruct? satisfactionModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    satisfactionModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addSatisfactionModelStructData(
+  Map<String, dynamic> firestoreData,
+  SatisfactionModelStruct? satisfactionModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (satisfactionModel == null) {
+    return;
+  }
+  if (satisfactionModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && satisfactionModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final satisfactionModelData =
+      getSatisfactionModelFirestoreData(satisfactionModel, forFieldValue);
+  final nestedData =
+      satisfactionModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = satisfactionModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getSatisfactionModelFirestoreData(
+  SatisfactionModelStruct? satisfactionModel, [
+  bool forFieldValue = false,
+]) {
+  if (satisfactionModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(satisfactionModel.toMap());
+
+  // Add any Firestore field values
+  satisfactionModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getSatisfactionModelListFirestoreData(
+  List<SatisfactionModelStruct>? satisfactionModels,
+) =>
+    satisfactionModels
+        ?.map((e) => getSatisfactionModelFirestoreData(e, true))
+        .toList() ??
+    [];

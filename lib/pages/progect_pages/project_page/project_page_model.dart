@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/satisfaction_component_widget.dart';
 import '/components/stick_widget.dart';

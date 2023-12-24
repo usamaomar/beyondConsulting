@@ -1,20 +1,25 @@
 // ignore_for_file: unnecessary_getters_setters
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ProjectTypeModelStruct extends BaseStruct {
+class ProjectTypeModelStruct extends FFFirebaseStruct {
   ProjectTypeModelStruct({
     String? nameAr,
     String? nameEn,
     Color? color,
     int? type,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _nameAr = nameAr,
         _nameEn = nameEn,
         _color = color,
-        _type = type;
+        _type = type,
+        super(firestoreUtilData);
 
   // "nameAr" field.
   String? _nameAr;
@@ -126,10 +131,84 @@ ProjectTypeModelStruct createProjectTypeModelStruct({
   String? nameEn,
   Color? color,
   int? type,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     ProjectTypeModelStruct(
       nameAr: nameAr,
       nameEn: nameEn,
       color: color,
       type: type,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+ProjectTypeModelStruct? updateProjectTypeModelStruct(
+  ProjectTypeModelStruct? projectTypeModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    projectTypeModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addProjectTypeModelStructData(
+  Map<String, dynamic> firestoreData,
+  ProjectTypeModelStruct? projectTypeModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (projectTypeModel == null) {
+    return;
+  }
+  if (projectTypeModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && projectTypeModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final projectTypeModelData =
+      getProjectTypeModelFirestoreData(projectTypeModel, forFieldValue);
+  final nestedData =
+      projectTypeModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = projectTypeModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getProjectTypeModelFirestoreData(
+  ProjectTypeModelStruct? projectTypeModel, [
+  bool forFieldValue = false,
+]) {
+  if (projectTypeModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(projectTypeModel.toMap());
+
+  // Add any Firestore field values
+  projectTypeModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getProjectTypeModelListFirestoreData(
+  List<ProjectTypeModelStruct>? projectTypeModels,
+) =>
+    projectTypeModels
+        ?.map((e) => getProjectTypeModelFirestoreData(e, true))
+        .toList() ??
+    [];
