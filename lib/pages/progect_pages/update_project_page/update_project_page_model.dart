@@ -5,11 +5,11 @@ import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/pages/components/text_drop_douwn_list_component/text_drop_douwn_list_component_widget.dart';
 import '/pages/components/type_drop_douwn_list_component/type_drop_douwn_list_component_widget.dart';
-import 'create_project_page_widget.dart' show CreateProjectPageWidget;
+import 'update_project_page_widget.dart' show UpdateProjectPageWidget;
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
-class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
+class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

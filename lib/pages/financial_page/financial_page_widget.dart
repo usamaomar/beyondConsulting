@@ -929,7 +929,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 context)
                                                             .primaryBackground,
                                                       ),
-                                                      headingRowHeight: 56.0,
+                                                      headingRowHeight: 75.0,
                                                       dataRowColor:
                                                           MaterialStateProperty
                                                               .all(
@@ -1342,7 +1342,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 context)
                                                             .primaryBackground,
                                                       ),
-                                                      headingRowHeight: 56.0,
+                                                      headingRowHeight: 75.0,
                                                       dataRowColor:
                                                           MaterialStateProperty
                                                               .all(
@@ -1781,7 +1781,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 context)
                                                             .primaryBackground,
                                                       ),
-                                                      headingRowHeight: 56.0,
+                                                      headingRowHeight: 75.0,
                                                       dataRowColor:
                                                           MaterialStateProperty
                                                               .all(

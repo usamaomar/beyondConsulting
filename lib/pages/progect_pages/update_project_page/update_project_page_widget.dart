@@ -25,26 +25,31 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'create_project_page_model.dart';
-export 'create_project_page_model.dart';
+import 'update_project_page_model.dart';
+export 'update_project_page_model.dart';
 
-class CreateProjectPageWidget extends StatefulWidget {
-  const CreateProjectPageWidget({super.key});
+class UpdateProjectPageWidget extends StatefulWidget {
+  const UpdateProjectPageWidget({
+    super.key,
+    required this.projectLocalModel,
+  });
+
+  final dynamic projectLocalModel;
 
   @override
-  _CreateProjectPageWidgetState createState() =>
-      _CreateProjectPageWidgetState();
+  _UpdateProjectPageWidgetState createState() =>
+      _UpdateProjectPageWidgetState();
 }
 
-class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
-  late CreateProjectPageModel _model;
+class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
+  late UpdateProjectPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateProjectPageModel());
+    _model = createModel(context, () => UpdateProjectPageModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -55,6 +60,17 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                 FFAppState().newProjectCreatedModel.associates.toList())
             .toList()
             .cast<MemberModelStruct>();
+      });
+      setState(() {
+        FFAppState().newProjectCreatedModel =
+            ProjectModelStruct.maybeFromMap(widget.projectLocalModel!)!;
+      });
+      setState(() {
+        _model.textController1?.text = FFAppState().newProjectCreatedModel.name;
+      });
+      setState(() {
+        _model.textController2?.text =
+            FFAppState().newProjectCreatedModel.description;
       });
     });
 
@@ -132,7 +148,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                         const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'vojhpdrf' /* Create a Project */,
+                        'f6gcpenf' /* Update a Project */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Almarai',
@@ -200,7 +216,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'yetzisu7' /* Project Name */,
+                                            'fjl6v3if' /* Project Name */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -235,7 +251,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   labelText: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'zc3vx4b7' /* Project Name here... */,
+                                                    'yu3iymed' /* Project Name here... */,
                                                   ),
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
@@ -318,7 +334,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         children: [
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              'hxr81z1z' /* Country */,
+                                              'ecxms6gp' /* Country */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -445,7 +461,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'vxqutv5s' /* Start Date */,
+                                                        'tz7lyvgq' /* Start Date */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -665,7 +681,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'vmzp7t3l' /* End Date */,
+                                                        'wcwymv6z' /* End Date */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -882,7 +898,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         children: [
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              '7e3n65l6' /* Project Type */,
+                                              'b6o1bhc5' /* Project Type */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1023,7 +1039,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                         children: [
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              'm82bknwe' /* Project Team */,
+                                              'jqpktlij' /* Project Team */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1138,7 +1154,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '7rslfzxy' /* Project Roles */,
+                                                        'k6z3t0bd' /* Project Roles */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1161,7 +1177,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '0ywrkhfu' /* Status Updates */,
+                                                        '2ko1v8fk' /* Status Updates */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1396,7 +1412,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'ehgglkkl' /* Project Description */,
+                                                  'uddqhthq' /* Project Description */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -1435,7 +1451,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '4f4wu7pt' /* Description  here... */,
+                                                          'j28394bp' /* Description  here... */,
                                                         ),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -1526,7 +1542,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'ltj8zkqs' /* Client */,
+                                                    'qxqjosal' /* Client */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1716,7 +1732,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '8bbtfm7u' /* Project MileStones */,
+                                                      'w8fcjsdd' /* Project MileStones */,
                                                     ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
@@ -1737,7 +1753,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '694r7i2j' /* Project Costs */,
+                                                      'd8dpb810' /* Project Costs */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2261,7 +2277,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'hp9fsteq' /* Add Milestone */,
+                                                                    '5g9nc3os' /* Add Milestone */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2405,7 +2421,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'viq1jpse' /* Add Cost */,
+                                                                    '3yzd884d' /* Add Cost */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2593,7 +2609,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'l3au3awf' /* Save */,
+                                                    'e8i8em1l' /* Save */,
                                                   ),
                                                   options: FFButtonOptions(
                                                     width: 150.0,

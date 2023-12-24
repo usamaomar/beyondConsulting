@@ -161,10 +161,27 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                   ),
                 ],
               ),
-              Icon(
-                Icons.edit_square,
-                color: FlutterFlowTheme.of(context).info,
-                size: 24.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed(
+                    'UpdateProjectPage',
+                    queryParameters: {
+                      'projectLocalModel': serializeParam(
+                        _model.projectModel?.toMap(),
+                        ParamType.JSON,
+                      ),
+                    }.withoutNulls,
+                  );
+                },
+                child: Icon(
+                  Icons.edit_square,
+                  color: FlutterFlowTheme.of(context).info,
+                  size: 24.0,
+                ),
               ),
             ],
           ),
@@ -193,7 +210,12 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 45.0, 10.0, 0.0),
-                          child: Container(
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 4.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),child: Container(
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -244,8 +266,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                           ?.milestones.length
                                                           .toString() !=
                                                       ''
-                                              ? _model.projectModel?.milestones
-                                                  .length
+                                              ? _model.projectModel
+                                                    ?.milestones.length
                                                   .toString()
                                               : '0',
                                           '0',
@@ -279,7 +301,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                         milestones: _model.projectModel?.milestones ?? [],
                                       ),
                                     )),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -290,141 +313,156 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Flexible(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: const BorderRadius.only(
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 4.0,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(20.0),
                                       bottomRight: Radius.circular(20.0),
                                       topLeft: Radius.circular(20.0),
                                       topRight: Radius.circular(20.0),
                                     ),
-                                    border: Border.all(
-                                      color: const Color(0xFF01A3E2),
-                                      width: 2.0,
-                                    ),
                                   ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(10.0, 30.0, 0.0, 20.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'lriocr9t' /* Collaborators */,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(20.0),
+                                        bottomRight: Radius.circular(20.0),
+                                        topLeft: Radius.circular(20.0),
+                                        topRight: Radius.circular(20.0),
+                                      ),
+                                      border: Border.all(
+                                        color: const Color(0xFF01A3E2),
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(10.0, 30.0, 0.0, 20.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'lriocr9t' /* Collaborators */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Almarai',
+                                                  fontSize:
+                                                      MediaQuery.sizeOf(context)
+                                                                  .width <
+                                                              400.0
+                                                          ? 14.0
+                                                          : 18.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: false,
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Almarai',
-                                                fontSize:
-                                                    MediaQuery.sizeOf(context)
-                                                                .width <
-                                                            400.0
-                                                        ? 14.0
-                                                        : 18.0,
-                                                fontWeight: FontWeight.bold,
-                                                useGoogleFonts: false,
-                                              ),
                                         ),
-                                      ),
-                                      const Divider(
-                                        thickness: 1.0,
-                                        indent: 30.0,
-                                        endIndent: 30.0,
-                                        color: Color(0xFFC8C9CC),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(0.0, 20.0, 0.0, 20.0),
-                                        child: Container(
-                                          height: 100.0,
-                                          decoration: const BoxDecoration(),
-                                          child: Builder(
-                                            builder: (context) {
-                                              final listOfMemebersLocal =
-                                                  functions
-                                                      .addMemberItemsToList(
-                                                          _model.projectModel!
-                                                              .senior,
-                                                          _model.projectModel!
-                                                              .seniorId,
-                                                          _model.projectModel!
-                                                              .seniorPicture,
-                                                          _model.projectModel!
-                                                              .midManagers
-                                                              .toList(),
-                                                          _model.projectModel!
-                                                              .associates
-                                                              .toList())
-                                                      .toList();
-                                              return ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                primary: false,
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount:
-                                                    listOfMemebersLocal.length,
-                                                itemBuilder: (context,
-                                                    listOfMemebersLocalIndex) {
-                                                  final listOfMemebersLocalItem =
-                                                      listOfMemebersLocal[
-                                                          listOfMemebersLocalIndex];
-                                                  return Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: wrapWithModel(
-                                                          model: _model
-                                                              .readMemberCpacityModels
-                                                              .getModel(
-                                                            listOfMemebersLocalItem
-                                                                .id,
-                                                            listOfMemebersLocalIndex,
+                                        const Divider(
+                                          thickness: 1.0,
+                                          indent: 30.0,
+                                          endIndent: 30.0,
+                                          color: Color(0xFFC8C9CC),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 20.0, 0.0, 20.0),
+                                          child: Container(
+                                            height: 100.0,
+                                            decoration: const BoxDecoration(),
+                                            child: Builder(
+                                              builder: (context) {
+                                                final listOfMemebersLocal =
+                                                    functions
+                                                        .addMemberItemsToList(
+                                                            _model.projectModel!
+                                                                .senior,
+                                                            _model.projectModel!
+                                                                .seniorId,
+                                                            _model.projectModel!
+                                                                .seniorPicture,
+                                                            _model.projectModel!
+                                                                .midManagers
+                                                                .toList(),
+                                                            _model.projectModel!
+                                                                .associates
+                                                                .toList())
+                                                        .toList();
+                                                return ListView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  primary: false,
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  itemCount: listOfMemebersLocal
+                                                      .length,
+                                                  itemBuilder: (context,
+                                                      listOfMemebersLocalIndex) {
+                                                    final listOfMemebersLocalItem =
+                                                        listOfMemebersLocal[
+                                                            listOfMemebersLocalIndex];
+                                                    return Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
                                                           ),
-                                                          updateCallback: () =>
-                                                              setState(() {}),
-                                                          child:
-                                                              ReadMemberCpacityWidget(
-                                                            key: Key(
-                                                              'Keyl7c_${listOfMemebersLocalItem.id}',
+                                                          child: wrapWithModel(
+                                                            model: _model
+                                                                .readMemberCpacityModels
+                                                                .getModel(
+                                                              listOfMemebersLocalItem
+                                                                  .id,
+                                                              listOfMemebersLocalIndex,
                                                             ),
-                                                            memberName:
-                                                                listOfMemebersLocalItem
-                                                                    .name,
-                                                            projectType: functions
-                                                                .getAccessRoleName(
-                                                                    listOfMemebersLocalItem
-                                                                        .accessRole),
-                                                            imagePath:
-                                                                listOfMemebersLocalItem
-                                                                    .profilePictureDataUrl,
-                                                            currentCapacity:
-                                                                listOfMemebersLocalItem
-                                                                    .currentCapacity,
+                                                            updateCallback:
+                                                                () => setState(
+                                                                    () {}),
+                                                            child:
+                                                                ReadMemberCpacityWidget(
+                                                              key: Key(
+                                                                'Keyl7c_${listOfMemebersLocalItem.id}',
+                                                              ),
+                                                              memberName:
+                                                                  listOfMemebersLocalItem
+                                                                      .name,
+                                                              projectType: functions
+                                                                  .getAccessRoleName(
+                                                                      listOfMemebersLocalItem
+                                                                          .accessRole),
+                                                              imagePath:
+                                                                  listOfMemebersLocalItem
+                                                                      .profilePictureDataUrl,
+                                                              currentCapacity:
+                                                                  listOfMemebersLocalItem
+                                                                      .currentCapacity,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            },
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -432,7 +470,17 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
-                                  child: Container(
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 4.0,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(20.0),
+                                        bottomRight: Radius.circular(20.0),
+                                        topLeft: Radius.circular(20.0),
+                                        topRight: Radius.circular(20.0),
+                                      ),
+                                    ),child: Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -533,7 +581,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ],),
                                     ),
                                   ),
                                 ),
@@ -544,215 +592,221 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 0.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 4.0,
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context)
-                                    .beyondBlueColor,
-                                width: 2.0,
-                              ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'vokc4jta' /* Upcoming Milestones */,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context)
+                                      .beyondBlueColor,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 20.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'vokc4jta' /* Upcoming Milestones */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Almarai',
+                                                color: const Color(0xFF032734),
+                                                fontSize:
+                                                    MediaQuery.sizeOf(context)
+                                                                .width <
+                                                            400.0
+                                                        ? 14.0
+                                                        : 18.0,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: false,
+                                              ),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Almarai',
-                                              color: const Color(0xFF032734),
-                                              fontSize:
-                                                  MediaQuery.sizeOf(context)
-                                                              .width <
-                                                          400.0
-                                                      ? 14.0
-                                                      : 18.0,
-                                              fontWeight: FontWeight.bold,
-                                              useGoogleFonts: false,
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 15.0, 0.0, 15.0),
+                                          child: Container(
+                                            height: 450.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
+                                            child: Builder(
+                                              builder: (context) {
+                                                final upcomingMilestoneItem =
+                                                    _model.projectModel
+                                                            ?.milestones
+                                                            .toList() ??
+                                                        [];
+                                                return DataTable2(
+                                                  columns: [
+                                                    DataColumn2(
+                                                      label: DefaultTextStyle
+                                                          .merge(
+                                                        softWrap: true,
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'uu017afu' /* Milestone */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    DataColumn2(
+                                                      label: DefaultTextStyle
+                                                          .merge(
+                                                        softWrap: true,
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'k9kpljxf' /* Description */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    DataColumn2(
+                                                      label: DefaultTextStyle
+                                                          .merge(
+                                                        softWrap: true,
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'mmrwuywi' /* Deadline */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    DataColumn2(
+                                                      label: DefaultTextStyle
+                                                          .merge(
+                                                        softWrap: true,
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'ab7ejsgk' /* Status */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                  rows: upcomingMilestoneItem
+                                                      .mapIndexed(
+                                                          (upcomingMilestoneItemIndex,
+                                                                  upcomingMilestoneItemItem) =>
+                                                              [
+                                                                Text(
+                                                                  upcomingMilestoneItemItem
+                                                                      .title,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                                Text(
+                                                                  upcomingMilestoneItemItem
+                                                                      .description,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                                Text(
+                                                                  functions.convertDateFromStamp(
+                                                                      upcomingMilestoneItemItem
+                                                                          .endDate),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                                Text(
+                                                                  FFAppState()
+                                                                      .mileStoneModelAppState[
+                                                                          upcomingMilestoneItemItem
+                                                                              .status]
+                                                                      .nameEn,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ]
+                                                                  .map((c) =>
+                                                                      DataCell(
+                                                                          c))
+                                                                  .toList())
+                                                      .map((e) =>
+                                                          DataRow(cells: e))
+                                                      .toList(),
+                                                  headingRowColor:
+                                                      MaterialStateProperty.all(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                  ),
+                                                  headingRowHeight: 56.0,
+                                                  dataRowColor:
+                                                      MaterialStateProperty.all(
+                                                    const Color(0x00000000),
+                                                  ),
+                                                  dataRowHeight: 56.0,
+                                                  border: TableBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0.0),
+                                                  ),
+                                                  dividerThickness: 0.0,
+                                                  showBottomBorder: false,
+                                                  minWidth: 49.0,
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Flexible(
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(0.0, 15.0, 0.0, 15.0),
-                                        child: Container(
-                                          height: 450.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Builder(
-                                            builder: (context) {
-                                              final upcomingMilestoneItem =
-                                                  _model.projectModel
-                                                          ?.milestones
-                                                          .toList() ??
-                                                      [];
-                                              return DataTable2(
-                                                columns: [
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'uu017afu' /* Milestone */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'k9kpljxf' /* Description */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'mmrwuywi' /* Deadline */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  DataColumn2(
-                                                    label:
-                                                        DefaultTextStyle.merge(
-                                                      softWrap: true,
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ab7ejsgk' /* Status */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                                rows: upcomingMilestoneItem
-                                                    .mapIndexed(
-                                                        (upcomingMilestoneItemIndex,
-                                                                upcomingMilestoneItemItem) =>
-                                                            [
-                                                              Text(
-                                                                upcomingMilestoneItemItem
-                                                                    .title,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                              Text(
-                                                                upcomingMilestoneItemItem
-                                                                    .description,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                              Text(
-                                                                functions.convertDateFromStamp(
-                                                                    upcomingMilestoneItemItem
-                                                                        .endDate),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                              Text(
-                                                                FFAppState()
-                                                                    .mileStoneModelAppState[
-                                                                        upcomingMilestoneItemItem
-                                                                            .status]
-                                                                    .nameEn,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                            ]
-                                                                .map((c) =>
-                                                                    DataCell(c))
-                                                                .toList())
-                                                    .map((e) =>
-                                                        DataRow(cells: e))
-                                                    .toList(),
-                                                headingRowColor:
-                                                    MaterialStateProperty.all(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                                ),
-                                                headingRowHeight: 56.0,
-                                                dataRowColor:
-                                                    MaterialStateProperty.all(
-                                                  const Color(0x00000000),
-                                                ),
-                                                dataRowHeight: 56.0,
-                                                border: TableBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.0),
-                                                ),
-                                                dividerThickness: 0.0,
-                                                showBottomBorder: false,
-                                                minWidth: 49.0,
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -777,58 +831,65 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 45.0, 0.0, 0.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context)
-                                        .beyondBlueColor,
-                                    width: 2.0,
-                                  ),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 20.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(0.0, 0.0, 0.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '7ogjhx51' /* Financial Outlook */,
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Almarai',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Column(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .beyondBlueColor,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 20.0, 10.0, 20.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 15.0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              SizedBox(
-                                                width: 390.0,
-                                                height: 400.0,
-                                                child: Sync(
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '7ogjhx51' /* Financial Outlook */,
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Almarai',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                SizedBox(
+                                                  width: 390.0,
+                                                  height: 400.0,
+                                                  child: Sync(
                                                   width: 390.0,
                                                   height: 400.0,
                                                   listOfTotal:
@@ -998,13 +1059,13 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
                                                     valueOrDefault<String>(
-                                                      _model
-                                                          .projectModel?.profit
-                                                          .toString(),
-                                                      '0',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                                      _model.projectModel
+                                                            ?.profit
+                                                            .toString(),
+                                                        '0',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
@@ -1022,7 +1083,18 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           ),
                                         ],
                                       ),
-                                      Container(
+                                      Material(
+                                          color: Colors.transparent,
+                                          elevation: 4.0,
+                                          shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(5.0),
+                                              bottomRight: Radius.circular(5.0),
+                                              topLeft: Radius.circular(5.0),
+                                              topRight: Radius.circular(5.0),
+                                            ),
+                                          ),
+                                          child:Container(
                                         decoration: const BoxDecoration(
                                           color: Color(0xFFBCD1AE),
                                           borderRadius: BorderRadius.only(
@@ -1121,7 +1193,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           ],
                                         ),
                                       ),
-                                    ],
+                                    ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1129,25 +1203,32 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context)
-                                        .beyondBlueColor,
-                                    width: 2.0,
-                                  ),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 20.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Stack(
-                                        children: [
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .beyondBlueColor,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 20.0, 10.0, 20.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Stack(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),children: [
                                           Padding(
                                             padding: const EdgeInsetsDirectional
                                                 .fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -1322,7 +1403,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                   .toList()),
                                         ),
                                       ),
-                                    ],
+                                    ],),
                                   ),
                                 ),
                               ),

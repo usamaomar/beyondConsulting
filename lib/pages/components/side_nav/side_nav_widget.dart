@@ -72,17 +72,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: 270.0,
       height: double.infinity,
-      decoration: BoxDecoration(
-        color: const Color(0xFF032734),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 0.0,
-            color: FlutterFlowTheme.of(context).alternate,
-            offset: const Offset(1.0, 0.0),
-          )
-        ],
+      decoration: const BoxDecoration(
+        color: Color(0xFF032734),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -480,6 +472,14 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        if (FFAppState().projectIsOpend != false)
+                          Opacity(
+                            opacity: 0.2,
+                            child: Divider(
+                              thickness: 1.0,
+                              color: FlutterFlowTheme.of(context).accent4,
+                            ),
+                          ),
                         Container(
                           width: double.infinity,
                           height: 40.0,
