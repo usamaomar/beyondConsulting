@@ -695,6 +695,36 @@ class CreateClintCall {
   }
 }
 
+class SetNotificationTokenApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? notificationToken = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "notificationToken": "$notificationToken"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'SetNotificationTokenApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Account/SetNotificationToken',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class CreateProjectApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
