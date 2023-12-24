@@ -86,6 +86,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           }
         }
       }
+      _model.apiResult9gl = await SetNotificationTokenApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+        notificationToken: 'c',
+      );
+      if ((_model.apiResult9gl?.succeeded ?? true)) {
+        setState(() {});
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
