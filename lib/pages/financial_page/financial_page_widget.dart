@@ -524,12 +524,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                       true)) {
                                                     await actions
                                                         .convertAndDownload(
-                                                      getJsonField(
-                                                        (_model.apiResultrqd
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                        r'''$''',
-                                                      ).toString(),
+                                                      (_model.apiResultrqd
+                                                              ?.bodyText ??
+                                                          ''),
                                                     );
                                                   }
 
