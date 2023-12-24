@@ -1,21 +1,16 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class OrdinalSalesStruct extends FFFirebaseStruct {
+class OrdinalSalesStruct extends BaseStruct {
   OrdinalSalesStruct({
     String? year,
     int? sales,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _year = year,
-        _sales = sales,
-        super(firestoreUtilData);
+        _sales = sales;
 
   // "year" field.
   String? _year;
@@ -88,80 +83,8 @@ class OrdinalSalesStruct extends FFFirebaseStruct {
 OrdinalSalesStruct createOrdinalSalesStruct({
   String? year,
   int? sales,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     OrdinalSalesStruct(
       year: year,
       sales: sales,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-OrdinalSalesStruct? updateOrdinalSalesStruct(
-  OrdinalSalesStruct? ordinalSales, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    ordinalSales
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addOrdinalSalesStructData(
-  Map<String, dynamic> firestoreData,
-  OrdinalSalesStruct? ordinalSales,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (ordinalSales == null) {
-    return;
-  }
-  if (ordinalSales.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && ordinalSales.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final ordinalSalesData =
-      getOrdinalSalesFirestoreData(ordinalSales, forFieldValue);
-  final nestedData =
-      ordinalSalesData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = ordinalSales.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getOrdinalSalesFirestoreData(
-  OrdinalSalesStruct? ordinalSales, [
-  bool forFieldValue = false,
-]) {
-  if (ordinalSales == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(ordinalSales.toMap());
-
-  // Add any Firestore field values
-  ordinalSales.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getOrdinalSalesListFirestoreData(
-  List<OrdinalSalesStruct>? ordinalSaless,
-) =>
-    ordinalSaless?.map((e) => getOrdinalSalesFirestoreData(e, true)).toList() ??
-    [];

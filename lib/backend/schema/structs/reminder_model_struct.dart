@@ -1,23 +1,18 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ReminderModelStruct extends FFFirebaseStruct {
+class ReminderModelStruct extends BaseStruct {
   ReminderModelStruct({
     String? nameEn,
     String? nameAr,
     int? day,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _nameEn = nameEn,
         _nameAr = nameAr,
-        _day = day,
-        super(firestoreUtilData);
+        _day = day;
 
   // "nameEn" field.
   String? _nameEn;
@@ -109,83 +104,9 @@ ReminderModelStruct createReminderModelStruct({
   String? nameEn,
   String? nameAr,
   int? day,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     ReminderModelStruct(
       nameEn: nameEn,
       nameAr: nameAr,
       day: day,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-ReminderModelStruct? updateReminderModelStruct(
-  ReminderModelStruct? reminderModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    reminderModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addReminderModelStructData(
-  Map<String, dynamic> firestoreData,
-  ReminderModelStruct? reminderModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (reminderModel == null) {
-    return;
-  }
-  if (reminderModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && reminderModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final reminderModelData =
-      getReminderModelFirestoreData(reminderModel, forFieldValue);
-  final nestedData =
-      reminderModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = reminderModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getReminderModelFirestoreData(
-  ReminderModelStruct? reminderModel, [
-  bool forFieldValue = false,
-]) {
-  if (reminderModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(reminderModel.toMap());
-
-  // Add any Firestore field values
-  reminderModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getReminderModelListFirestoreData(
-  List<ReminderModelStruct>? reminderModels,
-) =>
-    reminderModels
-        ?.map((e) => getReminderModelFirestoreData(e, true))
-        .toList() ??
-    [];

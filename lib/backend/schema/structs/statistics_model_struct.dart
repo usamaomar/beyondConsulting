@@ -1,23 +1,18 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class StatisticsModelStruct extends FFFirebaseStruct {
+class StatisticsModelStruct extends BaseStruct {
   StatisticsModelStruct({
     int? beyonders,
     int? teams,
     int? projects,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _beyonders = beyonders,
         _teams = teams,
-        _projects = projects,
-        super(firestoreUtilData);
+        _projects = projects;
 
   // "beyonders" field.
   int? _beyonders;
@@ -111,83 +106,9 @@ StatisticsModelStruct createStatisticsModelStruct({
   int? beyonders,
   int? teams,
   int? projects,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     StatisticsModelStruct(
       beyonders: beyonders,
       teams: teams,
       projects: projects,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-StatisticsModelStruct? updateStatisticsModelStruct(
-  StatisticsModelStruct? statisticsModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    statisticsModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addStatisticsModelStructData(
-  Map<String, dynamic> firestoreData,
-  StatisticsModelStruct? statisticsModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (statisticsModel == null) {
-    return;
-  }
-  if (statisticsModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && statisticsModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final statisticsModelData =
-      getStatisticsModelFirestoreData(statisticsModel, forFieldValue);
-  final nestedData =
-      statisticsModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = statisticsModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getStatisticsModelFirestoreData(
-  StatisticsModelStruct? statisticsModel, [
-  bool forFieldValue = false,
-]) {
-  if (statisticsModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(statisticsModel.toMap());
-
-  // Add any Firestore field values
-  statisticsModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getStatisticsModelListFirestoreData(
-  List<StatisticsModelStruct>? statisticsModels,
-) =>
-    statisticsModels
-        ?.map((e) => getStatisticsModelFirestoreData(e, true))
-        .toList() ??
-    [];

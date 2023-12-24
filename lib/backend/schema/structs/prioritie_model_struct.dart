@@ -1,13 +1,10 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class PrioritieModelStruct extends FFFirebaseStruct {
+class PrioritieModelStruct extends BaseStruct {
   PrioritieModelStruct({
     int? mileStoneId,
     int? projectId,
@@ -27,7 +24,6 @@ class PrioritieModelStruct extends FFFirebaseStruct {
     String? startDate,
     String? endDate,
     String? invoiceUrl,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _mileStoneId = mileStoneId,
         _projectId = projectId,
         _projectName = projectName,
@@ -45,8 +41,7 @@ class PrioritieModelStruct extends FFFirebaseStruct {
         _members = members,
         _startDate = startDate,
         _endDate = endDate,
-        _invoiceUrl = invoiceUrl,
-        super(firestoreUtilData);
+        _invoiceUrl = invoiceUrl;
 
   // "mileStoneId" field.
   int? _mileStoneId;
@@ -460,10 +455,6 @@ PrioritieModelStruct createPrioritieModelStruct({
   String? startDate,
   String? endDate,
   String? invoiceUrl,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     PrioritieModelStruct(
       mileStoneId: mileStoneId,
@@ -483,74 +474,4 @@ PrioritieModelStruct createPrioritieModelStruct({
       startDate: startDate,
       endDate: endDate,
       invoiceUrl: invoiceUrl,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-PrioritieModelStruct? updatePrioritieModelStruct(
-  PrioritieModelStruct? prioritieModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    prioritieModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addPrioritieModelStructData(
-  Map<String, dynamic> firestoreData,
-  PrioritieModelStruct? prioritieModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (prioritieModel == null) {
-    return;
-  }
-  if (prioritieModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && prioritieModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final prioritieModelData =
-      getPrioritieModelFirestoreData(prioritieModel, forFieldValue);
-  final nestedData =
-      prioritieModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = prioritieModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getPrioritieModelFirestoreData(
-  PrioritieModelStruct? prioritieModel, [
-  bool forFieldValue = false,
-]) {
-  if (prioritieModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(prioritieModel.toMap());
-
-  // Add any Firestore field values
-  prioritieModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getPrioritieModelListFirestoreData(
-  List<PrioritieModelStruct>? prioritieModels,
-) =>
-    prioritieModels
-        ?.map((e) => getPrioritieModelFirestoreData(e, true))
-        .toList() ??
-    [];
