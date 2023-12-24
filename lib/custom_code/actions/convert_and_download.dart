@@ -29,4 +29,9 @@ Future convertAndDownload(String csvString) async {
   File file = File(filePath);
   String csvContent = const ListToCsvConverter().convert(csvData);
   await file.writeAsString(csvContent);
+
+  // final RenderBox box = context.findRenderObject() as RenderBox;
+  // Share.shareFiles([file.path], subject: 'CSV Export', sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+
+
 }

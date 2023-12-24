@@ -2,8 +2,20 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "_flutterfire_internals",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/_flutterfire_internals-1.3.16",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "aligned_dialog",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/aligned_dialog-0.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "archive",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/archive-3.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -80,6 +92,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "convert",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/convert-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "cross_file",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/cross_file-0.3.3+7",
       "packageUri": "lib/",
@@ -96,6 +114,12 @@
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/csslib-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "csv",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/csv-5.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "cupertino_icons",
@@ -120,6 +144,12 @@
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "excel",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/excel-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "fake_async",
@@ -170,6 +200,42 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "firebase_core",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_core-2.24.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_platform_interface",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_core_platform_interface-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_web",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_core_web-2.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_messaging",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_messaging-14.7.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_messaging_platform_interface",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_messaging_platform_interface-4.5.18",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_messaging_web",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.5.18",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "fl_chart",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/fl_chart-0.65.0",
       "packageUri": "lib/",
@@ -198,6 +264,18 @@
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/flutter_lints-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_local_notifications",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/flutter_local_notifications-5.0.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_local_notifications_platform_interface",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_localizations",
@@ -482,6 +560,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "pointycastle",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/pointycastle-3.7.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/provider-6.0.5",
       "packageUri": "lib/",
@@ -616,6 +700,12 @@
     {
       "name": "timeago",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/timeago-3.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "timezone",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/timezone-0.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -764,7 +854,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-22T22:37:07.970345Z",
+  "generated": "2023-12-24T02:40:24.498124Z",
   "generator": "pub",
   "generatorVersion": "3.2.0-210.3.beta"
 }

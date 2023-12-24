@@ -1,3 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:csv/csv.dart';
+import 'package:excel/excel.dart' as excelOne;
+// import 'package:excel/excel.dart';
+import 'package:path_provider/path_provider.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -14,6 +22,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'financial_page_model.dart';
 export 'financial_page_model.dart';
+import 'dart:html' as html;
 
 class FinancialPageWidget extends StatefulWidget {
   const FinancialPageWidget({super.key});
@@ -522,8 +531,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                   if ((_model.apiResultrqd
                                                           ?.succeeded ??
                                                       true)) {
-                                                    await actions
-                                                        .convertAndDownload(
+                                                    await convertAndDownload(
                                                       (_model.apiResultrqd
                                                               ?.bodyText ??
                                                           ''),
@@ -959,8 +967,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                   if ((_model.apiResultrqd2
                                                           ?.succeeded ??
                                                       true)) {
-                                                    await actions
-                                                        .convertAndDownload(
+                                                    await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd2
                                                                 ?.jsonBody ??
@@ -1373,8 +1380,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                   if ((_model.apiResultrqd24
                                                           ?.succeeded ??
                                                       true)) {
-                                                    await actions
-                                                        .convertAndDownload(
+                                                    await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd24
                                                                 ?.jsonBody ??
@@ -1808,8 +1814,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                   if ((_model.apiResultrqd245
                                                           ?.succeeded ??
                                                       true)) {
-                                                    await actions
-                                                        .convertAndDownload(
+                                                    await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd245
                                                                 ?.jsonBody ??
@@ -1879,4 +1884,27 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
       ),
     );
   }
+
+
+  Future convertAndDownload(String text) async {
+    var excel = excelOne.Excel.createExcel();
+    var sheet = excel['Sheet1'];
+    List<String> lines = LineSplitter.split(text).toList();
+    for (var i = 0; i < lines.length; i++) {
+      sheet.cell(excelOne.CellIndex.indexByColumnRow(columnIndex: 0, rowIndex: i)).value = lines[i]  ;
+    }
+    List<int>? excelBytes = excel.encode();
+    Uint8List uint8List = Uint8List.fromList(excelBytes!);
+    String base64String = base64Encode(uint8List);
+    final blob = html.Blob([Uint8List.fromList(base64Decode(base64String))]);
+    final url = html.Url.createObjectUrlFromBlob(blob);
+    final anchor = html.AnchorElement(href: url)
+      ..target = 'blank'
+      ..download = 'output.xlsx' // Change the filename as needed
+      ..click();
+
+    // Clean up
+    html.Url.revokeObjectUrl(url);
+  }
+
 }

@@ -39,7 +39,9 @@
 
   <title> BeyondConsulting </title>
   <meta name="description" content="Built with FlutterFlow." />
-    
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
+
 
   <!-- Status Bar color in Safari browser (iOS) and PWA -->
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f4f8">
@@ -54,9 +56,29 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-  
-  
-  
+
+
+<script>
+<!--Update with yours config-->
+  const firebaseConfig = {
+ apiKey: "AIzaSyAPaePPsnCQ_I2MKODe4ofybO_0briJ0X8",
+            authDomain: "beyondconsulting-ebbe5.firebaseapp.com",
+            projectId: "beyondconsulting-ebbe5",
+            storageBucket: "beyondconsulting-ebbe5.appspot.com",
+            messagingSenderId: "1009527882445",
+            appId: "1:1009527882445:web:54cbedfa27b82b26825f84",
+            measurementId: "G-XWNLTMCH8E"
+};
+  firebase.initializeApp(firebaseConfig);
+  </script>
+<script src="main.dart.js" type="application/javascript"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      });
+    }
+    </script>
   
   
   <script>
