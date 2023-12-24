@@ -1340,6 +1340,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // updatePersonalsTeamListDialog
+  {
+    '1uqlm502': {
+      'en': 'Select Project Team',
+      'ar': 'حدد فريق المشروع',
+    },
+    'ac08t37n': {
+      'en': 'Senior',
+      'ar': 'كبير',
+    },
+    'fdobzl8b': {
+      'en': 'Medmanagers',
+      'ar': 'مدراء الطب',
+    },
+    '7f04l6g6': {
+      'en': 'Assosites',
+      'ar': 'أسوسيتس',
+    },
+    '2s6t9syl': {
+      'en': 'Add',
+      'ar': 'يضيف',
+    },
+  },
   // Miscellaneous
   {
     'hjb0uoxv': {
