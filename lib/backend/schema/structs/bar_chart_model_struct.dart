@@ -1,23 +1,18 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class BarChartModelStruct extends FFFirebaseStruct {
+class BarChartModelStruct extends BaseStruct {
   BarChartModelStruct({
     String? lable,
     int? number,
     Color? color,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _lable = lable,
         _number = number,
-        _color = color,
-        super(firestoreUtilData);
+        _color = color;
 
   // "lable" field.
   String? _lable;
@@ -109,83 +104,9 @@ BarChartModelStruct createBarChartModelStruct({
   String? lable,
   int? number,
   Color? color,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     BarChartModelStruct(
       lable: lable,
       number: number,
       color: color,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-BarChartModelStruct? updateBarChartModelStruct(
-  BarChartModelStruct? barChartModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    barChartModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addBarChartModelStructData(
-  Map<String, dynamic> firestoreData,
-  BarChartModelStruct? barChartModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (barChartModel == null) {
-    return;
-  }
-  if (barChartModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && barChartModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final barChartModelData =
-      getBarChartModelFirestoreData(barChartModel, forFieldValue);
-  final nestedData =
-      barChartModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = barChartModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getBarChartModelFirestoreData(
-  BarChartModelStruct? barChartModel, [
-  bool forFieldValue = false,
-]) {
-  if (barChartModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(barChartModel.toMap());
-
-  // Add any Firestore field values
-  barChartModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getBarChartModelListFirestoreData(
-  List<BarChartModelStruct>? barChartModels,
-) =>
-    barChartModels
-        ?.map((e) => getBarChartModelFirestoreData(e, true))
-        .toList() ??
-    [];

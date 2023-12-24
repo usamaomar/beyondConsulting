@@ -1,14 +1,11 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ClientModelStruct extends FFFirebaseStruct {
+class ClientModelStruct extends BaseStruct {
   ClientModelStruct({
     int? id,
     String? name,
@@ -18,7 +15,6 @@ class ClientModelStruct extends FFFirebaseStruct {
     String? contactName,
     String? alternativePhoneNumber,
     String? logoImageUrl,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _email = email,
@@ -26,8 +22,7 @@ class ClientModelStruct extends FFFirebaseStruct {
         _address = address,
         _contactName = contactName,
         _alternativePhoneNumber = alternativePhoneNumber,
-        _logoImageUrl = logoImageUrl,
-        super(firestoreUtilData);
+        _logoImageUrl = logoImageUrl;
 
   // "id" field.
   int? _id;
@@ -223,10 +218,6 @@ ClientModelStruct createClientModelStruct({
   String? contactName,
   String? alternativePhoneNumber,
   String? logoImageUrl,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     ClientModelStruct(
       id: id,
@@ -237,72 +228,4 @@ ClientModelStruct createClientModelStruct({
       contactName: contactName,
       alternativePhoneNumber: alternativePhoneNumber,
       logoImageUrl: logoImageUrl,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-ClientModelStruct? updateClientModelStruct(
-  ClientModelStruct? clientModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    clientModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addClientModelStructData(
-  Map<String, dynamic> firestoreData,
-  ClientModelStruct? clientModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (clientModel == null) {
-    return;
-  }
-  if (clientModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && clientModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final clientModelData =
-      getClientModelFirestoreData(clientModel, forFieldValue);
-  final nestedData =
-      clientModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = clientModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getClientModelFirestoreData(
-  ClientModelStruct? clientModel, [
-  bool forFieldValue = false,
-]) {
-  if (clientModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(clientModel.toMap());
-
-  // Add any Firestore field values
-  clientModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getClientModelListFirestoreData(
-  List<ClientModelStruct>? clientModels,
-) =>
-    clientModels?.map((e) => getClientModelFirestoreData(e, true)).toList() ??
-    [];

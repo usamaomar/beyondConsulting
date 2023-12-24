@@ -1,14 +1,11 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class UserModelStruct extends FFFirebaseStruct {
+class UserModelStruct extends BaseStruct {
   UserModelStruct({
     String? id,
     String? userName,
@@ -26,7 +23,6 @@ class UserModelStruct extends FFFirebaseStruct {
     int? fullCapacity,
     int? currentCapacity,
     bool? isSelected,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _userName = userName,
         _firstName = firstName,
@@ -42,8 +38,7 @@ class UserModelStruct extends FFFirebaseStruct {
         _emailConfirmed = emailConfirmed,
         _fullCapacity = fullCapacity,
         _currentCapacity = currentCapacity,
-        _isSelected = isSelected,
-        super(firestoreUtilData);
+        _isSelected = isSelected;
 
   // "id" field.
   String? _id;
@@ -402,10 +397,6 @@ UserModelStruct createUserModelStruct({
   int? fullCapacity,
   int? currentCapacity,
   bool? isSelected,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     UserModelStruct(
       id: id,
@@ -424,69 +415,4 @@ UserModelStruct createUserModelStruct({
       fullCapacity: fullCapacity,
       currentCapacity: currentCapacity,
       isSelected: isSelected,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-UserModelStruct? updateUserModelStruct(
-  UserModelStruct? userModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    userModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addUserModelStructData(
-  Map<String, dynamic> firestoreData,
-  UserModelStruct? userModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (userModel == null) {
-    return;
-  }
-  if (userModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && userModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final userModelData = getUserModelFirestoreData(userModel, forFieldValue);
-  final nestedData = userModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = userModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getUserModelFirestoreData(
-  UserModelStruct? userModel, [
-  bool forFieldValue = false,
-]) {
-  if (userModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(userModel.toMap());
-
-  // Add any Firestore field values
-  userModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getUserModelListFirestoreData(
-  List<UserModelStruct>? userModels,
-) =>
-    userModels?.map((e) => getUserModelFirestoreData(e, true)).toList() ?? [];

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -167,7 +168,6 @@ class FFParameters {
     String paramName,
     ParamType type, [
     bool isList = false,
-    List<String>? collectionNamePath,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -181,8 +181,11 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+    );
   }
 }
 

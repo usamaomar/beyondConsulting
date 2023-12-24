@@ -1,23 +1,20 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '/backend/schema/util/schema_util.dart';
 
-import '/backend/schema/util/firestore_util.dart';
-
+import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class CountryModelStruct extends FFFirebaseStruct {
+class CountryModelStruct extends BaseStruct {
   CountryModelStruct({
     String? nameEn,
     String? nameAr,
     String? flag,
     String? code,
-    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _nameEn = nameEn,
         _nameAr = nameAr,
         _flag = flag,
-        _code = code,
-        super(firestoreUtilData);
+        _code = code;
 
   // "nameEn" field.
   String? _nameEn;
@@ -127,82 +124,10 @@ CountryModelStruct createCountryModelStruct({
   String? nameAr,
   String? flag,
   String? code,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     CountryModelStruct(
       nameEn: nameEn,
       nameAr: nameAr,
       flag: flag,
       code: code,
-      firestoreUtilData: FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-        delete: delete,
-        fieldValues: fieldValues,
-      ),
     );
-
-CountryModelStruct? updateCountryModelStruct(
-  CountryModelStruct? countryModel, {
-  bool clearUnsetFields = true,
-  bool create = false,
-}) =>
-    countryModel
-      ?..firestoreUtilData = FirestoreUtilData(
-        clearUnsetFields: clearUnsetFields,
-        create: create,
-      );
-
-void addCountryModelStructData(
-  Map<String, dynamic> firestoreData,
-  CountryModelStruct? countryModel,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (countryModel == null) {
-    return;
-  }
-  if (countryModel.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  final clearFields =
-      !forFieldValue && countryModel.firestoreUtilData.clearUnsetFields;
-  if (clearFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final countryModelData =
-      getCountryModelFirestoreData(countryModel, forFieldValue);
-  final nestedData =
-      countryModelData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final mergeFields = countryModel.firestoreUtilData.create || clearFields;
-  firestoreData
-      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
-}
-
-Map<String, dynamic> getCountryModelFirestoreData(
-  CountryModelStruct? countryModel, [
-  bool forFieldValue = false,
-]) {
-  if (countryModel == null) {
-    return {};
-  }
-  final firestoreData = mapToFirestore(countryModel.toMap());
-
-  // Add any Firestore field values
-  countryModel.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getCountryModelListFirestoreData(
-  List<CountryModelStruct>? countryModels,
-) =>
-    countryModels?.map((e) => getCountryModelFirestoreData(e, true)).toList() ??
-    [];
