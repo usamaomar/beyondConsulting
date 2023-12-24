@@ -19,3 +19,5 @@ export '/pages/home_page_see_all/home_page_see_all_widget.dart'
     show HomePageSeeAllWidget;
 export '/pages/financial_page/financial_page_widget.dart'
     show FinancialPageWidget;
+export '/pages/progect_pages/update_project_page/update_project_page_widget.dart'
+    show UpdateProjectPageWidget;

@@ -97,6 +97,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'FinancialPage',
           path: '/financialPage',
           builder: (context, params) => const FinancialPageWidget(),
+        ),
+        FFRoute(
+          name: 'UpdateProjectPage',
+          path: '/updateProjectPage',
+          builder: (context, params) => UpdateProjectPageWidget(
+            projectLocalModel:
+                params.getParam('projectLocalModel', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

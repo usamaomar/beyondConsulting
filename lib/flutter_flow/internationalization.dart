@@ -866,6 +866,85 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // UpdateProjectPage
+  {
+    'fjl6v3if': {
+      'en': 'Project Name',
+      'ar': 'اسم المشروع',
+    },
+    'yu3iymed': {
+      'en': 'Project Name here...',
+      'ar': 'اسم المشروع هنا...',
+    },
+    'ecxms6gp': {
+      'en': 'Country',
+      'ar': 'دولة',
+    },
+    'tz7lyvgq': {
+      'en': 'Start Date',
+      'ar': 'تاريخ البدء',
+    },
+    'wcwymv6z': {
+      'en': 'End Date',
+      'ar': 'تاريخ الانتهاء',
+    },
+    'b6o1bhc5': {
+      'en': 'Project Type',
+      'ar': 'نوع المشروع',
+    },
+    'jqpktlij': {
+      'en': 'Project Team',
+      'ar': 'فريق المشروع',
+    },
+    'k6z3t0bd': {
+      'en': 'Project Roles',
+      'ar': 'أدوار المشروع',
+    },
+    '2ko1v8fk': {
+      'en': 'Status Updates',
+      'ar': 'تحديثات الحالة',
+    },
+    'uddqhthq': {
+      'en': 'Project Description',
+      'ar': 'وصف المشروع',
+    },
+    'j28394bp': {
+      'en': 'Description  here...',
+      'ar': 'الوصف هنا...',
+    },
+    'qxqjosal': {
+      'en': 'Client',
+      'ar': 'عميل',
+    },
+    'w8fcjsdd': {
+      'en': 'Project MileStones',
+      'ar': 'معالم المشروع',
+    },
+    'd8dpb810': {
+      'en': 'Project Costs',
+      'ar': 'تكاليف المشروع',
+    },
+    '5g9nc3os': {
+      'en': 'Add Milestone',
+      'ar': 'إضافة معلم',
+    },
+    '3yzd884d': {
+      'en': 'Add Cost',
+      'ar': 'أضف التكلفة',
+    },
+    'e8i8em1l': {
+      'en': 'Save',
+      'ar': 'يحفظ',
+    },
+    'f6gcpenf': {
+      'en': 'Update a Project',
+      'ar': 'تحديث مشروع',
+    },
+    '0mq9fyqn': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
