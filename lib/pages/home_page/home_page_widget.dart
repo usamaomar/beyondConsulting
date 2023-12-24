@@ -1,3 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -86,13 +89,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           }
         }
       }
-      _model.apiResult9gl = await SetNotificationTokenApiCall.call(
-        token: FFAppState().tokenModelAppState.token,
-        notificationToken: 'c',
-      );
-      if ((_model.apiResult9gl?.succeeded ?? true)) {
-        setState(() {});
-      }
+
+      FirebaseMessaging.instance.getToken().then((value) async{
+        _model.apiResult9gl = await SetNotificationTokenApiCall.call(
+          token: FFAppState().tokenModelAppState.token,
+          notificationToken: value,
+        );
+      });
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
