@@ -155,6 +155,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                           'Keyuf1_${listOfLocalCardsIndex}_of_${listOfLocalCards.length}'),
                                       title: listOfLocalCardsItem.title,
                                       color: listOfLocalCardsItem.backColor!,
+                                      createdDate:
+                                          listOfLocalCardsItem.createdDate!,
                                     ),
                                     back: BackViewComponentWidget(
                                       key: Key(

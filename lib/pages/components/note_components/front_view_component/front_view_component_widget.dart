@@ -11,10 +11,12 @@ class FrontViewComponentWidget extends StatefulWidget {
     super.key,
     required this.title,
     required this.color,
+    required this.createdDate,
   });
 
   final String? title;
   final Color? color;
+  final DateTime? createdDate;
 
   @override
   _FrontViewComponentWidgetState createState() =>
@@ -93,6 +95,19 @@ class _FrontViewComponentWidgetState extends State<FrontViewComponentWidget> {
                             useGoogleFonts: false,
                           ),
                     ),
+                  ),
+                  Text(
+                    dateTimeFormat(
+                      'yMd',
+                      widget.createdDate,
+                      locale: FFLocalizations.of(context).languageCode,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).accent4,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ],
               ),
