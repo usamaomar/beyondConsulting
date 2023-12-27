@@ -51,6 +51,14 @@ class _UpdateMilestoneDialogWidgetState
         _model.endDate = _model.startDate;
       });
       setState(() {
+        _model.textController1?.text =
+            FFAppState().SelectedMileStoneModel.title;
+      });
+      setState(() {
+        _model.textController2?.text =
+            FFAppState().SelectedMileStoneModel.amount.toString();
+      });
+      setState(() {
         FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
       });
       setState(() {
