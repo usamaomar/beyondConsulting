@@ -226,6 +226,58 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _clintSatisfactionList;
     });
+    _safeInit(() {
+      _colorList = prefs
+              .getStringList('ff_colorList')
+              ?.map((x) {
+                try {
+                  return ColorModelStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _colorList;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_FrontColorModel')) {
+        try {
+          final serializedData = prefs.getString('ff_FrontColorModel') ?? '{}';
+          _FrontColorModel =
+              ColorModelStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_BackColorModel')) {
+        try {
+          final serializedData = prefs.getString('ff_BackColorModel') ?? '{}';
+          _BackColorModel =
+              ColorModelStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      _listOfNotes = prefs
+              .getStringList('ff_listOfNotes')
+              ?.map((x) {
+                try {
+                  return AppCardModelStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _listOfNotes;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -740,6 +792,129 @@ class FFAppState extends ChangeNotifier {
     _clintSatisfactionList.insert(index, value);
     prefs.setStringList('ff_clintSatisfactionList',
         _clintSatisfactionList.map((x) => x.serialize()).toList());
+  }
+
+  List<ColorModelStruct> _colorList = [
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#03a4e2","colorName":"Beyond Blue"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#ea0202","colorName":"Read"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#fff","colorName":"Clear"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#14181b","colorName":"Black"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#ee8b60","colorName":"Orange"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#39d2c0","colorName":"Teal"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#339259","colorName":"Grean"}')),
+    ColorModelStruct.fromSerializableMap(
+        jsonDecode('{"colorHex":"#ffd612","colorName":"Yello"}'))
+  ];
+  List<ColorModelStruct> get colorList => _colorList;
+  set colorList(List<ColorModelStruct> value) {
+    _colorList = value;
+    prefs.setStringList(
+        'ff_colorList', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToColorList(ColorModelStruct value) {
+    _colorList.add(value);
+    prefs.setStringList(
+        'ff_colorList', _colorList.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromColorList(ColorModelStruct value) {
+    _colorList.remove(value);
+    prefs.setStringList(
+        'ff_colorList', _colorList.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromColorList(int index) {
+    _colorList.removeAt(index);
+    prefs.setStringList(
+        'ff_colorList', _colorList.map((x) => x.serialize()).toList());
+  }
+
+  void updateColorListAtIndex(
+    int index,
+    ColorModelStruct Function(ColorModelStruct) updateFn,
+  ) {
+    _colorList[index] = updateFn(_colorList[index]);
+    prefs.setStringList(
+        'ff_colorList', _colorList.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInColorList(int index, ColorModelStruct value) {
+    _colorList.insert(index, value);
+    prefs.setStringList(
+        'ff_colorList', _colorList.map((x) => x.serialize()).toList());
+  }
+
+  ColorModelStruct _FrontColorModel = ColorModelStruct();
+  ColorModelStruct get FrontColorModel => _FrontColorModel;
+  set FrontColorModel(ColorModelStruct value) {
+    _FrontColorModel = value;
+    prefs.setString('ff_FrontColorModel', value.serialize());
+  }
+
+  void updateFrontColorModelStruct(Function(ColorModelStruct) updateFn) {
+    updateFn(_FrontColorModel);
+    prefs.setString('ff_FrontColorModel', _FrontColorModel.serialize());
+  }
+
+  ColorModelStruct _BackColorModel = ColorModelStruct();
+  ColorModelStruct get BackColorModel => _BackColorModel;
+  set BackColorModel(ColorModelStruct value) {
+    _BackColorModel = value;
+    prefs.setString('ff_BackColorModel', value.serialize());
+  }
+
+  void updateBackColorModelStruct(Function(ColorModelStruct) updateFn) {
+    updateFn(_BackColorModel);
+    prefs.setString('ff_BackColorModel', _BackColorModel.serialize());
+  }
+
+  List<AppCardModelStruct> _listOfNotes = [];
+  List<AppCardModelStruct> get listOfNotes => _listOfNotes;
+  set listOfNotes(List<AppCardModelStruct> value) {
+    _listOfNotes = value;
+    prefs.setStringList(
+        'ff_listOfNotes', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToListOfNotes(AppCardModelStruct value) {
+    _listOfNotes.add(value);
+    prefs.setStringList(
+        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromListOfNotes(AppCardModelStruct value) {
+    _listOfNotes.remove(value);
+    prefs.setStringList(
+        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromListOfNotes(int index) {
+    _listOfNotes.removeAt(index);
+    prefs.setStringList(
+        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
+  }
+
+  void updateListOfNotesAtIndex(
+    int index,
+    AppCardModelStruct Function(AppCardModelStruct) updateFn,
+  ) {
+    _listOfNotes[index] = updateFn(_listOfNotes[index]);
+    prefs.setStringList(
+        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInListOfNotes(int index, AppCardModelStruct value) {
+    _listOfNotes.insert(index, value);
+    prefs.setStringList(
+        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
   }
 }
 
