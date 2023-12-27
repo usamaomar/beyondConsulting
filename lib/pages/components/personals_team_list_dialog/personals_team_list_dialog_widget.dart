@@ -37,7 +37,7 @@ class _PersonalsTeamListDialogWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PersonalsTeamListDialogModel());
-
+    // FFAppState().newProjectCreatedModel;
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.apiResult4a6 = await GetPersonalsApiCall.call(
