@@ -56,6 +56,12 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
             .toList()
             .cast<MemberModelStruct>();
       });
+      setState(() {
+        FFAppState().listOfRols = [];
+      });
+      setState(() {
+        FFAppState().newProjectCreatedModel = ProjectModelStruct();
+      });
     });
 
     _model.textController1 ??= TextEditingController();

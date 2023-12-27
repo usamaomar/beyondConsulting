@@ -240,6 +240,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MainDashBoardPage
   {
+    'ezus85f3': {
+      'en': 'Add New Note',
+      'ar': 'إضافة ملاحظة جديدة',
+    },
     '8bj5guab': {
       'en': 'Main DashBoard',
       'ar': 'لوحة التحكم الرئيسية',
@@ -1361,6 +1365,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '2s6t9syl': {
       'en': 'Add',
       'ar': 'يضيف',
+    },
+  },
+  // CreatNewNotComponent
+  {
+    'cpx2vtuv': {
+      'en': 'Back Title',
+      'ar': 'العنوان الخلفي',
+    },
+    '71axit66': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    '7yyhbrag': {
+      'en': 'Note',
+      'ar': 'ملحوظة',
+    },
+    '9ompcmv4': {
+      'en': 'Save',
+      'ar': 'يحفظ',
+    },
+  },
+  // ColorListComponent
+  {
+    '93jnufl2': {
+      'en': 'Choose Color',
+      'ar': 'اختر اللون',
     },
   },
   // Miscellaneous
