@@ -1393,6 +1393,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'اختر اللون',
     },
   },
+  // AskForHelpComponent
+  {
+    'xj5ogyf1': {
+      'en': 'Write something...',
+      'ar': '',
+    },
+    '9kk2xdy8': {
+      'en': 'Send',
+      'ar': 'يرسل',
+    },
+  },
   // Miscellaneous
   {
     'hjb0uoxv': {

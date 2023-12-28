@@ -264,19 +264,8 @@ class FFAppState extends ChangeNotifier {
       }
     });
     _safeInit(() {
-      _listOfNotes = prefs
-              .getStringList('ff_listOfNotes')
-              ?.map((x) {
-                try {
-                  return AppCardModelStruct.fromSerializableMap(jsonDecode(x));
-                } catch (e) {
-                  print("Can't decode persisted data type. Error: $e.");
-                  return null;
-                }
-              })
-              .withoutNulls
-              .toList() ??
-          _listOfNotes;
+      _helpRequstedStrings =
+          prefs.getStringList('ff_helpRequstedStrings') ?? _helpRequstedStrings;
     });
   }
 
@@ -880,26 +869,18 @@ class FFAppState extends ChangeNotifier {
   List<AppCardModelStruct> get listOfNotes => _listOfNotes;
   set listOfNotes(List<AppCardModelStruct> value) {
     _listOfNotes = value;
-    prefs.setStringList(
-        'ff_listOfNotes', value.map((x) => x.serialize()).toList());
   }
 
   void addToListOfNotes(AppCardModelStruct value) {
     _listOfNotes.add(value);
-    prefs.setStringList(
-        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
   }
 
   void removeFromListOfNotes(AppCardModelStruct value) {
     _listOfNotes.remove(value);
-    prefs.setStringList(
-        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
   }
 
   void removeAtIndexFromListOfNotes(int index) {
     _listOfNotes.removeAt(index);
-    prefs.setStringList(
-        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
   }
 
   void updateListOfNotesAtIndex(
@@ -907,14 +888,45 @@ class FFAppState extends ChangeNotifier {
     AppCardModelStruct Function(AppCardModelStruct) updateFn,
   ) {
     _listOfNotes[index] = updateFn(_listOfNotes[index]);
-    prefs.setStringList(
-        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
   }
 
   void insertAtIndexInListOfNotes(int index, AppCardModelStruct value) {
     _listOfNotes.insert(index, value);
-    prefs.setStringList(
-        'ff_listOfNotes', _listOfNotes.map((x) => x.serialize()).toList());
+  }
+
+  List<String> _helpRequstedStrings = [];
+  List<String> get helpRequstedStrings => _helpRequstedStrings;
+  set helpRequstedStrings(List<String> value) {
+    _helpRequstedStrings = value;
+    prefs.setStringList('ff_helpRequstedStrings', value);
+  }
+
+  void addToHelpRequstedStrings(String value) {
+    _helpRequstedStrings.add(value);
+    prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
+  }
+
+  void removeFromHelpRequstedStrings(String value) {
+    _helpRequstedStrings.remove(value);
+    prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
+  }
+
+  void removeAtIndexFromHelpRequstedStrings(int index) {
+    _helpRequstedStrings.removeAt(index);
+    prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
+  }
+
+  void updateHelpRequstedStringsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _helpRequstedStrings[index] = updateFn(_helpRequstedStrings[index]);
+    prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
+  }
+
+  void insertAtIndexInHelpRequstedStrings(int index, String value) {
+    _helpRequstedStrings.insert(index, value);
+    prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
   }
 }
 
