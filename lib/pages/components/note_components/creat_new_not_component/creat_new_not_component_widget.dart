@@ -510,6 +510,9 @@ class _CreatNewNotComponentWidgetState
                                               );
                                             });
                                           }
+                                          setState(() {
+                                            _model.date = _model.datePicked;
+                                          });
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -652,23 +655,28 @@ class _CreatNewNotComponentWidgetState
               ),
               FFButtonWidget(
                 onPressed: () async {
-                  setState(() {
-                    FFAppState().addToListOfNotes(AppCardModelStruct(
-                      title: _model.textController2.text,
-                      note: _model.textController3.text,
-                      backTitle: _model.textController1.text,
-                      createdDate: getCurrentTimestamp,
-                      achievementData: _model.date,
-                      backColor: FFAppState().FrontColorModel.colorHex,
-                      frontColor: FFAppState().BackColorModel.colorHex,
-                    ));
-                  });
-                  setState(() {
-                    FFAppState().FrontColorModel = ColorModelStruct();
-                    FFAppState().BackColorModel = ColorModelStruct();
-                  });
-                  Navigator.pop(context);
-                  FFAppState().update(() {});
+                  if ((_model.textController1.text != '') &&
+                      (_model.textController2.text != '') &&
+                      (_model.textController3.text != '') &&
+                      (_model.datePicked != null)) {
+                    setState(() {
+                      FFAppState().addToListOfNotes(AppCardModelStruct(
+                        title: _model.textController2.text,
+                        note: _model.textController3.text,
+                        backTitle: _model.textController1.text,
+                        createdDate: getCurrentTimestamp,
+                        achievementData: _model.date,
+                        backColor: FFAppState().FrontColorModel.colorHex,
+                        frontColor: FFAppState().BackColorModel.colorHex,
+                      ));
+                    });
+                    setState(() {
+                      FFAppState().FrontColorModel = ColorModelStruct();
+                      FFAppState().BackColorModel = ColorModelStruct();
+                    });
+                    Navigator.pop(context);
+                    FFAppState().update(() {});
+                  }
                 },
                 text: FFLocalizations.of(context).getText(
                   '9ompcmv4' /* Save */,

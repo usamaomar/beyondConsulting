@@ -6,9 +6,11 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/components/ask_for_help_component/ask_for_help_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -143,35 +145,93 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           automaticallyImplyLeading: false,
           title: Row(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  scaffoldKey.currentState!.openDrawer();
-                },
-                child: Icon(
-                  Icons.format_list_bulleted_sharp,
-                  color: FlutterFlowTheme.of(context).info,
-                  size: 25.0,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    '33fu4n6u' /* Home */,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      scaffoldKey.currentState!.openDrawer();
+                    },
+                    child: Icon(
+                      Icons.format_list_bulleted_sharp,
+                      color: FlutterFlowTheme.of(context).info,
+                      size: 25.0,
+                    ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Almarai',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        useGoogleFonts: false,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        '33fu4n6u' /* Home */,
                       ),
-                ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Almarai',
+                            color: FlutterFlowTheme.of(context).info,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            useGoogleFonts: false,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if ((FFAppState().userModelAppState.accessRole != 0) &&
+                      (FFAppState().userModelAppState.accessRole != 1) &&
+                      (FFAppState().userModelAppState.accessRole != 5))
+                    Builder(
+                      builder: (context) => InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showAlignedDialog(
+                            context: context,
+                            isGlobal: true,
+                            avoidOverflow: false,
+                            targetAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            followerAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            builder: (dialogContext) {
+                              return Material(
+                                color: Colors.transparent,
+                                child: GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: const SizedBox(
+                                    height: 220.0,
+                                    width: 390.0,
+                                    child: AskForHelpComponentWidget(),
+                                  ),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        },
+                        child: Icon(
+                          Icons.help_center,
+                          color: FlutterFlowTheme.of(context).accent4,
+                          size: 35.0,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ],
           ),

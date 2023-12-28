@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'front_view_component_model.dart';
@@ -66,52 +65,38 @@ class _FrontViewComponentWidgetState extends State<FrontViewComponentWidget> {
           ],
           borderRadius: BorderRadius.circular(12.0),
         ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(0.0),
-            topRight: Radius.circular(0.0),
-          ),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 25.0,
-              sigmaY: 25.0,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Text(
-                      widget.title!,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Almarai',
-                            color: const Color(0xFFF8F8F8),
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            useGoogleFonts: false,
-                          ),
-                    ),
-                  ),
-                  Text(
-                    dateTimeFormat(
-                      'yMd',
-                      widget.createdDate,
-                      locale: FFLocalizations.of(context).languageCode,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).accent4,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600,
-                        ),
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Text(
+                  widget.title!,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Almarai',
+                        color: const Color(0xFFF8F8F8),
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        useGoogleFonts: false,
+                      ),
+                ),
               ),
-            ),
+              Text(
+                dateTimeFormat(
+                  'yMd',
+                  widget.createdDate,
+                  locale: FFLocalizations.of(context).languageCode,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      color: FlutterFlowTheme.of(context).accent4,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ],
           ),
         ),
       ),
