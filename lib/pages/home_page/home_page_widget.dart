@@ -90,7 +90,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       }
       _model.apiResult9gl = await SetNotificationTokenApiCall.call(
         token: FFAppState().tokenModelAppState.token,
-        notificationToken: 'c',
+        notificationToken: FFAppState().fcm,
       );
       if ((_model.apiResult9gl?.succeeded ?? true)) {
         setState(() {});

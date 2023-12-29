@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/update_satisfaction_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -69,15 +70,26 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
         _model.textController1?.text = FFAppState().newProjectCreatedModel.name;
       });
       setState(() {
-        _model.textController2?.text =
+        _model.budgetTextFieldController?.text =
+            FFAppState().newProjectCreatedModel.costBudget.toString();
+      });
+      setState(() {
+        _model.textController3?.text =
             FFAppState().newProjectCreatedModel.description;
+      });
+      setState(() {
+        _model.projectModel =
+            ProjectModelStruct.maybeFromMap(widget.projectLocalModel);
       });
     });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.budgetTextFieldController ??= TextEditingController();
+    _model.budgetTextFieldFocusNode ??= FocusNode();
+
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -890,6 +902,261 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                         ),
                                       ),
                                     ),
+                                    Container(
+                                      decoration: const BoxDecoration(),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 15.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Flexible(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'c14yqtrg' /* Budget */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: const Color(
+                                                                0xFF032734),
+                                                            fontSize: 16.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                child:
+                                                                    TextFormField(
+                                                                  controller: _model
+                                                                      .budgetTextFieldController,
+                                                                  focusNode: _model
+                                                                      .budgetTextFieldFocusNode,
+                                                                  autofocus:
+                                                                      true,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    labelStyle:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelMedium,
+                                                                    hintStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium,
+                                                                    enabledBorder:
+                                                                        UnderlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .alternate,
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                    ),
+                                                                    focusedBorder:
+                                                                        UnderlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        UnderlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        UnderlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                    ),
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                  validator: _model
+                                                                      .budgetTextFieldControllerValidator
+                                                                      .asValidator(
+                                                                          context),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Flexible(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '2bbkki03' /* Client satisfaction */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: const Color(
+                                                                0xFF032734),
+                                                            fontSize: 16.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0,
+                                                                      20.0),
+                                                          child: Container(
+                                                            height: 100.0,
+                                                            decoration:
+                                                                const BoxDecoration(),
+                                                            child:
+                                                                wrapWithModel(
+                                                              model: _model
+                                                                  .updateSatisfactionComponentModel,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  UpdateSatisfactionComponentWidget(
+                                                                satisfactionType: _model
+                                                                    .projectModel!
+                                                                    .clientSatisfaction,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
@@ -1440,7 +1707,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     decoration: const BoxDecoration(),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .textController2,
+                                                          .textController3,
                                                       focusNode: _model
                                                           .textFieldFocusNode2,
                                                       autofocus: true,
@@ -1524,7 +1791,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                               .bodyMedium,
                                                       maxLines: 3,
                                                       validator: _model
-                                                          .textController2Validator
+                                                          .textController3Validator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -2460,7 +2727,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                 FFButtonWidget(
                                                   onPressed: () async {
                                                     _model.apiResultb91 =
-                                                        await CreateProjectApiCall
+                                                        await UpdateProjectApiCall
                                                             .call(
                                                       token: FFAppState()
                                                           .tokenModelAppState
@@ -2468,15 +2735,20 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                       type: FFAppState()
                                                           .newProjectCreatedModel
                                                           .type,
-                                                      costBudget: 0,
+                                                      costBudget: int.tryParse(
+                                                          _model
+                                                              .budgetTextFieldController
+                                                              .text),
                                                       name: _model
                                                           .textController1.text,
                                                       countryCode: FFAppState()
                                                           .newProjectCreatedModel
                                                           .countryCode,
                                                       description: _model
-                                                          .textController2.text,
-                                                      clientSatisfaction: 3,
+                                                          .textController3.text,
+                                                      clientSatisfaction: FFAppState()
+                                                          .newProjectCreatedModel
+                                                          .clientSatisfaction,
                                                       startDate:
                                                           '${FFAppState().newProjectCreatedModel.startDate}Z',
                                                       endDate:
@@ -2515,6 +2787,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                   .newProjectCreatedModel
                                                                   .costs
                                                                   .toList()),
+                                                      id: FFAppState()
+                                                          .newProjectCreatedModel
+                                                          .id,
                                                     );
                                                     if ((_model.apiResultb91
                                                             ?.succeeded ??
@@ -2609,7 +2884,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'e8i8em1l' /* Save */,
+                                                    'e8i8em1l' /* Update */,
                                                   ),
                                                   options: FFButtonOptions(
                                                     width: 150.0,

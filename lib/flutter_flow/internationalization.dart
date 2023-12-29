@@ -892,6 +892,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End Date',
       'ar': 'تاريخ الانتهاء',
     },
+    'c14yqtrg': {
+      'en': 'Budget',
+      'ar': 'ميزانية',
+    },
+    '2bbkki03': {
+      'en': 'Client satisfaction',
+      'ar': 'رضا العملاء',
+    },
     'b6o1bhc5': {
       'en': 'Project Type',
       'ar': 'نوع المشروع',
@@ -937,8 +945,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'أضف التكلفة',
     },
     'e8i8em1l': {
-      'en': 'Save',
-      'ar': 'يحفظ',
+      'en': 'Update',
+      'ar': 'تحديث',
     },
     'f6gcpenf': {
       'en': 'Update a Project',
