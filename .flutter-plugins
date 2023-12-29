@@ -1,4 +1,5 @@
 # This is a generated file; do not edit or check into version control.
+device_info_plus=/Users/usamaomar/.pub-cache/hosted/pub.dev/device_info_plus-9.1.0/
 file_picker=/Users/usamaomar/.pub-cache/hosted/pub.dev/file_picker-6.1.1/
 file_selector_linux=/Users/usamaomar/.pub-cache/hosted/pub.dev/file_selector_linux-0.9.2+1/
 file_selector_macos=/Users/usamaomar/.pub-cache/hosted/pub.dev/file_selector_macos-0.9.3+3/
@@ -21,6 +22,7 @@ path_provider_android=/Users/usamaomar/.pub-cache/hosted/pub.dev/path_provider_a
 path_provider_foundation=/Users/usamaomar/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.2/
 path_provider_linux=/Users/usamaomar/.pub-cache/hosted/pub.dev/path_provider_linux-2.1.11/
 path_provider_windows=/Users/usamaomar/.pub-cache/hosted/pub.dev/path_provider_windows-2.1.7/
+pdfx=/Users/usamaomar/.pub-cache/git/packages.flutter-4be9de9ffed5398fd7d5f44bbb07dcd3d3f1711b/packages/pdfx/
 shared_preferences=/Users/usamaomar/.pub-cache/hosted/pub.dev/shared_preferences-2.2.2/
 shared_preferences_android=/Users/usamaomar/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.1/
 shared_preferences_foundation=/Users/usamaomar/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.4/

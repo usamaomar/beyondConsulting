@@ -59,7 +59,11 @@ dependencies:
   path_provider_android: 2.0.25
   path_provider_foundation: 2.2.2
   path_provider_platform_interface: 2.0.6
-  pdfx: 2.3.0
+  pdfx:
+    git:
+      url: 'https://github.com/ScerIO/packages.flutter'
+      ref: '4be9de9ffed5398fd7d5f44bbb07dcd3d3f1711b'
+      path: packages/pdfx
   percent_indicator: 4.2.2
   plugin_platform_interface: 2.1.6
   provider: 6.0.5

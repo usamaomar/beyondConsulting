@@ -134,6 +134,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "device_info_plus",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/device_info_plus-9.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "device_info_plus_platform_interface",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dropdown_button2",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/dropdown_button2-2.3.9",
       "packageUri": "lib/",
@@ -154,6 +166,12 @@
     {
       "name": "excel",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/excel-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "extension",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/extension-0.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -410,6 +428,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "internet_file",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/internet_file-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
@@ -548,6 +572,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "pdfx",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/git/packages.flutter-4be9de9ffed5398fd7d5f44bbb07dcd3d3f1711b/packages/pdfx",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "percent_indicator",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/percent_indicator-4.2.2",
       "packageUri": "lib/",
@@ -558,6 +588,12 @@
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "photo_view",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/photo_view-0.14.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "platform",
@@ -650,6 +686,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "sprintf",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/sprintf-7.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sqflite",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/sqflite-2.2.6",
       "packageUri": "lib/",
@@ -728,6 +770,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "universal_file",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/universal_file-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "universal_platform",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/universal_platform-1.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "url_launcher",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/url_launcher-6.1.10",
       "packageUri": "lib/",
@@ -777,9 +831,9 @@
     },
     {
       "name": "uuid",
-      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/uuid-3.0.7",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/uuid-4.2.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.14"
     },
     {
       "name": "vector_graphics",
@@ -848,6 +902,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "win32_registry",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/win32_registry-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "xdg_directories",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/xdg_directories-1.0.3",
       "packageUri": "lib/",
@@ -866,7 +926,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-28T21:42:54.076687Z",
+  "generated": "2023-12-29T21:42:39.522905Z",
   "generator": "pub",
   "generatorVersion": "3.2.0-210.3.beta"
 }

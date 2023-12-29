@@ -82,7 +82,7 @@ class ProjectStatisticModelStruct extends BaseStruct {
         seniorStatus: data['seniorStatus'] as bool?,
         lastUpdated: data['lastUpdated'] as String?,
         averageClientSatisfaction:
-            castToType<int>(data['averageClientSatisfaction']),
+            castToType<int>(data['averageClientSatisfaction'].toInt()),
       );
 
   static ProjectStatisticModelStruct? maybeFromMap(dynamic data) => data is Map

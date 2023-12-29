@@ -1121,7 +1121,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                   20.0,
                                                                   0.0,
                                                                   20.0),
-                                                          child: Container(
+                                                          child:  _model
+                                                              .projectModel !=null && _model
+                                                              .projectModel!
+                                                              .clientSatisfaction !=null ? Container(
                                                             height: 100.0,
                                                             decoration:
                                                                 const BoxDecoration(),
@@ -1139,7 +1142,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     .clientSatisfaction,
                                                               ),
                                                             ),
-                                                          ),
+                                                          ) : Container(),
                                                         ),
                                                       ),
                                                     ),

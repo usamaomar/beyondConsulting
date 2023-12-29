@@ -297,7 +297,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                     child: Container(
                                       width: 450,
                                       height: 450,
-                                      child: test(
+                                      child: (_model.projectModel?.milestones ?? []).isEmpty ? Container() : test(
                                         milestones: _model.projectModel?.milestones ?? [],
                                       ),
                                     )),
@@ -377,7 +377,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           padding:
                                               const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 20.0, 0.0, 20.0),
-                                          child: Container(
+                                          child:_model.projectModel!=null ?  Container(
                                             height: 100.0,
                                             decoration: const BoxDecoration(),
                                             child: Builder(
@@ -459,7 +459,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                 );
                                               },
                                             ),
-                                          ),
+                                          ) : Container(),
                                         ),
                                       ],
                                     ),

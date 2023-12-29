@@ -38,20 +38,22 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
 
   @override
   void initState() {
-    data = [
-      BarChartModelStruct(
-          lable: widget.listOfTotal[0].lable,
-          number: widget.listOfTotal[0].number,
-          color: widget.listOfTotal[0].color),
-      BarChartModelStruct(
-          lable: widget.listOfSpent[0].lable,
-          number: widget.listOfSpent[0].number,
-          color: widget.listOfSpent[0].color),
-      BarChartModelStruct(
-          lable: widget.listOfRemainingBudget[0].lable,
-          number: widget.listOfRemainingBudget[0].number,
-          color: widget.listOfRemainingBudget[0].color)
-    ];
+    if(widget.listOfTotal.isNotEmpty) {
+      data = [
+        BarChartModelStruct(
+            lable: widget.listOfTotal[0].lable,
+            number: widget.listOfTotal[0].number,
+            color: widget.listOfTotal[0].color),
+        BarChartModelStruct(
+            lable: widget.listOfSpent[0].lable,
+            number: widget.listOfSpent[0].number,
+            color: widget.listOfSpent[0].color),
+        BarChartModelStruct(
+            lable: widget.listOfRemainingBudget[0].lable,
+            number: widget.listOfRemainingBudget[0].number,
+            color: widget.listOfRemainingBudget[0].color)
+      ];
+    }
     super.initState();
   }
 
