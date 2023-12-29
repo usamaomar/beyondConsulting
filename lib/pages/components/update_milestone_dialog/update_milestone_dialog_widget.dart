@@ -32,6 +32,7 @@ class _UpdateMilestoneDialogWidgetState
     extends State<UpdateMilestoneDialogWidget> {
   late UpdateMilestoneDialogModel _model;
 
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -46,6 +47,11 @@ class _UpdateMilestoneDialogWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
+        FFAppState().SelectedMileStoneModel =
+        FFAppState().newProjectCreatedModel.milestones[widget.index!];
+        FFAppState().SelectedMileStoneModel.mileStoneStateModel  = FFAppState().mileStoneModelAppState.where((element) => element.stateId==FFAppState().SelectedMileStoneModel.status).first;
+      });
+      setState(() {
         _model.startDate = functions
             .parseDateString(FFAppState().SelectedMileStoneModel.startDate);
         _model.endDate = _model.startDate;
@@ -58,13 +64,10 @@ class _UpdateMilestoneDialogWidgetState
         _model.textController2?.text =
             FFAppState().SelectedMileStoneModel.amount.toString();
       });
-      setState(() {
-        FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
-      });
-      setState(() {
-        FFAppState().SelectedMileStoneModel =
-            FFAppState().newProjectCreatedModel.milestones[widget.index!];
-      });
+      // setState(() {
+      //   FFAppState().SelectedMileStoneModel = MilestoneModelStruct();
+      // });
+
     });
 
     _model.textController1 ??=

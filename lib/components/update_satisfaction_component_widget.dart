@@ -86,7 +86,7 @@ class _UpdateSatisfactionComponentWidgetState
               highlightColor: Colors.transparent,
               onTap: () async {
                 setState(() {
-                  _model.satsfac = listOfsatisfactionLocalIndex;
+                  _model.satsfac = listOfsatisfactionLocalIndex + 1;
                 });
                 setState(() {
                   FFAppState().updateNewProjectCreatedModelStruct(

@@ -156,8 +156,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        25.0, 0.0, 25.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'f6gcpenf' /* Update a Project */,
@@ -246,9 +246,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                       children: [
                                         Expanded(
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 310.0,
                                               decoration: const BoxDecoration(),
@@ -339,8 +338,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 20.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -352,7 +352,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: const Color(0xFF032734),
+                                                  color:
+                                                      const Color(0xFF032734),
                                                   fontSize: 16.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -366,8 +367,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                         Expanded(
                                           child: Builder(
                                             builder: (context) => Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -451,8 +453,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                     Container(
                                       decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 15.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -460,8 +462,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                           children: [
                                             Flexible(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 5.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
@@ -491,11 +494,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              10.0, 0.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -628,10 +628,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   functions.convertDateString(
                                                                       FFAppState()
@@ -680,8 +680,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             ),
                                             Flexible(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
@@ -711,11 +712,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              10.0, 0.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -848,10 +846,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   functions.convertDateString(
                                                                       FFAppState()
@@ -905,8 +903,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                     Container(
                                       decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 15.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -914,8 +912,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                           children: [
                                             Flexible(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 5.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
@@ -945,11 +944,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              10.0, 0.0, 0.0),
                                                       child: Container(
                                                         decoration:
                                                             BoxDecoration(
@@ -975,10 +971,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
+                                                                        8.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
@@ -1070,8 +1066,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             ),
                                             Flexible(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
@@ -1101,11 +1098,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              10.0, 0.0, 0.0),
                                                       child: Container(
                                                         decoration:
                                                             BoxDecoration(
@@ -1123,10 +1117,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0,
-                                                                      20.0),
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0,
+                                                                  20.0),
                                                           child: Container(
                                                             height: 100.0,
                                                             decoration:
@@ -1158,8 +1152,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 20.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1171,7 +1166,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: const Color(0xFF032734),
+                                                  color:
+                                                      const Color(0xFF032734),
                                                   fontSize: 16.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1185,8 +1181,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                         Flexible(
                                           child: Builder(
                                             builder: (context) => Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -1299,8 +1296,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 20.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1312,7 +1310,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: const Color(0xFF032734),
+                                                  color:
+                                                      const Color(0xFF032734),
                                                   fontSize: 16.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1326,8 +1325,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                         Expanded(
                                           child: Builder(
                                             builder: (context) => Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -1401,8 +1401,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 20.0, 0.0, 0.0),
                                       child: Container(
                                         height: 300.0,
                                         decoration: const BoxDecoration(),
@@ -1499,10 +1500,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0),
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      0.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1635,8 +1636,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 10.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -1664,8 +1665,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 25.0, 10.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 25.0, 10.0, 0.0),
                                     child: SingleChildScrollView(
                                       primary: false,
                                       child: Column(
@@ -1681,16 +1683,18 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     .getText(
                                                   'uddqhthq' /* Project Description */,
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: const Color(0xFF032734),
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: const Color(
+                                                              0xFF032734),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -1699,12 +1703,14 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: 310.0,
-                                                    decoration: const BoxDecoration(),
+                                                    decoration:
+                                                        const BoxDecoration(),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .textController3,
@@ -1800,9 +1806,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             ],
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 20.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1817,8 +1822,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF032734),
+                                                        color: const Color(
+                                                            0xFF032734),
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -1829,7 +1834,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 0.0,
-                                                                20.0, 0.0),
+                                                            20.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1904,7 +1909,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1964,9 +1969,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         child:
                                                             ClintDropDouwnListComponentWidget(
                                                           hintName: FFAppState()
-                                                                          .newProjectCreatedModel
-                                                                          .client !=
-                                                                      ''
+                                                                      .newProjectCreatedModel
+                                                                      .client !=
+                                                                  ''
                                                               ? FFAppState()
                                                                   .newProjectCreatedModel
                                                                   .client
@@ -1987,9 +1992,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             ],
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 20.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2008,8 +2012,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
-                                                          color:
-                                                              const Color(0xFF032734),
+                                                          color: const Color(
+                                                              0xFF032734),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -2028,8 +2032,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
-                                                          color:
-                                                              const Color(0xFF032734),
+                                                          color: const Color(
+                                                              0xFF032734),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -2052,8 +2056,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                            0.0, 0.0, 5.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
                                                         final localMilstoneList =
@@ -2083,10 +2087,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -2161,7 +2165,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           5.0,
                                                                           0.0,
                                                                           0.0,
@@ -2246,8 +2251,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                            5.0, 0.0, 0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
                                                         final listOfCostes =
@@ -2277,10 +2282,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -2349,7 +2354,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           5.0,
                                                                           0.0,
                                                                           0.0,
@@ -2432,11 +2438,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              10.0, 5.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -2511,8 +2514,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     .start,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         5.0,
                                                                         12.0,
                                                                         5.0,
@@ -2536,10 +2540,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   FFLocalizations.of(
                                                                           context)
@@ -2576,11 +2580,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(5.0,
+                                                              10.0, 0.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -2655,8 +2656,9 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     .start,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         5.0,
                                                                         12.0,
                                                                         5.0,
@@ -2680,10 +2682,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   FFLocalizations.of(
                                                                           context)
@@ -2718,9 +2720,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 20.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 20.0, 0.0, 20.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2750,9 +2751,11 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           .newProjectCreatedModel
                                                           .clientSatisfaction,
                                                       startDate:
-                                                          '${FFAppState().newProjectCreatedModel.startDate}Z',
+                                                          convertDateFormatLocals(
+                                                              '${FFAppState().newProjectCreatedModel.startDate}Z'),
                                                       endDate:
-                                                          '${FFAppState().newProjectCreatedModel.endDate}Z',
+                                                          convertDateFormatLocals(
+                                                              '${FFAppState().newProjectCreatedModel.endDate}Z'),
                                                       clientId: FFAppState()
                                                           .newProjectCreatedModel
                                                           .clientId,
@@ -2791,9 +2794,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           .newProjectCreatedModel
                                                           .id,
                                                     );
-                                                    if ((_model.apiResultb91
-                                                            ?.succeeded ??
-                                                        true)) {
+                                                      if ((_model.apiResultb91?.jsonBody['succeeded']) ==
+                                                          true){
                                                       _model.apiResultoho =
                                                           await GetMyProjectsCreationApiCall
                                                               .call(
@@ -2835,9 +2837,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                             'projectJaonModel':
                                                                 serializeParam(
                                                               FFAppState()
-                                                                  .projectListCreationAppState
-                                                                  .last
-                                                                  .toMap(),
+                                                                  .projectListCreationAppState.where((element) => element.id == _model.projectModel?.id).first.toMap(),
                                                               ParamType.JSON,
                                                             ),
                                                           }.withoutNulls,
@@ -2892,11 +2892,11 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
+                                                            24.0, 0.0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .beyondBlueColor,
@@ -2909,7 +2909,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           color: Colors.white,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide:
+                                                        const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -2940,5 +2941,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
         ),
       ),
     );
+  }
+
+  String convertDateFormatLocals(String inputDate) {
+    String result = inputDate.substring(0,10);
+    return '${result}T00:00:00.000Z';
   }
 }
