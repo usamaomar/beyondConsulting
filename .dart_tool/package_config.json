@@ -140,6 +140,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "easy_debounce",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/easy_debounce-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "equatable",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
@@ -860,7 +866,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-27T22:40:49.720840Z",
+  "generated": "2023-12-28T21:42:54.076687Z",
   "generator": "pub",
   "generatorVersion": "3.2.0-210.3.beta"
 }

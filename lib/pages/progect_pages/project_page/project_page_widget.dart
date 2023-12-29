@@ -533,12 +533,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        color: FFAppState()
-                                                            .clintSatisfactionList[_model
-                                                                    .projectModel!
-                                                                    .clientSatisfaction -
-                                                                1]
-                                                            .color,
+                                                        color: FFAppState().clintSatisfactionList[_model
+                                                            .projectModel == null ? 0 : _model.projectModel!.clientSatisfaction - 1].color,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),

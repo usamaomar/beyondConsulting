@@ -430,9 +430,8 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                         password: _model.textController2.text,
                                       );
                                       shouldSetState = true;
-                                      if ((_model.loginResponse?.statusCode ??
-                                              200) ==
-                                          200) {
+                                      if ((_model.loginResponse?.jsonBody['succeeded']) ==
+                                          true) {
                                         setState(() {
                                           FFAppState().tokenModelAppState =
                                               TokenModelStruct.maybeFromMap(
@@ -448,10 +447,8 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                               .token,
                                         );
                                         shouldSetState = true;
-                                        if ((_model.userDataResponse
-                                                    ?.statusCode ??
-                                                200) ==
-                                            200) {
+                                        if ((_model.userDataResponse?.jsonBody['succeeded']) ==
+                                            true) {
                                           setState(() {
                                             FFAppState().userModelAppState =
                                                 UserModelStruct.maybeFromMap(
