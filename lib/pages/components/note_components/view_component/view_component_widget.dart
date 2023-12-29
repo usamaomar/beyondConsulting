@@ -47,27 +47,33 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        if (widget.imagePath != null && widget.imagePath != '')
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.network(
-              widget.imagePath!,
-              width: 400.0,
-              height: 400.0,
-              fit: BoxFit.cover,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          if (widget.imagePath != null && widget.imagePath != '')
+            Flexible(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  widget.imagePath!,
+                  width: 400.0,
+                  height: 400.0,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
             ),
-          ),
-        if (widget.filePath != null && widget.filePath != '')
-          FlutterFlowPdfViewer(
-            networkPath: widget.filePath!,
-            width: 400.0,
-            height: 400.0,
-            horizontalScroll: false,
-          ),
-      ],
+          if (widget.filePath != null && widget.filePath != '')
+            Flexible(
+              child: FlutterFlowPdfViewer(
+                networkPath: widget.filePath!,
+                width: 400.0,
+                height: 400.0,
+                horizontalScroll: false,
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
