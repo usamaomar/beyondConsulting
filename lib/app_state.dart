@@ -267,6 +267,9 @@ class FFAppState extends ChangeNotifier {
       _helpRequstedStrings =
           prefs.getStringList('ff_helpRequstedStrings') ?? _helpRequstedStrings;
     });
+    _safeInit(() {
+      _fcm = prefs.getString('ff_fcm') ?? _fcm;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -927,6 +930,13 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInHelpRequstedStrings(int index, String value) {
     _helpRequstedStrings.insert(index, value);
     prefs.setStringList('ff_helpRequstedStrings', _helpRequstedStrings);
+  }
+
+  String _fcm = '';
+  String get fcm => _fcm;
+  set fcm(String value) {
+    _fcm = value;
+    prefs.setString('ff_fcm', value);
   }
 }
 
