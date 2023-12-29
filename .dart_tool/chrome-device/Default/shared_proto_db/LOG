@@ -1,4 +1,5 @@
-2023/12/29-01:05:44.276 b403 Reusing MANIFEST /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.Qt0aZX/flutter_tools_chrome_device.TpEuNG/Default/shared_proto_db/MANIFEST-000001
-2023/12/29-01:05:44.277 b403 Recovering log #3
-2023/12/29-01:05:44.277 b403 (ignoring error) /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.Qt0aZX/flutter_tools_chrome_device.TpEuNG/Default/shared_proto_db/000003.log: dropping 26 bytes; Corruption: missing start of fragmented record(2)
-2023/12/29-01:05:44.277 b403 Reusing old log /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.Qt0aZX/flutter_tools_chrome_device.TpEuNG/Default/shared_proto_db/000003.log 
+2023/12/29-12:44:14.695 f703 Reusing MANIFEST /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.ry8IMs/flutter_tools_chrome_device.6dvCN2/Default/shared_proto_db/MANIFEST-000001
+2023/12/29-12:44:14.695 f703 Recovering log #3
+2023/12/29-12:44:14.696 f703 (ignoring error) /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.ry8IMs/flutter_tools_chrome_device.6dvCN2/Default/shared_proto_db/000003.log: dropping 26 bytes; Corruption: missing start of fragmented record(2)
+2023/12/29-12:44:14.696 f703 (ignoring error) /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.ry8IMs/flutter_tools_chrome_device.6dvCN2/Default/shared_proto_db/000003.log: dropping 12409 bytes; Corruption: checksum mismatch
+2023/12/29-12:44:14.696 f703 Reusing old log /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.ry8IMs/flutter_tools_chrome_device.6dvCN2/Default/shared_proto_db/000003.log 

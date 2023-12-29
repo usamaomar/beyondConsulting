@@ -46,7 +46,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getPermission();
+    getPermission().then((value) {
+      FirebaseMessaging.instance.getToken().then((fbToken) {
+        FFAppState().fcm = fbToken ?? 'null';
+      });
+    });
     messageListener(context);
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);

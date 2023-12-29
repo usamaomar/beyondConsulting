@@ -92,6 +92,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         }
       }
 
+      FirebaseMessaging.instance.getToken().then((fbToken) {
+        FFAppState().fcm = fbToken ?? 'null';
+      });
+
       FirebaseMessaging.instance.getToken().then((value) async{
         _model.apiResult9gl = await SetNotificationTokenApiCall.call(
           token: FFAppState().tokenModelAppState.token,

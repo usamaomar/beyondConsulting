@@ -570,9 +570,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                   setState(() {}),
                                               child:
                                                   SatisfactionComponentWidget(
-                                                satisfactionType: _model
-                                                    .projectModel!
-                                                    .clientSatisfaction,
+                                                satisfactionType: _model.projectModel?.clientSatisfaction ?? 0,
                                               ),
                                             ),
                                           ),
@@ -1389,15 +1387,17 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                       SizedBox(
                                         width: double.infinity,
                                         height: 490.0,
-                                        child: custom_widgets
+                                        child:_model
+                                            .projectModel !=null ?  custom_widgets
                                             .MilestoneCalendarWidget(
                                           width: double.infinity,
                                           height: 490.0,
-                                          milestones: functions
+                                          milestones:_model
+                                              .projectModel !=null ?  functions
                                               .convertToDateTimeList(_model
-                                                  .projectModel!.milestones
-                                                  .toList()),
-                                        ),
+                                                  .projectModel?.milestones
+                                                  .toList() ?? []) : [],
+                                        ) : Container(),
                                       ),
                                     ],),
                                   ),

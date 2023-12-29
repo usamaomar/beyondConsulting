@@ -667,15 +667,14 @@ String convertFromIdToTextClientSatisfaction(
 
 String convertDateFromStamp(String inputDate) {
   DateTime dateTime = DateTime.parse(inputDate);
-
-  // Format the date to "13 / 5 / 2023"
   String formattedDate = DateFormat('d / M / y').format(dateTime);
-
   return formattedDate;
 }
 
 List<DateTime> convertToDateTimeList(List<MilestoneModelStruct> milestones) {
-  return milestones
-      .map((milestone) => DateTime.parse(milestone.endDate))
-      .toList();
+  return milestones.map((milestone) {
+    var date = DateTime.parse(milestone.endDate);
+    DateTime currentDate = DateTime(date.year, date.month, date.day);
+    return currentDate;
+  }).toList();
 }
