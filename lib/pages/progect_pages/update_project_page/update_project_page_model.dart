@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/update_satisfaction_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/clint_drop_douwn_list_component/clint_drop_douwn_list_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
@@ -10,6 +11,12 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
+  ///  Local state fields for this page.
+
+  ProjectModelStruct? projectModel;
+  void updateProjectModelStruct(Function(ProjectModelStruct) updateFn) =>
+      updateFn(projectModel ??= ProjectModelStruct());
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -21,6 +28,12 @@ class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
   late TextDropDouwnListComponentModel textDropDouwnListComponentModel1;
   DateTime? datePicked1;
   DateTime? datePicked2;
+  // State field(s) for budgetTextField widget.
+  FocusNode? budgetTextFieldFocusNode;
+  TextEditingController? budgetTextFieldController;
+  String? Function(BuildContext, String?)? budgetTextFieldControllerValidator;
+  // Model for updateSatisfactionComponent component.
+  late UpdateSatisfactionComponentModel updateSatisfactionComponentModel;
   // Model for TypeDropDouwnListComponent component.
   late TypeDropDouwnListComponentModel typeDropDouwnListComponentModel;
   // Model for TextDropDouwnListComponent component.
@@ -33,11 +46,11 @@ class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // Model for ClintDropDouwnListComponent component.
   late ClintDropDouwnListComponentModel clintDropDouwnListComponentModel;
-  // Stores action output result for [Backend Call - API (CreateProjectApi)] action in Button widget.
+  // Stores action output result for [Backend Call - API (UpdateProjectApi)] action in Button widget.
   ApiCallResponse? apiResultb91;
   // Stores action output result for [Backend Call - API (GetMyProjectsCreationApi)] action in Button widget.
   ApiCallResponse? apiResultoho;
@@ -50,6 +63,8 @@ class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
   void initState(BuildContext context) {
     textDropDouwnListComponentModel1 =
         createModel(context, () => TextDropDouwnListComponentModel());
+    updateSatisfactionComponentModel =
+        createModel(context, () => UpdateSatisfactionComponentModel());
     typeDropDouwnListComponentModel =
         createModel(context, () => TypeDropDouwnListComponentModel());
     textDropDouwnListComponentModel2 =
@@ -67,10 +82,14 @@ class UpdateProjectPageModel extends FlutterFlowModel<UpdateProjectPageWidget> {
     textController1?.dispose();
 
     textDropDouwnListComponentModel1.dispose();
+    budgetTextFieldFocusNode?.dispose();
+    budgetTextFieldController?.dispose();
+
+    updateSatisfactionComponentModel.dispose();
     typeDropDouwnListComponentModel.dispose();
     textDropDouwnListComponentModel2.dispose();
     textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    textController3?.dispose();
 
     clintDropDouwnListComponentModel.dispose();
     sideNavModel.dispose();

@@ -817,6 +817,71 @@ class CreateProjectApiCall {
   }
 }
 
+class UpdateProjectApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? name = '',
+    int? type,
+    int? costBudget,
+    String? countryCode = '',
+    String? description = '',
+    int? clientSatisfaction,
+    String? startDate = '',
+    String? endDate = '',
+    int? clientId,
+    int? teamId,
+    String? seniorId = '',
+    bool? seniorStatus,
+    dynamic midManagersJson,
+    dynamic associatesJson,
+    dynamic milestonesJson,
+    dynamic costsJson,
+    int? id,
+  }) async {
+    final midManagers = _serializeJson(midManagersJson, true);
+    final associates = _serializeJson(associatesJson, true);
+    final milestones = _serializeJson(milestonesJson, true);
+    final costs = _serializeJson(costsJson, true);
+    final ffApiRequestBody = '''
+{
+  "id":$id,
+  "name": "$name",
+  "type": $type,
+  "costBudget": $costBudget,
+  "countryCode": "$countryCode",
+  "description": "$description",
+  "clientSatisfaction": $clientSatisfaction,
+  "startDate": "$startDate",
+  "endDate": "$endDate",
+  "clientId": $clientId,
+  "teamId": $teamId,
+  "seniorId": "$seniorId",
+  "seniorStatus": $seniorStatus,
+  "midManagers": $midManagers,
+  "associates": $associates,
+  "milestones": $milestones,
+  "costs": $costs
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateProjectApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/Put',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class UpdateCostStatusApiCall {
   static Future<ApiCallResponse> call({
     int? costId,
