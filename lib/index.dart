@@ -21,3 +21,7 @@ export '/pages/financial_page/financial_page_widget.dart'
     show FinancialPageWidget;
 export '/pages/progect_pages/update_project_page/update_project_page_widget.dart'
     show UpdateProjectPageWidget;
+export '/pages/admins_cost_management/admins_cost_management_widget.dart'
+    show AdminsCostManagementWidget;
+export '/pages/all_costs_page/all_costs_page_widget.dart'
+    show AllCostsPageWidget;

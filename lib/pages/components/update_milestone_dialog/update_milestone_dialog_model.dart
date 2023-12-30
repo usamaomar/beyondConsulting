@@ -37,7 +37,7 @@ class UpdateMilestoneDialogModel
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (UploadFile)] action in Container widget.
-  ApiCallResponse? outUpload;
+  ApiCallResponse? outUpload2;
 
   /// Initialization and disposal methods.
 

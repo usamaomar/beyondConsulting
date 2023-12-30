@@ -105,6 +105,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             projectLocalModel:
                 params.getParam('projectLocalModel', ParamType.JSON),
           ),
+        ),
+        FFRoute(
+          name: 'AdminsCostManagement',
+          path: '/adminsCostManagement',
+          builder: (context, params) => AdminsCostManagementWidget(
+            projectJsonObject:
+                params.getParam('projectJsonObject', ParamType.JSON),
+          ),
+        ),
+        FFRoute(
+          name: 'AllCostsPage',
+          path: '/allCostsPage',
+          builder: (context, params) => const AllCostsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
