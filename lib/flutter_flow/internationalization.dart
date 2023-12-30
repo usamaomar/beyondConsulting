@@ -1042,6 +1042,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Notes',
       'ar': 'ملحوظات',
     },
+    '95vdle5b': {
+      'en': 'Approval note',
+      'ar': 'مذكرة الموافقة',
+    },
     'ew3hgb8g': {
       'en': 'Update',
       'ar': 'تحديث',
