@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import 'all_costs_page_widget.dart' show AllCostsPageWidget;
 import 'package:flutter/material.dart';
@@ -25,14 +24,14 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetAllCostsApi)] action in AllCostsPage widget.
   ApiCallResponse? apiResulttbe;
-  // Models for CostDropComponent dynamic component.
-  late FlutterFlowDynamicModels<CostDropComponentModel> costDropComponentModels;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (UploadFile)] action in Container widget.
   ApiCallResponse? outUpload;
+  // Stores action output result for [Backend Call - API (UpdateAdminCostStatusApi)] action in Button widget.
+  ApiCallResponse? apiResultz7xm;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -40,15 +39,12 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
 
   @override
   void initState(BuildContext context) {
-    costDropComponentModels =
-        FlutterFlowDynamicModels(() => CostDropComponentModel());
     sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    costDropComponentModels.dispose();
     sideNavModel.dispose();
   }
 

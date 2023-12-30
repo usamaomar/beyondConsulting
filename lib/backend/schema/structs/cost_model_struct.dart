@@ -24,8 +24,8 @@ class CostModelStruct extends BaseStruct {
     int? adminCostStatus,
     String? adminApprovalNotes,
     String? adminAttachmentUrl,
-    String? projectId,
     String? project,
+    int? projectId,
   })  : _id = id,
         _title = title,
         _date = date,
@@ -43,8 +43,8 @@ class CostModelStruct extends BaseStruct {
         _adminCostStatus = adminCostStatus,
         _adminApprovalNotes = adminApprovalNotes,
         _adminAttachmentUrl = adminAttachmentUrl,
-        _projectId = projectId,
-        _project = project;
+        _project = project,
+        _projectId = projectId;
 
   // "id" field.
   int? _id;
@@ -156,17 +156,18 @@ class CostModelStruct extends BaseStruct {
   set adminAttachmentUrl(String? val) => _adminAttachmentUrl = val;
   bool hasAdminAttachmentUrl() => _adminAttachmentUrl != null;
 
-  // "projectId" field.
-  String? _projectId;
-  String get projectId => _projectId ?? '';
-  set projectId(String? val) => _projectId = val;
-  bool hasProjectId() => _projectId != null;
-
   // "project" field.
   String? _project;
   String get project => _project ?? '';
   set project(String? val) => _project = val;
   bool hasProject() => _project != null;
+
+  // "projectId" field.
+  int? _projectId;
+  int get projectId => _projectId ?? 0;
+  set projectId(int? val) => _projectId = val;
+  void incrementProjectId(int amount) => _projectId = projectId + amount;
+  bool hasProjectId() => _projectId != null;
 
   static CostModelStruct fromMap(Map<String, dynamic> data) => CostModelStruct(
         id: castToType<int>(data['id']),
@@ -186,8 +187,8 @@ class CostModelStruct extends BaseStruct {
         adminCostStatus: castToType<int>(data['adminCostStatus']),
         adminApprovalNotes: data['adminApprovalNotes'] as String?,
         adminAttachmentUrl: data['adminAttachmentUrl'] as String?,
-        projectId: data['projectId'] as String?,
         project: data['project'] as String?,
+        projectId: castToType<int>(data['projectId']),
       );
 
   static CostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -212,8 +213,8 @@ class CostModelStruct extends BaseStruct {
         'adminCostStatus': _adminCostStatus,
         'adminApprovalNotes': _adminApprovalNotes,
         'adminAttachmentUrl': _adminAttachmentUrl,
-        'projectId': _projectId,
         'project': _project,
+        'projectId': _projectId,
       }.withoutNulls;
 
   @override
@@ -286,13 +287,13 @@ class CostModelStruct extends BaseStruct {
           _adminAttachmentUrl,
           ParamType.String,
         ),
-        'projectId': serializeParam(
-          _projectId,
-          ParamType.String,
-        ),
         'project': serializeParam(
           _project,
           ParamType.String,
+        ),
+        'projectId': serializeParam(
+          _projectId,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -383,14 +384,14 @@ class CostModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        projectId: deserializeParam(
-          data['projectId'],
-          ParamType.String,
-          false,
-        ),
         project: deserializeParam(
           data['project'],
           ParamType.String,
+          false,
+        ),
+        projectId: deserializeParam(
+          data['projectId'],
+          ParamType.int,
           false,
         ),
       );
@@ -418,8 +419,8 @@ class CostModelStruct extends BaseStruct {
         adminCostStatus == other.adminCostStatus &&
         adminApprovalNotes == other.adminApprovalNotes &&
         adminAttachmentUrl == other.adminAttachmentUrl &&
-        projectId == other.projectId &&
-        project == other.project;
+        project == other.project &&
+        projectId == other.projectId;
   }
 
   @override
@@ -441,8 +442,8 @@ class CostModelStruct extends BaseStruct {
         adminCostStatus,
         adminApprovalNotes,
         adminAttachmentUrl,
-        projectId,
-        project
+        project,
+        projectId
       ]);
 }
 
@@ -464,8 +465,8 @@ CostModelStruct createCostModelStruct({
   int? adminCostStatus,
   String? adminApprovalNotes,
   String? adminAttachmentUrl,
-  String? projectId,
   String? project,
+  int? projectId,
 }) =>
     CostModelStruct(
       id: id,
@@ -485,6 +486,6 @@ CostModelStruct createCostModelStruct({
       adminCostStatus: adminCostStatus,
       adminApprovalNotes: adminApprovalNotes,
       adminAttachmentUrl: adminAttachmentUrl,
-      projectId: projectId,
       project: project,
+      projectId: projectId,
     );

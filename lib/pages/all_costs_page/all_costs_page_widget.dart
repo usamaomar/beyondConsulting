@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/text_edd_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
+import '/pages/components/all_cost_drop_component/all_cost_drop_component_widget.dart';
 import '/pages/components/note_components/view_component/view_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -1185,19 +1187,11 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                             child:
                                                                                 Container(
                                                                               decoration: const BoxDecoration(),
-                                                                              child: wrapWithModel(
-                                                                                model: _model.costDropComponentModels.getModel(
-                                                                                  localAllCostsItem.id.toString(),
-                                                                                  localAllCostsIndex,
-                                                                                ),
-                                                                                updateCallback: () => setState(() {}),
-                                                                                child: CostDropComponentWidget(
-                                                                                  key: Key(
-                                                                                    'Keyuyj_${localAllCostsItem.id.toString()}',
-                                                                                  ),
-                                                                                  parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, localAllCostsItem.costStatus),
-                                                                                  costId: localAllCostsItem.id,
-                                                                                ),
+                                                                              child: AllCostDropComponentWidget(
+                                                                                key: Key('Key8rm_${localAllCostsIndex}_of_${localAllCosts.length}'),
+                                                                                parameter1: localAllCostsItem.costStatus.toString(),
+                                                                                costId: localAllCostsItem.id,
+                                                                                action: () async {},
                                                                               ),
                                                                             ),
                                                                           ),
@@ -1355,178 +1349,177 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                final selectedMedia =
-                                                                    await selectMedia(
-                                                                  mediaSource:
-                                                                      MediaSource
-                                                                          .photoGallery,
-                                                                  multiImage:
-                                                                      false,
-                                                                );
-                                                                if (selectedMedia !=
-                                                                        null &&
-                                                                    selectedMedia.every((m) =>
-                                                                        validateFileFormat(
-                                                                            m.storagePath,
-                                                                            context))) {
-                                                                  setState(() =>
-                                                                      _model.isDataUploading =
-                                                                          true);
-                                                                  var selectedUploadedFiles =
-                                                                      <FFUploadedFile>[];
+                                                            Flexible(
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  final selectedMedia =
+                                                                      await selectMedia(
+                                                                    mediaSource:
+                                                                        MediaSource
+                                                                            .photoGallery,
+                                                                    multiImage:
+                                                                        false,
+                                                                  );
+                                                                  if (selectedMedia !=
+                                                                          null &&
+                                                                      selectedMedia.every((m) => validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                    setState(() =>
+                                                                        _model.isDataUploading =
+                                                                            true);
+                                                                    var selectedUploadedFiles =
+                                                                        <FFUploadedFile>[];
 
-                                                                  try {
-                                                                    selectedUploadedFiles = selectedMedia
-                                                                        .map((m) => FFUploadedFile(
-                                                                              name: m.storagePath.split('/').last,
-                                                                              bytes: m.bytes,
-                                                                              height: m.dimensions?.height,
-                                                                              width: m.dimensions?.width,
-                                                                              blurHash: m.blurHash,
-                                                                            ))
-                                                                        .toList();
-                                                                  } finally {
-                                                                    _model.isDataUploading =
-                                                                        false;
+                                                                    try {
+                                                                      selectedUploadedFiles = selectedMedia
+                                                                          .map((m) => FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                              ))
+                                                                          .toList();
+                                                                    } finally {
+                                                                      _model.isDataUploading =
+                                                                          false;
+                                                                    }
+                                                                    if (selectedUploadedFiles
+                                                                            .length ==
+                                                                        selectedMedia
+                                                                            .length) {
+                                                                      setState(
+                                                                          () {
+                                                                        _model.uploadedLocalFile =
+                                                                            selectedUploadedFiles.first;
+                                                                      });
+                                                                    } else {
+                                                                      setState(
+                                                                          () {});
+                                                                      return;
+                                                                    }
                                                                   }
-                                                                  if (selectedUploadedFiles
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length) {
-                                                                    setState(
-                                                                        () {
-                                                                      _model.uploadedLocalFile =
-                                                                          selectedUploadedFiles
-                                                                              .first;
-                                                                    });
-                                                                  } else {
+
+                                                                  _model.outUpload =
+                                                                      await UploadFileCall
+                                                                          .call(
+                                                                    token: FFAppState()
+                                                                        .tokenModelAppState
+                                                                        .token,
+                                                                    file: _model
+                                                                        .uploadedLocalFile,
+                                                                  );
+                                                                  if ((_model
+                                                                          .outUpload
+                                                                          ?.succeeded ??
+                                                                      true)) {
                                                                     setState(
                                                                         () {});
-                                                                    return;
+                                                                    setState(
+                                                                        () {});
+                                                                  } else {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return AlertDialog(
+                                                                          title:
+                                                                              const Text('Error'),
+                                                                          content:
+                                                                              Text((_model.outUpload?.bodyText ?? '')),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                              child: const Text('Ok'),
+                                                                            ),
+                                                                          ],
+                                                                        );
+                                                                      },
+                                                                    );
                                                                   }
-                                                                }
 
-                                                                _model.outUpload =
-                                                                    await UploadFileCall
-                                                                        .call(
-                                                                  token: FFAppState()
-                                                                      .tokenModelAppState
-                                                                      .token,
-                                                                  file: _model
-                                                                      .uploadedLocalFile,
-                                                                );
-                                                                if ((_model
-                                                                        .outUpload
-                                                                        ?.succeeded ??
-                                                                    true)) {
                                                                   setState(
                                                                       () {});
-                                                                  setState(
-                                                                      () {});
-                                                                } else {
-                                                                  await showDialog(
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (alertDialogContext) {
-                                                                      return AlertDialog(
-                                                                        title: const Text(
-                                                                            'Error'),
-                                                                        content:
-                                                                            Text((_model.outUpload?.bodyText ??
-                                                                                '')),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                            child:
-                                                                                const Text('Ok'),
-                                                                          ),
-                                                                        ],
-                                                                      );
-                                                                    },
-                                                                  );
-                                                                }
-
-                                                                setState(() {});
-                                                              },
-                                                              child: Container(
-                                                                width: MediaQuery.sizeOf(context)
-                                                                            .width <
-                                                                        400.0
-                                                                    ? 280.0
-                                                                    : 480.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  border: Border
-                                                                      .all(
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .alternate,
-                                                                    width: 2.0,
+                                                                        .secondaryBackground,
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      width:
+                                                                          2.0,
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Text(
-                                                                        localAllCostsItem.attachmentUrl != ''
-                                                                            ? localAllCostsItem.attachmentUrl
-                                                                            : FFLocalizations.of(context).getVariableText(
-                                                                                enText: 'No Media',
-                                                                                arText: 'لا يوجد ميديا',
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                          localAllCostsItem.attachmentUrl != ''
+                                                                              ? localAllCostsItem.attachmentUrl
+                                                                              : (localAllCostsItem.attachmentUrl != ''
+                                                                                  ? localAllCostsItem.attachmentUrl
+                                                                                  : FFLocalizations.of(context).getVariableText(
+                                                                                      enText: 'No Media',
+                                                                                      arText: 'لا يوجد ميديا',
+                                                                                    )),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Almarai',
+                                                                                color: const Color(0xFF808080),
+                                                                                useGoogleFonts: false,
                                                                               ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Almarai',
-                                                                              color: const Color(0xFF808080),
-                                                                              useGoogleFonts: false,
-                                                                            ),
-                                                                      ),
-                                                                      const Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            11.0,
-                                                                            0.0,
-                                                                            11.0),
-                                                                        child:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .keyboard_arrow_down_sharp,
-                                                                          color:
-                                                                              Color(0x0057636C),
-                                                                          size:
-                                                                              24.0,
                                                                         ),
-                                                                      ),
-                                                                    ],
+                                                                        const Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              11.0,
+                                                                              0.0,
+                                                                              11.0),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.keyboard_arrow_down_sharp,
+                                                                            color:
+                                                                                Color(0x0057636C),
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -1535,6 +1528,179 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                         ),
                                                       ),
                                                     ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'll2cbqd5' /* Notes */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: const Color(
+                                                                      0xFF032734),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          decoration:
+                                                              const BoxDecoration(),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      border:
+                                                                          Border
+                                                                              .all(
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        TextEddWidget(
+                                                                      key: Key(
+                                                                          'Keyfuu_${localAllCostsIndex}_of_${localAllCosts.length}'),
+                                                                      action:
+                                                                          () async {},
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 20.0,
+                                                                0.0, 20.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        FFButtonWidget(
+                                                          onPressed: () async {
+                                                            _model.apiResultz7xm =
+                                                                await UpdateAdminCostStatusApiCall
+                                                                    .call(
+                                                              costId:
+                                                                  localAllCostsItem
+                                                                      .id,
+                                                              isApproved: false,
+                                                              token: FFAppState()
+                                                                  .tokenModelAppState
+                                                                  .token,
+                                                              notes:
+                                                                  localAllCostsItem
+                                                                      .notes,
+                                                            );
+                                                            if ((_model
+                                                                    .apiResultz7xm
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              setState(() {});
+                                                            }
+
+                                                            setState(() {});
+                                                          },
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'ew3hgb8g' /* Update */,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .beyondBlueColor,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ],
                                               ),
