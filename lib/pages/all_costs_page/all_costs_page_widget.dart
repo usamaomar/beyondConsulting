@@ -174,9 +174,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                             front: Container(
                               decoration: BoxDecoration(
                                 color: () {
-                                  if (localAllCostsItem.costStatus == 0) {
+                                  if (localAllCostsItem.adminCostStatus == 0) {
                                     return const Color(0xFFF0E29D);
-                                  } else if (localAllCostsItem.costStatus ==
+                                  } else if (localAllCostsItem
+                                          .adminCostStatus ==
                                       1) {
                                     return const Color(0xFF4EA972);
                                   } else {
@@ -1172,10 +1173,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               decoration: const BoxDecoration(),
                                                                               child: AllCostDropComponentWidget(
                                                                                 key: Key('Key8rm_${localAllCostsIndex}_of_${localAllCosts.length}'),
-                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, localAllCostsItem.costStatus),
+                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, localAllCostsItem.adminCostStatus),
                                                                                 costId: localAllCostsItem.id,
                                                                                 action: (value) async {
-                                                                                  localAllCostsItem.costStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
+                                                                                  localAllCostsItem.adminCostStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
                                                                                 },
                                                                               ),
                                                                             ),
@@ -1597,6 +1598,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                         localAllCostsItem.notes =
                                                                             value;
                                                                       },
+                                                                      parameter1:
+                                                                          localAllCostsItem
+                                                                              .approvalNotes,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1629,7 +1633,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       .id,
                                                               isApproved:
                                                                   localAllCostsItem
-                                                                          .costStatus ==
+                                                                          .adminCostStatus ==
                                                                       1,
                                                               token: FFAppState()
                                                                   .tokenModelAppState
@@ -1642,9 +1646,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     .apiResultz7xm
                                                                     ?.succeeded ??
                                                                 true)) {
-                                                              setState(() {
-
-                                                              });
+                                                              setState(() {});
                                                             }
                                                             setState(() {});
                                                           },
