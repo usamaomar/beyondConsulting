@@ -916,12 +916,14 @@ class UpdateCostStatusApiCall {
     bool? isApproved,
     String? token = '',
     String? notes = '',
+    String? attachmentUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "costId": $costId,
   "isApproved": $isApproved,
-  "notes": "$notes"
+  "notes": "$notes",
+  "attachmentUrl": "$attachmentUrl"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateCostStatusApi',
@@ -950,12 +952,14 @@ class UpdateAdminCostStatusApiCall {
     bool? isApproved,
     String? token = '',
     String? notes = '',
+    String? attachmentUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "costId": $costId,
   "isApproved": $isApproved,
-  "notes": "$notes"
+  "notes": "$notes",
+  "attachmentUrl": "$attachmentUrl"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateAdminCostStatusApi',
