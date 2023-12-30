@@ -1602,6 +1602,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                         TextEddWidget(
                                                                       key: Key(
                                                                           'Keyfuu_${localAllCostsIndex}_of_${localAllCosts.length}'),
+                                                                      action:
+                                                                          () async {},
                                                                     ),
                                                                   ),
                                                                 ),

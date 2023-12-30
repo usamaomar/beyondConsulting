@@ -9,9 +9,11 @@ class TextEddWidget extends StatefulWidget {
   const TextEddWidget({
     super.key,
     this.parameter1,
+    this.action,
   });
 
   final String? parameter1;
+  final Future<dynamic> Function()? action;
 
   @override
   _TextEddWidgetState createState() => _TextEddWidgetState();
