@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
+import '/pages/components/side_nav/side_nav_widget.dart';
 import 'all_costs_page_widget.dart' show AllCostsPageWidget;
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,8 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
 
   // Stores action output result for [Backend Call - API (UploadFile)] action in Container widget.
   ApiCallResponse? outUpload;
+  // Model for SideNav component.
+  late SideNavModel sideNavModel;
 
   /// Initialization and disposal methods.
 
@@ -39,12 +42,14 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   void initState(BuildContext context) {
     costDropComponentModels =
         FlutterFlowDynamicModels(() => CostDropComponentModel());
+    sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     costDropComponentModels.dispose();
+    sideNavModel.dispose();
   }
 
   /// Action blocks are added here.

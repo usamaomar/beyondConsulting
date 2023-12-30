@@ -970,7 +970,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 color: widget.sideMenuEnum ==
-                                        SideMenuEnum.FINANCIALS
+                                        SideMenuEnum.ALL_COSTS
                                     ? const Color(0x73FFFFFF)
                                     : const Color(0x00000000),
                                 borderRadius: BorderRadius.circular(0.0),

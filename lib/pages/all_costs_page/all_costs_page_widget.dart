@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
 import '/pages/components/note_components/view_component/view_component_widget.dart';
+import '/pages/components/side_nav/side_nav_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flip_card/flip_card.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
@@ -84,6 +86,16 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Drawer(
+          elevation: 16.0,
+          child: wrapWithModel(
+            model: _model.sideNavModel,
+            updateCallback: () => setState(() {}),
+            child: const SideNavWidget(
+              sideMenuEnum: SideMenuEnum.MAIN_DASHBOARD,
+            ),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: const Color(0xFF032734),
           automaticallyImplyLeading: false,
