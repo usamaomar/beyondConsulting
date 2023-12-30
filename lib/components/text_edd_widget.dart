@@ -51,7 +51,6 @@ class _TextEddWidgetState extends State<TextEddWidget> {
     return TextFormField(
       controller: _model.textController,
       focusNode: _model.textFieldFocusNode,
-      readOnly: true,
       obscureText: false,
       decoration: InputDecoration(
         labelText: widget.parameter1,

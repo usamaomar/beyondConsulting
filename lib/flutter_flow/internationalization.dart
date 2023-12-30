@@ -1038,6 +1038,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Upload Invoice File',
       'ar': 'تحميل ملف الفاتورة',
     },
+    'll2cbqd5': {
+      'en': 'Notes',
+      'ar': 'ملحوظات',
+    },
+    'ew3hgb8g': {
+      'en': 'Update',
+      'ar': 'تحديث',
+    },
     'zp0no3lu': {
       'en': 'All Costs',
       'ar': 'جميع التكاليف',
@@ -1504,6 +1512,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '9kk2xdy8': {
       'en': 'Send',
       'ar': 'يرسل',
+    },
+  },
+  // AllCostDropComponent
+  {
+    '6p30a1fk': {
+      'en': 'Pending',
+      'ar': 'قيد الانتظار',
+    },
+    'jxzxu3m4': {
+      'en': 'Approved',
+      'ar': 'موافقة',
+    },
+    'mbsqx9ei': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
+    },
+    '08kguje4': {
+      'en': 'Search for an item...',
+      'ar': '',
     },
   },
   // Miscellaneous

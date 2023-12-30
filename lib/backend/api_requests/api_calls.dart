@@ -915,16 +915,52 @@ class UpdateCostStatusApiCall {
     int? costId,
     bool? isApproved,
     String? token = '',
+    String? notes = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "costId": $costId,
-  "isApproved": $isApproved
+  "isApproved": $isApproved,
+  "notes": "$notes"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateCostStatusApi',
       apiUrl:
           'https://api.beyond.matterhr.com/api/v1/Projects/UpdateCostStatus',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateAdminCostStatusApiCall {
+  static Future<ApiCallResponse> call({
+    int? costId,
+    bool? isApproved,
+    String? token = '',
+    String? notes = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "costId": $costId,
+  "isApproved": $isApproved,
+  "notes": "$notes"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateAdminCostStatusApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Projects/UpdateAdminCostStatus',
       callType: ApiCallType.PUT,
       headers: {
         'Accept': 'application/json',
