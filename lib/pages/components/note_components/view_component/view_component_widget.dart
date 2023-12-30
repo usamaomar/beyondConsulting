@@ -49,7 +49,7 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
 
     return SingleChildScrollView(
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           if (widget.imagePath != null && widget.imagePath != '')
             Flexible(

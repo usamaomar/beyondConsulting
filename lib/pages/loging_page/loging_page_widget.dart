@@ -29,8 +29,14 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      // setState(() {
+      //   _model.textController1?.text = 'generalmanager@beyond.com';
+      // });
+      // setState(() {
+      //   _model.textController2?.text = '123!Pa\$\$word';
+      // });
       setState(() {
-        _model.textController1?.text = 'generalmanager@beyond.com';
+        _model.textController1?.text = 'Admin@beyond.com';
       });
       setState(() {
         _model.textController2?.text = '123!Pa\$\$word';

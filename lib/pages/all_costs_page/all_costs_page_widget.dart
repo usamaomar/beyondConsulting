@@ -119,7 +119,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'zp0no3lu' /* All Costs */,
@@ -146,15 +147,16 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
             children: [
               Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      15.0, 15.0, 15.0, 15.0),
                   child: Builder(
                     builder: (context) {
                       final localAllCosts =
                           _model.allCostsList.map((e) => e).toList();
                       return GridView.builder(
                         padding: EdgeInsets.zero,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 10.0,
@@ -197,8 +199,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
                                         child: Text(
                                           localAllCostsItem.title,
                                           style: FlutterFlowTheme.of(context)
@@ -244,8 +246,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: ListView(
                                                 padding: EdgeInsets.zero,
@@ -259,15 +262,13 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             400.0
                                                         ? 310.0
                                                         : 520.0,
-                                                    decoration: const BoxDecoration(),
+                                                    decoration:
+                                                        const BoxDecoration(),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              15.0, 0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -305,8 +306,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -340,7 +342,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               .spaceBetween,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional
+                                                                              .fromSTEB(
                                                                               5.0,
                                                                               0.0,
                                                                               5.0,
@@ -393,11 +396,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -435,10 +435,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Container(
                                                                 decoration:
                                                                     BoxDecoration(
@@ -450,8 +450,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                   ),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -481,11 +482,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -517,11 +515,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -532,8 +527,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -553,7 +549,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -585,11 +582,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -621,11 +615,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -636,8 +627,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -657,7 +649,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -690,11 +683,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -726,11 +716,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -741,8 +728,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -762,7 +750,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -794,11 +783,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -830,11 +816,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -845,8 +828,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -866,7 +850,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -899,11 +884,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -935,11 +917,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -950,8 +929,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -971,7 +951,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -997,7 +978,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
-                                                                0.0, 14.0),
+                                                            0.0, 14.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1006,10 +987,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1049,8 +1030,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -1085,7 +1067,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               child: Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
                                                                                 child: Text(
-                                                                                  localAllCostsItem.costType.toString(),
+                                                                                  functions.getIdByExpensesName(FFLocalizations.of(context).languageCode, localAllCostsItem.costType),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 ),
                                                                               ),
@@ -1107,7 +1089,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
-                                                                0.0, 14.0),
+                                                            0.0, 14.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1116,10 +1098,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1159,8 +1141,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -1189,9 +1172,11 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               decoration: const BoxDecoration(),
                                                                               child: AllCostDropComponentWidget(
                                                                                 key: Key('Key8rm_${localAllCostsIndex}_of_${localAllCosts.length}'),
-                                                                                parameter1: localAllCostsItem.costStatus.toString(),
+                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, localAllCostsItem.costStatus),
                                                                                 costId: localAllCostsItem.id,
-                                                                                action: () async {},
+                                                                                action: (value) async {
+                                                                                  localAllCostsItem.costStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
+                                                                                },
                                                                               ),
                                                                             ),
                                                                           ),
@@ -1214,11 +1199,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -1245,14 +1227,15 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                   ),
                                                             ),
                                                             if (localAllCostsItem
-                                                                        .attachmentUrl !=
-                                                                    '')
+                                                                    .attachmentUrl !=
+                                                                '')
                                                               Builder(
                                                                 builder:
                                                                     (context) =>
                                                                         Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           5.0,
                                                                           0.0,
                                                                           5.0,
@@ -1292,12 +1275,12 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SizedBox(
+                                                                              child: SizedBox(
                                                                                 height: 450.0,
                                                                                 width: 450.0,
                                                                                 child: ViewComponentWidget(
-                                                                                  imagePath: 'vv',
-                                                                                  filePath: 'vv',
+                                                                                  imagePath: (getPath(localAllCostsItem.attachmentUrl)?.contains('pdf') ?? true) ? null : getPath(localAllCostsItem.attachmentUrl),
+                                                                                  filePath: (getPath(localAllCostsItem.attachmentUrl)?.contains('pdf') ?? false) ? null : getPath(localAllCostsItem.attachmentUrl),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1318,8 +1301,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.all(5.0),
+                                                                        padding: const EdgeInsets
+                                                                            .all(
+                                                                            5.0),
                                                                         child:
                                                                             Icon(
                                                                           Icons
@@ -1341,10 +1325,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    30.0),
+                                                                0.0,
+                                                                10.0,
+                                                                0.0,
+                                                                30.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -1425,7 +1409,15 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                           ?.succeeded ??
                                                                       true)) {
                                                                     setState(
-                                                                        () {});
+                                                                        () {
+                                                                      localAllCostsItem
+                                                                              .attachmentUrl =
+                                                                          getJsonField(
+                                                                        (_model.outUpload?.jsonBody ??
+                                                                            ''),
+                                                                        r'''$.data''',
+                                                                      ).toString();
+                                                                    });
                                                                     setState(
                                                                         () {});
                                                                   } else {
@@ -1474,10 +1466,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -1566,11 +1558,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                10.0, 0.0, 0.0),
                                                         child: Container(
                                                           decoration:
                                                               const BoxDecoration(),
@@ -1581,8 +1570,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -1603,7 +1593,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       key: Key(
                                                                           'Keyfuu_${localAllCostsIndex}_of_${localAllCosts.length}'),
                                                                       action:
-                                                                          () async {},
+                                                                          (value) async {
+                                                                        localAllCostsItem.notes =
+                                                                            value;
+                                                                      },
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1618,7 +1611,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 20.0,
-                                                                0.0, 20.0),
+                                                            0.0, 20.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1634,7 +1627,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                               costId:
                                                                   localAllCostsItem
                                                                       .id,
-                                                              isApproved: false,
+                                                              isApproved:
+                                                                  localAllCostsItem
+                                                                          .costStatus ==
+                                                                      1,
                                                               token: FFAppState()
                                                                   .tokenModelAppState
                                                                   .token,
@@ -1646,9 +1642,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     .apiResultz7xm
                                                                     ?.succeeded ??
                                                                 true)) {
-                                                              setState(() {});
-                                                            }
+                                                              setState(() {
 
+                                                              });
+                                                            }
                                                             setState(() {});
                                                           },
                                                           text: FFLocalizations
@@ -1662,17 +1659,17 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24.0,
-                                                                        0.0,
-                                                                        24.0,
-                                                                        0.0),
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
                                                             iconPadding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .beyondBlueColor,
@@ -1725,5 +1722,13 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
         ),
       ),
     );
+  }
+
+  String? getPath(String url) {
+    if (url.isNotEmpty) {
+      return "https://api.beyond.matterhr.com/${url}";
+    } else {
+      return null;
+    }
   }
 }

@@ -17,7 +17,7 @@ class AllCostDropComponentWidget extends StatefulWidget {
 
   final String? parameter1;
   final int? costId;
-  final Future<dynamic> Function()? action;
+  final Future<dynamic> Function(String)? action;
 
   @override
   _AllCostDropComponentWidgetState createState() =>
@@ -81,7 +81,10 @@ class _AllCostDropComponentWidgetState
             'mbsqx9ei' /* Rejected */,
           )
         ],
-        onChanged: (val) => setState(() => _model.dropDownValue = val),
+        onChanged: (val){
+          setState(() => _model.dropDownValue = val);
+          widget.action!(val!);
+        },
         width: 300.0,
         height: 50.0,
         textStyle: FlutterFlowTheme.of(context).bodyMedium,

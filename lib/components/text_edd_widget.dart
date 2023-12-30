@@ -13,7 +13,7 @@ class TextEddWidget extends StatefulWidget {
   });
 
   final String? parameter1;
-  final Future<dynamic> Function()? action;
+  final Future<dynamic> Function(String)? action;
 
   @override
   _TextEddWidgetState createState() => _TextEddWidgetState();
@@ -54,6 +54,7 @@ class _TextEddWidgetState extends State<TextEddWidget> {
       controller: _model.textController,
       focusNode: _model.textFieldFocusNode,
       obscureText: false,
+      onChanged: widget.action,
       decoration: InputDecoration(
         labelText: widget.parameter1,
         labelStyle: FlutterFlowTheme.of(context).labelMedium,
