@@ -1556,6 +1556,104 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                           ),
                                                         ],
                                                       ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: const Color(
+                                                                        0xFFC8C9CC),
+                                                                    width: 2.0,
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          15.0,
+                                                                          15.0,
+                                                                          15.0,
+                                                                          15.0),
+                                                                  child: Text(
+                                                                    localAllCostsItem
+                                                                        .notes,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              const Color(0xFF032734),
+                                                                          fontSize:
+                                                                              16.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    15.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '95vdle5b' /* Approval note */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: const Color(
+                                                                        0xFF032734),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
@@ -1592,7 +1690,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     child:
                                                                         TextEddWidget(
                                                                       key: Key(
-                                                                          'Keyfuu_${localAllCostsIndex}_of_${localAllCosts.length}'),
+                                                                          'Keyd5z_${localAllCostsIndex}_of_${localAllCosts.length}'),
                                                                       action:
                                                                           (value) async {
                                                                         localAllCostsItem.notes =
