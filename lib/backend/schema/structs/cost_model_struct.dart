@@ -19,6 +19,13 @@ class CostModelStruct extends BaseStruct {
     double? total,
     int? costStatus,
     int? costType,
+    String? approvalNotes,
+    String? attachmentUrl,
+    int? adminCostStatus,
+    String? adminApprovalNotes,
+    String? adminAttachmentUrl,
+    String? projectId,
+    String? project,
   })  : _id = id,
         _title = title,
         _date = date,
@@ -30,7 +37,14 @@ class CostModelStruct extends BaseStruct {
         _durationUnit = durationUnit,
         _total = total,
         _costStatus = costStatus,
-        _costType = costType;
+        _costType = costType,
+        _approvalNotes = approvalNotes,
+        _attachmentUrl = attachmentUrl,
+        _adminCostStatus = adminCostStatus,
+        _adminApprovalNotes = adminApprovalNotes,
+        _adminAttachmentUrl = adminAttachmentUrl,
+        _projectId = projectId,
+        _project = project;
 
   // "id" field.
   int? _id;
@@ -110,6 +124,50 @@ class CostModelStruct extends BaseStruct {
   void incrementCostType(int amount) => _costType = costType + amount;
   bool hasCostType() => _costType != null;
 
+  // "approvalNotes" field.
+  String? _approvalNotes;
+  String get approvalNotes => _approvalNotes ?? '';
+  set approvalNotes(String? val) => _approvalNotes = val;
+  bool hasApprovalNotes() => _approvalNotes != null;
+
+  // "attachmentUrl" field.
+  String? _attachmentUrl;
+  String get attachmentUrl => _attachmentUrl ?? '';
+  set attachmentUrl(String? val) => _attachmentUrl = val;
+  bool hasAttachmentUrl() => _attachmentUrl != null;
+
+  // "adminCostStatus" field.
+  int? _adminCostStatus;
+  int get adminCostStatus => _adminCostStatus ?? 0;
+  set adminCostStatus(int? val) => _adminCostStatus = val;
+  void incrementAdminCostStatus(int amount) =>
+      _adminCostStatus = adminCostStatus + amount;
+  bool hasAdminCostStatus() => _adminCostStatus != null;
+
+  // "adminApprovalNotes" field.
+  String? _adminApprovalNotes;
+  String get adminApprovalNotes => _adminApprovalNotes ?? '';
+  set adminApprovalNotes(String? val) => _adminApprovalNotes = val;
+  bool hasAdminApprovalNotes() => _adminApprovalNotes != null;
+
+  // "adminAttachmentUrl" field.
+  String? _adminAttachmentUrl;
+  String get adminAttachmentUrl => _adminAttachmentUrl ?? '';
+  set adminAttachmentUrl(String? val) => _adminAttachmentUrl = val;
+  bool hasAdminAttachmentUrl() => _adminAttachmentUrl != null;
+
+  // "projectId" field.
+  String? _projectId;
+  String get projectId => _projectId ?? '';
+  set projectId(String? val) => _projectId = val;
+  bool hasProjectId() => _projectId != null;
+
+  // "project" field.
+  String? _project;
+  String get project => _project ?? '';
+  set project(String? val) => _project = val;
+  bool hasProject() => _project != null;
+
   static CostModelStruct fromMap(Map<String, dynamic> data) => CostModelStruct(
         id: castToType<int>(data['id']),
         title: data['title'] as String?,
@@ -123,6 +181,13 @@ class CostModelStruct extends BaseStruct {
         total: castToType<double>(data['total']),
         costStatus: castToType<int>(data['costStatus']),
         costType: castToType<int>(data['costType']),
+        approvalNotes: data['approvalNotes'] as String?,
+        attachmentUrl: data['attachmentUrl'] as String?,
+        adminCostStatus: castToType<int>(data['adminCostStatus']),
+        adminApprovalNotes: data['adminApprovalNotes'] as String?,
+        adminAttachmentUrl: data['adminAttachmentUrl'] as String?,
+        projectId: data['projectId'] as String?,
+        project: data['project'] as String?,
       );
 
   static CostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -142,6 +207,13 @@ class CostModelStruct extends BaseStruct {
         'total': _total,
         'costStatus': _costStatus,
         'costType': _costType,
+        'approvalNotes': _approvalNotes,
+        'attachmentUrl': _attachmentUrl,
+        'adminCostStatus': _adminCostStatus,
+        'adminApprovalNotes': _adminApprovalNotes,
+        'adminAttachmentUrl': _adminAttachmentUrl,
+        'projectId': _projectId,
+        'project': _project,
       }.withoutNulls;
 
   @override
@@ -193,6 +265,34 @@ class CostModelStruct extends BaseStruct {
         'costType': serializeParam(
           _costType,
           ParamType.int,
+        ),
+        'approvalNotes': serializeParam(
+          _approvalNotes,
+          ParamType.String,
+        ),
+        'attachmentUrl': serializeParam(
+          _attachmentUrl,
+          ParamType.String,
+        ),
+        'adminCostStatus': serializeParam(
+          _adminCostStatus,
+          ParamType.int,
+        ),
+        'adminApprovalNotes': serializeParam(
+          _adminApprovalNotes,
+          ParamType.String,
+        ),
+        'adminAttachmentUrl': serializeParam(
+          _adminAttachmentUrl,
+          ParamType.String,
+        ),
+        'projectId': serializeParam(
+          _projectId,
+          ParamType.String,
+        ),
+        'project': serializeParam(
+          _project,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -258,6 +358,41 @@ class CostModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        approvalNotes: deserializeParam(
+          data['approvalNotes'],
+          ParamType.String,
+          false,
+        ),
+        attachmentUrl: deserializeParam(
+          data['attachmentUrl'],
+          ParamType.String,
+          false,
+        ),
+        adminCostStatus: deserializeParam(
+          data['adminCostStatus'],
+          ParamType.int,
+          false,
+        ),
+        adminApprovalNotes: deserializeParam(
+          data['adminApprovalNotes'],
+          ParamType.String,
+          false,
+        ),
+        adminAttachmentUrl: deserializeParam(
+          data['adminAttachmentUrl'],
+          ParamType.String,
+          false,
+        ),
+        projectId: deserializeParam(
+          data['projectId'],
+          ParamType.String,
+          false,
+        ),
+        project: deserializeParam(
+          data['project'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -277,7 +412,14 @@ class CostModelStruct extends BaseStruct {
         durationUnit == other.durationUnit &&
         total == other.total &&
         costStatus == other.costStatus &&
-        costType == other.costType;
+        costType == other.costType &&
+        approvalNotes == other.approvalNotes &&
+        attachmentUrl == other.attachmentUrl &&
+        adminCostStatus == other.adminCostStatus &&
+        adminApprovalNotes == other.adminApprovalNotes &&
+        adminAttachmentUrl == other.adminAttachmentUrl &&
+        projectId == other.projectId &&
+        project == other.project;
   }
 
   @override
@@ -293,7 +435,14 @@ class CostModelStruct extends BaseStruct {
         durationUnit,
         total,
         costStatus,
-        costType
+        costType,
+        approvalNotes,
+        attachmentUrl,
+        adminCostStatus,
+        adminApprovalNotes,
+        adminAttachmentUrl,
+        projectId,
+        project
       ]);
 }
 
@@ -310,6 +459,13 @@ CostModelStruct createCostModelStruct({
   double? total,
   int? costStatus,
   int? costType,
+  String? approvalNotes,
+  String? attachmentUrl,
+  int? adminCostStatus,
+  String? adminApprovalNotes,
+  String? adminAttachmentUrl,
+  String? projectId,
+  String? project,
 }) =>
     CostModelStruct(
       id: id,
@@ -324,4 +480,11 @@ CostModelStruct createCostModelStruct({
       total: total,
       costStatus: costStatus,
       costType: costType,
+      approvalNotes: approvalNotes,
+      attachmentUrl: attachmentUrl,
+      adminCostStatus: adminCostStatus,
+      adminApprovalNotes: adminApprovalNotes,
+      adminAttachmentUrl: adminAttachmentUrl,
+      projectId: projectId,
+      project: project,
     );

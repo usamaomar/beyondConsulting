@@ -1104,13 +1104,14 @@ class _UpdateMilestoneDialogWidgetState
                                       }
                                     }
 
-                                    _model.outUpload =
+                                    _model.outUpload2 =
                                     await UploadFileCall.call(
                                       token:
                                       FFAppState().tokenModelAppState.token,
                                       file: _model.uploadedLocalFile,
                                     );
-                                    if ((_model.outUpload?.succeeded ?? true)) {
+                                    if ((_model.outUpload2?.succeeded ??
+                                        true)) {
                                       setState(() {
                                         _model.invoiceFile =
                                             _model.uploadedLocalFile;
@@ -1121,7 +1122,7 @@ class _UpdateMilestoneDialogWidgetState
                                               (e) =>
                                           e
                                             ..invoiceUrl = getJsonField(
-                                              (_model.outUpload?.jsonBody ??
+                                              (_model.outUpload2?.jsonBody ??
                                                   ''),
                                               r'''$.data''',
                                             ).toString(),
@@ -1134,7 +1135,7 @@ class _UpdateMilestoneDialogWidgetState
                                           return AlertDialog(
                                             title: const Text('Error'),
                                             content: Text(
-                                                (_model.outUpload?.bodyText ??
+                                                (_model.outUpload2?.bodyText ??
                                                     '')),
                                             actions: [
                                               TextButton(
@@ -1180,7 +1181,7 @@ class _UpdateMilestoneDialogWidgetState
                                         children: [
                                           Text(
                                             getJsonField(
-                                              (_model.outUpload
+                                              (_model.outUpload2
                                                   ?.jsonBody ??
                                                   ''),
                                               r'''$.data''',
@@ -1188,7 +1189,7 @@ class _UpdateMilestoneDialogWidgetState
                                                 null
                                                 ? valueOrDefault<String>(
                                               getJsonField(
-                                                (_model.outUpload
+                                                (_model.outUpload2
                                                     ?.jsonBody ??
                                                     ''),
                                                 r'''$.data''',

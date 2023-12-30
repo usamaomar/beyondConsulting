@@ -957,6 +957,96 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // AdminsCostManagement
+  {
+    'hot4sxal': {
+      'en': 'Item',
+      'ar': 'غرض',
+    },
+    'su8ysa0z': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    '03lti95l': {
+      'en': 'Cost per Unit (JOD)',
+      'ar': 'تكلفة الوحدة (دينار أردني)',
+    },
+    'xzn9vsql': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    'zq82a8n1': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'wzlj1t99': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    'w8l5p1jr': {
+      'en': 'Note',
+      'ar': 'ملحوظة',
+    },
+    'ckio143f': {
+      'en': 'Status',
+      'ar': 'حالة',
+    },
+    'xmx88vs6': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // AllCostsPage
+  {
+    'zte9ydxi': {
+      'en': 'Date',
+      'ar': 'تاريخ',
+    },
+    '5pvl9q08': {
+      'en': 'Title',
+      'ar': 'عنوان',
+    },
+    '1xbi3xjm': {
+      'en': 'Category',
+      'ar': 'فئة',
+    },
+    '1ndaus3m': {
+      'en': 'Cost Perunit',
+      'ar': 'التكلفة لكل وحدة',
+    },
+    'rasidggc': {
+      'en': 'Unit',
+      'ar': 'وحدة',
+    },
+    '1jmlsb9c': {
+      'en': 'Duration',
+      'ar': 'مدة',
+    },
+    'keja9fac': {
+      'en': 'Duration Unit',
+      'ar': 'وحدة المدة',
+    },
+    '7rchtlrq': {
+      'en': 'Type of Expenses',
+      'ar': 'نوع المصاريف',
+    },
+    'dusamdqf': {
+      'en': 'Cost Status',
+      'ar': 'حالة التكلفة',
+    },
+    'savjkm4r': {
+      'en': 'Upload Invoice File',
+      'ar': 'تحميل ملف الفاتورة',
+    },
+    'zp0no3lu': {
+      'en': 'All Costs',
+      'ar': 'جميع التكاليف',
+    },
+    'k0uvnz7y': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
@@ -982,6 +1072,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'o38ukczj': {
       'en': 'Financials',
       'ar': 'المالية',
+    },
+    'l7z31cm6': {
+      'en': 'All Costs',
+      'ar': 'جميع التكاليف',
     },
   },
   // countriesListDialog

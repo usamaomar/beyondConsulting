@@ -9,6 +9,7 @@ enum SideMenuEnum {
   COST_MANAGEMENT,
   HOME_PAGE_SEE_ALL,
   FINANCIALS,
+  ALL_COSTS,
 }
 
 enum FinancialOutlookBar {
