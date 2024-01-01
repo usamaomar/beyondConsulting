@@ -1173,10 +1173,14 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               decoration: const BoxDecoration(),
                                                                               child: AllCostDropComponentWidget(
                                                                                 key: Key('Key8rm_${localAllCostsIndex}_of_${localAllCosts.length}'),
-                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, localAllCostsItem.adminCostStatus),
+                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode,FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.costStatus :  localAllCostsItem.adminCostStatus),
                                                                                 costId: localAllCostsItem.id,
                                                                                 action: (value) async {
-                                                                                  localAllCostsItem.adminCostStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
+                                                                                  if(FFAppState().userModelAppState.accessRole == 1){
+                                                                                    localAllCostsItem.costStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
+                                                                                  }else{
+                                                                                    localAllCostsItem.adminCostStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
+                                                                                  }
                                                                                 },
                                                                               ),
                                                                             ),
@@ -1227,9 +1231,18 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                             .bold,
                                                                   ),
                                                             ),
+
+                                                            // if(FFAppState().userModelAppState.accessRole == 1){
+                                                            //
+                                                            //
+                                                            // }else{
+                                                            //
+                                                            //
+                                                            // }
+                                                            //
                                                             if (localAllCostsItem
                                                                     .attachmentUrl !=
-                                                                '')
+                                                                ''  || localAllCostsItem.adminAttachmentUrl!='')
                                                               Builder(
                                                                 builder:
                                                                     (context) =>
@@ -1280,8 +1293,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                                 height: 450.0,
                                                                                 width: 450.0,
                                                                                 child: ViewComponentWidget(
-                                                                                  imagePath: (getPath(localAllCostsItem.attachmentUrl)?.contains('pdf') ?? true) ? null : getPath(localAllCostsItem.attachmentUrl),
-                                                                                  filePath: (getPath(localAllCostsItem.attachmentUrl)?.contains('pdf') ?? false) ? null : getPath(localAllCostsItem.attachmentUrl),
+                                                                                  imagePath: (getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.attachmentUrl : localAllCostsItem.adminAttachmentUrl)?.contains('pdf') ?? true) ? null : getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.attachmentUrl : localAllCostsItem.adminAttachmentUrl),
+                                                                                  filePath: (getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.attachmentUrl : localAllCostsItem.adminAttachmentUrl)?.contains('pdf') ?? false) ? null : getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.attachmentUrl : localAllCostsItem.adminAttachmentUrl),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -1411,13 +1424,21 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       true)) {
                                                                     setState(
                                                                         () {
-                                                                      localAllCostsItem
+                                                                          FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem
                                                                               .attachmentUrl =
-                                                                          getJsonField(
-                                                                        (_model.outUpload?.jsonBody ??
-                                                                            ''),
-                                                                        r'''$.data''',
-                                                                      ).toString();
+                                                                              getJsonField(
+                                                                                (_model.outUpload?.jsonBody ??
+                                                                                    ''),
+                                                                                r'''$.data''',
+                                                                              ).toString() : localAllCostsItem
+                                                                              .adminAttachmentUrl =
+                                                                              getJsonField(
+                                                                                (_model.outUpload?.jsonBody ??
+                                                                                    ''),
+                                                                                r'''$.data''',
+                                                                              ).toString();
+
+
                                                                     });
                                                                     setState(
                                                                         () {});
@@ -1480,14 +1501,21 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               .spaceBetween,
                                                                       children: [
                                                                         Text(
-                                                                          localAllCostsItem.attachmentUrl != ''
+                                                                        FFAppState().userModelAppState.accessRole == 1 ? (localAllCostsItem.attachmentUrl != ''
                                                                               ? localAllCostsItem.attachmentUrl
                                                                               : (localAllCostsItem.attachmentUrl != ''
                                                                                   ? localAllCostsItem.attachmentUrl
                                                                                   : FFLocalizations.of(context).getVariableText(
                                                                                       enText: 'No Media',
                                                                                       arText: 'لا يوجد ميديا',
-                                                                                    )),
+                                                                                    ))) : (localAllCostsItem.adminAttachmentUrl != ''
+                                                                            ? localAllCostsItem.adminAttachmentUrl
+                                                                            : (localAllCostsItem.adminAttachmentUrl != ''
+                                                                            ? localAllCostsItem.adminAttachmentUrl
+                                                                            : FFLocalizations.of(context).getVariableText(
+                                                                          enText: 'No Media',
+                                                                          arText: 'لا يوجد ميديا',
+                                                                        ))),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1693,12 +1721,19 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                           'Keyd5z_${localAllCostsIndex}_of_${localAllCosts.length}'),
                                                                       action:
                                                                           (value) async {
-                                                                        localAllCostsItem.notes =
-                                                                            value;
+                                                                        if(FFAppState().userModelAppState.accessRole == 1 ){
+                                                                          localAllCostsItem.approvalNotes =
+                                                                              value;
+                                                                        }else{
+                                                                          localAllCostsItem.adminApprovalNotes =
+                                                                              value;
+                                                                        }
+
                                                                       },
                                                                       parameter1:
-                                                                          localAllCostsItem
-                                                                              .approvalNotes,
+                                                                      FFAppState().userModelAppState.accessRole == 1 ?  localAllCostsItem
+                                                                              .approvalNotes : localAllCostsItem
+                                                                          .adminApprovalNotes,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1723,30 +1758,59 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       children: [
                                                         FFButtonWidget(
                                                           onPressed: () async {
-                                                            _model.apiResultz7xm =
-                                                                await UpdateAdminCostStatusApiCall
-                                                                    .call(
-                                                              costId:
+                                                            if(FFAppState().userModelAppState.accessRole == 1){
+                                                              _model.apiResultz7xm =
+                                                              await UpdateCostStatusApiCall
+                                                                  .call(
+                                                                  costId:
                                                                   localAllCostsItem
                                                                       .id,
-                                                              isApproved:
+                                                                  isApproved:
                                                                   localAllCostsItem
-                                                                          .adminCostStatus ==
+                                                                      .adminCostStatus ==
                                                                       1,
-                                                              token: FFAppState()
-                                                                  .tokenModelAppState
-                                                                  .token,
-                                                              notes:
+                                                                  token: FFAppState()
+                                                                      .tokenModelAppState
+                                                                      .token,
+                                                                  notes:
                                                                   localAllCostsItem
-                                                                      .notes,
-                                                            );
-                                                            if ((_model
-                                                                    .apiResultz7xm
-                                                                    ?.succeeded ??
-                                                                true)) {
+                                                                      .approvalNotes,
+                                                                  attachmentUrl: localAllCostsItem.attachmentUrl
+                                                              );
+                                                              if ((_model
+                                                                  .apiResultz7xm
+                                                                  ?.succeeded ??
+                                                                  true)) {
+                                                                setState(() {});
+                                                              }
+                                                              setState(() {});
+                                                            }else{
+                                                              _model.apiResultz7xm =
+                                                              await UpdateAdminCostStatusApiCall
+                                                                  .call(
+                                                                  costId:
+                                                                  localAllCostsItem
+                                                                      .id,
+                                                                  isApproved:
+                                                                  localAllCostsItem
+                                                                      .adminCostStatus ==
+                                                                      1,
+                                                                  token: FFAppState()
+                                                                      .tokenModelAppState
+                                                                      .token,
+                                                                  notes:
+                                                                  localAllCostsItem
+                                                                      .adminApprovalNotes,
+                                                                  attachmentUrl: localAllCostsItem.adminAttachmentUrl
+                                                              );
+                                                              if ((_model
+                                                                  .apiResultz7xm
+                                                                  ?.succeeded ??
+                                                                  true)) {
+                                                                setState(() {});
+                                                              }
                                                               setState(() {});
                                                             }
-                                                            setState(() {});
                                                           },
                                                           text: FFLocalizations
                                                                   .of(context)
