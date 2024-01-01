@@ -174,14 +174,29 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                             front: Container(
                               decoration: BoxDecoration(
                                 color: () {
-                                  if (localAllCostsItem.adminCostStatus == 0) {
-                                    return const Color(0xFFF0E29D);
-                                  } else if (localAllCostsItem
-                                          .adminCostStatus ==
+                                  if (FFAppState()
+                                          .userModelAppState
+                                          .accessRole ==
                                       1) {
-                                    return const Color(0xFF4EA972);
+                                    if (localAllCostsItem.costStatus == 0) {
+                                      return const Color(0xFFF0E29D);
+                                    } else if (localAllCostsItem.costStatus ==
+                                        1) {
+                                      return const Color(0xFF4EA972);
+                                    } else {
+                                      return const Color(0xFFEB8470);
+                                    }
                                   } else {
-                                    return const Color(0xFFEB8470);
+                                    if (localAllCostsItem.adminCostStatus ==
+                                        0) {
+                                      return const Color(0xFFF0E29D);
+                                    } else if (localAllCostsItem
+                                            .adminCostStatus ==
+                                        1) {
+                                      return const Color(0xFF4EA972);
+                                    } else {
+                                      return const Color(0xFFEB8470);
+                                    }
                                   }
                                 }(),
                                 borderRadius: const BorderRadius.only(
@@ -1109,6 +1124,118 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
+                                                                FFAppState()
+                                                                            .userModelAppState
+                                                                            .accessRole ==
+                                                                        1
+                                                                    ? 'Admin Status'
+                                                                    : 'Gm Status',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: const Color(
+                                                                          0xFF032734),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Padding(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width:
+                                                                        310.0,
+                                                                    decoration:
+                                                                        const BoxDecoration(),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                10.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(
+                                                                                border: Border.all(
+                                                                                  color: const Color(0xFFC8C9CC),
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                              ),
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                                                                                child: Text(
+                                                                                  functions.getCostStatusName(FFLocalizations.of(context).languageCode, FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.adminCostStatus : localAllCostsItem.costStatus),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                            0.0, 14.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
@@ -1173,12 +1300,12 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               decoration: const BoxDecoration(),
                                                                               child: AllCostDropComponentWidget(
                                                                                 key: Key('Key8rm_${localAllCostsIndex}_of_${localAllCosts.length}'),
-                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode,FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.costStatus :  localAllCostsItem.adminCostStatus),
+                                                                                parameter1: functions.getCostStatusName(FFLocalizations.of(context).languageCode, FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.costStatus : localAllCostsItem.adminCostStatus),
                                                                                 costId: localAllCostsItem.id,
                                                                                 action: (value) async {
-                                                                                  if(FFAppState().userModelAppState.accessRole == 1){
+                                                                                  if (FFAppState().userModelAppState.accessRole == 1) {
                                                                                     localAllCostsItem.costStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
-                                                                                  }else{
+                                                                                  } else {
                                                                                     localAllCostsItem.adminCostStatus = functions.getCostStatusId(FFLocalizations.of(context).languageCode, value);
                                                                                   }
                                                                                 },
@@ -1196,6 +1323,243 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                         ),
                                                       ],
                                                     ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(0.0,
+                                                                20.0, 0.0, 0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              FFAppState()
+                                                                          .userModelAppState
+                                                                          .accessRole ==
+                                                                      1
+                                                                  ? 'Admin Invoice File'
+                                                                  : 'Gm Invoice File',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: const Color(
+                                                                        0xFF032734),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            if (localAllCostsItem
+                                                                        .attachmentUrl !=
+                                                                    '' ||
+                                                                localAllCostsItem
+                                                                        .adminAttachmentUrl !=
+                                                                    '')
+                                                              Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        Padding(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showAlignedDialog(
+                                                                        context:
+                                                                            context,
+                                                                        isGlobal:
+                                                                            true,
+                                                                        avoidOverflow:
+                                                                            false,
+                                                                        targetAnchor:
+                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                        followerAnchor:
+                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                        builder:
+                                                                            (dialogContext) {
+                                                                          return Material(
+                                                                            color:
+                                                                                Colors.white,
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                              child: SizedBox(
+                                                                                height: 450.0,
+                                                                                width: 450.0,
+                                                                                child: ViewComponentWidget(
+                                                                                  imagePath: (getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.adminAttachmentUrl : localAllCostsItem.attachmentUrl)?.contains('pdf') ?? true) ? null : getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.adminAttachmentUrl : localAllCostsItem.attachmentUrl),
+                                                                                  filePath: (getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.adminAttachmentUrl : localAllCostsItem.attachmentUrl)?.contains('pdf') ?? false) ? null : getPath(FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem.adminAttachmentUrl : localAllCostsItem.attachmentUrl),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          setState(
+                                                                              () {}));
+                                                                    },
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: const Color(
+                                                                            0xFF81A969),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: const EdgeInsets
+                                                                            .all(
+                                                                            5.0),
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .video_collection_sharp,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                0.0,
+                                                                10.0,
+                                                                0.0,
+                                                                30.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Flexible(
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      width:
+                                                                          2.0,
+                                                                    ),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                          FFAppState().userModelAppState.accessRole == 1
+                                                                              ? (localAllCostsItem.adminAttachmentUrl != ''
+                                                                                  ? localAllCostsItem.adminAttachmentUrl
+                                                                                  : FFLocalizations.of(context).getVariableText(
+                                                                                      enText: 'No Media',
+                                                                                      arText: 'لا يوجد ميديا',
+                                                                                    ))
+                                                                              : (localAllCostsItem.attachmentUrl != ''
+                                                                                  ? localAllCostsItem.attachmentUrl
+                                                                                  : FFLocalizations.of(context).getVariableText(
+                                                                                      enText: 'No Media',
+                                                                                      arText: 'لا يوجد ميديا',
+                                                                                    )),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Almarai',
+                                                                                color: const Color(0xFF808080),
+                                                                                useGoogleFonts: false,
+                                                                              ),
+                                                                        ),
+                                                                        const Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              11.0,
+                                                                              0.0,
+                                                                              11.0),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.keyboard_arrow_down_sharp,
+                                                                            color:
+                                                                                Color(0x0057636C),
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   Column(
                                                     mainAxisSize:
@@ -1241,8 +1605,11 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             // }
                                                             //
                                                             if (localAllCostsItem
-                                                                    .attachmentUrl !=
-                                                                ''  || localAllCostsItem.adminAttachmentUrl!='')
+                                                                        .attachmentUrl !=
+                                                                    '' ||
+                                                                localAllCostsItem
+                                                                        .adminAttachmentUrl !=
+                                                                    '')
                                                               Builder(
                                                                 builder:
                                                                     (context) =>
@@ -1424,21 +1791,17 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                       true)) {
                                                                     setState(
                                                                         () {
-                                                                          FFAppState().userModelAppState.accessRole == 1 ? localAllCostsItem
-                                                                              .attachmentUrl =
+                                                                      FFAppState().userModelAppState.accessRole ==
+                                                                              1
+                                                                          ? localAllCostsItem.attachmentUrl =
                                                                               getJsonField(
-                                                                                (_model.outUpload?.jsonBody ??
-                                                                                    ''),
-                                                                                r'''$.data''',
-                                                                              ).toString() : localAllCostsItem
-                                                                              .adminAttachmentUrl =
-                                                                              getJsonField(
-                                                                                (_model.outUpload?.jsonBody ??
-                                                                                    ''),
-                                                                                r'''$.data''',
-                                                                              ).toString();
-
-
+                                                                              (_model.outUpload?.jsonBody ?? ''),
+                                                                              r'''$.data''',
+                                                                            ).toString()
+                                                                          : localAllCostsItem.adminAttachmentUrl = getJsonField(
+                                                                              (_model.outUpload?.jsonBody ?? ''),
+                                                                              r'''$.data''',
+                                                                            ).toString();
                                                                     });
                                                                     setState(
                                                                         () {});
@@ -1501,21 +1864,23 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                               .spaceBetween,
                                                                       children: [
                                                                         Text(
-                                                                        FFAppState().userModelAppState.accessRole == 1 ? (localAllCostsItem.attachmentUrl != ''
-                                                                              ? localAllCostsItem.attachmentUrl
-                                                                              : (localAllCostsItem.attachmentUrl != ''
+                                                                          FFAppState().userModelAppState.accessRole == 1
+                                                                              ? (localAllCostsItem.attachmentUrl != ''
                                                                                   ? localAllCostsItem.attachmentUrl
-                                                                                  : FFLocalizations.of(context).getVariableText(
-                                                                                      enText: 'No Media',
-                                                                                      arText: 'لا يوجد ميديا',
-                                                                                    ))) : (localAllCostsItem.adminAttachmentUrl != ''
-                                                                            ? localAllCostsItem.adminAttachmentUrl
-                                                                            : (localAllCostsItem.adminAttachmentUrl != ''
-                                                                            ? localAllCostsItem.adminAttachmentUrl
-                                                                            : FFLocalizations.of(context).getVariableText(
-                                                                          enText: 'No Media',
-                                                                          arText: 'لا يوجد ميديا',
-                                                                        ))),
+                                                                                  : (localAllCostsItem.attachmentUrl != ''
+                                                                                      ? localAllCostsItem.attachmentUrl
+                                                                                      : FFLocalizations.of(context).getVariableText(
+                                                                                          enText: 'No Media',
+                                                                                          arText: 'لا يوجد ميديا',
+                                                                                        )))
+                                                                              : (localAllCostsItem.adminAttachmentUrl != ''
+                                                                                  ? localAllCostsItem.adminAttachmentUrl
+                                                                                  : (localAllCostsItem.adminAttachmentUrl != ''
+                                                                                      ? localAllCostsItem.adminAttachmentUrl
+                                                                                      : FFLocalizations.of(context).getVariableText(
+                                                                                          enText: 'No Media',
+                                                                                          arText: 'لا يوجد ميديا',
+                                                                                        ))),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1562,11 +1927,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                             MainAxisSize.max,
                                                         children: [
                                                           Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'll2cbqd5' /* Notes */,
-                                                            ),
+                                                            'Employee Note',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1593,10 +1954,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Container(
                                                                 decoration:
                                                                     BoxDecoration(
@@ -1608,8 +1969,9 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                   ),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                  padding:
+                                                                      const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           15.0,
                                                                           15.0,
@@ -1639,6 +2001,112 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       ),
                                                     ],
                                                   ),
+
+
+
+                                                  Padding(
+                                                      padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                        0.0,
+                                                        20.0,
+                                                        0.0,
+                                                        0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                      MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .start,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                          MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                        FFAppState().userModelAppState.accessRole ==
+                                                        1  ? 'Admin Note' : 'Gm Note'
+                                                              ,
+                                                              style: FlutterFlowTheme
+                                                                  .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                fontFamily:
+                                                                'Readex Pro',
+                                                                color: const Color(
+                                                                    0xFF032734),
+                                                                fontSize:
+                                                                16.0,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .bold,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          mainAxisSize:
+                                                          MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                                child: Container(
+                                                                  decoration:
+                                                                  BoxDecoration(
+                                                                    border: Border
+                                                                        .all(
+                                                                      color: const Color(
+                                                                          0xFFC8C9CC),
+                                                                      width: 2.0,
+                                                                    ),
+                                                                  ),
+                                                                  child: Padding(
+                                                                    padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                        15.0,
+                                                                        15.0,
+                                                                        15.0,
+                                                                        15.0),
+                                                                    child: Text(
+                                                                      FFAppState().userModelAppState.accessRole ==
+                                                                          1 ?
+                                                                      localAllCostsItem
+                                                                          .adminApprovalNotes : localAllCostsItem
+                                                                          .approvalNotes  ,
+                                                                      style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                        fontFamily:
+                                                                        'Readex Pro',
+                                                                        color:
+                                                                        const Color(0xFF032734),
+                                                                        fontSize:
+                                                                        16.0,
+                                                                        fontWeight:
+                                                                        FontWeight.normal,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  
+                                                  
+
                                                   Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1649,11 +2117,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    15.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                15.0, 0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -1721,19 +2186,20 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                           'Keyd5z_${localAllCostsIndex}_of_${localAllCosts.length}'),
                                                                       action:
                                                                           (value) async {
-                                                                        if(FFAppState().userModelAppState.accessRole == 1 ){
+                                                                        if (FFAppState().userModelAppState.accessRole ==
+                                                                            1) {
                                                                           localAllCostsItem.approvalNotes =
                                                                               value;
-                                                                        }else{
+                                                                        } else {
                                                                           localAllCostsItem.adminApprovalNotes =
                                                                               value;
                                                                         }
-
                                                                       },
-                                                                      parameter1:
-                                                                      FFAppState().userModelAppState.accessRole == 1 ?  localAllCostsItem
-                                                                              .approvalNotes : localAllCostsItem
-                                                                          .adminApprovalNotes,
+                                                                      parameter1: FFAppState().userModelAppState.accessRole == 1
+                                                                          ? localAllCostsItem
+                                                                              .approvalNotes
+                                                                          : localAllCostsItem
+                                                                              .adminApprovalNotes,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1758,56 +2224,125 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                       children: [
                                                         FFButtonWidget(
                                                           onPressed: () async {
-                                                            if(FFAppState().userModelAppState.accessRole == 1){
-                                                              _model.apiResultz7xm =
-                                                              await UpdateCostStatusApiCall
-                                                                  .call(
+                                                            if (FFAppState()
+                                                                    .userModelAppState
+                                                                    .accessRole ==
+                                                                1) {
+                                                              _model.apiResultz7xm = await UpdateCostStatusApiCall.call(
                                                                   costId:
-                                                                  localAllCostsItem
-                                                                      .id,
+                                                                      localAllCostsItem
+                                                                          .id,
                                                                   isApproved:
-                                                                  localAllCostsItem
-                                                                      .adminCostStatus ==
-                                                                      1,
+                                                                      localAllCostsItem.costStatus ==
+                                                                          1,
                                                                   token: FFAppState()
                                                                       .tokenModelAppState
                                                                       .token,
-                                                                  notes:
-                                                                  localAllCostsItem
+                                                                  notes: localAllCostsItem
                                                                       .approvalNotes,
-                                                                  attachmentUrl: localAllCostsItem.attachmentUrl
-                                                              );
-                                                              if ((_model
-                                                                  .apiResultz7xm
-                                                                  ?.succeeded ??
-                                                                  true)) {
+                                                                  attachmentUrl:
+                                                                      localAllCostsItem
+                                                                          .attachmentUrl);
+
+                                                              if ((_model.apiResultz7xm
+                                                                          ?.jsonBody[
+                                                                      'succeeded']) ==
+                                                                  true) {
                                                                 setState(() {});
+                                                              } else {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return AlertDialog(
+                                                                      title: Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getVariableText(
+                                                                        enText:
+                                                                            'Error',
+                                                                        arText:
+                                                                            'مشكله',
+                                                                      )),
+                                                                      content: Text((_model
+                                                                              .apiResultz7xm
+                                                                              ?.bodyText ??
+                                                                          '')),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text(FFLocalizations.of(context).getVariableText(
+                                                                            enText:
+                                                                                'Ok',
+                                                                            arText:
+                                                                                'حسنا',
+                                                                          )),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
                                                               }
                                                               setState(() {});
-                                                            }else{
-                                                              _model.apiResultz7xm =
-                                                              await UpdateAdminCostStatusApiCall
-                                                                  .call(
+                                                            } else {
+                                                              _model.apiResultz7xm = await UpdateAdminCostStatusApiCall.call(
                                                                   costId:
-                                                                  localAllCostsItem
-                                                                      .id,
+                                                                      localAllCostsItem
+                                                                          .id,
                                                                   isApproved:
-                                                                  localAllCostsItem
-                                                                      .adminCostStatus ==
-                                                                      1,
+                                                                      localAllCostsItem.adminCostStatus ==
+                                                                          1,
                                                                   token: FFAppState()
                                                                       .tokenModelAppState
                                                                       .token,
-                                                                  notes:
-                                                                  localAllCostsItem
+                                                                  notes: localAllCostsItem
                                                                       .adminApprovalNotes,
-                                                                  attachmentUrl: localAllCostsItem.adminAttachmentUrl
-                                                              );
-                                                              if ((_model
-                                                                  .apiResultz7xm
-                                                                  ?.succeeded ??
-                                                                  true)) {
+                                                                  attachmentUrl:
+                                                                      localAllCostsItem
+                                                                          .adminAttachmentUrl);
+
+                                                              if ((_model.apiResultz7xm
+                                                                          ?.jsonBody[
+                                                                      'succeeded']) ==
+                                                                  true) {
                                                                 setState(() {});
+                                                              } else {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return AlertDialog(
+                                                                      title: Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getVariableText(
+                                                                        enText:
+                                                                            'Error',
+                                                                        arText:
+                                                                            'مشكله',
+                                                                      )),
+                                                                      content: Text((_model
+                                                                              .apiResultz7xm
+                                                                              ?.bodyText ??
+                                                                          '')),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text(FFLocalizations.of(context).getVariableText(
+                                                                            enText:
+                                                                                'Ok',
+                                                                            arText:
+                                                                                'حسنا',
+                                                                          )),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
                                                               }
                                                               setState(() {});
                                                             }
