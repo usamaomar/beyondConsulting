@@ -656,6 +656,40 @@ class GetAllCostsApiCall {
       ) as List?;
 }
 
+class GetMyProjectTrackersApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? fromDate = '',
+    String? toDate = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetMyProjectTrackersApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Dashboard/GetMyProjectTrackers',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'FromDate': fromDate,
+        'ToDate': toDate,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
 class UploadFileCall {
   static Future<ApiCallResponse> call({
     FFUploadedFile? file,
