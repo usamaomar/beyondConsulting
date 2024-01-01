@@ -59,61 +59,68 @@ class _SatisfactionComponentMainDashBoardWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Builder(
-      builder: (context) {
-        final listOfsatisfactionLocal =
-            FFAppState().clintSatisfactionList.map((e) => e).toList();
-        return ListView.separated(
-          padding: const EdgeInsets.fromLTRB(
-            5.0,
-            0,
-            5.0,
-            0,
-          ),
-          primary: false,
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: listOfsatisfactionLocal.length,
-          separatorBuilder: (_, __) => const SizedBox(width: 15.0),
-          itemBuilder: (context, listOfsatisfactionLocalIndex) {
-            final listOfsatisfactionLocalItem =
-                listOfsatisfactionLocal[listOfsatisfactionLocalIndex];
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.tag_faces_rounded,
-                  color: listOfsatisfactionLocalItem.type ==
-                          widget.satisfactionType
-                      ? listOfsatisfactionLocalItem.color
-                      : listOfsatisfactionLocalItem.notColor,
-                  size: 55.0,
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                  child: Container(
-                    width: 55.0,
-                    height: 10.0,
-                    decoration: BoxDecoration(
+    return ClipRRect(
+      child: Container(
+        height: 100.0,
+        decoration: const BoxDecoration(),
+        child: Builder(
+          builder: (context) {
+            final listOfsatisfactionLocal =
+                FFAppState().clintSatisfactionList.map((e) => e).toList();
+            return ListView.separated(
+              padding: const EdgeInsets.fromLTRB(
+                5.0,
+                0,
+                55.0,
+                0,
+              ),
+              primary: false,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: listOfsatisfactionLocal.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 15.0),
+              itemBuilder: (context, listOfsatisfactionLocalIndex) {
+                final listOfsatisfactionLocalItem =
+                    listOfsatisfactionLocal[listOfsatisfactionLocalIndex];
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.tag_faces_rounded,
                       color: listOfsatisfactionLocalItem.type ==
                               widget.satisfactionType
                           ? listOfsatisfactionLocalItem.color
                           : listOfsatisfactionLocalItem.notColor,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(5.0),
-                        bottomRight: Radius.circular(5.0),
-                        topLeft: Radius.circular(5.0),
-                        topRight: Radius.circular(5.0),
+                      size: 55.0,
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Container(
+                        width: 55.0,
+                        height: 10.0,
+                        decoration: BoxDecoration(
+                          color: listOfsatisfactionLocalItem.type ==
+                                  widget.satisfactionType
+                              ? listOfsatisfactionLocalItem.color
+                              : listOfsatisfactionLocalItem.notColor,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(5.0),
+                            bottomRight: Radius.circular(5.0),
+                            topLeft: Radius.circular(5.0),
+                            topRight: Radius.circular(5.0),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ],
+                  ],
+                );
+              },
             );
           },
-        );
-      },
+        ),
+      ),
     );
   }
 }
