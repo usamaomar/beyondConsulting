@@ -366,7 +366,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                     ),
                   ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
                   child: Container(
                     width: 500.0,
                     height: 450.0,
@@ -795,7 +796,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                             Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      30.0, 30.0, 30.0, 30.0),
+                                                      10.0, 30.0, 30.0, 30.0),
                                               child: RichText(
                                                 textScaleFactor:
                                                     MediaQuery.of(context)
@@ -849,18 +850,11 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                 maxLines: 1,
                                               ),
                                             ),
-                                            const Divider(
-                                              thickness: 1.0,
-                                              indent: 30.0,
-                                              endIndent: 30.0,
-                                              color: Color(0xFFC8C9CC),
-                                            ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 20.0, 0.0, 20.0),
                                               child: Container(
-                                                height: 100.0,
                                                 decoration: const BoxDecoration(),
                                                 child: wrapWithModel(
                                                   model: _model
@@ -900,7 +894,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 20.0),
                   child: Material(
                     color: Colors.transparent,
                     elevation: 4.0,
