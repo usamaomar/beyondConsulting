@@ -44,8 +44,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.timerController.onStartTimer();
       _model.apiResult7fn = await GetMyProjectTrackersApiCall.call(
-        token: FFAppState().tokenModelAppState.token,
-      );
+          token: FFAppState().tokenModelAppState.token,
+          fromDate: "2023/11/01 00:00:00.000",
+          toDate: '2024/01/01 00:00:00.000');
       if ((_model.apiResult7fn?.succeeded ?? true)) {
         setState(() {
           _model.listOfLiveTracker = (getJsonField(
@@ -201,7 +202,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '8bj5guab' /* Main DashBoard */,
@@ -232,8 +234,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                     (FFAppState().userModelAppState.accessRole == 5))
                   Flexible(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 10.0, 0.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -310,7 +312,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                     context: context,
                                     isGlobal: true,
                                     avoidOverflow: false,
-                                    targetAnchor: const AlignmentDirectional(0.0, 0.0)
+                                    targetAnchor: const AlignmentDirectional(
+                                            0.0, 0.0)
                                         .resolve(Directionality.of(context)),
                                     followerAnchor: const AlignmentDirectional(
                                             0.0, 0.0)
@@ -326,7 +329,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                       _model.unfocusNode)
                                               : FocusScope.of(context)
                                                   .unfocus(),
-                                          child: const CreatNewNotComponentWidget(),
+                                          child:
+                                              const CreatNewNotComponentWidget(),
                                         ),
                                       );
                                     },
@@ -366,10 +370,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                     ),
                   ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      10.0, 0.0, 10.0, 0.0),
                   child: Container(
-                    width: 500.0,
-                    height: 450.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: const BorderRadius.only(
@@ -421,8 +424,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                   final localListItem =
                                       localList[localListIndex];
                                   return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        60.0, 30.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            60.0, 30.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:
@@ -450,8 +454,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 15.0, 0.0),
                                                 child: Text(
                                                   localListItem.name,
@@ -468,8 +473,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 10.0, 15.0, 10.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -478,11 +484,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              0.0, 5.0, 0.0),
                                                       child: Text(
                                                         functions
                                                             .convertDateString(
@@ -508,11 +511,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(5.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         functions
                                                             .convertDateString(
@@ -559,7 +559,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               milliSecond: false,
                             ),
                             controller: _model.timerController,
-                            updateStateInterval: const Duration(milliseconds: 1000),
+                            updateStateInterval:
+                                const Duration(milliseconds: 1000),
                             onChanged: (value, displayTime, shouldUpdate) {
                               _model.timerMilliseconds = value;
                               _model.timerValue = displayTime;
@@ -569,6 +570,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               _model.apiResult7fn5 =
                                   await GetMyProjectTrackersApiCall.call(
                                 token: FFAppState().tokenModelAppState.token,
+                                      fromDate: "2023/11/01 00:00:00.000",
+                                      toDate: '2024/01/01 00:00:00.000'
                               );
                               if ((_model.apiResult7fn5?.succeeded ?? true)) {
                                 setState(() {
@@ -599,8 +602,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      10.0, 20.0, 10.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -793,8 +796,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       30.0, 30.0, 30.0, 30.0),
                                               child: RichText(
                                                 textScaleFactor:
@@ -856,12 +860,14 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                               color: Color(0xFFC8C9CC),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 20.0, 0.0, 20.0),
                                               child: Container(
                                                 height: 100.0,
-                                                decoration: const BoxDecoration(),
+                                                decoration:
+                                                    const BoxDecoration(),
                                                 child: wrapWithModel(
                                                   model: _model
                                                       .satisfactionComponentMainDashBoardModels
@@ -899,8 +905,8 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      10.0, 20.0, 10.0, 0.0),
                   child: Material(
                     color: Colors.transparent,
                     elevation: 4.0,

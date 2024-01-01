@@ -1,37 +1,50 @@
-2023/12/30-23:58:27.944 3d03 Reusing MANIFEST /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.hKAgl3/flutter_tools_chrome_device.gpOnG1/Default/Local Storage/leveldb/MANIFEST-000001
-2023/12/30-23:58:27.946 3d03 Recovering log #64
-2023/12/30-23:58:27.947 3d03 Reusing old log /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.hKAgl3/flutter_tools_chrome_device.gpOnG1/Default/Local Storage/leveldb/000064.log 
-2023/12/30-23:58:27.948 3d03 Delete type=0 #7
-2023/12/30-23:58:27.948 3d03 Delete type=0 #4
-2023/12/30-23:58:27.949 3d03 Delete type=0 #10
-2023/12/30-23:58:27.949 3d03 Delete type=2 #48
-2023/12/30-23:58:27.949 3d03 Delete type=0 #14
-2023/12/30-23:58:27.949 3d03 Delete type=0 #28
-2023/12/30-23:58:27.949 3d03 Delete type=0 #16
-2023/12/30-23:58:27.949 3d03 Delete type=0 #3
-2023/12/30-23:58:27.949 3d03 Delete type=2 #29
-2023/12/30-23:58:27.949 3d03 Delete type=2 #17
-2023/12/30-23:58:27.949 3d03 Delete type=2 #13
-2023/12/30-23:58:27.949 3d03 Delete type=2 #38
-2023/12/30-23:58:27.949 3d03 Delete type=0 #60
-2023/12/30-23:58:27.949 3d03 Delete type=2 #11
-2023/12/30-23:58:27.949 3d03 Delete type=2 #8
-2023/12/30-23:58:27.949 3d03 Delete type=2 #21
-2023/12/30-23:58:27.949 3d03 Delete type=2 #35
-2023/12/30-23:58:27.949 3d03 Delete type=0 #50
-2023/12/30-23:58:27.949 3d03 Delete type=2 #23
-2023/12/30-23:58:27.949 3d03 Delete type=0 #53
-2023/12/30-23:58:27.949 3d03 Delete type=0 #47
-2023/12/30-23:58:27.949 3d03 Delete type=2 #26
-2023/12/30-23:58:27.949 3d03 Delete type=0 #43
-2023/12/30-23:58:27.949 3d03 Delete type=0 #57
-2023/12/30-23:58:27.949 3d03 Delete type=2 #33
-2023/12/30-23:58:27.949 3d03 Delete type=0 #40
-2023/12/30-23:58:27.949 3d03 Delete type=0 #19
-2023/12/30-23:58:27.949 3d03 Delete type=2 #54
-2023/12/30-23:58:27.949 3d03 Delete type=2 #41
-2023/12/30-23:58:27.949 3d03 Delete type=0 #24
-2023/12/30-23:58:27.949 3d03 Delete type=2 #45
-2023/12/30-23:58:27.950 3d03 Delete type=2 #51
-2023/12/30-23:58:27.950 3d03 Delete type=0 #34
-2023/12/30-23:58:27.950 3d03 Delete type=0 #37
+2024/01/01-18:06:02.180 3e03 Reusing MANIFEST /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.wooDIv/flutter_tools_chrome_device.5jf8Tq/Default/Local Storage/leveldb/MANIFEST-000001
+2024/01/01-18:06:02.183 3e03 Recovering log #67
+2024/01/01-18:06:02.184 3e03 Reusing old log /private/var/folders/vw/gx_f7hq14h90rjgt_0kw9mcm0000gn/T/flutter_tools.wooDIv/flutter_tools_chrome_device.5jf8Tq/Default/Local Storage/leveldb/000067.log 
+2024/01/01-18:06:02.185 3e03 Delete type=0 #7
+2024/01/01-18:06:02.185 3e03 Delete type=0 #4
+2024/01/01-18:06:02.185 3e03 Delete type=0 #10
+2024/01/01-18:06:02.185 3e03 Delete type=2 #48
+2024/01/01-18:06:02.186 3e03 Delete type=0 #14
+2024/01/01-18:06:02.186 3e03 Delete type=0 #28
+2024/01/01-18:06:02.186 3e03 Delete type=0 #16
+2024/01/01-18:06:02.186 3e03 Delete type=0 #3
+2024/01/01-18:06:02.186 3e03 Delete type=2 #29
+2024/01/01-18:06:02.186 3e03 Delete type=0 #64
+2024/01/01-18:06:02.186 3e03 Delete type=2 #17
+2024/01/01-18:06:02.186 3e03 Delete type=2 #13
+2024/01/01-18:06:02.186 3e03 Delete type=2 #38
+2024/01/01-18:06:02.186 3e03 Delete type=0 #60
+2024/01/01-18:06:02.186 3e03 Delete type=2 #11
+2024/01/01-18:06:02.186 3e03 Delete type=2 #8
+2024/01/01-18:06:02.186 3e03 Delete type=2 #21
+2024/01/01-18:06:02.186 3e03 Delete type=2 #35
+2024/01/01-18:06:02.186 3e03 Delete type=0 #50
+2024/01/01-18:06:02.186 3e03 Delete type=2 #23
+2024/01/01-18:06:02.186 3e03 Delete type=0 #53
+2024/01/01-18:06:02.186 3e03 Delete type=0 #47
+2024/01/01-18:06:02.186 3e03 Delete type=2 #26
+2024/01/01-18:06:02.186 3e03 Delete type=0 #43
+2024/01/01-18:06:02.186 3e03 Delete type=0 #57
+2024/01/01-18:06:02.186 3e03 Delete type=2 #33
+2024/01/01-18:06:02.186 3e03 Delete type=0 #40
+2024/01/01-18:06:02.186 3e03 Delete type=0 #19
+2024/01/01-18:06:02.186 3e03 Delete type=2 #54
+2024/01/01-18:06:02.186 3e03 Delete type=2 #41
+2024/01/01-18:06:02.186 3e03 Delete type=0 #24
+2024/01/01-18:06:02.186 3e03 Delete type=2 #45
+2024/01/01-18:06:02.186 3e03 Delete type=2 #51
+2024/01/01-18:06:02.186 3e03 Delete type=0 #34
+2024/01/01-18:06:02.187 3e03 Delete type=0 #37
+2024/01/01-18:08:04.021 3b03 Level-0 table #70: started
+2024/01/01-18:08:04.043 3b03 Level-0 table #70: 16907 bytes OK
+2024/01/01-18:08:04.084 3b03 Delete type=0 #67
+2024/01/01-18:08:04.085 3e03 Compacting 4@0 + 1@1 files
+2024/01/01-18:08:04.111 3e03 Generated table #71@0: 349 keys, 289795 bytes
+2024/01/01-18:08:04.111 3e03 Compacted 4@0 + 1@1 files => 289795 bytes
+2024/01/01-18:08:04.148 3e03 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/01/01-18:08:04.149 3e03 Delete type=2 #63
+2024/01/01-18:08:04.149 3e03 Delete type=2 #61
+2024/01/01-18:08:04.149 3e03 Delete type=2 #70
+2024/01/01-18:08:04.149 3e03 Delete type=2 #58
+2024/01/01-18:08:04.149 3e03 Delete type=2 #66
