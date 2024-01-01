@@ -92,11 +92,6 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
   ApiCallResponse? apiResultv1q;
   // Stores action output result for [Backend Call - API (GetPersonalsApi)] action in MainDashBoardPage widget.
   ApiCallResponse? apiResult8i4;
-  // Models for ReadMemberCpacity dynamic component.
-  late FlutterFlowDynamicModels<ReadMemberCpacityModel> readMemberCpacityModels;
-  // Models for satisfactionComponentMainDashBoard dynamic component.
-  late FlutterFlowDynamicModels<SatisfactionComponentMainDashBoardModel>
-      satisfactionComponentMainDashBoardModels;
   // State field(s) for Timer widget.
   int timerMilliseconds = 2000;
   String timerValue = StopWatchTimer.getDisplayTime(
@@ -109,6 +104,11 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
 
   // Stores action output result for [Backend Call - API (GetMyProjectTrackersApi)] action in Timer widget.
   ApiCallResponse? apiResult7fn5;
+  // Models for ReadMemberCpacity dynamic component.
+  late FlutterFlowDynamicModels<ReadMemberCpacityModel> readMemberCpacityModels;
+  // Models for satisfactionComponentMainDashBoard dynamic component.
+  late FlutterFlowDynamicModels<SatisfactionComponentMainDashBoardModel>
+      satisfactionComponentMainDashBoardModels;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -127,9 +127,9 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    timerController.dispose();
     readMemberCpacityModels.dispose();
     satisfactionComponentMainDashBoardModels.dispose();
-    timerController.dispose();
     sideNavModel.dispose();
   }
 

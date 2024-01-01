@@ -244,6 +244,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add New Note',
       'ar': 'إضافة ملاحظة جديدة',
     },
+    'pj06s05h': {
+      'en': 'Live Tracker',
+      'ar': 'المقتفي المباشر',
+    },
     'u8919gvw': {
       'en': 'Collaborators',
       'ar': 'المتعاونون',
@@ -267,10 +271,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ssp4fyq9': {
       'en': 'Status',
       'ar': 'حالة',
-    },
-    'pj06s05h': {
-      'en': 'Live Tracker',
-      'ar': 'المقتفي المباشر',
     },
     '8bj5guab': {
       'en': 'Main DashBoard',
