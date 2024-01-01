@@ -35,12 +35,12 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
       // setState(() {
       //   _model.textController2?.text = '123!Pa\$\$word';
       // });
-      setState(() {
-        _model.textController1?.text = 'Admin@beyond.com';
-      });
-      setState(() {
-        _model.textController2?.text = '123!Pa\$\$word';
-      });
+      // setState(() {
+      //   _model.textController1?.text = 'Admin@beyond.com';
+      // });
+      // setState(() {
+      //   _model.textController2?.text = '123!Pa\$\$word';
+      // });
     });
 
     _model.textController1 ??= TextEditingController();
