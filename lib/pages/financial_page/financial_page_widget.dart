@@ -1889,10 +1889,12 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
   Future convertAndDownload(String text) async {
     var excel = excelOne.Excel.createExcel();
     var sheet = excel['Sheet1'];
-    List<String> lines = LineSplitter.split(text).toList();
-    for (var i = 0; i < lines.length; i++) {
-      sheet.cell(excelOne.CellIndex.indexByColumnRow(columnIndex: 0, rowIndex: i)).value = lines[i]  ;
+    List<List<String>> csvRows = text.split('\n').map((line) => line.split(',')).toList();
+
+    for (var row in csvRows) {
+      sheet.appendRow(row);
     }
+
     List<int>? excelBytes = excel.encode();
     Uint8List uint8List = Uint8List.fromList(excelBytes!);
     String base64String = base64Encode(uint8List);
