@@ -232,141 +232,139 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                 if ((FFAppState().userModelAppState.accessRole == 0) ||
                     (FFAppState().userModelAppState.accessRole == 1) ||
                     (FFAppState().userModelAppState.accessRole == 5))
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                          0.0, 10.0, 0.0, 10.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 15.0, 0.0),
-                              child: Container(
-                                height: 350.0,
-                                decoration: const BoxDecoration(),
-                                child: Builder(
-                                  builder: (context) {
-                                    final listOfLocalCards = FFAppState()
-                                        .listOfNotes
-                                        .map((e) => e)
-                                        .toList();
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: listOfLocalCards.length,
-                                      itemBuilder:
-                                          (context, listOfLocalCardsIndex) {
-                                        final listOfLocalCardsItem =
-                                            listOfLocalCards[
-                                                listOfLocalCardsIndex];
-                                        return FlipCard(
-                                          fill: Fill.fillBack,
-                                          direction: FlipDirection.HORIZONTAL,
-                                          speed: 400,
-                                          front: FrontViewComponentWidget(
-                                            key: Key(
-                                                'Keyuf1_${listOfLocalCardsIndex}_of_${listOfLocalCards.length}'),
-                                            title: listOfLocalCardsItem.title,
-                                            color:
-                                                listOfLocalCardsItem.backColor!,
-                                            createdDate: listOfLocalCardsItem
-                                                .createdDate!,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 15.0, 0.0),
+                            child: Container(
+                              height: 350.0,
+                              decoration: const BoxDecoration(),
+                              child: Builder(
+                                builder: (context) {
+                                  final listOfLocalCards = FFAppState()
+                                      .listOfNotes
+                                      .map((e) => e)
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listOfLocalCards.length,
+                                    itemBuilder:
+                                        (context, listOfLocalCardsIndex) {
+                                      final listOfLocalCardsItem =
+                                      listOfLocalCards[
+                                      listOfLocalCardsIndex];
+                                      return FlipCard(
+                                        fill: Fill.fillBack,
+                                        direction: FlipDirection.HORIZONTAL,
+                                        speed: 400,
+                                        front: FrontViewComponentWidget(
+                                          key: Key(
+                                              'Keyuf1_${listOfLocalCardsIndex}_of_${listOfLocalCards.length}'),
+                                          title: listOfLocalCardsItem.title,
+                                          color:
+                                          listOfLocalCardsItem.backColor!,
+                                          createdDate: listOfLocalCardsItem
+                                              .createdDate!,
+                                        ),
+                                        back: BackViewComponentWidget(
+                                          key: Key(
+                                              'Keyw6a_${listOfLocalCardsIndex}_of_${listOfLocalCards.length}'),
+                                          title: listOfLocalCardsItem.title,
+                                          date: dateTimeFormat(
+                                            'yMd',
+                                            listOfLocalCardsItem
+                                                .achievementData!,
+                                            locale:
+                                            FFLocalizations.of(context)
+                                                .languageCode,
                                           ),
-                                          back: BackViewComponentWidget(
-                                            key: Key(
-                                                'Keyw6a_${listOfLocalCardsIndex}_of_${listOfLocalCards.length}'),
-                                            title: listOfLocalCardsItem.title,
-                                            date: dateTimeFormat(
-                                              'yMd',
-                                              listOfLocalCardsItem
-                                                  .achievementData!,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                            ),
-                                            note: listOfLocalCardsItem.note,
-                                            color: listOfLocalCardsItem
-                                                .frontColor!,
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                          Builder(
-                            builder: (context) => Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await showAlignedDialog(
-                                    context: context,
-                                    isGlobal: true,
-                                    avoidOverflow: false,
-                                    targetAnchor: const AlignmentDirectional(
-                                            0.0, 0.0)
-                                        .resolve(Directionality.of(context)),
-                                    followerAnchor: const AlignmentDirectional(
-                                            0.0, 0.0)
-                                        .resolve(Directionality.of(context)),
-                                    builder: (dialogContext) {
-                                      return Material(
-                                        color: Colors.transparent,
-                                        child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child:
-                                              const CreatNewNotComponentWidget(),
+                                          note: listOfLocalCardsItem.note,
+                                          color: listOfLocalCardsItem
+                                              .frontColor!,
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  );
                                 },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ezus85f3' /* Add New Note */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Almarai',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                    Icon(
-                                      Icons.add_circle,
-                                      color: FlutterFlowTheme.of(context)
-                                          .beyondBlueColor,
-                                      size: 30.0,
-                                    ),
-                                  ],
-                                ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        Builder(
+                          builder: (context) => Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showAlignedDialog(
+                                  context: context,
+                                  isGlobal: true,
+                                  avoidOverflow: false,
+                                  targetAnchor: const AlignmentDirectional(
+                                      0.0, 0.0)
+                                      .resolve(Directionality.of(context)),
+                                  followerAnchor: const AlignmentDirectional(
+                                      0.0, 0.0)
+                                      .resolve(Directionality.of(context)),
+                                  builder: (dialogContext) {
+                                    return Material(
+                                      color: Colors.transparent,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                            .requestFocus(
+                                            _model.unfocusNode)
+                                            : FocusScope.of(context)
+                                            .unfocus(),
+                                        child:
+                                        const CreatNewNotComponentWidget(),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'ezus85f3' /* Add New Note */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Almarai',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      useGoogleFonts: false,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.add_circle,
+                                    color: FlutterFlowTheme.of(context)
+                                        .beyondBlueColor,
+                                    size: 30.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 Padding(
