@@ -94,7 +94,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
             model: _model.sideNavModel,
             updateCallback: () => setState(() {}),
             child: const SideNavWidget(
-              sideMenuEnum: SideMenuEnum.MAIN_DASHBOARD,
+              sideMenuEnum: SideMenuEnum.ALL_COSTS,
             ),
           ),
         ),
