@@ -634,7 +634,7 @@ class GetAllCostsApiCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetAllCostsApi',
-      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetAllCosts',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetAllCosts?PageSize=1000',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
