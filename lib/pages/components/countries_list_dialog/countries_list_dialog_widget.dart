@@ -87,8 +87,8 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,8 +141,8 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,6 +154,9 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                               child: TextFormField(
                                 controller: _model.textController,
                                 focusNode: _model.textFieldFocusNode,
+                                onChanged: (value) {
+                                  setState(() {});
+                                },
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -250,8 +253,9 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 20.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -261,10 +265,10 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                                           borderRadius:
                                               BorderRadius.circular(50.0),
                                           child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                const Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                const Duration(milliseconds: 500),
+                                            fadeInDuration: const Duration(
+                                                milliseconds: 500),
+                                            fadeOutDuration: const Duration(
+                                                milliseconds: 500),
                                             imageUrl: countryListModelItem.flag,
                                             width: 25.0,
                                             height: 25.0,
@@ -272,9 +276,8 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 15.0, 20.0, 15.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(20.0, 15.0, 20.0, 15.0),
                                           child: Text(
                                             FFLocalizations.of(context)
                                                 .getVariableText(

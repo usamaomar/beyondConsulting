@@ -8,12 +8,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "aligned_dialog",
-      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/aligned_dialog-0.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "archive",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/archive-3.4.9",
       "packageUri": "lib/",
@@ -950,7 +944,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-01-11T08:17:50.507824Z",
+  "generated": "2024-01-12T09:37:15.217271Z",
   "generator": "pub",
   "generatorVersion": "3.4.0-12.0.dev"
 }

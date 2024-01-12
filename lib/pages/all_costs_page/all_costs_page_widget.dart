@@ -1391,17 +1391,10 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      await showAlignedDialog(
+                                                                      await showDialog(
                                                                         context:
                                                                             context,
-                                                                        isGlobal:
-                                                                            true,
-                                                                        avoidOverflow:
-                                                                            false,
-                                                                        targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                        followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(

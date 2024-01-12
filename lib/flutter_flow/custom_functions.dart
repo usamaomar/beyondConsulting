@@ -683,5 +683,5 @@ bool searchFunction(
   String currentTitle,
   String searchText,
 ) {
-  return currentTitle.toLowerCase().contains(searchText.toLowerCase());
+  return searchText.toLowerCase().contains(currentTitle.toLowerCase());
 }
