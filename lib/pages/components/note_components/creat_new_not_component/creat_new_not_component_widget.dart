@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/components/note_components/color_list_component/color_list_component_widget.dart';
 import 'dart:ui';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'creat_new_not_component_model.dart';
@@ -145,27 +144,22 @@ class _CreatNewNotComponentWidgetState
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                await showAlignedDialog(
+                                                await showDialog(
                                                   context: context,
-                                                  isGlobal: true,
-                                                  avoidOverflow: false,
-                                                  targetAnchor:
-                                                      const AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  followerAnchor:
-                                                      const AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
                                                   builder: (dialogContext) {
-                                                    return const Material(
-                                                      color: Colors.transparent,
+                                                    return Dialog(
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
                                                       child:
-                                                          ColorListComponentWidget(
+                                                          const ColorListComponentWidget(
                                                         isFront: true,
                                                       ),
                                                     );
@@ -216,7 +210,7 @@ class _CreatNewNotComponentWidgetState
                                             width: 2.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(0.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -225,7 +219,7 @@ class _CreatNewNotComponentWidgetState
                                             width: 2.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(0.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -234,7 +228,7 @@ class _CreatNewNotComponentWidgetState
                                             width: 2.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(0.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -243,7 +237,7 @@ class _CreatNewNotComponentWidgetState
                                             width: 2.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(0.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         filled: true,
                                         fillColor: const Color(0xFFF3F3F3),
@@ -324,25 +318,21 @@ class _CreatNewNotComponentWidgetState
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            await showAlignedDialog(
+                                            await showDialog(
                                               context: context,
-                                              isGlobal: true,
-                                              avoidOverflow: false,
-                                              targetAnchor:
-                                                  const AlignmentDirectional(0.0, 0.0)
-                                                      .resolve(
-                                                          Directionality.of(
-                                                              context)),
-                                              followerAnchor:
-                                                  const AlignmentDirectional(0.0, 0.0)
-                                                      .resolve(
-                                                          Directionality.of(
-                                                              context)),
                                               builder: (dialogContext) {
-                                                return const Material(
-                                                  color: Colors.transparent,
+                                                return Dialog(
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
                                                   child:
-                                                      ColorListComponentWidget(
+                                                      const ColorListComponentWidget(
                                                     isFront: false,
                                                   ),
                                                 );
@@ -402,7 +392,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -412,7 +402,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -422,7 +412,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -433,7 +423,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             filled: true,
                                             fillColor: const Color(0xFFF3F3F3),
@@ -592,7 +582,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -602,7 +592,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -612,7 +602,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -623,7 +613,7 @@ class _CreatNewNotComponentWidgetState
                                                 width: 2.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             filled: true,
                                             fillColor: const Color(0xFFF3F3F3),

@@ -266,95 +266,110 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF032734),
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
-                                      child: SvgPicture.asset(
-                                        'assets/images/Group_2159.svg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'i4cv7m8y' /* Cost Managment */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    setState(() {
-                                      FFAppState().costIsOpend =
-                                          FFAppState().costIsOpend
-                                              ? false
-                                              : true;
-                                    });
-                                  },
-                                  child: Row(
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            setState(() {
+                              FFAppState().costIsOpend =
+                                  FFAppState().costIsOpend ? false : true;
+                            });
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF032734),
+                              borderRadius: BorderRadius.circular(12.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/Group_2159.svg',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 10.0),
-                                        child: Stack(
-                                          children: [
-                                            if (FFAppState().costIsOpend ==
-                                                false)
-                                              Icon(
-                                                Icons.keyboard_arrow_down,
+                                            12.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'i4cv7m8y' /* Cost Managment */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Readex Pro',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .info,
-                                                size: 24.0,
                                               ),
-                                            if (FFAppState().costIsOpend ==
-                                                true)
-                                              Icon(
-                                                Icons.keyboard_arrow_up,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .info,
-                                                size: 24.0,
-                                              ),
-                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      setState(() {
+                                        FFAppState().costIsOpend =
+                                            FFAppState().costIsOpend
+                                                ? false
+                                                : true;
+                                      });
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 10.0),
+                                          child: Stack(
+                                            children: [
+                                              if (FFAppState().costIsOpend ==
+                                                  false)
+                                                Icon(
+                                                  Icons.keyboard_arrow_down,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                  size: 24.0,
+                                                ),
+                                              if (FFAppState().costIsOpend ==
+                                                  true)
+                                                Icon(
+                                                  Icons.keyboard_arrow_up,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                  size: 24.0,
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -480,98 +495,113 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               color: FlutterFlowTheme.of(context).accent4,
                             ),
                           ),
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF032734),
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
-                                      child: SvgPicture.asset(
-                                        'assets/images/Group_1912.svg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        functions.projectTitle(
-                                            FFLocalizations.of(context)
-                                                .languageCode,
-                                            FFAppState()
-                                                .userModelAppState
-                                                .accessRole),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    setState(() {
-                                      FFAppState().projectIsOpend =
-                                          FFAppState().projectIsOpend
-                                              ? false
-                                              : true;
-                                    });
-                                  },
-                                  child: Row(
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            setState(() {
+                              FFAppState().projectIsOpend =
+                                  FFAppState().projectIsOpend ? false : true;
+                            });
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF032734),
+                              borderRadius: BorderRadius.circular(12.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/Group_1912.svg',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 10.0),
-                                        child: Stack(
-                                          children: [
-                                            if (FFAppState().projectIsOpend ==
-                                                false)
-                                              Icon(
-                                                Icons.keyboard_arrow_down,
+                                            12.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          functions.projectTitle(
+                                              FFLocalizations.of(context)
+                                                  .languageCode,
+                                              FFAppState()
+                                                  .userModelAppState
+                                                  .accessRole),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Readex Pro',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .info,
-                                                size: 24.0,
                                               ),
-                                            if (FFAppState().projectIsOpend ==
-                                                true)
-                                              Icon(
-                                                Icons.keyboard_arrow_up,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .info,
-                                                size: 24.0,
-                                              ),
-                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      setState(() {
+                                        FFAppState().projectIsOpend =
+                                            FFAppState().projectIsOpend
+                                                ? false
+                                                : true;
+                                      });
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 10.0),
+                                          child: Stack(
+                                            children: [
+                                              if (FFAppState().projectIsOpend ==
+                                                  false)
+                                                Icon(
+                                                  Icons.keyboard_arrow_down,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                  size: 24.0,
+                                                ),
+                                              if (FFAppState().projectIsOpend ==
+                                                  true)
+                                                Icon(
+                                                  Icons.keyboard_arrow_up,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                  size: 24.0,
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

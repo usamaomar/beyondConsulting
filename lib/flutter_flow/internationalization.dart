@@ -1124,6 +1124,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Country',
       'ar': 'حدد الدولة',
     },
+    'eeh61xmq': {
+      'en': 'Search',
+      'ar': 'بحث',
+    },
   },
   // projectTypeListDialog
   {

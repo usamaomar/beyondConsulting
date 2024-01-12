@@ -7,7 +7,6 @@ import '/pages/components/ask_for_help_component/ask_for_help_component_widget.d
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -194,17 +193,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          await showAlignedDialog(
+                          await showDialog(
                             context: context,
-                            isGlobal: true,
-                            avoidOverflow: false,
-                            targetAnchor: const AlignmentDirectional(0.0, 0.0)
-                                .resolve(Directionality.of(context)),
-                            followerAnchor: const AlignmentDirectional(0.0, 0.0)
-                                .resolve(Directionality.of(context)),
                             builder: (dialogContext) {
-                              return Material(
-                                color: Colors.transparent,
+                              return Dialog(
+                                insetPadding: EdgeInsets.zero,
+                                backgroundColor: Colors.transparent,
+                                alignment: const AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
                                 child: GestureDetector(
                                   onTap: () =>
                                       _model.unfocusNode.canRequestFocus
