@@ -1117,6 +1117,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'All Costs',
       'ar': 'جميع التكاليف',
     },
+    '5wp0solz': {
+      'en': 'Logout',
+      'ar': 'تسجيل خروج',
+    },
   },
   // countriesListDialog
   {
