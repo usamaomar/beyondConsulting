@@ -18,7 +18,6 @@ import '/pages/components/type_drop_douwn_list_component/type_drop_douwn_list_co
 import '/pages/components/update_cost_dialog/update_cost_dialog_widget.dart';
 import '/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -354,28 +353,22 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await showAlignedDialog(
+                                                  await showDialog(
                                                     barrierColor:
                                                         const Color(0x4F000000),
                                                     context: context,
-                                                    isGlobal: true,
-                                                    avoidOverflow: false,
-                                                    targetAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    followerAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
                                                     builder: (dialogContext) {
-                                                      return Material(
-                                                        color:
+                                                      return Dialog(
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
                                                             Colors.transparent,
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
                                                         child: GestureDetector(
                                                           onTap: () => _model
                                                                   .unfocusNode
@@ -918,28 +911,22 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await showAlignedDialog(
+                                                  await showDialog(
                                                     barrierColor:
                                                         const Color(0x4F000000),
                                                     context: context,
-                                                    isGlobal: true,
-                                                    avoidOverflow: false,
-                                                    targetAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    followerAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
                                                     builder: (dialogContext) {
-                                                      return Material(
-                                                        color:
+                                                      return Dialog(
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
                                                             Colors.transparent,
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
                                                         child: GestureDetector(
                                                           onTap: () => _model
                                                                   .unfocusNode
@@ -1059,28 +1046,22 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await showAlignedDialog(
+                                                  await showDialog(
                                                     barrierColor:
                                                         const Color(0x4F000000),
                                                     context: context,
-                                                    isGlobal: true,
-                                                    avoidOverflow: false,
-                                                    targetAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    followerAnchor:
-                                                        const AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
                                                     builder: (dialogContext) {
-                                                      return Material(
-                                                        color:
+                                                      return Dialog(
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
                                                             Colors.transparent,
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
                                                         child: GestureDetector(
                                                           onTap: () => _model
                                                                   .unfocusNode
@@ -1563,27 +1544,22 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        await showAlignedDialog(
+                                                        await showDialog(
                                                           context: context,
-                                                          isGlobal: true,
-                                                          avoidOverflow: false,
-                                                          targetAnchor:
-                                                              const AlignmentDirectional(
-                                                                      0.0, 0.0)
-                                                                  .resolve(
-                                                                      Directionality.of(
-                                                                          context)),
-                                                          followerAnchor:
-                                                              const AlignmentDirectional(
-                                                                      0.0, 0.0)
-                                                                  .resolve(
-                                                                      Directionality.of(
-                                                                          context)),
                                                           builder:
                                                               (dialogContext) {
-                                                            return Material(
-                                                              color: Colors
-                                                                  .transparent,
+                                                            return Dialog(
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: const AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
                                                               child:
                                                                   GestureDetector(
                                                                 onTap: () => _model
@@ -1638,27 +1614,22 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        await showAlignedDialog(
+                                                        await showDialog(
                                                           context: context,
-                                                          isGlobal: true,
-                                                          avoidOverflow: false,
-                                                          targetAnchor:
-                                                              const AlignmentDirectional(
-                                                                      0.0, 0.0)
-                                                                  .resolve(
-                                                                      Directionality.of(
-                                                                          context)),
-                                                          followerAnchor:
-                                                              const AlignmentDirectional(
-                                                                      0.0, 0.0)
-                                                                  .resolve(
-                                                                      Directionality.of(
-                                                                          context)),
                                                           builder:
                                                               (dialogContext) {
-                                                            return Material(
-                                                              color: Colors
-                                                                  .transparent,
+                                                            return Dialog(
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: const AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
                                                               child:
                                                                   GestureDetector(
                                                                 onTap: () => _model
@@ -1829,28 +1800,18 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                               .SelectedMileStoneModel =
                                                                           MilestoneModelStruct();
                                                                     });
-                                                                    await showAlignedDialog(
+                                                                    await showDialog(
                                                                       context:
                                                                           context,
-                                                                      isGlobal:
-                                                                          true,
-                                                                      avoidOverflow:
-                                                                          false,
-                                                                      targetAnchor: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
-                                                                      followerAnchor: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
                                                                       builder:
                                                                           (dialogContext) {
-                                                                        return Material(
-                                                                          color:
+                                                                        return Dialog(
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
                                                                               Colors.transparent,
+                                                                          alignment:
+                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
                                                                               GestureDetector(
                                                                             onTap: () => _model.unfocusNode.canRequestFocus
@@ -2017,28 +1978,18 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
-                                                                    await showAlignedDialog(
+                                                                    await showDialog(
                                                                       context:
                                                                           context,
-                                                                      isGlobal:
-                                                                          true,
-                                                                      avoidOverflow:
-                                                                          false,
-                                                                      targetAnchor: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
-                                                                      followerAnchor: const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
                                                                       builder:
                                                                           (dialogContext) {
-                                                                        return Material(
-                                                                          color:
+                                                                        return Dialog(
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
                                                                               Colors.transparent,
+                                                                          alignment:
+                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
                                                                               GestureDetector(
                                                                             onTap: () => _model.unfocusNode.canRequestFocus
@@ -2170,30 +2121,23 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await showAlignedDialog(
+                                                          await showDialog(
                                                             context: context,
-                                                            isGlobal: true,
-                                                            avoidOverflow:
-                                                                false,
-                                                            targetAnchor:
-                                                                const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
-                                                            followerAnchor:
-                                                                const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
                                                             builder:
                                                                 (dialogContext) {
-                                                              return Material(
-                                                                color: Colors
-                                                                    .transparent,
+                                                              return Dialog(
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                alignment: const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0)
+                                                                    .resolve(
+                                                                        Directionality.of(
+                                                                            context)),
                                                                 child:
                                                                     GestureDetector(
                                                                   onTap: () => _model
@@ -2314,30 +2258,23 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await showAlignedDialog(
+                                                          await showDialog(
                                                             context: context,
-                                                            isGlobal: true,
-                                                            avoidOverflow:
-                                                                false,
-                                                            targetAnchor:
-                                                                const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
-                                                            followerAnchor:
-                                                                const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
                                                             builder:
                                                                 (dialogContext) {
-                                                              return Material(
-                                                                color: Colors
-                                                                    .transparent,
+                                                              return Dialog(
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                alignment: const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0)
+                                                                    .resolve(
+                                                                        Directionality.of(
+                                                                            context)),
                                                                 child:
                                                                     GestureDetector(
                                                                   onTap: () => _model

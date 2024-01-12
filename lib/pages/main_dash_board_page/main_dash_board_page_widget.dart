@@ -13,7 +13,6 @@ import '/pages/components/side_nav/side_nav_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flip_card/flip_card.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -307,19 +306,17 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await showAlignedDialog(
+                                await showDialog(
                                   context: context,
-                                  isGlobal: true,
-                                  avoidOverflow: false,
-                                  targetAnchor: const AlignmentDirectional(
-                                      0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  followerAnchor: const AlignmentDirectional(
-                                      0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
                                   builder: (dialogContext) {
-                                    return Material(
-                                      color: Colors.transparent,
+                                  return Dialog(
+                                  insetPadding: EdgeInsets.zero,
+                                      backgroundColor: Colors.transparent,
+                                        alignment:
+                                   const AlignmentDirectional(
+                                      0.0, 0.0)
+                                      .resolve(Directionality.of(context)),
+
                                       child: GestureDetector(
                                         onTap: () => _model
                                             .unfocusNode.canRequestFocus

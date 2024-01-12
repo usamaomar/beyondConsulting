@@ -8,7 +8,6 @@ import '/pages/components/dialog_text_drop_douwn_list_component/dialog_text_drop
 import '/pages/components/mile_stone_state_list_dialog/mile_stone_state_list_dialog_widget.dart';
 import '/pages/components/reminders_mile_stone_state_list_dialog/reminders_mile_stone_state_list_dialog_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -539,23 +538,18 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      await showAlignedDialog(
+                                      await showDialog(
                                         context: context,
-                                        isGlobal: true,
-                                        avoidOverflow: false,
-                                        targetAnchor:
-                                            const AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        followerAnchor:
-                                            const AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
                                         builder: (dialogContext) {
-                                          return const Material(
-                                            color: Colors.transparent,
+                                          return Dialog(
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: const AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
                                             child:
-                                                MileStoneStateListDialogWidget(),
+                                                const MileStoneStateListDialogWidget(),
                                           );
                                         },
                                       ).then((value) => setState(() {}));
@@ -815,23 +809,18 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      await showAlignedDialog(
+                                      await showDialog(
                                         context: context,
-                                        isGlobal: true,
-                                        avoidOverflow: false,
-                                        targetAnchor:
-                                            const AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        followerAnchor:
-                                            const AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
                                         builder: (dialogContext) {
-                                          return const Material(
-                                            color: Colors.transparent,
+                                          return Dialog(
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: const AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
                                             child:
-                                                RemindersMileStoneStateListDialogWidget(),
+                                                const RemindersMileStoneStateListDialogWidget(),
                                           );
                                         },
                                       ).then((value) => setState(() {}));
