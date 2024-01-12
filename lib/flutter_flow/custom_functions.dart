@@ -679,3 +679,10 @@ List<DateTime> convertToDateTimeList(List<MilestoneModelStruct> milestones) {
       .map((milestone) => DateTime.parse(milestone.endDate))
       .toList();
 }
+
+bool searchFunction(
+  String currentTitle,
+  String searchText,
+) {
+  return currentTitle.toLowerCase().contains(searchText.toLowerCase());
+}
