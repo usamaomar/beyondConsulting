@@ -30,12 +30,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const LogingPageWidget(),
+      errorBuilder: (context, state) => const SplashPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const LogingPageWidget(),
+          builder: (context, _) => const SplashPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -118,6 +118,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AllCostsPage',
           path: '/allCostsPage',
           builder: (context, params) => const AllCostsPageWidget(),
+        ),
+        FFRoute(
+          name: 'SplashPage',
+          path: '/splashPage',
+          builder: (context, params) => const SplashPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
