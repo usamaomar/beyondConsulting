@@ -1087,6 +1087,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
+  // SplashPage
+  {
+    'dv9mvtrd': {
+      'en': 'BEYOND CONSULTING',
+      'ar': 'ما وراء الاستشارة',
+    },
+    'idz31nyd': {
+      'en': 'MANAGEMENT AND BUSINESS CONSULTING',
+      'ar': 'استشارات الإدارة والأعمال',
+    },
+    'vm57p6uo': {
+      'en': 'HELLO BEYONDER!',
+      'ar': 'مرحبا بكم!',
+    },
+    'v0ho21dy': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
   // SideNav
   {
     'zdq4e0la': {
@@ -1116,6 +1135,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'l7z31cm6': {
       'en': 'All Costs',
       'ar': 'جميع التكاليف',
+    },
+    '5wp0solz': {
+      'en': 'Logout',
+      'ar': 'تسجيل خروج',
     },
   },
   // countriesListDialog
@@ -1567,6 +1590,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '08kguje4': {
       'en': 'Search for an item...',
       'ar': '',
+    },
+  },
+  // logOutComponent
+  {
+    's9ttkz9v': {
+      'en': 'Good Bye Beyonder',
+      'ar': 'وداعا بيوندر',
+    },
+    'l3se7b2t': {
+      'en':
+          'You will be logged out from this session are you sure you want to log out ',
+      'ar':
+          'سيتم تسجيل خروجك من هذه الجلسة، إذا كنت متأكدًا من رغبتك في تسجيل الخروج',
+    },
+    '5lm7f17v': {
+      'en': 'Cancel',
+      'ar': 'الغاء',
+    },
+    're58e777': {
+      'en': 'Logout',
+      'ar': 'تسجيل خروج',
     },
   },
   // Miscellaneous

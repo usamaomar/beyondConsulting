@@ -25,3 +25,4 @@ export '/pages/admins_cost_management/admins_cost_management_widget.dart'
     show AdminsCostManagementWidget;
 export '/pages/all_costs_page/all_costs_page_widget.dart'
     show AllCostsPageWidget;
+export '/pages/splash_page/splash_page_widget.dart' show SplashPageWidget;
