@@ -480,10 +480,16 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                           final datePicked1Date =
                                                               await showDatePicker(
                                                             context: context,
-                                                            initialDate:
-                                                                getCurrentTimestamp,
-                                                            firstDate:
-                                                                getCurrentTimestamp,
+                                                            initialDate: functions
+                                                                .parseDateString(
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .startDate),
+                                                            firstDate: functions
+                                                                .parseDateString(
+                                                                    FFAppState()
+                                                                        .newProjectCreatedModel
+                                                                        .startDate),
                                                             lastDate:
                                                                 DateTime(2050),
                                                             builder: (context,
