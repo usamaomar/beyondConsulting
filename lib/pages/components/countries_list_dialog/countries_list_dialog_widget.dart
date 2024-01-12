@@ -219,16 +219,9 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
                             final countryListModelItem =
                                 countryListModel[countryListModelIndex];
                             return Visibility(
-                              visible: () {
-                                if (_model.textController.text == '') {
-                                  return true;
-                                } else if (countryListModelItem.nameEn ==
-                                    _model.textController.text) {
-                                  return true;
-                                } else {
-                                  return true;
-                                }
-                              }(),
+                              visible: functions.searchFunction(
+                                  countryListModelItem.nameEn,
+                                  _model.textController.text),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,

@@ -678,3 +678,10 @@ List<DateTime> convertToDateTimeList(List<MilestoneModelStruct> milestones) {
     return currentDate;
   }).toList();
 }
+
+bool searchFunction(
+  String currentTitle,
+  String searchText,
+) {
+  return currentTitle.toLowerCase().contains(searchText.toLowerCase());
+}
