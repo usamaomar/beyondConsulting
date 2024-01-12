@@ -485,11 +485,10 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                     FFAppState()
                                                                         .newProjectCreatedModel
                                                                         .startDate),
-                                                            firstDate: functions
-                                                                .parseDateString(
-                                                                    FFAppState()
-                                                                        .newProjectCreatedModel
-                                                                        .startDate),
+                                                            firstDate:
+                                                                (getCurrentTimestamp ??
+                                                                    DateTime(
+                                                                        1900)),
                                                             lastDate:
                                                                 DateTime(2050),
                                                             builder: (context,
