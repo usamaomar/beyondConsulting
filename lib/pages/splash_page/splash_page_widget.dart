@@ -255,9 +255,9 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                       if (FFAppState().tokenModelAppState.token != ''
                           ? true
                           : false) {
-                        context.pushNamed('HomePage');
+                        context.pushReplacementNamed('HomePage');
                       } else {
-                        context.pushNamed('LogingPage');
+                        context.pushReplacementNamed('LogingPage');
                       }
                     },
                     textAlign: TextAlign.start,

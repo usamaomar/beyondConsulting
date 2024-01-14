@@ -307,6 +307,20 @@ List<UserModelStruct> fromJsonToUserList(dynamic jsonBudy) {
       .cast<UserModelStruct>();
 }
 
+List<UserModelStruct> fromJsonToMidList(List<UserModelStruct> userList) {
+  return userList
+      .where((e) => e.accessRole == 3)
+      .toList()
+      .cast<UserModelStruct>();
+}
+List<UserModelStruct> fromJsonToAsoosieatsList(List<UserModelStruct> userList) {
+  return userList
+      .where((e) => e.accessRole == 4)
+      .toList()
+      .cast<UserModelStruct>();
+}
+
+
 bool findMatchingUsers(
   UserModelStruct empsModel,
   List<UserModelStruct> listOfIds,
@@ -577,6 +591,8 @@ String getAccessRoleName(int accessRole) {
     return "Senior";
   } else if (accessRole == 3) {
     return "Middle Manager";
+  }  else if (accessRole == 4) {
+    return "Associate";
   } else {
     return "Leader";
   }

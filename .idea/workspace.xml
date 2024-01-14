@@ -7,6 +7,17 @@
     <list default="true" id="ca9ec24d-ddfd-478f-b587-0a22da5ac54c" name="Changes" comment="c">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_flow/custom_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_flow/custom_functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/log_out_component/log_out_component_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/log_out_component/log_out_component_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/personals_team_list_dialog/personals_team_list_dialog_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/personals_team_list_dialog/personals_team_list_dialog_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/personals_team_list_dialog/personals_team_list_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/personals_team_list_dialog/personals_team_list_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/side_nav/side_nav_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/side_nav/side_nav_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/project_page/sync.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/project_page/sync.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/splash_page/splash_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/splash_page/splash_page_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,20 +183,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
-          <line>1913</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/backend/api_requests/api_calls.dart</url>
-          <line>926</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
   </component>

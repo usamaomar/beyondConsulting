@@ -2480,7 +2480,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                             .canPop()) {
                                                           context.pop();
                                                         }
-                                                        context.pushNamed(
+                                                        context.pushReplacementNamed(
                                                           'ProjectPage',
                                                           queryParameters: {
                                                             'projectJaonModel':

@@ -471,10 +471,7 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                                   ''),
                                             ))!;
                                           });
-                                          if (Navigator.of(context).canPop()) {
-                                            context.pop();
-                                          }
-                                          context.pushNamed('HomePage');
+                                          context.pushReplacementNamed('HomePage');
                                         } else {
                                           await showDialog(
                                             context: context,

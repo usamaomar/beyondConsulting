@@ -40,34 +40,33 @@ class _PersonalsTeamListDialogWidgetState
     // FFAppState().newProjectCreatedModel;
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResult4a6 = await GetPersonalsApiCall.call(
+      _model.apiResult4a6 = await GetMyTeamApiCall.call(
         token: FFAppState().tokenModelAppState.token,
-        startDate: functions.convertDateString(dateTimeFormat(
-          'yyyy-mm-ddT00:00:00.000Z',
-          getCurrentTimestamp,
-          locale: FFLocalizations.of(context).languageCode,
-        )),
       );
       if ((_model.apiResult4a6?.succeeded ?? true)) {
         setState(() {
           _model.seniorModel = UserModelStruct.maybeFromMap(getJsonField(
             (_model.apiResult4a6?.jsonBody ?? ''),
-            r'''$.data.senior''',
-          ));
-          _model.midManagersModelList = functions
+            r'''$.data.seniors''',
+          )[0]);
+          List<UserModelStruct> membersList  = functions
               .fromJsonToUserList(getJsonField(
                 (_model.apiResult4a6?.jsonBody ?? ''),
-                r'''$.data.midManagers''',
+                r'''$.data.members''',
               ))
               .toList()
               .cast<UserModelStruct>();
-          _model.associatesModelList = functions
-              .fromJsonToUserList(getJsonField(
+
+          _model.midManagersModelList = functions.fromJsonToMidList(membersList);
+          _model.associatesModelList = functions.fromJsonToAsoosieatsList(membersList);
+
+          FFAppState().updateNewProjectCreatedModelStruct(
+                (e) => e
+              ..teamId = getJsonField(
                 (_model.apiResult4a6?.jsonBody ?? ''),
-                r'''$.data.associates''',
-              ))
-              .toList()
-              .cast<UserModelStruct>();
+                r'''$.data.id''',
+              ),
+          );
         });
         setState(() {
           _model.midManagersModelList = functions
@@ -84,20 +83,7 @@ class _PersonalsTeamListDialogWidgetState
               .cast<UserModelStruct>();
         });
       }
-      _model.apiResultzeq = await GetMyTeamApiCall.call(
-        token: FFAppState().tokenModelAppState.token,
-      );
-      if ((_model.apiResultzeq?.succeeded ?? true)) {
-        setState(() {
-          FFAppState().updateNewProjectCreatedModelStruct(
-            (e) => e
-              ..teamId = getJsonField(
-                (_model.apiResultzeq?.jsonBody ?? ''),
-                r'''$.data.id''',
-              ),
-          );
-        });
-      }
+
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

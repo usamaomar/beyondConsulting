@@ -50,6 +50,7 @@ class _LogOutComponentWidgetState extends State<LogOutComponentWidget> {
           width: double.infinity,
           constraints: const BoxConstraints(
             maxWidth: 530.0,
+            maxHeight: 250
           ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -148,12 +149,16 @@ class _LogOutComponentWidgetState extends State<LogOutComponentWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          setState(() {
-                            FFAppState().tokenModelAppState =
-                                TokenModelStruct();
+                          FFAppState().update(() {
+                            FFAppState().tokenModelAppState = TokenModelStruct();
+                            FFAppState().userModelAppState =
+                                UserModelStruct.fromSerializableMap(jsonDecode(
+                                    '{"supervisorName":"name","profilePictureDataUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU"}'));
                           });
-
-                          context.pushNamed('LogingPage');
+                          while (context.canPop() == true) {
+                            context.pop();
+                          }
+                          context.pushReplacement('LogingPage');
                         },
                         text: FFLocalizations.of(context).getText(
                           're58e777' /* Logout */,

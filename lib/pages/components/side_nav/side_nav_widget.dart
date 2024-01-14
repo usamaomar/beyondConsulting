@@ -1066,16 +1066,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      FFAppState().update(() {
-                        FFAppState().tokenModelAppState = TokenModelStruct();
-                        FFAppState().userModelAppState =
-                            UserModelStruct.fromSerializableMap(jsonDecode(
-                                '{"supervisorName":"name","profilePictureDataUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU"}'));
-                      });
-                      if (Navigator.of(context).canPop()) {
-                        context.pop();
-                      }
-                      context.pushNamed('LogingPage');
+
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.max,

@@ -45,7 +45,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
       _model.apiResult7fn = await GetMyProjectTrackersApiCall.call(
           token: FFAppState().tokenModelAppState.token,
           fromDate: "2023/11/01 00:00:00.000",
-          toDate: '2024/01/01 00:00:00.000');
+          toDate: '2024/05/01 00:00:00.000');
       if ((_model.apiResult7fn?.succeeded ?? true)) {
         setState(() {
           _model.listOfLiveTracker = (getJsonField(
@@ -99,6 +99,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
       }
       _model.apiResult8i4 = await GetPersonalsApiCall.call(
         token: FFAppState().tokenModelAppState.token,
+        startDate: "2023/11/01 00:00:00.000"
       );
       if ((_model.apiResult8i4?.succeeded ?? true)) {
         setState(() {
@@ -118,10 +119,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
             (_model.apiResult8i4?.jsonBody ?? ''),
             r'''$.data.midManagers''',
             true,
-          )!
-                  .toList()
-                  .map<MemberModelStruct?>(MemberModelStruct.maybeFromMap)
-                  .toList() as Iterable<MemberModelStruct?>)
+          )!.toList().map<MemberModelStruct?>(MemberModelStruct.maybeFromMap).toList() as Iterable<MemberModelStruct?>)
               .withoutNulls
               .toList()
               .cast<MemberModelStruct>();
@@ -129,10 +127,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
             (_model.apiResult8i4?.jsonBody ?? ''),
             r'''$.data.associates''',
             true,
-          )!
-                  .toList()
-                  .map<MemberModelStruct?>(MemberModelStruct.maybeFromMap)
-                  .toList() as Iterable<MemberModelStruct?>)
+          )!.toList().map<MemberModelStruct?>(MemberModelStruct.maybeFromMap).toList() as Iterable<MemberModelStruct?>)
               .withoutNulls
               .toList()
               .cast<MemberModelStruct>();
@@ -364,6 +359,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                       ],
                     ),
                   ),
+                if ((_model.listOfLiveTracker.isNotEmpty) == true
+                    ? true
+                    : false)
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(
@@ -403,9 +401,6 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                 ),
                           ),
                         ),
-                        if ((_model.listOfLiveTracker.isNotEmpty) == true
-                            ? true
-                            : false)
                           Builder(
                             builder: (context) {
                               final localList = _model.listOfLiveTracker
@@ -669,8 +664,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                     decoration: const BoxDecoration(),
                                     child: Builder(
                                       builder: (context) {
-                                        final listOfMemebersLocal = functions
-                                            .addMemberItemsToList(
+                                        final listOfMemebersLocal = addMembersItemsToList(
                                                 _model.seniorName,
                                                 _model.seniorId,
                                                 _model.seniorPicure,
@@ -772,6 +766,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               ),
                               child: Container(
                                 height: 230.0,
+                                width: double.infinity,
                                 decoration: const BoxDecoration(),
                                 child: Builder(
                                   builder: (context) {
@@ -979,20 +974,20 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                 ),
                                               ),
                                             ),
-                                            DataColumn2(
-                                              label: DefaultTextStyle.merge(
-                                                softWrap: true,
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'jpikdprm' /* Description */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge,
-                                                ),
-                                              ),
-                                            ),
+                                            // DataColumn2(
+                                            //   label: DefaultTextStyle.merge(
+                                            //     softWrap: true,
+                                            //     child: Text(
+                                            //       FFLocalizations.of(context)
+                                            //           .getText(
+                                            //         'jpikdprm' /* Description */,
+                                            //       ),
+                                            //       style: FlutterFlowTheme.of(
+                                            //               context)
+                                            //           .labelLarge,
+                                            //     ),
+                                            //   ),
+                                            // ),
                                             DataColumn2(
                                               label: DefaultTextStyle.merge(
                                                 softWrap: true,
@@ -1034,13 +1029,13 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium,
                                                         ),
-                                                        Text(
-                                                          upcomingMilestoneItemItem
-                                                              .description,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
+                                                        // Text(
+                                                        //   upcomingMilestoneItemItem
+                                                        //       .description,
+                                                        //   style: FlutterFlowTheme
+                                                        //           .of(context)
+                                                        //       .bodyMedium,
+                                                        // ),
                                                         Text(
                                                           functions
                                                               .convertDateFromStamp(
@@ -1103,5 +1098,42 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
         ),
       ),
     );
+  }
+
+  List<MemberModelStruct> addMembersItemsToList(
+      String seniorName,
+      String seniorId,
+      String seniorPicture,
+      List<MemberModelStruct> midManagers,
+      List<MemberModelStruct> associates,
+      ) {
+    List<MemberModelStruct> members = [];
+    members.add(MemberModelStruct(
+        name: seniorName,
+        id: seniorId,
+        picture: seniorPicture,
+        firstName: 'Senior'));
+
+    midManagers.forEach((MemberModelStruct item) {
+      members.add(MemberModelStruct(
+          name: item.firstName,
+          id: item.id,
+          accessRole: item.accessRole,
+          currentCapacity: item.currentCapacity,
+          picture: item.picture,
+          firstName: 'Mid Manager'));
+    });
+
+    associates.forEach((MemberModelStruct item) {
+      members.add(MemberModelStruct(
+          name: item.firstName,
+          id: item.id,
+          currentCapacity: item.currentCapacity,
+          accessRole: item.accessRole,
+          picture: item.picture,
+          firstName: 'Associates'));
+    });
+
+    return members;
   }
 }

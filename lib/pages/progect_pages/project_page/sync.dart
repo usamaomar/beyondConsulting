@@ -40,7 +40,7 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
   void initState() {
     data = [
       BarChartModelStruct(
-          lable: widget.listOfTotal[0].lable,
+          lable: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].lable : '',
           number: widget.listOfTotal[0].number,
           color: widget.listOfTotal[0].color),
       BarChartModelStruct(

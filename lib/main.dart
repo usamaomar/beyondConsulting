@@ -76,17 +76,22 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('Got a message whilst in the foreground!');
       print('Message data: ${message.data}');
-
       final notification = message.notification;
       if (notification != null) {
-        print(
-            'Message also contained a notification: ${notification.body}');
         showDialog(
             context: context,
             builder: ((BuildContext context) {
-              return DynamicDialog(
-                  title: notification?.title,
-                  body: notification?.body);
+              return AlertDialog(
+                  title: Text('${notification.title}'),
+                  content:  Text('${notification.body}'),
+                  actions: <Widget>[
+                    InkWell(
+                      child: Text('Close'),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],);
             }));
       }
     });
