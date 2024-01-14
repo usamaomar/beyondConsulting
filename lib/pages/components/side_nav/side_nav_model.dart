@@ -8,6 +8,12 @@ class SideNavModel extends FlutterFlowModel<SideNavWidget> {
 
   // Stores action output result for [Backend Call - API (GetMyProjectsCreationApi)] action in SideNav widget.
   ApiCallResponse? apiResultoho;
+  // State field(s) for Switch widget.
+  bool? switchValue;
+  // Stores action output result for [Backend Call - API (ImAvailableApi)] action in Switch widget.
+  ApiCallResponse? apiResultv5n;
+  // Stores action output result for [Backend Call - API (ImAvailableApi)] action in Switch widget.
+  ApiCallResponse? apiResultpos;
 
   /// Initialization and disposal methods.
 

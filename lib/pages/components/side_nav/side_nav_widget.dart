@@ -173,6 +173,69 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                           ),
                                     ),
                                   ),
+                                  Expanded(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Switch.adaptive(
+                                          value: _model.switchValue ??= true,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                _model.switchValue = newValue);
+                                            if (newValue) {
+                                              setState(() {
+                                                FFAppState().ImAvailable = true;
+                                              });
+                                              _model.apiResultv5n =
+                                                  await ImAvailableApiCall.call(
+                                                token: FFAppState()
+                                                    .tokenModelAppState
+                                                    .token,
+                                                message: 'ImAvailable',
+                                              );
+                                              if ((_model.apiResultv5n
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                Navigator.pop(context);
+                                              }
+
+                                              setState(() {});
+                                            } else {
+                                              setState(() {
+                                                FFAppState().ImAvailable =
+                                                    false;
+                                              });
+                                              _model.apiResultpos =
+                                                  await ImAvailableApiCall.call(
+                                                token: FFAppState()
+                                                    .tokenModelAppState
+                                                    .token,
+                                                message: 'I\'m busy',
+                                              );
+                                              if ((_model.apiResultpos
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                Navigator.pop(context);
+                                              }
+
+                                              setState(() {});
+                                            }
+                                          },
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .beyondBlueColor,
+                                          activeTrackColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent1,
+                                          inactiveTrackColor: const Color(0xFFEA2903),
+                                          inactiveThumbColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
