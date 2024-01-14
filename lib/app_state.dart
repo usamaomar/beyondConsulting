@@ -285,6 +285,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _fcm = prefs.getString('ff_fcm') ?? _fcm;
     });
+    _safeInit(() {
+      _ImAvailable = prefs.getBool('ff_ImAvailable') ?? _ImAvailable;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -964,6 +967,13 @@ class FFAppState extends ChangeNotifier {
   set fcm(String value) {
     _fcm = value;
     prefs.setString('ff_fcm', value);
+  }
+
+  bool _ImAvailable = false;
+  bool get ImAvailable => _ImAvailable;
+  set ImAvailable(bool value) {
+    _ImAvailable = value;
+    prefs.setBool('ff_ImAvailable', value);
   }
 }
 

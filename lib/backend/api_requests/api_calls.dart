@@ -786,6 +786,35 @@ class AskForHelpApiCall {
   }
 }
 
+class ImAvailableApiCall {
+  static Future<ApiCallResponse> call({
+    String? message = '',
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "message": "$message"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'ImAvailableApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Teams/ImAvailable',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class SetNotificationTokenApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
