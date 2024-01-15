@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -14,12 +15,14 @@ class ReadMemberCpacityWidget extends StatefulWidget {
     required this.projectType,
     required this.imagePath,
     required this.currentCapacity,
+    this.listOfProjects,
   });
 
   final String? memberName;
   final String? projectType;
   final String? imagePath;
   final int? currentCapacity;
+  final List<ProjectModelStruct>? listOfProjects;
 
   @override
   _ReadMemberCpacityWidgetState createState() =>
@@ -144,7 +147,7 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -167,6 +170,41 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
                         fontWeight: FontWeight.w500,
                         useGoogleFonts: false,
                       ),
+                ),
+              ),
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  child: Container(
+                    height: 50.0,
+                    decoration: const BoxDecoration(),
+                    child: Builder(
+                      builder: (context) {
+                        final lia = widget.listOfProjects
+                                ?.map((e) => e)
+                                .toList()
+                                .toList() ??
+                            [];
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: lia.length,
+                          itemBuilder: (context, liaIndex) {
+                            final liaItem = lia[liaIndex];
+                            return Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 15.0, 0.0),
+                              child: Text(
+                                liaItem.name,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ],
