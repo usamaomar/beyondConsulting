@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,6 +20,7 @@ class MemberModelStruct extends BaseStruct {
     int? accessRole,
     int? fullCapacity,
     int? currentCapacity,
+    List<ProjectModelStruct>? projects,
   })  : _id = id,
         _name = name,
         _picture = picture,
@@ -34,7 +34,8 @@ class MemberModelStruct extends BaseStruct {
         _profilePictureDataUrl = profilePictureDataUrl,
         _accessRole = accessRole,
         _fullCapacity = fullCapacity,
-        _currentCapacity = currentCapacity;
+        _currentCapacity = currentCapacity,
+        _projects = projects;
 
   // "id" field.
   String? _id;
@@ -125,6 +126,14 @@ class MemberModelStruct extends BaseStruct {
       _currentCapacity = currentCapacity + amount;
   bool hasCurrentCapacity() => _currentCapacity != null;
 
+  // "projects" field.
+  List<ProjectModelStruct>? _projects;
+  List<ProjectModelStruct> get projects => _projects ?? const [];
+  set projects(List<ProjectModelStruct>? val) => _projects = val;
+  void updateProjects(Function(List<ProjectModelStruct>) updateFn) =>
+      updateFn(_projects ??= []);
+  bool hasProjects() => _projects != null;
+
   static MemberModelStruct fromMap(Map<String, dynamic> data) =>
       MemberModelStruct(
         id: data['id'] as String?,
@@ -141,6 +150,10 @@ class MemberModelStruct extends BaseStruct {
         accessRole: castToType<int>(data['accessRole']),
         fullCapacity: castToType<int>(data['fullCapacity']),
         currentCapacity: castToType<int>(data['currentCapacity']),
+        projects: getStructList(
+          data['projects'],
+          ProjectModelStruct.fromMap,
+        ),
       );
 
   static MemberModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -162,6 +175,7 @@ class MemberModelStruct extends BaseStruct {
         'accessRole': _accessRole,
         'fullCapacity': _fullCapacity,
         'currentCapacity': _currentCapacity,
+        'projects': _projects?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -221,6 +235,11 @@ class MemberModelStruct extends BaseStruct {
         'currentCapacity': serializeParam(
           _currentCapacity,
           ParamType.int,
+        ),
+        'projects': serializeParam(
+          _projects,
+          ParamType.DataStruct,
+          true,
         ),
       }.withoutNulls;
 
@@ -296,6 +315,12 @@ class MemberModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        projects: deserializeStructParam<ProjectModelStruct>(
+          data['projects'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: ProjectModelStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -303,6 +328,7 @@ class MemberModelStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is MemberModelStruct &&
         id == other.id &&
         name == other.name &&
@@ -317,7 +343,8 @@ class MemberModelStruct extends BaseStruct {
         profilePictureDataUrl == other.profilePictureDataUrl &&
         accessRole == other.accessRole &&
         fullCapacity == other.fullCapacity &&
-        currentCapacity == other.currentCapacity;
+        currentCapacity == other.currentCapacity &&
+        listEquality.equals(projects, other.projects);
   }
 
   @override
@@ -335,7 +362,8 @@ class MemberModelStruct extends BaseStruct {
         profilePictureDataUrl,
         accessRole,
         fullCapacity,
-        currentCapacity
+        currentCapacity,
+        projects
       ]);
 }
 
