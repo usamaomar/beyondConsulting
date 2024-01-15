@@ -682,14 +682,14 @@ String convertFromIdToTextClientSatisfaction(
 }
 
 String convertDateFromStamp(String inputDate) {
-  DateTime dateTime = DateTime.parse(inputDate);
+  DateTime dateTime = DateTime.parse(inputDate.replaceAll(' ', '+'));
   String formattedDate = DateFormat('d / M / y').format(dateTime);
   return formattedDate;
 }
 
 List<DateTime> convertToDateTimeList(List<MilestoneModelStruct> milestones) {
   return milestones.map((milestone) {
-    var date = DateTime.parse(milestone.endDate);
+    var date = DateTime.parse(milestone.endDate.replaceAll(' ', '+'));
     DateTime currentDate = DateTime(date.year, date.month, date.day);
     return currentDate;
   }).toList();

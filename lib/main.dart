@@ -1,4 +1,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +12,17 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:universal_html/js.dart';
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  try {
+    if (message.notification != null &&
+        message.notification?.title != null &&
+        message.notification?.body != null) {}
+  } catch (ex) {
+    ex.toString();
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +30,7 @@ void main() async {
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -39,7 +55,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
-
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
 
@@ -50,15 +65,50 @@ class _MyAppState extends State<MyApp> {
       FirebaseMessaging.instance.getToken().then((fbToken) {
         FFAppState().fcm = fbToken ?? 'null';
       });
+      handleInAppMessage();
     });
-    messageListener(context);
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
   }
 
+  void handleInAppMessage() {
+    FirebaseMessaging.instance.getInitialMessage().then((message) => {
+          if (message != null) {_firebaseMessagingInAppHandler(message)}
+        });
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      _firebaseMessagingInAppHandler(message);
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      _firebaseMessagingInAppHandler(message);
+    });
+  }
+
+  Future<void> _firebaseMessagingInAppHandler(RemoteMessage message) async {
+    try {
+      if (message.notification != null &&
+          message.notification?.title != null &&
+          message.notification?.body != null) {
+        showNotification(message.notification);
+      }
+    } catch (ex) {
+      ex.toString();
+    }
+  }
+
+  void showNotification(RemoteNotification? notification) async {
+    try {
+      Fluttertoast.showToast(
+          msg: notification?.body ?? '',
+          toastLength: Toast.LENGTH_LONG,
+          backgroundColor: Colors.white,
+          textColor: Colors.black87);
+    } catch (ex) {
+      ex.toString();
+    }
+  }
+
   Future<void> getPermission() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
-
     NotificationSettings settings = await messaging.requestPermission(
       alert: true,
       announcement: false,
@@ -68,8 +118,6 @@ class _MyAppState extends State<MyApp> {
       provisional: false,
       sound: true,
     );
-
-    print('User granted permission: ${settings.authorizationStatus}');
   }
 
   void messageListener(BuildContext context) {
@@ -78,27 +126,24 @@ class _MyAppState extends State<MyApp> {
       print('Message data: ${message.data}');
       final notification = message.notification;
       if (notification != null) {
-        showDialog(
-            context: context,
-            builder: ((BuildContext context) {
-              return AlertDialog(
-                  title: Text('${notification.title}'),
-                  content:  Text('${notification.body}'),
-                  actions: <Widget>[
-                    InkWell(
-                      child: Text('Close'),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],);
-            }));
+        // showDialog(
+        //     context: context,
+        //     builder: ((BuildContext context) {
+        //       return AlertDialog(
+        //           title: Text('${notification.title}'),
+        //           content:  Text('${notification.body}'),
+        //           actions: <Widget>[
+        //             InkWell(
+        //               child: Text('Close'),
+        //               onTap: () {
+        //                 Navigator.of(context).pop();
+        //               },
+        //             )
+        //           ],);
+        //     }));
       }
     });
   }
-
-
-
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
@@ -141,7 +186,9 @@ class _MyAppState extends State<MyApp> {
 class DynamicDialog extends StatefulWidget {
   final title;
   final body;
+
   DynamicDialog({this.title, this.body});
+
   @override
   _DynamicDialogState createState() => _DynamicDialogState();
 }

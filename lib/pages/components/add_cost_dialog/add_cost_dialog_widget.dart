@@ -1024,10 +1024,10 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                     ..duration = double.tryParse(
                                         _model.textController5.text)
                                     ..durationUnit = _model.textController6.text
-                                    ..costType = functions.getTypeofExpensesiD(
-                                        FFLocalizations.of(context)
-                                            .languageCode,
-                                        _model.dropDownValue!),
+                                    // ..costType = functions.getTypeofExpensesiD(
+                                    //     FFLocalizations.of(context)
+                                    //         .languageCode,
+                                    //     _model.dropDownValue!),
                                 );
                               });
                               setState(() {

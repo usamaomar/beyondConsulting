@@ -67,11 +67,11 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
         _model.textController6?.text =
             FFAppState().SelectedCostModel.durationUnit;
       });
-      setState(() {
-        _model.dropDownValueController?.value = functions.getIdByExpensesName(
-            FFLocalizations.of(context).languageCode,
-            FFAppState().SelectedCostModel.costType);
-      });
+      // setState(() {
+      //   _model.dropDownValueController?.value = functions.getIdByExpensesName(
+      //       FFLocalizations.of(context).languageCode,
+      //       FFAppState().SelectedCostModel.costType);
+      // });
       setState(() {});
     });
 
@@ -1068,10 +1068,10 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                                     ..duration = double.tryParse(
                                         _model.textController5.text)
                                     ..durationUnit = _model.textController6.text
-                                    ..costType = functions.getTypeofExpensesiD(
-                                        FFLocalizations.of(context)
-                                            .languageCode,
-                                        _model.dropDownValue!),
+                                    // ..costType = functions.getTypeofExpensesiD(
+                                    //     FFLocalizations.of(context)
+                                    //         .languageCode,
+                                    //     _model.dropDownValue!),
                                 );
                               });
                               setState(() {

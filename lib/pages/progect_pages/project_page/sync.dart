@@ -41,16 +41,29 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
     data = [
       BarChartModelStruct(
           lable: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].lable : '',
-          number: widget.listOfTotal[0].number,
-          color: widget.listOfTotal[0].color),
+          number:widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].number : 0,
+          color: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].color : Colors.transparent
+      ),
       BarChartModelStruct(
-          lable: widget.listOfSpent[0].lable,
-          number: widget.listOfSpent[0].number,
-          color: widget.listOfSpent[0].color),
+
+
+          lable: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].lable : '',
+          number:widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].number : 0,
+          color: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].color : Colors.transparent
+         ),
       BarChartModelStruct(
-          lable: widget.listOfRemainingBudget[0].lable,
-          number: widget.listOfRemainingBudget[0].number,
-          color: widget.listOfRemainingBudget[0].color)
+
+
+          lable: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].lable : '',
+          number:widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].number : 0,
+          color: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].color : Colors.transparent
+
+
+          // lable: widget.listOfRemainingBudget[0].lable,
+          // number: widget.listOfRemainingBudget[0].number,
+          // color: widget.listOfRemainingBudget[0].color
+
+      )
     ];
     super.initState();
   }
