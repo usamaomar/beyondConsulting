@@ -1119,7 +1119,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                 40.0,
                                                                             progress:
                                                                                 valueOrDefault<double>(
-                                                                              listOfProjectsItem.progress,
+                                                                              listOfProjectsItem.progress * 100,
                                                                               0.0,
                                                                             ),
                                                                             color:
@@ -1675,20 +1675,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      '/ ${functions.calculateRatio(valueOrDefault<double>(
-                                                            FFAppState()
-                                                                .ProjectStatisticsModel
-                                                                .profit,
-                                                            0.0,
-                                                          ), valueOrDefault<double>(
-                                                            FFAppState()
-                                                                .ProjectStatisticsModel
-                                                                .profitPercentage,
-                                                            0.0,
-                                                          )).toString()}${FFLocalizations.of(context).getVariableText(
-                                                        enText: 'K',
-                                                        arText: 'الف',
-                                                      )}',
+                                                      '/ ${FFAppState().ProjectStatisticsModel.profitPercentage} %',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1938,20 +1925,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             ),
                                                       ),
                                                       Text(
-                                                        '/ ${functions.calculateRatio(valueOrDefault<double>(
-                                                              FFAppState()
-                                                                  .ProjectStatisticsModel
-                                                                  .profit,
-                                                              0.0,
-                                                            ), valueOrDefault<double>(
-                                                              FFAppState()
-                                                                  .ProjectStatisticsModel
-                                                                  .profitPercentage,
-                                                              0.0,
-                                                            )).toString()}${FFLocalizations.of(context).getVariableText(
-                                                          enText: 'K',
-                                                          arText: 'الف',
-                                                        )}',
+                                                        '/ ${FFAppState().ProjectStatisticsModel.profitPercentage} %',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium

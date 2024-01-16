@@ -56,7 +56,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             enText: 'Total',
             arText: 'المجموع',
           ),
-          number: 1,
+          number:  _model.projectModel?.costBudget.toInt(),
           color: const Color(0xFFFFD600),
         ));
         _model.addToSpentLableList(BarChartModelStruct(
@@ -64,7 +64,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             enText: 'Spent',
             arText: 'أنفق',
           ),
-          number: 5,
+          number:  _model.projectModel?.approvedCost.toInt(),
           color: const Color(0xFF2C8CB6),
         ));
         _model.addToRemainingLableList(BarChartModelStruct(
@@ -72,7 +72,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
             enText: 'Remaining',
             arText: 'متبقي',
           ),
-          number: 7,
+          number:  (  (_model.projectModel
+              ?.costBudget ?? 0 ) - (_model.projectModel?.approvedCost ?? 0) ).toInt(),
           color: const Color(0xFFC8C9CC),
         ));
       });
@@ -936,7 +937,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                   child: Text(
                                                     '${valueOrDefault<String>(
                                                       _model.projectModel
-                                                          ?.approvedPricing
+                                                          ?.costBudget
                                                           .toString(),
                                                       '0',
                                                     )} ${FFLocalizations.of(context).getVariableText(
@@ -1053,8 +1054,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
                                                     valueOrDefault<String>(
-                                                      _model.projectModel
-                                                            ?.profit
+                                                      (  (_model.projectModel
+                                                          ?.costBudget ?? 0 ) - (_model.projectModel?.approvedCost ?? 0) )
                                                             .toString(),
                                                         '0',
                                                       ),

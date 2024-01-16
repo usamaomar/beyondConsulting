@@ -197,6 +197,7 @@ List<dynamic> convertMilestoneModelStruct(
 
   for (MilestoneModelStruct milestone in milestonesList) {
     Map<String, dynamic> jsonMember = {
+      "id":milestone.id,
       "title": milestone.title,
       "description": milestone.description,
       "amount": milestone.amount,
@@ -252,6 +253,7 @@ List<dynamic> convertCostModelStruct(List<CostModelStruct> costsList) {
 
   for (CostModelStruct cost in costsList) {
     Map<String, dynamic> jsonMember = {
+      "id":cost.id,
       "title": cost.title,
       "category": cost.category,
       "notes": cost.notes,

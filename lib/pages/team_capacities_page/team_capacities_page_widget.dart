@@ -269,6 +269,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                         currentCapacity:
                                             listOfLocalSeniorsListItem
                                                 .currentCapacity,
+                                        listOfProjects: listOfLocalSeniorsListItem.projects,
                                       ),
                                     ),
                                   );
@@ -363,6 +364,7 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                             .profilePictureDataUrl,
                                         currentCapacity: listOfLocalMedsListItem
                                             .currentCapacity,
+                                        listOfProjects: listOfLocalMedsListItem.projects,
                                       ),
                                     ),
                                   );
@@ -458,6 +460,8 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                         currentCapacity:
                                             listOfLocalAssociatesListItem
                                                 .currentCapacity,
+                                        listOfProjects: listOfLocalAssociatesListItem.projects,
+
                                       ),
                                     ),
                                   );
@@ -579,6 +583,8 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                               .profilePictureDataUrl,
                                           currentCapacity:
                                               sensList1Item.currentCapacity,
+                                          listOfProjects: sensList1Item.projects,
+
                                         ),
                                       ),
                                     ),
@@ -662,6 +668,8 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                               .profilePictureDataUrl,
                                           currentCapacity:
                                               sensList2Item.currentCapacity,
+                                          listOfProjects: sensList2Item.projects,
+
                                         ),
                                       ),
                                     ),
@@ -745,6 +753,8 @@ class _TeamCapacitiesPageWidgetState extends State<TeamCapacitiesPageWidget> {
                                               .profilePictureDataUrl,
                                           currentCapacity:
                                               sensList4Item.currentCapacity,
+                                          listOfProjects: sensList4Item.projects,
+
                                         ),
                                       ),
                                     ),

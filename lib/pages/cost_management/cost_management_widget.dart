@@ -581,9 +581,7 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          FFLocalizations.of(context).getText(
-                                            'aoyg0qx6' /* Collaborators */,
-                                          ),
+                                          'Approved Pricing',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -674,9 +672,11 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                               ),
                                         ),
                                         Text(
-                                          FFLocalizations.of(context).getText(
-                                            '18qqdvdt' /* Collaborators */,
-                                          ),
+                                            '${valueOrDefault<String>(
+                                              _model.projectModel?.profitPercentage
+                                                  .toString(),
+                                              '0',
+                                            )} %',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

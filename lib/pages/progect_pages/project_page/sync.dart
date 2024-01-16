@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import 'package:flutter/scheduler.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -38,34 +39,29 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
 
   @override
   void initState() {
-    data = [
-      BarChartModelStruct(
-          lable: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].lable : '',
-          number:widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].number : 0,
-          color: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].color : Colors.transparent
-      ),
-      BarChartModelStruct(
-
-
-          lable: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].lable : '',
-          number:widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].number : 0,
-          color: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].color : Colors.transparent
-         ),
-      BarChartModelStruct(
-
-
-          lable: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].lable : '',
-          number:widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].number : 0,
-          color: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].color : Colors.transparent
-
-
-          // lable: widget.listOfRemainingBudget[0].lable,
-          // number: widget.listOfRemainingBudget[0].number,
-          // color: widget.listOfRemainingBudget[0].color
-
-      )
-    ];
     super.initState();
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        data = [
+          BarChartModelStruct(
+              lable: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].lable : '',
+              number:widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].number : 0,
+              color: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].color : Colors.transparent
+          ),
+          BarChartModelStruct(
+              lable: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].lable : '',
+              number:widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].number : 0,
+              color: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].color : Colors.transparent
+          ),
+          BarChartModelStruct(
+              lable: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].lable : '',
+              number:widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].number : 0,
+              color: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].color : Colors.transparent
+          )
+        ];
+      });
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -574,6 +574,7 @@ class _AllTeamCapacitiesPageWidgetState
                                                       currentCapacity:
                                                           listOfLocalSeniorsListItem
                                                               .currentCapacity,
+                                                          listOfProjects: listOfLocalSeniorsListItem.projects,
                                                     ),
                                                   ),
                                                 );
@@ -705,7 +706,9 @@ class _AllTeamCapacitiesPageWidgetState
                                                       currentCapacity:
                                                           listOfLocalMedsListItem
                                                               .currentCapacity,
-                                                    ),
+                                                          listOfProjects: listOfLocalMedsListItem.projects,
+
+                                                        ),
                                                   ),
                                                 );
                                               },
@@ -838,7 +841,9 @@ class _AllTeamCapacitiesPageWidgetState
                                                       currentCapacity:
                                                           listOfLocalAssociatesListItem
                                                               .currentCapacity,
-                                                    ),
+                                                          listOfProjects: listOfLocalAssociatesListItem.projects,
+
+                                                        ),
                                                   ),
                                                 );
                                               },

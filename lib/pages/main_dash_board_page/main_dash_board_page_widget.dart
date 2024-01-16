@@ -631,7 +631,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 30.0, 0.0, 20.0),
+                                      30.0, 20.0, 0.0, 20.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'u8919gvw' /* Collaborators */,
