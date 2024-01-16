@@ -157,9 +157,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         _model.apiResultrd4 =
-                            await GetFinancialBudgetReportApiCall.call(
+                            await GetFinancialBudgetTemplateApiCall.call(
                           token: FFAppState().tokenModelAppState.token,
-                          year: _model.currentYear,
+                          query: _model.currentYear,
                         );
                         if ((_model.apiResultrd4?.succeeded ?? true)) {
                           await convertAndDownload(

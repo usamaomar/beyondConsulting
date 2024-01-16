@@ -27,7 +27,7 @@ class FinancialPageModel extends FlutterFlowModel<FinancialPageWidget> {
   ApiCallResponse? apiResultrqd24;
   // Stores action output result for [Backend Call - API (GetFinancialResultsExcelApi)] action in Button widget.
   ApiCallResponse? apiResultrqd245;
-  // Stores action output result for [Backend Call - API (GetFinancialBudgetReportApi)] action in Card widget.
+  // Stores action output result for [Backend Call - API (GetFinancialBudgetTemplateApi)] action in Card widget.
   ApiCallResponse? apiResultrd4;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
