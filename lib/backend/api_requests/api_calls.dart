@@ -690,6 +690,38 @@ class GetMyProjectTrackersApiCall {
       ) as List?;
 }
 
+class GetFinancialBudgetTemplateApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? query = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialBudgetTemplateApi',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Reports/GetFinancialBudgetTemplate',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'query': query,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? projectsJsonArray(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
 class UploadFileCall {
   static Future<ApiCallResponse> call({
     FFUploadedFile? file,
@@ -705,6 +737,34 @@ class UploadFileCall {
       },
       params: {
         'file': file,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateYearBudgetApiCall {
+  static Future<ApiCallResponse> call({
+    FFUploadedFile? file,
+    String? token = '',
+    String? year = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'UpdateYearBudgetApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Reports/UpdateYearBudget',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'file': file,
+        'year': year,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
