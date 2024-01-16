@@ -162,9 +162,12 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                           year: _model.currentYear,
                         );
                         if ((_model.apiResultrd4?.succeeded ?? true)) {
-                          setState(() {});
+                          await convertAndDownload(
+                            (_model.apiResultrd4
+                                ?.bodyText ??
+                                ''),
+                          );
                         }
-
                         setState(() {});
                       },
                       child: Card(
@@ -224,13 +227,13 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                           }
                         }
 
-                        _model.apiResultrd4 =
+                        _model.apiResultrd45 =
                             await UpdateYearBudgetApiCall.call(
                           token: FFAppState().tokenModelAppState.token,
                           year: _model.currentYear,
                           file: _model.uploadedLocalFile,
                         );
-                        if ((_model.apiResultrd4?.succeeded ?? true)) {
+                        if ((_model.apiResultrd45?.succeeded ?? true)) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
