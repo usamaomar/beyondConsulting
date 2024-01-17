@@ -1323,6 +1323,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Upload Invoice File',
       'ar': 'تحميل ملف الفاتورة',
     },
+    'iizkzmqw': {
+      'en': 'Invoice Status',
+      'ar': 'حالة الفاتورة',
+    },
+    '65drytq8': {
+      'en': 'NoInvoice',
+      'ar': '',
+    },
+    'kf3vx2d1': {
+      'en': 'NotIssued',
+      'ar': '',
+    },
+    '9csqbc02': {
+      'en': 'Requested',
+      'ar': '',
+    },
+    '583mcky9': {
+      'en': 'Invoiced',
+      'ar': '',
+    },
+    'n82kt5kq': {
+      'en': 'Please Invoice Status',
+      'ar': '',
+    },
+    'mk5ucc77': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
     'iwcw8i19': {
       'en': 'Update Only',
       'ar': 'التحديث فقط',
