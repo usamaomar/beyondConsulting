@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/pages/components/dialog_text_drop_douwn_list_component/dialog_text_drop_douwn_list_component_widget.dart';
 import 'update_milestone_dialog_widget.dart' show UpdateMilestoneDialogWidget;
 import 'package:flutter/material.dart';
@@ -38,6 +39,9 @@ class UpdateMilestoneDialogModel
 
   // Stores action output result for [Backend Call - API (UploadFile)] action in Container widget.
   ApiCallResponse? outUpload2;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
 
   /// Initialization and disposal methods.
 
