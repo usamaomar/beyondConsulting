@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -53,11 +55,22 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-
-      setState(() {
-        FFAppState().newProjectCreatedModel =
-            ProjectModelStruct.maybeFromMap(widget.projectLocalModel!)!;
-      });
+      _model.apiResultdkv = await GetMyProjectByIdApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+        id: getJsonField(
+          widget.projectLocalModel,
+          r'''$.id''',
+        ),
+      );
+      if ((_model.apiResultdkv?.succeeded ?? true)) {
+        setState(() {
+          FFAppState().newProjectCreatedModel =
+              ProjectModelStruct.maybeFromMap(getJsonField(
+                (_model.apiResultdkv?.jsonBody ?? ''),
+            r'''$.data''',
+          ))!;
+        });
+      }
 
       setState(() {
         FFAppState().newProjectCreatedModel.startDate.replaceAll(' ', '+');
@@ -75,18 +88,18 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
         _model.textController3?.text =
             FFAppState().newProjectCreatedModel.description;
       });
-      setState(() {
-        _model.projectModel =
-            ProjectModelStruct.maybeFromMap(widget.projectLocalModel);
-      });
 
       setState(() {
         FFAppState().listOfRols = functions
             .addMidsAndAssositsToRoleList(
-            FFAppState().newProjectCreatedModel.midManagers.toList(),
-            FFAppState().newProjectCreatedModel.associates.toList())
+                FFAppState().newProjectCreatedModel.midManagers.toList(),
+                FFAppState().newProjectCreatedModel.associates.toList())
             .toList()
             .cast<MemberModelStruct>();
+      });
+
+      setState(() {
+        _model.projectModel = FFAppState().newProjectCreatedModel;
       });
     });
 
@@ -1122,28 +1135,31 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                   20.0,
                                                                   0.0,
                                                                   20.0),
-                                                          child:  _model
-                                                              .projectModel !=null && _model
-                                                              .projectModel!
-                                                              .clientSatisfaction !=null ? Container(
-                                                            height: 100.0,
-                                                            decoration:
-                                                                const BoxDecoration(),
-                                                            child:
-                                                                wrapWithModel(
-                                                              model: _model
-                                                                  .updateSatisfactionComponentModel,
-                                                              updateCallback:
-                                                                  () => setState(
-                                                                      () {}),
-                                                              child:
-                                                                  UpdateSatisfactionComponentWidget(
-                                                                satisfactionType: _model
-                                                                    .projectModel!
-                                                                    .clientSatisfaction,
-                                                              ),
-                                                            ),
-                                                          ) : Container(),
+                                                          child: _model.projectModel !=
+                                                                      null &&
+                                                                  _model.projectModel!
+                                                                          .clientSatisfaction !=
+                                                                      null
+                                                              ? Container(
+                                                                  height: 100.0,
+                                                                  decoration:
+                                                                      const BoxDecoration(),
+                                                                  child:
+                                                                      wrapWithModel(
+                                                                    model: _model
+                                                                        .updateSatisfactionComponentModel,
+                                                                    updateCallback: () =>
+                                                                        setState(
+                                                                            () {}),
+                                                                    child:
+                                                                        UpdateSatisfactionComponentWidget(
+                                                                      satisfactionType: _model
+                                                                          .projectModel!
+                                                                          .clientSatisfaction,
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                              : Container(),
                                                         ),
                                                       ),
                                                     ),
@@ -1506,9 +1522,12 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 children: [
                                                                   Text(
                                                                     dataTableListItem
-                                                                        .firstName.isEmpty ?  dataTableListItem
-                                                                        .name : dataTableListItem
-                                                                        .firstName,
+                                                                            .firstName
+                                                                            .isEmpty
+                                                                        ? dataTableListItem
+                                                                            .name
+                                                                        : dataTableListItem
+                                                                            .firstName,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium,
@@ -2113,7 +2132,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 UpdateMilestoneDialogWidget(
-                                                                              index: localMilstoneListIndex,
+                                                                              id: localMilstoneListItem.id,
                                                                             ),
                                                                           ),
                                                                         );
@@ -2292,7 +2311,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 UpdateCostDialogWidget(
-                                                                              index: listOfCostesIndex,
+                                                                              id: listOfCostesItem.id,
                                                                             ),
                                                                           ),
                                                                         );
@@ -2744,8 +2763,10 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           .newProjectCreatedModel
                                                           .id,
                                                     );
-                                                      if ((_model.apiResultb91?.jsonBody['succeeded']) ==
-                                                          true){
+                                                    if ((_model.apiResultb91
+                                                                ?.jsonBody[
+                                                            'succeeded']) ==
+                                                        true) {
                                                       _model.apiResultoho =
                                                           await GetMyProjectsCreationApiCall
                                                               .call(
@@ -2781,13 +2802,22 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                             .canPop()) {
                                                           context.pop();
                                                         }
-                                                        context.pushReplacementNamed(
+                                                        context
+                                                            .pushReplacementNamed(
                                                           'ProjectPage',
                                                           queryParameters: {
                                                             'projectJaonModel':
                                                                 serializeParam(
                                                               FFAppState()
-                                                                  .projectListCreationAppState.where((element) => element.id == _model.projectModel?.id).first.toMap(),
+                                                                  .projectListCreationAppState
+                                                                  .where((element) =>
+                                                                      element
+                                                                          .id ==
+                                                                      _model
+                                                                          .projectModel
+                                                                          ?.id)
+                                                                  .first
+                                                                  .toMap(),
                                                               ParamType.JSON,
                                                             ),
                                                           }.withoutNulls,
@@ -2894,7 +2924,15 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
   }
 
   String convertDateFormatLocals(String inputDate) {
-    String result = inputDate.substring(0,10);
+    String result = inputDate.substring(0, 10);
     return '${result}T00:00:00.000Z';
   }
+
+  int genNum() {
+    Random random = Random();
+    int randomNumber = random.nextInt(9000) + 1000;
+    return randomNumber;
+  }
+
+
 }

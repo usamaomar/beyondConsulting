@@ -1818,7 +1818,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 UpdateMilestoneDialogWidget(
-                                                                              index: localMilstoneListIndex,
+                                                                              id: localMilstoneListItem.id,
                                                                             ),
                                                                           ),
                                                                         );
@@ -1996,7 +1996,7 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                                 : FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 UpdateCostDialogWidget(
-                                                                              index: listOfCostesIndex,
+                                                                                  id: listOfCostesItem.id,
                                                                             ),
                                                                           ),
                                                                         );

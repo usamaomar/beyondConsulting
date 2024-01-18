@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1073,6 +1075,16 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+
+                              setState(() {
+                                if (FFAppState().SelectedMileStoneModel.id == 0) {
+                                  FFAppState().SelectedMileStoneModel.id =
+                                      genNum();
+                                }
+                              });
+
+
+
                               setState(() {
                                 FFAppState().updateSelectedMileStoneModelStruct(
                                   (e) => e
@@ -1094,10 +1106,11 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     ),
                                 );
                               });
-                              _model.updatePage(() {
-                                FFAppState().SelectedMileStoneModel =
-                                    MilestoneModelStruct();
-                              });
+
+
+
+
+
                               Navigator.pop(context);
                             },
                             text: FFLocalizations.of(context).getText(
@@ -1137,4 +1150,11 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
       ),
     );
   }
+
+  int genNum() {
+    Random random = Random();
+    int randomNumber = random.nextInt(9000) + 1000;
+    return randomNumber;
+  }
+
 }

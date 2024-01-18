@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -14,10 +13,10 @@ export 'update_cost_dialog_model.dart';
 class UpdateCostDialogWidget extends StatefulWidget {
   const UpdateCostDialogWidget({
     super.key,
-    required this.index,
+    required this.id,
   });
 
-  final int? index;
+  final int? id;
 
   @override
   _UpdateCostDialogWidgetState createState() => _UpdateCostDialogWidgetState();
@@ -43,8 +42,11 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
         FFAppState().SelectedCostModel = CostModelStruct();
       });
       setState(() {
-        FFAppState().SelectedCostModel =
-            FFAppState().newProjectCreatedModel.costs[widget.index!];
+        FFAppState().newProjectCreatedModel.costs.map((e) => {
+          if(e.id == widget.id){
+            FFAppState().SelectedCostModel = e
+          }
+        }).toList();
       });
       setState(() {
         _model.textController1?.text = FFAppState().SelectedCostModel.title;
@@ -134,8 +136,8 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,8 +181,8 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: ListView(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -219,9 +221,8 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                                               ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -336,8 +337,8 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                            5.0, 0.0, 5.0, 0.0),
                                                     child: Text(
                                                       functions.convertDateString(
                                                           FFAppState()
@@ -951,103 +952,13 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                               ),
                             ],
                           ),
-                          if (false)
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 14.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'xw4rehmu' /* Type of Expenses */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: const Color(0xFF032734),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        FlutterFlowDropDown<String>(
-                                          controller: _model
-                                                  .dropDownValueController ??=
-                                              FormFieldController<String>(null),
-                                          options: [
-                                            FFLocalizations.of(context).getText(
-                                              'r4qbnecj' /* OPEX */,
-                                            ),
-                                            FFLocalizations.of(context).getText(
-                                              'kehnlegj' /* COGS */,
-                                            )
-                                          ],
-                                          onChanged: (val) => setState(
-                                              () => _model.dropDownValue = val),
-                                          width:
-                                              MediaQuery.sizeOf(context).width <
-                                                      400.0
-                                                  ? 140.0
-                                                  : 480.0,
-                                          height: 50.0,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'dk9htpvy' /* Please select... */,
-                                          ),
-                                          icon: Icon(
-                                            Icons.keyboard_arrow_down_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
-                                          ),
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          elevation: 2.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          borderWidth: 2.0,
-                                          borderRadius: 0.0,
-                                          margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 4.0, 10.0, 4.0),
-                                          hidesUnderline: true,
-                                          isSearchable: false,
-                                          isMultiSelect: false,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                         ],
                       ),
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        15.0, 0.0, 15.0, 20.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -1057,37 +968,82 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().updateSelectedCostModelStruct(
-                                  (e) => e
-                                    ..title = _model.textController1.text
-                                    ..category = _model.textController2.text
-                                    ..unitCost = double.tryParse(
-                                        _model.textController3.text)
-                                    ..unit = _model.textController4.text
-                                    ..duration = double.tryParse(
-                                        _model.textController5.text)
-                                    ..durationUnit = _model.textController6.text
-                                    // ..costType = functions.getTypeofExpensesiD(
-                                    //     FFLocalizations.of(context)
-                                    //         .languageCode,
-                                    //     _model.dropDownValue!),
+                              if (!isNotNumber(_model.textController5.text)) {
+                                if (!isNotNumber(_model.textController3.text)) {
+                                  setState(() {
+                                    FFAppState().updateSelectedCostModelStruct(
+                                        (e) => e
+                                          ..title = _model.textController1.text
+                                          ..category =
+                                              _model.textController2.text
+                                          ..unitCost = double.tryParse(
+                                              _model.textController3.text)
+                                          ..unit = _model.textController4.text
+                                          ..duration = double.tryParse(
+                                              _model.textController5.text)
+                                          ..durationUnit =
+                                              _model.textController6.text);
+                                    FFAppState().newProjectCreatedModel.costs.map((e) => {
+                                      if(e.id == FFAppState().SelectedCostModel.id){
+                                        e = FFAppState().SelectedCostModel
+                                      }
+                                    }).toList();
+                                  });
+                                  Navigator.pop(context);
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text(FFLocalizations.of(context)
+                                            .getVariableText(
+                                          enText: 'Error',
+                                          arText: 'مشكله',
+                                        )),
+                                        content: Text('Cost Must Be Number'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getVariableText(
+                                              enText: 'Ok',
+                                              arText: 'حسنا',
+                                            )),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                }
+                              } else {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text(FFLocalizations.of(context)
+                                          .getVariableText(
+                                        enText: 'Error',
+                                        arText: 'مشكله',
+                                      )),
+                                      content: Text('Duration Must Be Number'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext),
+                                          child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getVariableText(
+                                                enText: 'Ok',
+                                                arText: 'حسنا',
+                                              )),
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 );
-                              });
-                              setState(() {
-                                FFAppState().updateNewProjectCreatedModelStruct(
-                                  (e) => e
-                                    ..updateCosts(
-                                      (e) => e[widget.index!] =
-                                          FFAppState().SelectedCostModel,
-                                    ),
-                                );
-                              });
-                              FFAppState().update(() {
-                                FFAppState().SelectedCostModel =
-                                    CostModelStruct();
-                              });
-                              Navigator.pop(context);
+                              }
                             },
                             text: FFLocalizations.of(context).getText(
                               '3nm8kibz' /* Update */,
@@ -1125,5 +1081,13 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
         ),
       ),
     );
+  }
+
+  bool isNotNumber(String value) {
+    // Define a regular expression to match numeric values
+    final RegExp numericRegex = RegExp(r'^[0-9]+$');
+
+    // Check if the value does not match the numeric regex
+    return !numericRegex.hasMatch(value);
   }
 }

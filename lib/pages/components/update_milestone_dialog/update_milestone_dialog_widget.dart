@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -20,10 +22,10 @@ export 'update_milestone_dialog_model.dart';
 class UpdateMilestoneDialogWidget extends StatefulWidget {
   const UpdateMilestoneDialogWidget({
     super.key,
-    required this.index,
+    required this.id,
   });
 
-  final int? index;
+  final int? id;
 
   @override
   _UpdateMilestoneDialogWidgetState createState() =>
@@ -47,36 +49,45 @@ class _UpdateMilestoneDialogWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().SelectedMileStoneModel =
-            FFAppState().newProjectCreatedModel.milestones[widget.index!];
-      });
-      setState(() {
-        _model.startDate = functions
-            .parseDateString(FFAppState().SelectedMileStoneModel.startDate);
-        _model.endDate = _model.startDate;
-      });
-      setState(() {
-        _model.textController1?.text =
-            FFAppState().SelectedMileStoneModel.title;
-      });
-      setState(() {
-        _model.textController2?.text =
-            FFAppState().SelectedMileStoneModel.amount.toString();
 
-        final vals = FFAppState()
-            .mileStoneModelAppState
-            .where((element) =>
-                element.stateId == FFAppState().SelectedMileStoneModel.status)
-            .first;
+        setState(() {
+          FFAppState()
+              .newProjectCreatedModel
+              .milestones
+              .map((e) => {
+                    if (e.id == widget.id)
+                      {FFAppState().SelectedMileStoneModel = e}
+                  })
+              .toList();
+        });
+        setState(() {
+          _model.startDate = functions
+              .parseDateString(FFAppState().SelectedMileStoneModel.startDate);
+          _model.endDate = _model.startDate;
+        });
+        setState(() {
+          _model.textController1?.text =
+              FFAppState().SelectedMileStoneModel.title;
+        });
+        setState(() {
+          _model.textController2?.text =
+              FFAppState().SelectedMileStoneModel.amount.toString();
 
-        FFAppState().SelectedMileStoneModel.mileStoneStateModel = vals;
-        final rems = FFAppState().reminderIntList.firstWhere(
-            (element) =>
-                element == FFAppState().SelectedMileStoneModel.reminderOffset,
-            orElse: () => 0);
-        FFAppState().SelectedMileStoneModel.reminderModel = ReminderModelStruct(day: rems);
-      });
+          final vals = FFAppState()
+              .mileStoneModelAppState
+              .where((element) =>
+                  element.stateId == FFAppState().SelectedMileStoneModel.status)
+              .first;
+
+          FFAppState().SelectedMileStoneModel.mileStoneStateModel = vals;
+          final rems = FFAppState().reminderIntList.firstWhere(
+              (element) =>
+                  element == FFAppState().SelectedMileStoneModel.reminderOffset,
+              orElse: () => 0);
+          FFAppState().SelectedMileStoneModel.reminderModel =
+              ReminderModelStruct(day: rems);
+        });
+
     });
 
     _model.textController1 ??=
@@ -1248,23 +1259,37 @@ class _UpdateMilestoneDialogWidgetState
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              FFAppState().SelectedMileStoneModel.title = _model.textController1.text;
-                              FFAppState()
-                                      .SelectedMileStoneModel
-                                      .reminderOffset = FFAppState()
-                                      .SelectedMileStoneModel
-                                      .reminderModel
-                                      .day;
-                              FFAppState().SelectedMileStoneModel.amount =
-                                  double.parse(_model.textController2.text);
                               setState(() {
-                                FFAppState().updateNewProjectCreatedModelStruct(
-                                  (e) => e
-                                    ..updateMilestones(
-                                      (e) => e[widget.index!] =
-                                          FFAppState().SelectedMileStoneModel,
-                                    ),
-                                );
+                                FFAppState().SelectedMileStoneModel.title =
+                                    _model.textController1.text;
+                                FFAppState()
+                                        .SelectedMileStoneModel
+                                        .reminderOffset =
+                                    FFAppState()
+                                        .SelectedMileStoneModel
+                                        .reminderModel
+                                        .day;
+                                FFAppState().SelectedMileStoneModel.amount =
+                                    double.parse(_model.textController2.text);
+                                FFAppState().SelectedMileStoneModel.status =
+                                    FFAppState()
+                                        .SelectedMileStoneModel
+                                        .mileStoneStateModel
+                                        .stateId;
+                                FFAppState()
+                                    .newProjectCreatedModel
+                                    .milestones
+                                    .map((e) => {
+                                          if (e.id ==
+                                              FFAppState()
+                                                  .SelectedMileStoneModel
+                                                  .id)
+                                            {
+                                              e = FFAppState()
+                                                  .SelectedMileStoneModel
+                                            }
+                                        })
+                                    .toList();
                               });
                               Navigator.pop(context);
                             },
@@ -1304,6 +1329,12 @@ class _UpdateMilestoneDialogWidgetState
         ),
       ),
     );
+  }
+
+  int genNum() {
+    Random random = Random();
+    int randomNumber = random.nextInt(9000) + 1000;
+    return randomNumber;
   }
 
   int convertFromStringInvoiceStatusToInt(String invoiceStatus) {
