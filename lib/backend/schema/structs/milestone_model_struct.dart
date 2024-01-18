@@ -20,6 +20,7 @@ class MilestoneModelStruct extends BaseStruct {
     int? invoiceStatus,
     MileStoneStateModelStruct? mileStoneStateModel,
     ReminderModelStruct? reminderModel,
+    bool? isNew,
   })  : _id = id,
         _title = title,
         _description = description,
@@ -33,7 +34,8 @@ class MilestoneModelStruct extends BaseStruct {
         _invoiceUrl = invoiceUrl,
         _invoiceStatus = invoiceStatus,
         _mileStoneStateModel = mileStoneStateModel,
-        _reminderModel = reminderModel;
+        _reminderModel = reminderModel,
+        _isNew = isNew;
 
   // "id" field.
   int? _id;
@@ -137,6 +139,12 @@ class MilestoneModelStruct extends BaseStruct {
       updateFn(_reminderModel ??= ReminderModelStruct());
   bool hasReminderModel() => _reminderModel != null;
 
+  // "isNew" field.
+  bool? _isNew;
+  bool get isNew => _isNew ?? false;
+  set isNew(bool? val) => _isNew = val;
+  bool hasIsNew() => _isNew != null;
+
   static MilestoneModelStruct fromMap(Map<String, dynamic> data) =>
       MilestoneModelStruct(
         id: castToType<int>(data['id']),
@@ -154,6 +162,7 @@ class MilestoneModelStruct extends BaseStruct {
         mileStoneStateModel:
             MileStoneStateModelStruct.maybeFromMap(data['mileStoneStateModel']),
         reminderModel: ReminderModelStruct.maybeFromMap(data['reminderModel']),
+        isNew: data['isNew'] as bool?,
       );
 
   static MilestoneModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -175,6 +184,7 @@ class MilestoneModelStruct extends BaseStruct {
         'invoiceStatus': _invoiceStatus,
         'mileStoneStateModel': _mileStoneStateModel?.toMap(),
         'reminderModel': _reminderModel?.toMap(),
+        'isNew': _isNew,
       }.withoutNulls;
 
   @override
@@ -234,6 +244,10 @@ class MilestoneModelStruct extends BaseStruct {
         'reminderModel': serializeParam(
           _reminderModel,
           ParamType.DataStruct,
+        ),
+        'isNew': serializeParam(
+          _isNew,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -311,6 +325,11 @@ class MilestoneModelStruct extends BaseStruct {
           false,
           structBuilder: ReminderModelStruct.fromSerializableMap,
         ),
+        isNew: deserializeParam(
+          data['isNew'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -332,7 +351,8 @@ class MilestoneModelStruct extends BaseStruct {
         invoiceUrl == other.invoiceUrl &&
         invoiceStatus == other.invoiceStatus &&
         mileStoneStateModel == other.mileStoneStateModel &&
-        reminderModel == other.reminderModel;
+        reminderModel == other.reminderModel &&
+        isNew == other.isNew;
   }
 
   @override
@@ -350,7 +370,8 @@ class MilestoneModelStruct extends BaseStruct {
         invoiceUrl,
         invoiceStatus,
         mileStoneStateModel,
-        reminderModel
+        reminderModel,
+        isNew
       ]);
 }
 
@@ -369,6 +390,7 @@ MilestoneModelStruct createMilestoneModelStruct({
   int? invoiceStatus,
   MileStoneStateModelStruct? mileStoneStateModel,
   ReminderModelStruct? reminderModel,
+  bool? isNew,
 }) =>
     MilestoneModelStruct(
       id: id,
@@ -385,4 +407,5 @@ MilestoneModelStruct createMilestoneModelStruct({
       invoiceStatus: invoiceStatus,
       mileStoneStateModel: mileStoneStateModel ?? MileStoneStateModelStruct(),
       reminderModel: reminderModel ?? ReminderModelStruct(),
+      isNew: isNew,
     );
