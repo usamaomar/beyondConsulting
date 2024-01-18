@@ -23,14 +23,6 @@ class UpdateMilestoneDialogWidget extends StatefulWidget {
     required this.index,
   });
 
-  // public enum InvoiceStatus
-  // {
-  // NoInvoice = 0,
-  // NotIssued = 1,
-  // Requested = 2,
-  // Invoiced = 3
-  // }
-
   final int? index;
 
   @override
@@ -58,11 +50,6 @@ class _UpdateMilestoneDialogWidgetState
       setState(() {
         FFAppState().SelectedMileStoneModel =
             FFAppState().newProjectCreatedModel.milestones[widget.index!];
-        FFAppState().SelectedMileStoneModel.mileStoneStateModel = FFAppState()
-            .mileStoneModelAppState
-            .where((element) =>
-                element.stateId == FFAppState().SelectedMileStoneModel.status)
-            .first;
       });
       setState(() {
         _model.startDate = functions
@@ -76,6 +63,19 @@ class _UpdateMilestoneDialogWidgetState
       setState(() {
         _model.textController2?.text =
             FFAppState().SelectedMileStoneModel.amount.toString();
+
+        final vals = FFAppState()
+            .mileStoneModelAppState
+            .where((element) =>
+                element.stateId == FFAppState().SelectedMileStoneModel.status)
+            .first;
+
+        FFAppState().SelectedMileStoneModel.mileStoneStateModel = vals;
+        final rems = FFAppState().reminderIntList.firstWhere(
+            (element) =>
+                element == FFAppState().SelectedMileStoneModel.reminderOffset,
+            orElse: () => 0);
+        FFAppState().SelectedMileStoneModel.reminderModel = ReminderModelStruct(day: rems);
       });
     });
 
@@ -1185,15 +1185,32 @@ class _UpdateMilestoneDialogWidgetState
                                   '583mcky9' /* Invoiced */,
                                 )
                               ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue = val),
+                              //
+                              onChanged: (val) {
+                                setState(() {
+                                  _model.dropDownValue = val;
+                                  FFAppState()
+                                          .SelectedMileStoneModel
+                                          .invoiceStatus =
+                                      convertFromStringInvoiceStatusToInt(
+                                          val ?? '');
+                                });
+                              },
                               width: 300.0,
                               height: 50.0,
                               textStyle:
                                   FlutterFlowTheme.of(context).bodyMedium,
-                              hintText: FFLocalizations.of(context).getText(
-                                'n82kt5kq' /* Please Invoice Status */,
-                              ),
+                              hintText: FFAppState()
+                                          .SelectedMileStoneModel
+                                          .invoiceStatus ==
+                                      0
+                                  ? FFLocalizations.of(context).getText(
+                                      'n82kt5kq' /* Please Invoice Status */,
+                                    )
+                                  : cconvertFromIntInvoiceStateToString(
+                                      FFAppState()
+                                          .SelectedMileStoneModel
+                                          .invoiceStatus),
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
                                 color:
@@ -1231,9 +1248,15 @@ class _UpdateMilestoneDialogWidgetState
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              FFAppState().SelectedMileStoneModel.title = _model.textController1.text;
+                              FFAppState()
+                                      .SelectedMileStoneModel
+                                      .reminderOffset = FFAppState()
+                                      .SelectedMileStoneModel
+                                      .reminderModel
+                                      .day;
                               FFAppState().SelectedMileStoneModel.amount =
                                   double.parse(_model.textController2.text);
-
                               setState(() {
                                 FFAppState().updateNewProjectCreatedModelStruct(
                                   (e) => e
@@ -1281,6 +1304,30 @@ class _UpdateMilestoneDialogWidgetState
         ),
       ),
     );
+  }
+
+  int convertFromStringInvoiceStatusToInt(String invoiceStatus) {
+    if (invoiceStatus == 'NoInvoice') {
+      return 0;
+    } else if (invoiceStatus == 'NotIssued') {
+      return 1;
+    } else if (invoiceStatus == 'Requested') {
+      return 2;
+    } else {
+      return 3;
+    }
+  }
+
+  String cconvertFromIntInvoiceStateToString(int invoiceStatus) {
+    if (invoiceStatus == 0) {
+      return 'NoInvoice';
+    } else if (invoiceStatus == 1) {
+      return 'NotIssued';
+    } else if (invoiceStatus == 2) {
+      return 'Requested';
+    } else {
+      return 'Invoiced';
+    }
   }
 
   String? getPath() {

@@ -7,6 +7,12 @@
     <list default="true" id="ca9ec24d-ddfd-478f-b587-0a22da5ac54c" name="Changes" comment="c">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_flow/custom_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_flow/custom_functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/mile_stone_state_list_dialog/mile_stone_state_list_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/mile_stone_state_list_dialog/mile_stone_state_list_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/update_cost_dialog/update_cost_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/update_cost_dialog/update_cost_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,13 +181,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart</url>
-          <line>2720</line>
-          <option name="timeStamp" value="86" />
+          <line>2679</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart</url>
-          <line>2726</line>
-          <option name="timeStamp" value="88" />
+          <line>83</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart</url>
+          <line>51</line>
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -78,8 +78,8 @@ class _MileStoneStateListDialogWidgetState
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,6 +143,11 @@ class _MileStoneStateListDialogWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 setState(() {
+                                  FFAppState().SelectedMileStoneModel.status =
+                                      FFAppState()
+                                          .SelectedMileStoneModel
+                                          .mileStoneStateModel
+                                          .stateId;
                                   FFAppState()
                                       .updateSelectedMileStoneModelStruct(
                                     (e) => e
@@ -171,8 +176,8 @@ class _MileStoneStateListDialogWidgetState
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 15.0, 20.0, 15.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(20.0, 15.0, 20.0, 15.0),
                                         child: Text(
                                           FFLocalizations.of(context)
                                               .getVariableText(

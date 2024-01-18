@@ -53,18 +53,17 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().listOfRols = functions
-            .addMidsAndAssositsToRoleList(
-                FFAppState().newProjectCreatedModel.midManagers.toList(),
-                FFAppState().newProjectCreatedModel.associates.toList())
-            .toList()
-            .cast<MemberModelStruct>();
-      });
+
       setState(() {
         FFAppState().newProjectCreatedModel =
             ProjectModelStruct.maybeFromMap(widget.projectLocalModel!)!;
       });
+
+      setState(() {
+        FFAppState().newProjectCreatedModel.startDate.replaceAll(' ', '+');
+        FFAppState().newProjectCreatedModel.endDate.replaceAll(' ', '+');
+      });
+
       setState(() {
         _model.textController1?.text = FFAppState().newProjectCreatedModel.name;
       });
@@ -79,6 +78,15 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
       setState(() {
         _model.projectModel =
             ProjectModelStruct.maybeFromMap(widget.projectLocalModel);
+      });
+
+      setState(() {
+        FFAppState().listOfRols = functions
+            .addMidsAndAssositsToRoleList(
+            FFAppState().newProjectCreatedModel.midManagers.toList(),
+            FFAppState().newProjectCreatedModel.associates.toList())
+            .toList()
+            .cast<MemberModelStruct>();
       });
     });
 
@@ -1498,6 +1506,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                 children: [
                                                                   Text(
                                                                     dataTableListItem
+                                                                        .firstName.isEmpty ?  dataTableListItem
+                                                                        .name : dataTableListItem
                                                                         .firstName,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -2771,7 +2781,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                             .canPop()) {
                                                           context.pop();
                                                         }
-                                                        context.pushNamed(
+                                                        context.pushReplacementNamed(
                                                           'ProjectPage',
                                                           queryParameters: {
                                                             'projectJaonModel':

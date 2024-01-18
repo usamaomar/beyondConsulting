@@ -276,6 +276,8 @@ String convertDateString(String dateString) {
     return '----/--/--';
   }
 
+  dateString = dateString.replaceAll(' ', '+');
+
   try {
     DateTime dateTime = DateTime.parse(dateString);
     String formattedDate = DateFormat('yyyy/MM/dd').format(dateTime);
