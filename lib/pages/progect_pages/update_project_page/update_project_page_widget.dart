@@ -80,6 +80,16 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
         _model.projectModel =
             ProjectModelStruct.maybeFromMap(widget.projectLocalModel);
       });
+      _model.apiResultdkv = await GetMyProjectByIdApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+        id: getJsonField(
+          widget.projectLocalModel,
+          r'''$.id''',
+        ),
+      );
+      if ((_model.apiResultdkv?.succeeded ?? true)) {
+        setState(() {});
+      }
     });
 
     _model.textController1 ??= TextEditingController();

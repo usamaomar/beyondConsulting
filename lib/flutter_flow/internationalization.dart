@@ -1347,7 +1347,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please Invoice Status',
       'ar': '',
     },
-    'mk5ucc77': {
+    '2xodtcf1': {
       'en': 'Search for an item...',
       'ar': '',
     },
