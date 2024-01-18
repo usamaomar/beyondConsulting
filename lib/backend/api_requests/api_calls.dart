@@ -200,6 +200,31 @@ class GetMyProjectsApiCall {
       ) as List?;
 }
 
+class GetMyProjectByIdApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    int? id,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetMyProjectByIdApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetProjectById',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'id': id,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class GetProjectStatisticsApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
