@@ -1075,17 +1075,26 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                               0.0, 0.0, 0.0, 15.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-
                               setState(() {
                                 if (FFAppState().SelectedMileStoneModel.id == 0) {
                                   FFAppState().SelectedMileStoneModel.id =
                                       genNum();
+                                  FFAppState().SelectedMileStoneModel.isNew = true;
                                 }
                               });
-
-
-
                               setState(() {
+                                FFAppState()
+                                    .SelectedMileStoneModel
+                                    .reminderOffset =
+                                    FFAppState()
+                                        .SelectedMileStoneModel
+                                        .reminderModel
+                                        .day;
+                                FFAppState().SelectedMileStoneModel.status =
+                                    FFAppState()
+                                        .SelectedMileStoneModel
+                                        .mileStoneStateModel
+                                        .stateId;
                                 FFAppState().updateSelectedMileStoneModelStruct(
                                   (e) => e
                                     ..title = _model.textController1.text
@@ -1106,11 +1115,6 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                     ),
                                 );
                               });
-
-
-
-
-
                               Navigator.pop(context);
                             },
                             text: FFLocalizations.of(context).getText(

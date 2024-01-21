@@ -66,7 +66,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
         setState(() {
           FFAppState().newProjectCreatedModel =
               ProjectModelStruct.maybeFromMap(getJsonField(
-                (_model.apiResultdkv?.jsonBody ?? ''),
+            (_model.apiResultdkv?.jsonBody ?? ''),
             r'''$.data''',
           ))!;
         });
@@ -1333,81 +1333,6 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                         ],
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Builder(
-                                            builder: (context) => Padding(
-                                              padding:
-                                                  const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await showDialog(
-                                                    barrierColor:
-                                                        const Color(0x4F000000),
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child:
-                                                              const UpdatePersonalsTeamListDialogWidget(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      setState(() {}));
-                                                },
-                                                child: wrapWithModel(
-                                                  model: _model
-                                                      .textDropDouwnListComponentModel2,
-                                                  updateCallback: () =>
-                                                      setState(() {}),
-                                                  child:
-                                                      TextDropDouwnListComponentWidget(
-                                                    hintName:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getVariableText(
-                                                      enText: 'Select...',
-                                                      arText: '... اختر',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                     Padding(
                                       padding:
                                           const EdgeInsetsDirectional.fromSTEB(
@@ -2377,17 +2302,29 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                                   ),
                                                                             ),
                                                                           ),
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                10.0,
-                                                                                5.0,
-                                                                                10.0),
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.delete_rounded,
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              size: 24.0,
+                                                                          InkWell(
+                                                                            onTap: (){
+                                                                              setState(() {
+                                                                                FFAppState().updateNewProjectCreatedModelStruct(
+                                                                                      (e) => e
+                                                                                    ..updateCosts(
+                                                                                          (e) => e.remove(listOfCostesItem),
+                                                                                    ),
+                                                                                );
+                                                                              });
+                                                                            },
+                                                                            child: Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                  5.0,
+                                                                                  10.0,
+                                                                                  5.0,
+                                                                                  10.0),
+                                                                              child:
+                                                                                  Icon(
+                                                                                Icons.delete_rounded,
+                                                                                color: FlutterFlowTheme.of(context).error,
+                                                                                size: 24.0,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ],
@@ -2696,6 +2633,14 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                               children: [
                                                 FFButtonWidget(
                                                   onPressed: () async {
+                                                    FFAppState()
+                                                        .newProjectCreatedModel
+                                                        .milestones
+                                                        .map((e) => {
+                                                              if (e.isNew)
+                                                                {e.id = 0}
+                                                            })
+                                                        .toList();
                                                     _model.apiResultb91 =
                                                         await UpdateProjectApiCall
                                                             .call(
@@ -2858,7 +2803,6 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                         },
                                                       );
                                                     }
-
                                                     setState(() {});
                                                   },
                                                   text: FFLocalizations.of(
@@ -2933,6 +2877,4 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
     int randomNumber = random.nextInt(9000) + 1000;
     return randomNumber;
   }
-
-
 }

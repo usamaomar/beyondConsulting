@@ -1331,12 +1331,6 @@ class _UpdateMilestoneDialogWidgetState
     );
   }
 
-  int genNum() {
-    Random random = Random();
-    int randomNumber = random.nextInt(9000) + 1000;
-    return randomNumber;
-  }
-
   int convertFromStringInvoiceStatusToInt(String invoiceStatus) {
     if (invoiceStatus == 'NoInvoice') {
       return 0;

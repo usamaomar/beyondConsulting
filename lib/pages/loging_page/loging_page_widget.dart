@@ -28,26 +28,26 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
     _model = createModel(context, () => LogingPageModel());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      // setState(() {
-      //   _model.textController1?.text = 'generalmanager@beyond.com';
-      // });
-      // setState(() {
-      //   _model.textController2?.text = '123!Pa\$\$word';
-      // });
-      // setState(() {
-      //   _model.textController1?.text = 'admin@beyond.com';
-      // });
-      // setState(() {
-      //   _model.textController2?.text = '123!Pa\$\$word';
-      // });
-      setState(() {
-        _model.textController1?.text = 'senior@beyond.com';
-      });
-      setState(() {
-        _model.textController2?.text = '123!Pa\$\$word';
-      });
-    });
+    // SchedulerBinding.instance.addPostFrameCallback((_) async {
+    //   // setState(() {
+    //   //   _model.textController1?.text = 'generalmanager@beyond.com';
+    //   // });
+    //   // setState(() {
+    //   //   _model.textController2?.text = '123!Pa\$\$word';
+    //   // });
+    //   // setState(() {
+    //   //   _model.textController1?.text = 'admin@beyond.com';
+    //   // });
+    //   // setState(() {
+    //   //   _model.textController2?.text = '123!Pa\$\$word';
+    //   // });
+    //   // setState(() {
+    //   //   _model.textController1?.text = '123456';
+    //   // });
+    //   // setState(() {
+    //   //   _model.textController2?.text = '';
+    //   // });
+    // });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -416,19 +416,19 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'n9ax8dnw' /* Forget Password */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: const Color(0xFFB6B7BA),
-                                          fontSize: 12.0,
-                                          letterSpacing: 2.0,
-                                        ),
-                                  ),
+                                  // child: Text(
+                                  //   FFLocalizations.of(context).getText(
+                                  //     'n9ax8dnw' /* Forget Password */,
+                                  //   ),
+                                  //   style: FlutterFlowTheme.of(context)
+                                  //       .bodyMedium
+                                  //       .override(
+                                  //         fontFamily: 'Readex Pro',
+                                  //         color: const Color(0xFFB6B7BA),
+                                  //         fontSize: 12.0,
+                                  //         letterSpacing: 2.0,
+                                  //       ),
+                                  // ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
