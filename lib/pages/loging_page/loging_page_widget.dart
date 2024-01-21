@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'loging_page_model.dart';
@@ -26,28 +25,6 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LogingPageModel());
-
-    // On page load action.
-    // SchedulerBinding.instance.addPostFrameCallback((_) async {
-    //   // setState(() {
-    //   //   _model.textController1?.text = 'generalmanager@beyond.com';
-    //   // });
-    //   // setState(() {
-    //   //   _model.textController2?.text = '123!Pa\$\$word';
-    //   // });
-    //   // setState(() {
-    //   //   _model.textController1?.text = 'admin@beyond.com';
-    //   // });
-    //   // setState(() {
-    //   //   _model.textController2?.text = '123!Pa\$\$word';
-    //   // });
-    //   // setState(() {
-    //   //   _model.textController1?.text = '123456';
-    //   // });
-    //   // setState(() {
-    //   //   _model.textController2?.text = '';
-    //   // });
-    // });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -255,7 +232,6 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController1,
                                         focusNode: _model.textFieldFocusNode1,
-                                        autofocus: true,
                                         autofillHints: const [AutofillHints.email],
                                         textInputAction: TextInputAction.next,
                                         obscureText: false,
@@ -336,7 +312,6 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                     child: TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
-                                      autofocus: true,
                                       autofillHints: const [AutofillHints.email],
                                       textInputAction: TextInputAction.next,
                                       obscureText: !_model.passwordVisibility,
