@@ -346,7 +346,10 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             width: double.infinity,
                             height: 40.0,
                             decoration: BoxDecoration(
-                              color: const Color(0xFF032734),
+                              color: widget.sideMenuEnum ==
+                                      SideMenuEnum.COST_MANAGEMENT
+                                  ? const Color(0x73FFFFFF)
+                                  : const Color(0x00000000),
                               borderRadius: BorderRadius.circular(12.0),
                               shape: BoxShape.rectangle,
                             ),
@@ -575,7 +578,10 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             width: double.infinity,
                             height: 40.0,
                             decoration: BoxDecoration(
-                              color: const Color(0xFF032734),
+                              color: widget.sideMenuEnum ==
+                                      SideMenuEnum.PROJECT_PAGE
+                                  ? const Color(0x73FFFFFF)
+                                  : const Color(0x00000000),
                               borderRadius: BorderRadius.circular(12.0),
                               shape: BoxShape.rectangle,
                             ),
@@ -779,15 +785,17 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               },
                             ),
                           ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: widget.sideMenuEnum ==
-                                    SideMenuEnum.CREATE_PROJECT
-                                ? const Color(0x73FFFFFF)
-                                : const Color(0x00000000),
-                          ),
-                          child: Visibility(
-                            visible: FFAppState().projectIsOpend == true,
+                        if ((FFAppState().userModelAppState.accessRole == 2) ||
+                                (FFAppState().userModelAppState.accessRole == 3)
+                            ? true
+                            : false)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: widget.sideMenuEnum ==
+                                      SideMenuEnum.CREATE_PROJECT
+                                  ? const Color(0x73FFFFFF)
+                                  : const Color(0x00000000),
+                            ),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -852,7 +860,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               ),
                             ),
                           ),
-                        ),
                       ],
                     ),
                     Column(
