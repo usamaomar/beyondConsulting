@@ -6,6 +6,7 @@ export 'client_model_struct.dart';
 export 'color_model_struct.dart';
 export 'cost_model_struct.dart';
 export 'country_model_struct.dart';
+export 'financial_statistics_output_model_struct.dart';
 export 'member_model_struct.dart';
 export 'mile_stone_state_model_struct.dart';
 export 'milestone_model_struct.dart';
