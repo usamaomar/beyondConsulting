@@ -1,3 +1,5 @@
+import 'package:flutter/scheduler.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -31,6 +33,30 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.textController1?.text = 'generalmanager@beyond.com';
+      });
+      // setState(() {
+      //   _model.textController2?.text = '123!Pa\$\$word';
+      // });
+      // setState(() {
+      //   _model.textController1?.text = 'admin@beyond.com';
+      // });
+      setState(() {
+        _model.textController2?.text = '123!Pa\$\$word';
+      });
+      // setState(() {
+      //   _model.textController1?.text = '123456';
+      // });
+      // setState(() {
+      //   _model.textController2?.text = '';
+      // });
+    });
+
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

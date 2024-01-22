@@ -6,17 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ca9ec24d-ddfd-478f-b587-0a22da5ac54c" name="Changes" comment="c">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_flow/nav/nav.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_flow/nav/nav.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/add_cost_dialog/add_cost_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/add_cost_dialog/add_cost_dialog_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/add_milestone_dialog/add_milestone_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/add_milestone_dialog/add_milestone_dialog_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_flow/flutter_flow_drop_down.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_flow/flutter_flow_drop_down.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/update_project_page/update_project_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

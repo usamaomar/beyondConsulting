@@ -87,7 +87,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
 
   T? get currentValue {
     final value = isMultiSelect
-        ? multiSelectController.value?.firstOrNull
+        ? multiSelectController.value?.first
         : controller.value;
     return widget.options.contains(value) ? value : null;
   }
