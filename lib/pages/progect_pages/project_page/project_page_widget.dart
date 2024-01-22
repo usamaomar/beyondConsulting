@@ -155,28 +155,33 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                   ),
                 ],
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  context.pushNamed(
-                    'UpdateProjectPage',
-                    queryParameters: {
-                      'projectLocalModel': serializeParam(
-                        _model.projectModel?.toMap(),
-                        ParamType.JSON,
-                      ),
-                    }.withoutNulls,
-                  );
-                },
-                child: Icon(
-                  Icons.edit_square,
-                  color: FlutterFlowTheme.of(context).info,
-                  size: 24.0,
+              if ((FFAppState().userModelAppState.accessRole == 2) ||
+                      (FFAppState().userModelAppState.accessRole == 3) ||
+                      (FFAppState().userModelAppState.accessRole == 1)
+                  ? true
+                  : false)
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'UpdateProjectPage',
+                      queryParameters: {
+                        'projectLocalModel': serializeParam(
+                          _model.projectModel?.toMap(),
+                          ParamType.JSON,
+                        ),
+                      }.withoutNulls,
+                    );
+                  },
+                  child: Icon(
+                    Icons.edit_square,
+                    color: FlutterFlowTheme.of(context).info,
+                    size: 24.0,
+                  ),
                 ),
-              ),
             ],
           ),
           actions: const [],

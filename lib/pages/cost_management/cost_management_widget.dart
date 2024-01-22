@@ -94,7 +94,7 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
             model: _model.sideNavModel,
             updateCallback: () => setState(() {}),
             child: const SideNavWidget(
-              sideMenuEnum: SideMenuEnum.MAIN_DASHBOARD,
+              sideMenuEnum: SideMenuEnum.COST_MANAGEMENT,
             ),
           ),
         ),
