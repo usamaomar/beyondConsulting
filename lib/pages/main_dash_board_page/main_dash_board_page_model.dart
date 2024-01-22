@@ -81,6 +81,12 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
           int index, Function(MemberModelStruct) updateFn) =>
       listOfMids[index] = updateFn(listOfMids[index]);
 
+  FinancialStatisticsOutputModelStruct? financialStatisticsModel;
+  void updateFinancialStatisticsModelStruct(
+          Function(FinancialStatisticsOutputModelStruct) updateFn) =>
+      updateFn(
+          financialStatisticsModel ??= FinancialStatisticsOutputModelStruct());
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -92,6 +98,8 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
   ApiCallResponse? apiResultv1q;
   // Stores action output result for [Backend Call - API (GetPersonalsApi)] action in MainDashBoardPage widget.
   ApiCallResponse? apiResult8i4;
+  // Stores action output result for [Backend Call - API (GetFinancialStatistics)] action in MainDashBoardPage widget.
+  ApiCallResponse? apiResultm5e;
   // State field(s) for Timer widget.
   int timerMilliseconds = 2000;
   String timerValue = StopWatchTimer.getDisplayTime(

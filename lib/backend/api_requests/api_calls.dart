@@ -115,6 +115,34 @@ class GetStatisticsApiCall {
       );
 }
 
+class GetFinancialStatisticsCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialStatistics',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Dashboard/GetFinancialStatistics',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic statisticsJsonModel(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
 class GetMyPrioritiesApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',

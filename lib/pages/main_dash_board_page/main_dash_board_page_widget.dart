@@ -137,6 +137,18 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
               .cast<MemberModelStruct>();
         });
       }
+      _model.apiResultm5e = await GetFinancialStatisticsCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResultm5e?.succeeded ?? true)) {
+        setState(() {
+          _model.financialStatisticsModel =
+              FinancialStatisticsOutputModelStruct.maybeFromMap(getJsonField(
+            (_model.apiResultm5e?.jsonBody ?? ''),
+            r'''$''',
+          ));
+        });
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
