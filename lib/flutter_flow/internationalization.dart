@@ -1637,6 +1637,93 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'تسجيل خروج',
     },
   },
+  // FinancialComponent
+  {
+    'btlxbbgn': {
+      'en': 'Financial Targets',
+      'ar': 'الأهداف المالية',
+    },
+    'eosq15nx': {
+      'en': 'Revenue',
+      'ar': 'ربح',
+    },
+    'rd42138o': {
+      'en': 'Total Revenue',
+      'ar': 'إجمالي الإيرادات',
+    },
+    '2e97cjeu': {
+      'en': 'Actual',
+      'ar': 'فِعلي',
+    },
+    '6pev49f6': {
+      'en': 'Planned',
+      'ar': 'المخطط لها',
+    },
+    'xk53ehhj': {
+      'en': '50%',
+      'ar': '',
+    },
+    'yv0eg8ve': {
+      'en': 'Total Cost',
+      'ar': 'التكلفة الإجمالية',
+    },
+    '0sunwcw3': {
+      'en': 'Actual',
+      'ar': 'فِعلي',
+    },
+    'v8pgebya': {
+      'en': 'Planned',
+      'ar': 'المخطط لها',
+    },
+    's1701azq': {
+      'en': '50%',
+      'ar': '',
+    },
+    '3j940jsh': {
+      'en': 'Gross Profit',
+      'ar': 'اجمالي الربح',
+    },
+    'dzozq018': {
+      'en': 'Actual',
+      'ar': 'فِعلي',
+    },
+    '884ipkiw': {
+      'en': 'Planned',
+      'ar': 'المخطط لها',
+    },
+    'ejjlb3n8': {
+      'en': '50%',
+      'ar': '',
+    },
+    '0807zsfx': {
+      'en': 'Cost',
+      'ar': 'يكلف',
+    },
+    '6u1ahovt': {
+      'en': 'Tab View 2',
+      'ar': '',
+    },
+    'z1bs29u2': {
+      'en': 'Targeted Gp',
+      'ar': 'الهدف العام',
+    },
+    '23vk76c1': {
+      'en': 'Actual Gp',
+      'ar': '',
+    },
+    'h6le3gr0': {
+      'en': '/',
+      'ar': '/',
+    },
+    '8n2mayaq': {
+      'en': 'Target Gp',
+      'ar': '',
+    },
+    'oa5r825a': {
+      'en': '/',
+      'ar': '/',
+    },
+  },
   // Miscellaneous
   {
     'hjb0uoxv': {
