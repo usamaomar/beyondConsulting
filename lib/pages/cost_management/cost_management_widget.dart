@@ -2,7 +2,6 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:data_table_2/data_table_2.dart';
@@ -888,61 +887,14 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                         ),
                                         Stack(
                                           children: [
-                                            if (() {
-                                              if (FFAppState()
-                                                      .userModelAppState
-                                                      .accessRole
-                                                      .toString() ==
-                                                  '3') {
-                                                return true;
-                                              } else if (FFAppState()
-                                                      .userModelAppState
-                                                      .accessRole
-                                                      .toString() ==
-                                                  '4') {
-                                                return true;
-                                              } else if (FFAppState()
-                                                      .userModelAppState
-                                                      .accessRole
-                                                      .toString() ==
-                                                  '2') {
-                                                return true;
-                                              } else {
-                                                return false;
-                                              }
-                                            }())
-                                              Text(
-                                                functions.getCostStatusName(
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                                    localCostListItem
-                                                        .costStatus),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            wrapWithModel(
-                                              model: _model
-                                                  .costDropComponentModels
-                                                  .getModel(
-                                                localCostListItem.id.toString(),
-                                                localCostListIndex,
-                                              ),
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              child: CostDropComponentWidget(
-                                                key: Key(
-                                                  'Keyjrz_${localCostListItem.id.toString()}',
-                                                ),
-                                                parameter1:
-                                                    functions.getCostStatusName(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                        localCostListItem
-                                                            .costStatus),
-                                                costId: localCostListItem.id,
-                                              ),
+                                            Text(
+                                              functions.getCostStatusName(
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                                  localCostListItem.costStatus),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
                                           ],
                                         ),
@@ -1749,8 +1701,20 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
                                             ),
-                                            const Stack(
-                                              children: [],
+                                            Stack(
+                                              children: [
+                                                Text(
+                                                  functions.getCostStatusName(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .languageCode,
+                                                      localCostListItem
+                                                          .costStatus),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
                                             ),
                                           ].map((c) => DataCell(c)).toList())
                                       .map((e) => DataRow(cells: e))

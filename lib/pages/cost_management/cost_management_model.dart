@@ -1,6 +1,5 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/components/cost_drop_component/cost_drop_component_widget.dart';
 import '/pages/components/side_nav/side_nav_widget.dart';
 import 'cost_management_widget.dart' show CostManagementWidget;
 import 'package:data_table_2/data_table_2.dart';
@@ -29,8 +28,6 @@ class CostManagementModel extends FlutterFlowModel<CostManagementWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Models for CostDropComponent dynamic component.
-  late FlutterFlowDynamicModels<CostDropComponentModel> costDropComponentModels;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -39,8 +36,6 @@ class CostManagementModel extends FlutterFlowModel<CostManagementWidget> {
   @override
   void initState(BuildContext context) {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
-    costDropComponentModels =
-        FlutterFlowDynamicModels(() => CostDropComponentModel());
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
     sideNavModel = createModel(context, () => SideNavModel());
@@ -49,7 +44,6 @@ class CostManagementModel extends FlutterFlowModel<CostManagementWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    costDropComponentModels.dispose();
     sideNavModel.dispose();
   }
 
