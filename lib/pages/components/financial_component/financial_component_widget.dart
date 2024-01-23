@@ -105,7 +105,6 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                     ? true
                     : false)
                   Container(
-                    width: 390.0,
                     height: 400.0,
                     decoration: const BoxDecoration(),
                     child: Column(
@@ -320,10 +319,13 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
                                                 center: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'xk53ehhj' /* 50% */,
-                                                  ),
+                                                   '${getPercentage(widget
+                                                       .financialStatisticsModel
+                                                       ?.data
+                                                       .actualRevenue ?? 0,widget
+                                                       .financialStatisticsModel
+                                                       ?.data
+                                                       .plannedRevenue ?? 0)}%',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
@@ -888,4 +890,11 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
       ),
     );
   }
+
+  double getPercentage(double actual,double planned ){
+   return (actual / planned) * 100;
+  }
+
+
+
 }
