@@ -1,3 +1,6 @@
+import 'package:flutter/scheduler.dart';
+
+import '../../progect_pages/project_page/sync.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -34,12 +37,41 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => FinancialComponentModel());
-
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
+
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.addToTotalLableList(BarChartModelStruct(
+          lable: FFLocalizations.of(context).getVariableText(
+            enText: 'Total',
+            arText: 'المجموع',
+          ),
+          number: widget.financialStatisticsModel?.data.totalBudget.toInt(),
+          color: const Color(0xFFFFD600),
+        ));
+        _model.addToSpentLableList(BarChartModelStruct(
+          lable: FFLocalizations.of(context).getVariableText(
+            enText: 'Spent',
+            arText: 'أنفق',
+          ),
+          number: widget.financialStatisticsModel?.data.spentBudget.toInt(),
+          color: const Color(0xFF2C8CB6),
+        ));
+        _model.addToRemainingLableList(BarChartModelStruct(
+          lable: FFLocalizations.of(context).getVariableText(
+            enText: 'Remaining',
+            arText: 'متبقي',
+          ),
+          number: widget.financialStatisticsModel?.data.remainingBudget.toInt(),
+          color: const Color(0xFFC8C9CC),
+        ));
+      });
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -53,9 +85,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 10.0, 5.0),
       child: Container(
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -75,7 +106,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -94,9 +126,214 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
             ),
             Stack(
               children: [
+                if ((FFAppState().userModelAppState.accessRole == 2) ||
+                    (FFAppState().userModelAppState.accessRole == 3) ||
+                    (FFAppState().userModelAppState.accessRole == 4)
+                    ? true
+                    : false)
                 Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).info,
+
+                  child: Row(
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SizedBox(
+                                width: 390.0,
+                                height: 370.0,
+                                child: Sync(
+                                  width: 390.0,
+                                  listOfTotal:
+                                  _model.totalLableList,
+                                  listOfSpent:
+                                  _model.spentLableList,
+                                  listOfRemainingBudget:
+                                  _model.remainingLableList,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional
+                                .fromSTEB(
+                                15.0, 15.0, 15.0, 15.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.start,
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context)
+                                      .getText(
+                                    'hki296sc' /* Total Budgets */,
+                                  ),
+                                  style: FlutterFlowTheme.of(
+                                      context)
+                                      .bodyMedium
+                                      .override(
+                                    fontFamily: 'Almarai',
+                                    fontSize: 16.0,
+                                    fontWeight:
+                                    FontWeight.bold,
+                                    useGoogleFonts: false,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  const EdgeInsetsDirectional
+                                      .fromSTEB(
+                                      0.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    '${valueOrDefault<String>(
+                                      widget.financialStatisticsModel?.data.totalBudget.toString(),
+                                      '0',
+                                    )} ${FFLocalizations.of(context).getVariableText(
+                                      enText: 'JOD',
+                                      arText: 'د.أ',
+                                    )}',
+                                    style: FlutterFlowTheme.of(
+                                        context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Almarai',
+                                      color: const Color(
+                                          0xFFFFD600),
+                                      fontSize: 16.0,
+                                      fontWeight:
+                                      FontWeight.bold,
+                                      useGoogleFonts: false,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional
+                                .fromSTEB(
+                                15.0, 15.0, 15.0, 15.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.start,
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context)
+                                      .getText(
+                                    '6g45g0s6' /* Spent Budgets */,
+                                  ),
+                                  style: FlutterFlowTheme.of(
+                                      context)
+                                      .bodyMedium
+                                      .override(
+                                    fontFamily: 'Almarai',
+                                    fontSize: 16.0,
+                                    fontWeight:
+                                    FontWeight.bold,
+                                    useGoogleFonts: false,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  const EdgeInsetsDirectional
+                                      .fromSTEB(
+                                      0.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    '${valueOrDefault<String>(
+                                      widget.financialStatisticsModel?.data.spentBudget
+                                          .toString(),
+                                      '0',
+                                    )} ${FFLocalizations.of(context).getVariableText(
+                                      enText: 'JOD',
+                                      arText: 'د.أ',
+                                    )}',
+                                    style: FlutterFlowTheme.of(
+                                        context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Almarai',
+                                      color: const Color(
+                                          0xFF2C8CB6),
+                                      fontSize: 16.0,
+                                      fontWeight:
+                                      FontWeight.bold,
+                                      useGoogleFonts: false,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional
+                                .fromSTEB(
+                                15.0, 15.0, 15.0, 15.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment:
+                              MainAxisAlignment.start,
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context)
+                                      .getText(
+                                    '69xkzumz' /* Remaining Budgets */,
+                                  ),
+                                  style: FlutterFlowTheme.of(
+                                      context)
+                                      .bodyMedium
+                                      .override(
+                                    fontFamily: 'Almarai',
+                                    fontSize: 16.0,
+                                    fontWeight:
+                                    FontWeight.bold,
+                                    useGoogleFonts: false,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                  const EdgeInsetsDirectional
+                                      .fromSTEB(
+                                      0.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                       widget.financialStatisticsModel?.data.remainingBudget
+                                          .toString(),
+                                      '0',
+                                    ),
+                                    style: FlutterFlowTheme
+                                        .of(context)
+                                        .bodyMedium
+                                        .override(
+                                      fontFamily: 'Almarai',
+                                      color: const Color(
+                                          0xFFC8C9CC),
+                                      fontSize: 16.0,
+                                      fontWeight:
+                                      FontWeight.bold,
+                                      useGoogleFonts: false,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 if ((FFAppState().userModelAppState.accessRole == 0) ||
@@ -170,8 +407,10 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 5.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -182,7 +421,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            10.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -199,7 +438,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            10.0, 0.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -215,10 +454,10 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0),
                                                               child: Text(
                                                                 FFLocalizations.of(
                                                                         context)
@@ -254,10 +493,10 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0),
                                                               child: Text(
                                                                 FFLocalizations.of(
                                                                         context)
@@ -304,11 +543,37 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 10.0, 10.0, 10.0),
                                               child: LinearPercentIndicator(
-                                                percent: 0.5,
+                                                percent: (getPercentage(
+                                                                widget
+                                                                        .financialStatisticsModel
+                                                                        ?.data
+                                                                        .actualRevenue ??
+                                                                    0,
+                                                                widget
+                                                                        .financialStatisticsModel
+                                                                        ?.data
+                                                                        .plannedRevenue ??
+                                                                    0) *
+                                                            0.01) <
+                                                        0
+                                                    ? 0
+                                                    : (getPercentage(
+                                                            widget
+                                                                    .financialStatisticsModel
+                                                                    ?.data
+                                                                    .actualRevenue ??
+                                                                0,
+                                                            widget
+                                                                    .financialStatisticsModel
+                                                                    ?.data
+                                                                    .plannedRevenue ??
+                                                                0) *
+                                                        0.01),
                                                 lineHeight: 16.0,
                                                 animation: true,
                                                 animateFromLastPercent: true,
@@ -319,13 +584,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
                                                 center: Text(
-                                                   '${getPercentage(widget
-                                                       .financialStatisticsModel
-                                                       ?.data
-                                                       .actualRevenue ?? 0,widget
-                                                       .financialStatisticsModel
-                                                       ?.data
-                                                       .plannedRevenue ?? 0)}%',
+                                                  '${gFl(getPercentage(widget.financialStatisticsModel?.data.actualRevenue ?? 0, widget.financialStatisticsModel?.data.plannedRevenue ?? 0))}%',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
@@ -343,8 +602,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 15.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 15.0, 0.0, 15.0),
                                         child: Container(
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFDED9D9),
@@ -353,8 +612,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -366,11 +626,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 10.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -386,11 +643,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 10.0, 0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -404,8 +658,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         10.0,
                                                                         0.0,
                                                                         10.0,
@@ -443,8 +698,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         10.0,
                                                                         0.0,
                                                                         10.0,
@@ -495,11 +751,37 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         10.0, 10.0, 10.0, 10.0),
                                                 child: LinearPercentIndicator(
-                                                  percent: 0.5,
+                                                  percent: (getPercentage(
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .actualCost ??
+                                                                      0,
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .plannedCost ??
+                                                                      0) *
+                                                              0.01) <
+                                                          0
+                                                      ? 0
+                                                      : (getPercentage(
+                                                              widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .actualCost ??
+                                                                  0,
+                                                              widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .plannedCost ??
+                                                                  0) *
+                                                          0.01),
                                                   lineHeight: 16.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
@@ -512,10 +794,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                               context)
                                                           .accent4,
                                                   center: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      's1701azq' /* 50% */,
-                                                    ),
+                                                    '${gFl(getPercentage(widget.financialStatisticsModel?.data.actualCost ?? 0, widget.financialStatisticsModel?.data.plannedCost ?? 0))}%',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineSmall
@@ -528,7 +807,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                         ),
                                                   ),
                                                   barRadius:
-                                                      const Radius.circular(15.0),
+                                                      const Radius.circular(
+                                                          15.0),
                                                   padding: EdgeInsets.zero,
                                                 ),
                                               ),
@@ -537,8 +817,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 15.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 0.0, 15.0),
                                         child: Container(
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFDED9D9),
@@ -547,8 +827,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -560,11 +841,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 10.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -580,11 +858,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 10.0, 0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -598,8 +873,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         10.0,
                                                                         0.0,
                                                                         10.0,
@@ -637,8 +913,9 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         10.0,
                                                                         0.0,
                                                                         10.0,
@@ -689,11 +966,37 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         10.0, 10.0, 10.0, 10.0),
                                                 child: LinearPercentIndicator(
-                                                  percent: 0.5,
+                                                  percent: (getPercentage(
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .actualProfit ??
+                                                                      0,
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .plannedProfit ??
+                                                                      0) *
+                                                              0.01) <
+                                                          0
+                                                      ? 0
+                                                      : (getPercentage(
+                                                              widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .actualProfit ??
+                                                                  0,
+                                                              widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .plannedProfit ??
+                                                                  0) *
+                                                          0.01),
                                                   lineHeight: 16.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
@@ -706,10 +1009,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                               context)
                                                           .accent4,
                                                   center: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'ejjlb3n8' /* 50% */,
-                                                    ),
+                                                    '${gFl(getPercentage(widget.financialStatisticsModel?.data.actualProfit ?? 0, widget.financialStatisticsModel?.data.plannedProfit ?? 0))}%',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineSmall
@@ -722,7 +1022,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                         ),
                                                   ),
                                                   barRadius:
-                                                      const Radius.circular(15.0),
+                                                      const Radius.circular(
+                                                          15.0),
                                                   padding: EdgeInsets.zero,
                                                 ),
                                               ),
@@ -739,16 +1040,32 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                     15.0, 10.0, 15.0, 10.0),
                                 child: Container(
                                   decoration: const BoxDecoration(),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '6u1ahovt' /* Tab View 2 */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 32.0,
-                                        ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          SizedBox(
+                                            width: 390.0,
+                                            child: Sync(
+                                              width: 390.0,
+                                              listOfTotal:
+                                                  _model.totalLableList,
+                                              listOfSpent:
+                                                  _model.spentLableList,
+                                              listOfRemainingBudget:
+                                                  _model.remainingLableList,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -811,8 +1128,8 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                         ],
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -891,10 +1208,17 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
     );
   }
 
-  double getPercentage(double actual,double planned ){
-   return (actual / planned) * 100;
+  double getPercentage(double actual, double planned) {
+    return (actual / planned) * 100;
   }
 
-
-
+  String gFl(double? inputVal) {
+    String input = inputVal.toString();
+    input = input.replaceAll('null', '0');
+    if (input.length >= 2) {
+      return input.substring(0, 2);
+    } else {
+      return input;
+    }
+  }
 }

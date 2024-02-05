@@ -485,12 +485,8 @@ class _CreateProjectPageWidgetState extends State<CreateProjectPageWidget> {
                                                                     FFAppState()
                                                                         .newProjectCreatedModel
                                                                         .startDate),
-                                                            firstDate:
-                                                                (getCurrentTimestamp ??
-                                                                    DateTime(
-                                                                        1900)),
-                                                            lastDate:
-                                                                DateTime(2050),
+                                                            firstDate: DateTime(1999),
+                                                            lastDate: DateTime(2050),
                                                             builder: (context,
                                                                 child) {
                                                               return wrapInMaterialDatePickerTheme(

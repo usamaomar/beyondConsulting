@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -46,17 +47,17 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
           BarChartModelStruct(
               lable: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].lable : '',
               number:widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].number : 0,
-              color: widget.listOfTotal.isNotEmpty ? widget.listOfTotal[0].color : Colors.transparent
+              color:  Colors.amberAccent
           ),
           BarChartModelStruct(
               lable: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].lable : '',
               number:widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].number : 0,
-              color: widget.listOfSpent.isNotEmpty ? widget.listOfSpent[0].color : Colors.transparent
+              color: Colors.deepOrange
           ),
           BarChartModelStruct(
               lable: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].lable : '',
               number:widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].number : 0,
-              color: widget.listOfRemainingBudget.isNotEmpty ? widget.listOfRemainingBudget[0].color : Colors.transparent
+              color: Colors.lightBlueAccent
           )
         ];
       });
@@ -81,7 +82,7 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
               dataSource: data,
               yValueMapper: (BarChartModelStruct sales, _) => sales.number,
               xValueMapper: (BarChartModelStruct sales, _) => sales.lable,
-              pointColorMapper: (BarChartModelStruct data, _) => Colors.red),
+              pointColorMapper: (BarChartModelStruct data, _) => data.color),
         ]));
   }
 }

@@ -170,6 +170,13 @@
             </list>
           </value>
         </entry>
+        <entry key="draggable_scrollbar">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/draggable_scrollbar-0.1.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="dropdown_button2">
           <value>
             <list>
@@ -1157,6 +1164,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/data_table_2-2.3.12/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/device_info_plus-9.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/draggable_scrollbar-0.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dropdown_button2-2.3.9/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/easy_debounce-2.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/equatable-2.0.5/lib" />

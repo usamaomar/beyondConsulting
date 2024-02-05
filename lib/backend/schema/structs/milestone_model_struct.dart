@@ -73,13 +73,13 @@ class MilestoneModelStruct extends BaseStruct {
 
   // "startDate" field.
   String? _startDate;
-  String get startDate => _startDate ?? '';
+  String get startDate => _startDate?.addPlus() ?? '';
   set startDate(String? val) => _startDate = val;
   bool hasStartDate() => _startDate != null;
 
   // "endDate" field.
   String? _endDate;
-  String get endDate => _endDate ?? '';
+  String get endDate => _endDate?.addPlus() ?? '';
   set endDate(String? val) => _endDate = val;
   bool hasEndDate() => _endDate != null;
 

@@ -63,7 +63,7 @@ class CostModelStruct extends BaseStruct {
 
   // "date" field.
   String? _date;
-  String get date => _date ?? '';
+  String get date => _date?.addPlus() ?? '';
   set date(String? val) => _date = val;
   bool hasDate() => _date != null;
 

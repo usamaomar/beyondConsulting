@@ -26,6 +26,7 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
           int index, Function(ProjectModelStruct) updateFn) =>
       listOfLiveTracker[index] = updateFn(listOfLiveTracker[index]);
 
+
   List<PrioritieModelStruct> listOfProirtes = [];
   void addToListOfProirtes(PrioritieModelStruct item) =>
       listOfProirtes.add(item);

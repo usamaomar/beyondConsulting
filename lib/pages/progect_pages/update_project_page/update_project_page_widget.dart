@@ -528,11 +528,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                     FFAppState()
                                                                         .newProjectCreatedModel
                                                                         .startDate),
-                                                            firstDate: functions
-                                                                .parseDateString(
-                                                                    FFAppState()
-                                                                        .newProjectCreatedModel
-                                                                        .startDate),
+                                                            firstDate:DateTime(1999),
                                                             lastDate:
                                                                 DateTime(2050),
                                                             builder: (context,

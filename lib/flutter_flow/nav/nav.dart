@@ -147,6 +147,14 @@ extension NavigationExtensions on BuildContext {
   }
 }
 
+
+extension StringExtension on String {
+  String addPlus() {
+    return replaceAll(' ', '+');
+  }
+}
+
+
 extension _GoRouterStateExtensions on GoRouterState {
   Map<String, dynamic> get extraMap =>
       extra != null ? extra as Map<String, dynamic> : {};

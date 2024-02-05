@@ -376,16 +376,16 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                     ? true
                     : false)
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Expanded(
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(
-                            10.0, 20.0, 10.0, 0.0),
+                            10.0, 20.0, 5.0, 0.0),
                         child: Container(
-                          height: 430.0,
+                          height: 400.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).secondaryBackground,
                             borderRadius: const BorderRadius.only(

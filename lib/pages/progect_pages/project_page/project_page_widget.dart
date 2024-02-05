@@ -1,5 +1,7 @@
 import 'package:beyond_consulting/pages/progect_pages/project_page/sync.dart';
 import 'package:beyond_consulting/pages/progect_pages/project_page/test.dart';
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
+import 'package:flutter/cupertino.dart';
 
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -36,6 +38,7 @@ class ProjectPageWidget extends StatefulWidget {
 
 class _ProjectPageWidgetState extends State<ProjectPageWidget> {
   late ProjectPageModel _model;
+  final ScrollController _scrollController = ScrollController();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -404,64 +407,70 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                                 .associates
                                                                 .toList())
                                                         .toList();
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  scrollDirection:
-                                                      Axis.horizontal,
-                                                  itemCount: listOfMemebersLocal
-                                                      .length,
-                                                  itemBuilder: (context,
-                                                      listOfMemebersLocalIndex) {
-                                                    final listOfMemebersLocalItem =
-                                                        listOfMemebersLocal[
-                                                            listOfMemebersLocalIndex];
-                                                    return Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: wrapWithModel(
-                                                            model: _model
-                                                                .readMemberCpacityModels
-                                                                .getModel(
-                                                              listOfMemebersLocalItem
-                                                                  .id,
-                                                              listOfMemebersLocalIndex,
+                                                return Scrollbar(
+                                                  controller: _scrollController,
+                                                  interactive: true,
+                                                  trackVisibility: true,
+                                                    thumbVisibility : true,
+                                                  child: ListView.builder(
+                                                    scrollDirection: Axis.horizontal,
+                                                    controller: _scrollController,
+                                                    padding: EdgeInsets.zero,
+                                                    primary: false,
+                                                    itemCount: listOfMemebersLocal
+                                                        .length,
+                                                    itemBuilder: (context,
+                                                        listOfMemebersLocalIndex) {
+                                                      final listOfMemebersLocalItem =
+                                                          listOfMemebersLocal[
+                                                              listOfMemebersLocalIndex];
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
                                                             ),
-                                                            updateCallback:
-                                                                () => setState(
-                                                                    () {}),
-                                                            child:
-                                                                ReadMemberCpacityWidget(
-                                                              key: Key(
-                                                                'Keyl7c_${listOfMemebersLocalItem.id}',
+                                                            child: wrapWithModel(
+                                                              model: _model
+                                                                  .readMemberCpacityModels
+                                                                  .getModel(
+                                                                listOfMemebersLocalItem
+                                                                    .id,
+                                                                listOfMemebersLocalIndex,
                                                               ),
-                                                              memberName:
-                                                                  listOfMemebersLocalItem
-                                                                      .name,
-                                                              projectType: functions
-                                                                  .getAccessRoleName(
-                                                                      listOfMemebersLocalItem
-                                                                          .accessRole),
-                                                              imagePath:
-                                                                  listOfMemebersLocalItem
-                                                                      .profilePictureDataUrl,
-                                                              currentCapacity:
-                                                                  listOfMemebersLocalItem
-                                                                      .currentCapacity,
+                                                              updateCallback:
+                                                                  () => setState(
+                                                                      () {}),
+                                                              child:
+                                                                  ReadMemberCpacityWidget(
+                                                                key: Key(
+                                                                  'Keyl7c_${listOfMemebersLocalItem.id}',
+                                                                ),
+                                                                memberName:
+                                                                    listOfMemebersLocalItem
+                                                                        .name,
+                                                                projectType: functions
+                                                                    .getAccessRoleName(
+                                                                        listOfMemebersLocalItem
+                                                                            .accessRole),
+                                                                imagePath:
+                                                                    listOfMemebersLocalItem
+                                                                        .profilePictureDataUrl,
+                                                                currentCapacity:
+                                                                    listOfMemebersLocalItem
+                                                                        .currentCapacity,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
+                                                        ],
+                                                      );
+                                                    }
+                                                  ),
                                                 );
                                               },
                                             ),

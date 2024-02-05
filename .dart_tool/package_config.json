@@ -146,6 +146,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "draggable_scrollbar",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/draggable_scrollbar-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dropdown_button2",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/dropdown_button2-2.3.9",
       "packageUri": "lib/",
@@ -974,7 +980,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-01-21T09:14:19.745837Z",
+  "generated": "2024-02-05T19:59:03.786271Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }
