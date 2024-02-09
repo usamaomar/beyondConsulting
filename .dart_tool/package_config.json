@@ -146,6 +146,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/dio-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "draggable_scrollbar",
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/draggable_scrollbar-0.1.0",
       "packageUri": "lib/",
@@ -492,6 +498,12 @@
       "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/json_path-0.6.2",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "jwt_decoder",
+      "rootUri": "file:///Users/usamaomar/.pub-cache/hosted/pub.dev/jwt_decoder-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "lints",
@@ -980,7 +992,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-02-05T19:59:03.786271Z",
+  "generated": "2024-02-08T21:27:56.360460Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }

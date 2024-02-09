@@ -1,5 +1,6 @@
 import 'package:beyond_consulting/pages/progect_pages/project_page/sync.dart';
 import 'package:beyond_consulting/pages/progect_pages/project_page/test.dart';
+import 'package:beyond_consulting/pages/progect_pages/project_page/test2.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -167,6 +168,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
               ),
               if ((FFAppState().userModelAppState.accessRole == 2) ||
                       (FFAppState().userModelAppState.accessRole == 3) ||
+                      (FFAppState().userModelAppState.accessRole == 5) ||
                       (FFAppState().userModelAppState.accessRole == 1)
                   ? true
                   : false)

@@ -50,9 +50,9 @@ class _test extends State<test> {
           .inDays / 7);
 
       return ChartSampleData(
-        x: 1,
-        y: 5,
-        y2: progress, y3: 30,
+        x: startWeekIndex,
+        y: endWeekIndex,
+        y2: progress, y3: 0,
       );
     }).toList();
 
@@ -80,7 +80,7 @@ class _test extends State<test> {
                 lowValueMapper: (ChartSampleData data, _) => data.x,
                 highValueMapper: (ChartSampleData data, _) => data.y,
                 pointColorMapper: (ChartSampleData data, _) => data.y2 >= 50 ? Colors.green : Colors.red,
-                dataLabelSettings: DataLabelSettings(isVisible: true),
+                dataLabelSettings: DataLabelSettings(isVisible: true,),
               ),
             ],
           ),

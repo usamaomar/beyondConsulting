@@ -36,6 +36,7 @@ class LoginApiCall {
       );
 }
 
+
 class GetMyDataApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
@@ -853,6 +854,38 @@ class CreateClintCall {
     return ApiManager.instance.makeApiCall(
       callName: 'CreateClint',
       apiUrl: 'https://api.beyond.matterhr.com/api/v1/Clients/Post',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+
+
+class RefreshTokenCall  {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? refreshToken = ''
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "token": "$token",
+  "refreshToken": "$refreshToken"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateClint',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Auth/Refresh',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json',

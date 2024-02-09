@@ -98,6 +98,10 @@ device_info_plus_platform_interface
 2.12
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.0/
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/device_info_plus_platform_interface-7.0.0/lib/
+dio
+2.15
+file:///Users/usamaomar/.pub-cache/hosted/pub.dev/dio-5.4.0/
+file:///Users/usamaomar/.pub-cache/hosted/pub.dev/dio-5.4.0/lib/
 draggable_scrollbar
 2.12
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/draggable_scrollbar-0.1.0/
@@ -314,6 +318,10 @@ json_path
 3.0
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/json_path-0.6.2/
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/json_path-0.6.2/lib/
+jwt_decoder
+2.12
+file:///Users/usamaomar/.pub-cache/hosted/pub.dev/jwt_decoder-2.0.1/
+file:///Users/usamaomar/.pub-cache/hosted/pub.dev/jwt_decoder-2.0.1/lib/
 lints
 3.0
 file:///Users/usamaomar/.pub-cache/hosted/pub.dev/lints-3.0.0/

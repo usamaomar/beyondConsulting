@@ -4,12 +4,18 @@ import 'dart:core';
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:equatable/equatable.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:mime_type/mime_type.dart';
 
+import '../../app_state.dart';
+import '../../components/app_interceptors.dart';
 import '../../flutter_flow/uploaded_file.dart';
+import '../schema/structs/token_model_struct.dart';
+import 'api_calls.dart';
 
 enum ApiCallType {
   GET,
@@ -30,6 +36,7 @@ enum BodyType {
 class ApiCallRecord extends Equatable {
   const ApiCallRecord(this.callName, this.apiUrl, this.headers, this.params,
       this.body, this.bodyType);
+
   final String callName;
   final String apiUrl;
   final Map<String, dynamic> headers;
@@ -49,13 +56,17 @@ class ApiCallResponse {
     this.statusCode, {
     this.response,
   });
+
   final dynamic jsonBody;
   final Map<String, String> headers;
   final int statusCode;
   final http.Response? response;
+
   // Whether we received a 2xx status (which generally marks success).
   bool get succeeded => statusCode >= 200 && statusCode < 300;
+
   String getHeader(String headerName) => headers[headerName] ?? '';
+
   // Return the raw body from the response, or if this came from a cloud call
   // and the body is not a string, then the json encoded body.
   String get bodyText =>
@@ -95,8 +106,10 @@ class ApiManager {
 
   // Cache that will ensure identical calls are not repeatedly made.
   static final Map<ApiCallRecord, ApiCallResponse> _apiCache = {};
+  final Dio dio = Dio();
 
   static ApiManager? _instance;
+
   static ApiManager get instance => _instance ??= ApiManager._();
 
   // If your API calls need authentication, populate this field once
@@ -207,13 +220,13 @@ class ApiManager {
           : [param as FFUploadedFile];
       for (var uploadedFile in uploadedFiles) {
         files.add(
-            http.MultipartFile.fromBytes(
-              e.key,
-              uploadedFile.bytes ?? Uint8List.fromList([]),
-              filename: uploadedFile.name,
-              contentType: _getMediaType(uploadedFile.name),
-            ),
-          );
+          http.MultipartFile.fromBytes(
+            e.key,
+            uploadedFile.bytes ?? Uint8List.fromList([]),
+            filename: uploadedFile.name,
+            contentType: _getMediaType(uploadedFile.name),
+          ),
+        );
       }
     });
 
@@ -294,6 +307,13 @@ class ApiManager {
     bool alwaysAllowBody = false,
     http.Client? client,
   }) async {
+    if (headers['Authorization'] != null && apiUrl != 'https://api.beyond.matterhr.com/api/v1/Auth/Refresh') {
+     await updateToken(headers['Authorization']).then((isExpierd) {
+       if(isExpierd) {
+         headers['Authorization'] = FFAppState().tokenModelAppState.token;
+       }
+     });
+    }
     final callRecord =
         ApiCallRecord(callName, apiUrl, headers, params, body, bodyType);
     // Modify for your specific needs if this differs from your API.
@@ -381,5 +401,29 @@ class ApiManager {
     }
 
     return result;
+  }
+
+  Future<bool> updateToken(token) async {
+    if (token != null) {
+      if (token.replaceAll('Bearer ', '').replaceAll('null', '').isNotEmpty) {
+        bool isExpired = JwtDecoder.isExpired(token);
+        if (isExpired) {
+          var userModel = FFAppState().tokenModelAppState;
+          await RefreshTokenCall.call(
+                  token: userModel.token, refreshToken: userModel.refreshToken)
+              .then((value) {
+            TokenModelStruct? tokenModelStruct =
+                TokenModelStruct.maybeFromMap(LoginApiCall.tokenJsonModel(
+              (value.jsonBody ?? ''),
+            ));
+            FFAppState().tokenModelAppState = tokenModelStruct!;
+            return Future.value(true);
+          });
+        }else{
+          return Future.value(false);
+        }
+      }
+    }
+    return Future.value(false);
   }
 }
