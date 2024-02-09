@@ -24,7 +24,7 @@ class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
@@ -204,6 +204,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             context: context,
                             builder: (dialogContext) {
                               return Dialog(
+                                elevation: 0,
                                 insetPadding: EdgeInsets.zero,
                                 backgroundColor: Colors.transparent,
                                 alignment: const AlignmentDirectional(0.0, 0.0)
@@ -805,6 +806,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             5.0),
                                                                     child:
                                                                         Container(
+                                                                      constraints:
+                                                                          const BoxConstraints(
+                                                                        minHeight:
+                                                                            20.0,
+                                                                      ),
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: const Color(
@@ -1564,6 +1570,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 15.0, 30.0, 15.0, 0.0),
                             child: Container(
+                              constraints: const BoxConstraints(
+                                minHeight: 286.0,
+                              ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -1813,6 +1822,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 15.0, 30.0, 15.0, 0.0),
                             child: Container(
+                              constraints: const BoxConstraints(
+                                minHeight: 286.0,
+                              ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,

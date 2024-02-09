@@ -27,6 +27,7 @@ class CostModelStruct extends BaseStruct {
     String? project,
     int? projectId,
     bool? isNew,
+    bool? isUpdated,
   })  : _id = id,
         _title = title,
         _date = date,
@@ -46,7 +47,8 @@ class CostModelStruct extends BaseStruct {
         _adminAttachmentUrl = adminAttachmentUrl,
         _project = project,
         _projectId = projectId,
-        _isNew = isNew;
+        _isNew = isNew,
+        _isUpdated = isUpdated;
 
   // "id" field.
   int? _id;
@@ -177,6 +179,12 @@ class CostModelStruct extends BaseStruct {
   set isNew(bool? val) => _isNew = val;
   bool hasIsNew() => _isNew != null;
 
+  // "isUpdated" field.
+  bool? _isUpdated;
+  bool get isUpdated => _isUpdated ?? false;
+  set isUpdated(bool? val) => _isUpdated = val;
+  bool hasIsUpdated() => _isUpdated != null;
+
   static CostModelStruct fromMap(Map<String, dynamic> data) => CostModelStruct(
         id: castToType<int>(data['id']),
         title: data['title'] as String?,
@@ -198,6 +206,7 @@ class CostModelStruct extends BaseStruct {
         project: data['project'] as String?,
         projectId: castToType<int>(data['projectId']),
         isNew: data['isNew'] as bool?,
+        isUpdated: data['isUpdated'] as bool?,
       );
 
   static CostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -225,6 +234,7 @@ class CostModelStruct extends BaseStruct {
         'project': _project,
         'projectId': _projectId,
         'isNew': _isNew,
+        'isUpdated': _isUpdated,
       }.withoutNulls;
 
   @override
@@ -307,6 +317,10 @@ class CostModelStruct extends BaseStruct {
         ),
         'isNew': serializeParam(
           _isNew,
+          ParamType.bool,
+        ),
+        'isUpdated': serializeParam(
+          _isUpdated,
           ParamType.bool,
         ),
       }.withoutNulls;
@@ -413,6 +427,11 @@ class CostModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        isUpdated: deserializeParam(
+          data['isUpdated'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -440,7 +459,8 @@ class CostModelStruct extends BaseStruct {
         adminAttachmentUrl == other.adminAttachmentUrl &&
         project == other.project &&
         projectId == other.projectId &&
-        isNew == other.isNew;
+        isNew == other.isNew &&
+        isUpdated == other.isUpdated;
   }
 
   @override
@@ -464,7 +484,8 @@ class CostModelStruct extends BaseStruct {
         adminAttachmentUrl,
         project,
         projectId,
-        isNew
+        isNew,
+        isUpdated
       ]);
 }
 
@@ -489,6 +510,7 @@ CostModelStruct createCostModelStruct({
   String? project,
   int? projectId,
   bool? isNew,
+  bool? isUpdated,
 }) =>
     CostModelStruct(
       id: id,
@@ -511,4 +533,5 @@ CostModelStruct createCostModelStruct({
       project: project,
       projectId: projectId,
       isNew: isNew,
+      isUpdated: isUpdated,
     );

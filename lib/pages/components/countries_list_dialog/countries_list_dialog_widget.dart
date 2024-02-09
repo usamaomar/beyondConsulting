@@ -13,7 +13,7 @@ class CountriesListDialogWidget extends StatefulWidget {
   const CountriesListDialogWidget({super.key});
 
   @override
-  _CountriesListDialogWidgetState createState() =>
+  State<CountriesListDialogWidget> createState() =>
       _CountriesListDialogWidgetState();
 }
 

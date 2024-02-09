@@ -34,7 +34,7 @@ class ProjectPageWidget extends StatefulWidget {
   final dynamic projectJaonModel;
 
   @override
-  _ProjectPageWidgetState createState() => _ProjectPageWidgetState();
+  State<ProjectPageWidget> createState() => _ProjectPageWidgetState();
 }
 
 class _ProjectPageWidgetState extends State<ProjectPageWidget> {
@@ -390,6 +390,9 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                   .fromSTEB(0.0, 20.0, 0.0, 20.0),
                                           child:_model.projectModel!=null ?  Container(
                                             height: 100.0,
+                                            constraints: const BoxConstraints(
+                                              minWidth: 350.0,
+                                            ),
                                             decoration: const BoxDecoration(),
                                             child: Builder(
                                               builder: (context) {

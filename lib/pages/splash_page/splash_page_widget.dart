@@ -13,7 +13,7 @@ class SplashPageWidget extends StatefulWidget {
   const SplashPageWidget({super.key});
 
   @override
-  _SplashPageWidgetState createState() => _SplashPageWidgetState();
+  State<SplashPageWidget> createState() => _SplashPageWidgetState();
 }
 
 class _SplashPageWidgetState extends State<SplashPageWidget> {

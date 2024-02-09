@@ -16,7 +16,7 @@ class ViewComponentWidget extends StatefulWidget {
   final String? filePath;
 
   @override
-  _ViewComponentWidgetState createState() => _ViewComponentWidgetState();
+  State<ViewComponentWidget> createState() => _ViewComponentWidgetState();
 }
 
 class _ViewComponentWidgetState extends State<ViewComponentWidget> {

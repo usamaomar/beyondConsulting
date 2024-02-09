@@ -18,7 +18,7 @@ class AddCostDialogWidget extends StatefulWidget {
   const AddCostDialogWidget({super.key});
 
   @override
-  _AddCostDialogWidgetState createState() => _AddCostDialogWidgetState();
+  State<AddCostDialogWidget> createState() => _AddCostDialogWidgetState();
 }
 
 class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {

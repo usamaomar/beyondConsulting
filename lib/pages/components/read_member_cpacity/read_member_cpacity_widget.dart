@@ -25,7 +25,7 @@ class ReadMemberCpacityWidget extends StatefulWidget {
   final List<ProjectModelStruct>? listOfProjects;
 
   @override
-  _ReadMemberCpacityWidgetState createState() =>
+  State<ReadMemberCpacityWidget> createState() =>
       _ReadMemberCpacityWidgetState();
 }
 

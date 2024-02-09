@@ -21,7 +21,7 @@ class SideNavWidget extends StatefulWidget {
   final SideMenuEnum? sideMenuEnum;
 
   @override
-  _SideNavWidgetState createState() => _SideNavWidgetState();
+  State<SideNavWidget> createState() => _SideNavWidgetState();
 }
 
 class _SideNavWidgetState extends State<SideNavWidget> {
@@ -1195,6 +1195,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         context: context,
                                         builder: (dialogContext) {
                                           return Dialog(
+                                            elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
                                             alignment: const AlignmentDirectional(

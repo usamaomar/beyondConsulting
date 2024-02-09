@@ -20,7 +20,7 @@ class AllTeamCapacitiesPageWidget extends StatefulWidget {
   const AllTeamCapacitiesPageWidget({super.key});
 
   @override
-  _AllTeamCapacitiesPageWidgetState createState() =>
+  State<AllTeamCapacitiesPageWidget> createState() =>
       _AllTeamCapacitiesPageWidgetState();
 }
 

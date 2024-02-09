@@ -9,7 +9,7 @@ class ProjectTypeListDialogWidget extends StatefulWidget {
   const ProjectTypeListDialogWidget({super.key});
 
   @override
-  _ProjectTypeListDialogWidgetState createState() =>
+  State<ProjectTypeListDialogWidget> createState() =>
       _ProjectTypeListDialogWidgetState();
 }
 

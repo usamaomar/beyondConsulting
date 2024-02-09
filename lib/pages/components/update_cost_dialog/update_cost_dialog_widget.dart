@@ -19,7 +19,7 @@ class UpdateCostDialogWidget extends StatefulWidget {
   final int? id;
 
   @override
-  _UpdateCostDialogWidgetState createState() => _UpdateCostDialogWidgetState();
+  State<UpdateCostDialogWidget> createState() => _UpdateCostDialogWidgetState();
 }
 
 class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {

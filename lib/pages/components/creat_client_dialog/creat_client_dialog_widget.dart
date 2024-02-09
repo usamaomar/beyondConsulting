@@ -13,7 +13,7 @@ class CreatClientDialogWidget extends StatefulWidget {
   const CreatClientDialogWidget({super.key});
 
   @override
-  _CreatClientDialogWidgetState createState() =>
+  State<CreatClientDialogWidget> createState() =>
       _CreatClientDialogWidgetState();
 }
 

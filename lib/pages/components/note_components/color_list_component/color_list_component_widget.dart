@@ -14,7 +14,7 @@ class ColorListComponentWidget extends StatefulWidget {
   final bool? isFront;
 
   @override
-  _ColorListComponentWidgetState createState() =>
+  State<ColorListComponentWidget> createState() =>
       _ColorListComponentWidgetState();
 }
 

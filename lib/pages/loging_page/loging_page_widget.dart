@@ -16,7 +16,7 @@ class LogingPageWidget extends StatefulWidget {
   const LogingPageWidget({super.key});
 
   @override
-  _LogingPageWidgetState createState() => _LogingPageWidgetState();
+  State<LogingPageWidget> createState() => _LogingPageWidgetState();
 }
 
 class _LogingPageWidgetState extends State<LogingPageWidget> {

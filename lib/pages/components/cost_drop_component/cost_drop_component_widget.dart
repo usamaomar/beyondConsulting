@@ -20,7 +20,7 @@ class CostDropComponentWidget extends StatefulWidget {
   final int? costId;
 
   @override
-  _CostDropComponentWidgetState createState() =>
+  State<CostDropComponentWidget> createState() =>
       _CostDropComponentWidgetState();
 }
 

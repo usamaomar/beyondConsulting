@@ -19,7 +19,7 @@ class PersonalsTeamListDialogWidget extends StatefulWidget {
   final String? startDate;
 
   @override
-  _PersonalsTeamListDialogWidgetState createState() =>
+  State<PersonalsTeamListDialogWidget> createState() =>
       _PersonalsTeamListDialogWidgetState();
 }
 

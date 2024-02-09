@@ -29,7 +29,7 @@ class FinancialPageWidget extends StatefulWidget {
   const FinancialPageWidget({super.key});
 
   @override
-  _FinancialPageWidgetState createState() => _FinancialPageWidgetState();
+  State<FinancialPageWidget> createState() => _FinancialPageWidgetState();
 }
 
 class _FinancialPageWidgetState extends State<FinancialPageWidget>

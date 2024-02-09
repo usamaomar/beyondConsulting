@@ -10,7 +10,7 @@ class StickWidget extends StatefulWidget {
   const StickWidget({super.key});
 
   @override
-  _StickWidgetState createState() => _StickWidgetState();
+  State<StickWidget> createState() => _StickWidgetState();
 }
 
 class _StickWidgetState extends State<StickWidget> {

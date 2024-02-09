@@ -18,7 +18,7 @@ class FrontViewComponentWidget extends StatefulWidget {
   final DateTime? createdDate;
 
   @override
-  _FrontViewComponentWidgetState createState() =>
+  State<FrontViewComponentWidget> createState() =>
       _FrontViewComponentWidgetState();
 }
 

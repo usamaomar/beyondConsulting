@@ -11,7 +11,7 @@ class LogOutComponentWidget extends StatefulWidget {
   const LogOutComponentWidget({super.key});
 
   @override
-  _LogOutComponentWidgetState createState() => _LogOutComponentWidgetState();
+  State<LogOutComponentWidget> createState() => _LogOutComponentWidgetState();
 }
 
 class _LogOutComponentWidgetState extends State<LogOutComponentWidget> {

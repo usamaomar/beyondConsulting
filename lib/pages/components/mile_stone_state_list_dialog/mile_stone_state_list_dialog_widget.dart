@@ -10,7 +10,7 @@ class MileStoneStateListDialogWidget extends StatefulWidget {
   const MileStoneStateListDialogWidget({super.key});
 
   @override
-  _MileStoneStateListDialogWidgetState createState() =>
+  State<MileStoneStateListDialogWidget> createState() =>
       _MileStoneStateListDialogWidgetState();
 }
 
