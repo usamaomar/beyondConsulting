@@ -26,7 +26,7 @@ class UpdateMilestoneDialogWidget extends StatefulWidget {
   final int? index;
 
   @override
-  _UpdateMilestoneDialogWidgetState createState() =>
+  State<UpdateMilestoneDialogWidget> createState() =>
       _UpdateMilestoneDialogWidgetState();
 }
 
@@ -564,6 +564,7 @@ class _UpdateMilestoneDialogWidgetState
                                         context: context,
                                         builder: (dialogContext) {
                                           return Dialog(
+                                            elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
                                             alignment: const AlignmentDirectional(
@@ -835,6 +836,7 @@ class _UpdateMilestoneDialogWidgetState
                                         context: context,
                                         builder: (dialogContext) {
                                           return Dialog(
+                                            elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
                                             alignment: const AlignmentDirectional(
@@ -908,6 +910,7 @@ class _UpdateMilestoneDialogWidgetState
                                             context: context,
                                             builder: (dialogContext) {
                                               return Dialog(
+                                                elevation: 0,
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,

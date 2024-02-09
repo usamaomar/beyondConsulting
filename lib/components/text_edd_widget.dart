@@ -13,10 +13,10 @@ class TextEddWidget extends StatefulWidget {
   });
 
   final String? parameter1;
-  final Future<dynamic> Function()? action;
+  final Future Function()? action;
 
   @override
-  _TextEddWidgetState createState() => _TextEddWidgetState();
+  State<TextEddWidget> createState() => _TextEddWidgetState();
 }
 
 class _TextEddWidgetState extends State<TextEddWidget> {

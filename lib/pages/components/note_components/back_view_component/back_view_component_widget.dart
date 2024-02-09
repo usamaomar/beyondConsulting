@@ -20,7 +20,7 @@ class BackViewComponentWidget extends StatefulWidget {
   final Color? color;
 
   @override
-  _BackViewComponentWidgetState createState() =>
+  State<BackViewComponentWidget> createState() =>
       _BackViewComponentWidgetState();
 }
 

@@ -17,7 +17,7 @@ class TeamCapacitiesPageWidget extends StatefulWidget {
   const TeamCapacitiesPageWidget({super.key});
 
   @override
-  _TeamCapacitiesPageWidgetState createState() =>
+  State<TeamCapacitiesPageWidget> createState() =>
       _TeamCapacitiesPageWidgetState();
 }
 

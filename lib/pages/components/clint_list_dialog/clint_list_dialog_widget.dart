@@ -14,7 +14,7 @@ class ClintListDialogWidget extends StatefulWidget {
   const ClintListDialogWidget({super.key});
 
   @override
-  _ClintListDialogWidgetState createState() => _ClintListDialogWidgetState();
+  State<ClintListDialogWidget> createState() => _ClintListDialogWidgetState();
 }
 
 class _ClintListDialogWidgetState extends State<ClintListDialogWidget> {

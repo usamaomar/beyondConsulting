@@ -22,7 +22,7 @@ class AdminsCostManagementWidget extends StatefulWidget {
   final dynamic projectJsonObject;
 
   @override
-  _AdminsCostManagementWidgetState createState() =>
+  State<AdminsCostManagementWidget> createState() =>
       _AdminsCostManagementWidgetState();
 }
 

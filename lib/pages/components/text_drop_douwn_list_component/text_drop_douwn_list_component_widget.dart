@@ -14,7 +14,7 @@ class TextDropDouwnListComponentWidget extends StatefulWidget {
   final String? hintName;
 
   @override
-  _TextDropDouwnListComponentWidgetState createState() =>
+  State<TextDropDouwnListComponentWidget> createState() =>
       _TextDropDouwnListComponentWidgetState();
 }
 

@@ -12,7 +12,7 @@ class AskForHelpComponentWidget extends StatefulWidget {
   const AskForHelpComponentWidget({super.key});
 
   @override
-  _AskForHelpComponentWidgetState createState() =>
+  State<AskForHelpComponentWidget> createState() =>
       _AskForHelpComponentWidgetState();
 }
 

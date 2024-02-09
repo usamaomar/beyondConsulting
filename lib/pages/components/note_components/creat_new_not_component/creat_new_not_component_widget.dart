@@ -13,7 +13,7 @@ class CreatNewNotComponentWidget extends StatefulWidget {
   const CreatNewNotComponentWidget({super.key});
 
   @override
-  _CreatNewNotComponentWidgetState createState() =>
+  State<CreatNewNotComponentWidget> createState() =>
       _CreatNewNotComponentWidgetState();
 }
 
@@ -148,6 +148,7 @@ class _CreatNewNotComponentWidgetState
                                                   context: context,
                                                   builder: (dialogContext) {
                                                     return Dialog(
+                                                      elevation: 0,
                                                       insetPadding:
                                                           EdgeInsets.zero,
                                                       backgroundColor:
@@ -322,6 +323,7 @@ class _CreatNewNotComponentWidgetState
                                               context: context,
                                               builder: (dialogContext) {
                                                 return Dialog(
+                                                  elevation: 0,
                                                   insetPadding: EdgeInsets.zero,
                                                   backgroundColor:
                                                       Colors.transparent,

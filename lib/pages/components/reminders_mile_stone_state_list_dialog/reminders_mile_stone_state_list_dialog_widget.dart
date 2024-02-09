@@ -9,7 +9,7 @@ class RemindersMileStoneStateListDialogWidget extends StatefulWidget {
   const RemindersMileStoneStateListDialogWidget({super.key});
 
   @override
-  _RemindersMileStoneStateListDialogWidgetState createState() =>
+  State<RemindersMileStoneStateListDialogWidget> createState() =>
       _RemindersMileStoneStateListDialogWidgetState();
 }
 

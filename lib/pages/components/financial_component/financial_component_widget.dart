@@ -16,7 +16,7 @@ class FinancialComponentWidget extends StatefulWidget {
   final FinancialStatisticsOutputModelStruct? financialStatisticsModel;
 
   @override
-  _FinancialComponentWidgetState createState() =>
+  State<FinancialComponentWidget> createState() =>
       _FinancialComponentWidgetState();
 }
 

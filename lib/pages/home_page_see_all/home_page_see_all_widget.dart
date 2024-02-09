@@ -16,7 +16,7 @@ class HomePageSeeAllWidget extends StatefulWidget {
   const HomePageSeeAllWidget({super.key});
 
   @override
-  _HomePageSeeAllWidgetState createState() => _HomePageSeeAllWidgetState();
+  State<HomePageSeeAllWidget> createState() => _HomePageSeeAllWidgetState();
 }
 
 class _HomePageSeeAllWidgetState extends State<HomePageSeeAllWidget> {

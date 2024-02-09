@@ -17,10 +17,10 @@ class AllCostDropComponentWidget extends StatefulWidget {
 
   final String? parameter1;
   final int? costId;
-  final Future<dynamic> Function()? action;
+  final Future Function()? action;
 
   @override
-  _AllCostDropComponentWidgetState createState() =>
+  State<AllCostDropComponentWidget> createState() =>
       _AllCostDropComponentWidgetState();
 }
 

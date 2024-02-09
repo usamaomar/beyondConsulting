@@ -22,7 +22,7 @@ class CostManagementWidget extends StatefulWidget {
   final dynamic projectJsonObject;
 
   @override
-  _CostManagementWidgetState createState() => _CostManagementWidgetState();
+  State<CostManagementWidget> createState() => _CostManagementWidgetState();
 }
 
 class _CostManagementWidgetState extends State<CostManagementWidget> {
@@ -199,6 +199,9 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                         30.0, 20.0, 0.0, 0.0),
                                     child: Container(
                                       height: 100.0,
+                                      constraints: const BoxConstraints(
+                                        minWidth: 350.0,
+                                      ),
                                       decoration: const BoxDecoration(),
                                       child: Builder(
                                         builder: (context) {
@@ -981,6 +984,9 @@ class _CostManagementWidgetState extends State<CostManagementWidget> {
                                     30.0, 20.0, 0.0, 0.0),
                                 child: Container(
                                   height: 100.0,
+                                  constraints: const BoxConstraints(
+                                    minWidth: 350.0,
+                                  ),
                                   decoration: const BoxDecoration(),
                                   child: Builder(
                                     builder: (context) {

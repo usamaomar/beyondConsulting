@@ -15,7 +15,7 @@ class SatisfactionComponentMainDashBoardWidget extends StatefulWidget {
   final int? satisfactionType;
 
   @override
-  _SatisfactionComponentMainDashBoardWidgetState createState() =>
+  State<SatisfactionComponentMainDashBoardWidget> createState() =>
       _SatisfactionComponentMainDashBoardWidgetState();
 }
 

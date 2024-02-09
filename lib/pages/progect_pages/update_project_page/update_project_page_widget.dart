@@ -37,7 +37,7 @@ class UpdateProjectPageWidget extends StatefulWidget {
   final dynamic projectLocalModel;
 
   @override
-  _UpdateProjectPageWidgetState createState() =>
+  State<UpdateProjectPageWidget> createState() =>
       _UpdateProjectPageWidgetState();
 }
 
@@ -391,6 +391,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     context: context,
                                                     builder: (dialogContext) {
                                                       return Dialog(
+                                                        elevation: 0,
                                                         insetPadding:
                                                             EdgeInsets.zero,
                                                         backgroundColor:
@@ -1204,6 +1205,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     context: context,
                                                     builder: (dialogContext) {
                                                       return Dialog(
+                                                        elevation: 0,
                                                         insetPadding:
                                                             EdgeInsets.zero,
                                                         backgroundColor:
@@ -1339,6 +1341,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                     context: context,
                                                     builder: (dialogContext) {
                                                       return Dialog(
+                                                        elevation: 0,
                                                         insetPadding:
                                                             EdgeInsets.zero,
                                                         backgroundColor:
@@ -1836,6 +1839,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           builder:
                                                               (dialogContext) {
                                                             return Dialog(
+                                                              elevation: 0,
                                                               insetPadding:
                                                                   EdgeInsets
                                                                       .zero,
@@ -1906,6 +1910,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                           builder:
                                                               (dialogContext) {
                                                             return Dialog(
+                                                              elevation: 0,
                                                               insetPadding:
                                                                   EdgeInsets
                                                                       .zero,
@@ -2093,6 +2098,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                       builder:
                                                                           (dialogContext) {
                                                                         return Dialog(
+                                                                          elevation:
+                                                                              0,
                                                                           insetPadding:
                                                                               EdgeInsets.zero,
                                                                           backgroundColor:
@@ -2271,6 +2278,8 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                                       builder:
                                                                           (dialogContext) {
                                                                         return Dialog(
+                                                                          elevation:
+                                                                              0,
                                                                           insetPadding:
                                                                               EdgeInsets.zero,
                                                                           backgroundColor:
@@ -2413,6 +2422,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                             builder:
                                                                 (dialogContext) {
                                                               return Dialog(
+                                                                elevation: 0,
                                                                 insetPadding:
                                                                     EdgeInsets
                                                                         .zero,
@@ -2550,6 +2560,7 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                             builder:
                                                                 (dialogContext) {
                                                               return Dialog(
+                                                                elevation: 0,
                                                                 insetPadding:
                                                                     EdgeInsets
                                                                         .zero,

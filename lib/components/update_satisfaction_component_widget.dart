@@ -15,7 +15,7 @@ class UpdateSatisfactionComponentWidget extends StatefulWidget {
   final int? satisfactionType;
 
   @override
-  _UpdateSatisfactionComponentWidgetState createState() =>
+  State<UpdateSatisfactionComponentWidget> createState() =>
       _UpdateSatisfactionComponentWidgetState();
 }
 

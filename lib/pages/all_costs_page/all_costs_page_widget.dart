@@ -22,7 +22,7 @@ class AllCostsPageWidget extends StatefulWidget {
   const AllCostsPageWidget({super.key});
 
   @override
-  _AllCostsPageWidgetState createState() => _AllCostsPageWidgetState();
+  State<AllCostsPageWidget> createState() => _AllCostsPageWidgetState();
 }
 
 class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
@@ -1278,6 +1278,8 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Dialog(
+                                                                            elevation:
+                                                                                0,
                                                                             insetPadding:
                                                                                 EdgeInsets.zero,
                                                                             backgroundColor:

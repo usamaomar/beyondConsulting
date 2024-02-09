@@ -25,7 +25,7 @@ class MainDashBoardPageWidget extends StatefulWidget {
   const MainDashBoardPageWidget({super.key});
 
   @override
-  _MainDashBoardPageWidgetState createState() =>
+  State<MainDashBoardPageWidget> createState() =>
       _MainDashBoardPageWidgetState();
 }
 
@@ -321,6 +321,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                     context: context,
                                     builder: (dialogContext) {
                                       return Dialog(
+                                        elevation: 0,
                                         insetPadding: EdgeInsets.zero,
                                         backgroundColor: Colors.transparent,
                                         alignment:
@@ -677,6 +678,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                       0.0, 20.0, 0.0, 20.0),
                                   child: Container(
                                     height: 100.0,
+                                    constraints: const BoxConstraints(
+                                      minWidth: 350.0,
+                                    ),
                                     decoration: const BoxDecoration(),
                                     child: Builder(
                                       builder: (context) {
