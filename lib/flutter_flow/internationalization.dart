@@ -175,6 +175,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
       'ar': '',
     },
+    'reg': {
+      'en': 'Note',
+      'ar': 'تعليق',
+    },
+    'admi': {
+      'en': 'Admin Note',
+      'ar': 'تعليق ادمن',
+    },
+    'gm': {
+      'en': 'GM Note',
+      'ar': 'تعليق جي ام',
+    },
   },
   // LogingPage
   {
@@ -527,6 +539,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'e7u4kwtt': {
       'en': 'Status',
       'ar': 'حالة',
+    },
+    'adminstatus': {
+      'en': 'Admin Status',
+      'ar': 'حالة ادمن',
+    },
+    'gmStatus': {
+      'en': 'GM Status',
+      'ar': 'حالة جي ام',
+    },
+    'control': {
+      'en': 'Control',
+      'ar': 'تحكم',
     },
     'hjwlvl4n': {
       'en': 'Collaborators',
@@ -1373,6 +1397,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ee1q6h82': {
       'en': 'Category',
       'ar': 'فئة',
+    },
+    'ee1q6h82n': {
+      'en': 'Note',
+      'ar': 'تعليق',
     },
     'pzg19n00': {
       'en': 'Category here...',

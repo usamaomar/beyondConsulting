@@ -35,7 +35,6 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
     super.initState();
     _model = createModel(context, () => AddCostDialogModel());
 
-
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
@@ -60,6 +59,9 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
 
     _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode6 ??= FocusNode();
+
+    _model.textControllerNote ??= TextEditingController();
+    _model.textFieldFocusNodeNote ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -102,8 +104,8 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,8 +149,8 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          20.0, 0.0, 20.0, 0.0),
                       child: ListView(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -187,9 +189,8 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                               ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -304,8 +305,8 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                            5.0, 0.0, 5.0, 0.0),
                                                     child: Text(
                                                       functions.convertDateString(
                                                           FFAppState()
@@ -534,6 +535,101 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     validator: _model.textController2Validator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 20.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'ee1q6h82n' /* Note */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: const Color(0xFF032734),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width < 400.0
+                                          ? 140.0
+                                          : 500.0,
+                                  decoration: const BoxDecoration(),
+                                  child: TextFormField(
+                                    controller: _model.textControllerNote,
+                                    focusNode: _model.textFieldFocusNodeNote,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'ee1q6h82n' /* Category here... */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .beyondBlueColor,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    validator: _model
+                                        .textController1ValidatorNote
                                         .asValidator(context),
                                   ),
                                 ),
@@ -852,7 +948,7 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 10.0, 0.0, 20.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width < 400.0
@@ -924,8 +1020,8 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        15.0, 0.0, 15.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -938,31 +1034,37 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                               if (!isNotNumber(_model.textController5.text)) {
                                 if (!isNotNumber(_model.textController3.text)) {
                                   setState(() {
-                                    if (FFAppState().SelectedCostModel.id == 0) {
+                                    if (FFAppState().SelectedCostModel.id ==
+                                        0) {
                                       FFAppState().SelectedCostModel.id =
                                           genNum();
-                                      FFAppState().SelectedCostModel.isNew = true;
+                                      FFAppState().SelectedCostModel.isNew =
+                                          true;
                                     }
                                   });
                                   setState(() {
                                     FFAppState().updateSelectedCostModelStruct(
-                                            (e) => e
+                                        (e) => e
                                           ..title = _model.textController1.text
-                                          ..category = _model.textController2.text
+                                          ..category =
+                                              _model.textController2.text
                                           ..unitCost = double.tryParse(
                                               _model.textController3.text)
                                           ..unit = _model.textController4.text
                                           ..duration = double.tryParse(
                                               _model.textController5.text)
-                                          ..durationUnit = _model.textController6.text
-                                    );
+                                          ..durationUnit =
+                                              _model.textController6.text
+                                          ..notes =
+                                              _model.textControllerNote.text);
                                   });
                                   setState(() {
-                                    FFAppState().updateNewProjectCreatedModelStruct(
-                                          (e) => e
+                                    FFAppState()
+                                        .updateNewProjectCreatedModelStruct(
+                                      (e) => e
                                         ..updateCosts(
-                                              (e) =>
-                                              e.add(FFAppState().SelectedCostModel),
+                                          (e) => e.add(
+                                              FFAppState().SelectedCostModel),
                                         ),
                                     );
                                   });
@@ -986,9 +1088,9 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                             child: Text(
                                                 FFLocalizations.of(context)
                                                     .getVariableText(
-                                                  enText: 'Ok',
-                                                  arText: 'حسنا',
-                                                )),
+                                              enText: 'Ok',
+                                              arText: 'حسنا',
+                                            )),
                                           ),
                                         ],
                                       );
@@ -1008,14 +1110,14 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                       content: Text('Duration Must Be Number'),
                                       actions: [
                                         TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext),
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
                                           child: Text(
                                               FFLocalizations.of(context)
                                                   .getVariableText(
-                                                enText: 'Ok',
-                                                arText: 'حسنا',
-                                              )),
+                                            enText: 'Ok',
+                                            arText: 'حسنا',
+                                          )),
                                         ),
                                       ],
                                     );
@@ -1071,5 +1173,4 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
     int randomNumber = random.nextInt(9000) + 1000;
     return randomNumber;
   }
-
 }

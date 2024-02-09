@@ -35,6 +35,11 @@ class AddCostDialogModel extends FlutterFlowModel<AddCostDialogWidget> {
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
 
+  FocusNode? textFieldFocusNodeNote;
+  TextEditingController? textControllerNote;
+  String? Function(BuildContext, String?)? textController1ValidatorNote;
+
+
   /// Initialization and disposal methods.
 
   @override
@@ -59,6 +64,9 @@ class AddCostDialogModel extends FlutterFlowModel<AddCostDialogWidget> {
 
     textFieldFocusNode6?.dispose();
     textController6?.dispose();
+
+    textFieldFocusNodeNote?.dispose();
+    textControllerNote?.dispose();
   }
 
   /// Action blocks are added here.

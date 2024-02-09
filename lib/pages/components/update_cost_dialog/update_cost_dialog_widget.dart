@@ -42,11 +42,13 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
         FFAppState().SelectedCostModel = CostModelStruct();
       });
       setState(() {
-        FFAppState().newProjectCreatedModel.costs.map((e) => {
-          if(e.id == widget.id){
-            FFAppState().SelectedCostModel = e
-          }
-        }).toList();
+        FFAppState()
+            .newProjectCreatedModel
+            .costs
+            .map((e) => {
+                  if (e.id == widget.id) {FFAppState().SelectedCostModel = e}
+                })
+            .toList();
       });
       setState(() {
         _model.textController1?.text = FFAppState().SelectedCostModel.title;
@@ -68,6 +70,9 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
       setState(() {
         _model.textController6?.text =
             FFAppState().SelectedCostModel.durationUnit;
+      });
+      setState(() {
+        _model.textControllerNote?.text = FFAppState().SelectedCostModel.notes;
       });
       // setState(() {
       //   _model.dropDownValueController?.value = functions.getIdByExpensesName(
@@ -94,6 +99,9 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
 
     _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode6 ??= FocusNode();
+
+    _model.textControllerNote ??= TextEditingController();
+    _model.textFieldFocusNodeNote ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -574,6 +582,101 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                             ],
                           ),
                           Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 20.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'ee1q6h82n' /* Note */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: const Color(0xFF032734),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width < 400.0
+                                          ? 140.0
+                                          : 500.0,
+                                  decoration: const BoxDecoration(),
+                                  child: TextFormField(
+                                    controller: _model.textControllerNote,
+                                    focusNode: _model.textFieldFocusNodeNote,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'ee1q6h82n' /* Note here... */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .beyondBlueColor,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    validator: _model
+                                        .textController1ValidatorNote
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -885,7 +988,7 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 10.0, 0.0, 20.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width < 400.0
@@ -982,12 +1085,23 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                                           ..duration = double.tryParse(
                                               _model.textController5.text)
                                           ..durationUnit =
-                                              _model.textController6.text);
-                                    FFAppState().newProjectCreatedModel.costs.map((e) => {
-                                      if(e.id == FFAppState().SelectedCostModel.id){
-                                        e = FFAppState().SelectedCostModel
-                                      }
-                                    }).toList();
+                                              _model.textController6.text
+                                          ..notes =
+                                              _model.textControllerNote.text);
+                                    FFAppState()
+                                        .newProjectCreatedModel
+                                        .costs
+                                        .map((e) => {
+                                              if (e.id ==
+                                                  FFAppState()
+                                                      .SelectedCostModel
+                                                      .id)
+                                                {
+                                                  e = FFAppState()
+                                                      .SelectedCostModel
+                                                }
+                                            })
+                                        .toList();
                                   });
                                   Navigator.pop(context);
                                 } else {
@@ -1030,14 +1144,14 @@ class _UpdateCostDialogWidgetState extends State<UpdateCostDialogWidget> {
                                       content: Text('Duration Must Be Number'),
                                       actions: [
                                         TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext),
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
                                           child: Text(
                                               FFLocalizations.of(context)
                                                   .getVariableText(
-                                                enText: 'Ok',
-                                                arText: 'حسنا',
-                                              )),
+                                            enText: 'Ok',
+                                            arText: 'حسنا',
+                                          )),
                                         ),
                                       ],
                                     );
