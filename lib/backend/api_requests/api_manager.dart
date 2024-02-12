@@ -307,13 +307,13 @@ class ApiManager {
     bool alwaysAllowBody = false,
     http.Client? client,
   }) async {
-    if (headers['Authorization'] != null && apiUrl != 'https://api.beyond.matterhr.com/api/v1/Auth/Refresh') {
-     await updateToken(headers['Authorization']).then((isExpierd) {
-       if(isExpierd) {
-         headers['Authorization'] = FFAppState().tokenModelAppState.token;
-       }
-     });
-    }
+    // if (headers['Authorization'] != null && apiUrl != 'https://api.beyond.matterhr.com/api/v1/Auth/Refresh') {
+    //  await updateToken(headers['Authorization']).then((isExpierd) {
+    //    if(isExpierd) {
+    //      headers['Authorization'] = FFAppState().tokenModelAppState.token;
+    //    }
+    //  });
+    // }
     final callRecord =
         ApiCallRecord(callName, apiUrl, headers, params, body, bodyType);
     // Modify for your specific needs if this differs from your API.

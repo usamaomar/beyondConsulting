@@ -38,13 +38,15 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
 
     if (kDebugMode)
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      // setState(() {
-      //   _model.textController1?.text = 'generalmanager@beyond.com';
-      // });
+      setState(() {
+        _model.textController1?.text = 'generalmanager@beyond.com';
+      });
       // setState(() {
       //   _model.textController1?.text = 'zaina.hammour@beyond-consult.com';
       // });
-
+      // setState(() {
+      //   _model.textController2?.text = '123456';
+      // });
       // setState(() {
       //   _model.textController1?.text = 'razan.asali@beyond-consult.com';
       // });
@@ -52,15 +54,13 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
       // setState(() {
       //   _model.textController1?.text = 'basel.kassab@beyond-consult.com';
       // });
-      // setState(() {
-      //   _model.textController2?.text = '123456';
-      // });
+
       // setState(() {
       //   _model.textController2?.text = '123!Pa\$\$word';
       // });
-      setState(() {
-        _model.textController1?.text = 'admin@beyond.com';
-      });
+      // setState(() {
+      //   _model.textController1?.text = 'admin@beyond.com';
+      // });
       setState(() {
         _model.textController2?.text = '123!Pa\$\$word';
       });

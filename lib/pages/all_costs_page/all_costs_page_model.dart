@@ -19,7 +19,10 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
           int index, Function(CostModelStruct) updateFn) =>
       allCostsList[index] = updateFn(allCostsList[index]);
 
+  List<CostModelStruct> savedAllCostsList = [];
+
   ///  State fields for stateful widgets in this page.
+  DateTime? datePicked;
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetAllCostsApi)] action in AllCostsPage widget.
@@ -34,18 +37,36 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   ApiCallResponse? apiResultz7xm;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
+  late CostModelStruct costModelStruct;
+
+
+  FocusNode? textFieldFocusNodeNote;
+  TextEditingController? textControllerNote;
+  String? Function(BuildContext, String?)? textController1ValidatorNote;
+
+
+  FocusNode? textFieldFocusNodeAdminNote;
+  TextEditingController? textControllerAdminNote;
+  String? Function(BuildContext, String?)? textController1ValidatorAdminNote;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
     sideNavModel = createModel(context, () => SideNavModel());
+    costModelStruct = CostModelStruct();
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     sideNavModel.dispose();
+
+    textFieldFocusNodeNote?.dispose();
+    textControllerNote?.dispose();
+
+    textFieldFocusNodeAdminNote?.dispose();
+    textControllerAdminNote?.dispose();
   }
 
   /// Action blocks are added here.

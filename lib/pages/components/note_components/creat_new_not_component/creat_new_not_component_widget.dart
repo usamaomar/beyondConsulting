@@ -516,22 +516,38 @@ class _CreatNewNotComponentWidgetState
                                                       .secondaryText,
                                               size: 24.0,
                                             ),
-                                            Text(
-                                              dateTimeFormat(
-                                                'yMd',
-                                                _model.date,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
+                                            _model.date==null ? Padding(
+                                              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                              child: Text(
+                                                'YYYY/MM/dd',
+                                                style:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                  fontFamily:
+                                                  'Readex Pro',
+                                                  fontSize: 12.0,
+                                                ),
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 12.0,
-                                                      ),
+                                            ) :Padding(
+                                              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                              child: Text(
+                                                dateTimeFormat(
+                                                  'yMd',
+                                                  _model.date,
+                                                  locale:
+                                                      FFLocalizations.of(context)
+                                                          .languageCode,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 12.0,
+                                                        ),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -647,6 +663,117 @@ class _CreatNewNotComponentWidgetState
               ),
               FFButtonWidget(
                 onPressed: () async {
+
+                  if(_model.date == null){
+                    await showDialog(
+                      context:
+                      context,
+                      builder:
+                          (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text(FFLocalizations.of(context).getVariableText(
+                            enText: 'Missing Field',
+                            arText: 'نص مفقود',
+                          )),
+                          content: Text('Add Date'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(alertDialogContext),
+                              child: Text(FFLocalizations.of(context).getVariableText(
+                                enText: 'Ok',
+                                arText: 'حسنا',
+                              )),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    return;
+                  }
+
+                  if(_model.textController1.text == ''){
+                    await showDialog(
+                      context:
+                      context,
+                      builder:
+                          (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text(FFLocalizations.of(context).getVariableText(
+                            enText: 'Missing Field',
+                            arText: 'نص مفقود',
+                          )),
+                          content: Text('Add Back title'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(alertDialogContext),
+                              child: Text(FFLocalizations.of(context).getVariableText(
+                                enText: 'Ok',
+                                arText: 'حسنا',
+                              )),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    return;
+                  }
+
+                  if(_model.textController2.text == ''){
+                    await showDialog(
+                      context:
+                      context,
+                      builder:
+                          (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text(FFLocalizations.of(context).getVariableText(
+                            enText: 'Missing Field',
+                            arText: 'نص مفقود',
+                          )),
+                          content: Text('Add title'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(alertDialogContext),
+                              child: Text(FFLocalizations.of(context).getVariableText(
+                                enText: 'Ok',
+                                arText: 'حسنا',
+                              )),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    return;
+                  }
+
+                  if(_model.textController3.text == ''){
+                    await showDialog(
+                      context:
+                      context,
+                      builder:
+                          (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text(FFLocalizations.of(context).getVariableText(
+                            enText: 'Missing Field',
+                            arText: 'نص مفقود',
+                          )),
+                          content: Text('Add Note'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(alertDialogContext),
+                              child: Text(FFLocalizations.of(context).getVariableText(
+                                enText: 'Ok',
+                                arText: 'حسنا',
+                              )),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    return;
+                  }
+
+
+
                   if ((_model.textController1.text != '') &&
                       (_model.textController2.text != '') &&
                       (_model.textController3.text != '') &&

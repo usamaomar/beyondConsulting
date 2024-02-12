@@ -548,6 +548,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'GM Status',
       'ar': 'حالة جي ام',
     },
+    'adminInvoice': {
+      'en': 'Admin Inv',
+      'ar': 'صورة ادمن',
+    },
+    'gmInvoice': {
+      'en': 'GM Inv',
+      'ar': 'صورة جي ام',
+    },
+    'date': {
+      'en': 'Date',
+      'ar': 'التاريخ',
+    },
     'control': {
       'en': 'Control',
       'ar': 'تحكم',
@@ -1591,15 +1603,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // CreatNewNotComponent
   {
     'cpx2vtuv': {
-      'en': 'Back Title',
+      'en': 'Add Back Title',
       'ar': 'العنوان الخلفي',
     },
     '71axit66': {
-      'en': 'Title',
+      'en': 'Add Title',
       'ar': 'عنوان',
     },
     '7yyhbrag': {
-      'en': 'Note',
+      'en': 'Add Note',
       'ar': 'ملحوظة',
     },
     '9ompcmv4': {

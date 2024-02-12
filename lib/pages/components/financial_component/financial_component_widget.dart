@@ -996,7 +996,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                                       ?.data
                                                                       .plannedProfit ??
                                                                   0) *
-                                                          0.01),
+                                                          0.01) % 1,
                                                   lineHeight: 16.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,

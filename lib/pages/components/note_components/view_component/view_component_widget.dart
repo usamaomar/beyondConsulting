@@ -1,3 +1,4 @@
+import '../../../../flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -39,41 +40,75 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (widget.imagePath != null && widget.imagePath != '')
+                  Flexible(
+                    child: ClipRRect(
+                      child: Image.network(
+                        widget.imagePath!,
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                  ),
+                if (widget.filePath != null && widget.filePath != '')
+                  Flexible(
+                    child: FlutterFlowPdfViewer(
+                      networkPath: widget.filePath!,
+                      horizontalScroll: false,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
 
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (widget.imagePath != null && widget.imagePath != '')
-            Flexible(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  widget.imagePath!,
-                  width: 400.0,
-                  height: 400.0,
-                  fit: BoxFit.fitHeight,
+              ),
+            ],
+          ),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+          height: 50,
+
+          child: Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.close,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
                 ),
-              ),
+              ],
             ),
-          if (widget.filePath != null && widget.filePath != '')
-            Flexible(
-              child: FlutterFlowPdfViewer(
-                networkPath: widget.filePath!,
-                width: 400.0,
-                height: 400.0,
-                horizontalScroll: false,
-              ),
-            ),
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
