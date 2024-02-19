@@ -19,6 +19,7 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
     double? totalBudget,
     double? spentBudget,
     double? remainingBudget,
+    double? financialTarget,
   })  : _data = data,
         _actualRevenue = actualRevenue,
         _plannedRevenue = plannedRevenue,
@@ -30,7 +31,8 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         _actualGP = actualGP,
         _totalBudget = totalBudget,
         _spentBudget = spentBudget,
-        _remainingBudget = remainingBudget;
+        _remainingBudget = remainingBudget,
+        _financialTarget = financialTarget;
 
   // "data" field.
   FinancialStatisticsOutputModelStruct? _data;
@@ -126,6 +128,14 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
       _remainingBudget = remainingBudget + amount;
   bool hasRemainingBudget() => _remainingBudget != null;
 
+  // "financialTarget" field.
+  double? _financialTarget;
+  double get financialTarget => _financialTarget ?? 0.0;
+  set financialTarget(double? val) => _financialTarget = val;
+  void incrementFinancialTarget(double amount) =>
+      _financialTarget = financialTarget + amount;
+  bool hasFinancialTarget() => _financialTarget != null;
+
   static FinancialStatisticsOutputModelStruct fromMap(
           Map<String, dynamic> data) =>
       FinancialStatisticsOutputModelStruct(
@@ -141,6 +151,7 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         totalBudget: castToType<double>(data['totalBudget']),
         spentBudget: castToType<double>(data['spentBudget']),
         remainingBudget: castToType<double>(data['remainingBudget']),
+        financialTarget: castToType<double>(data['financialTarget']),
       );
 
   static FinancialStatisticsOutputModelStruct? maybeFromMap(dynamic data) =>
@@ -162,6 +173,7 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         'totalBudget': _totalBudget,
         'spentBudget': _spentBudget,
         'remainingBudget': _remainingBudget,
+        'financialTarget': _financialTarget,
       }.withoutNulls;
 
   @override
@@ -212,6 +224,10 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         ),
         'remainingBudget': serializeParam(
           _remainingBudget,
+          ParamType.double,
+        ),
+        'financialTarget': serializeParam(
+          _financialTarget,
           ParamType.double,
         ),
       }.withoutNulls;
@@ -281,6 +297,11 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
+        financialTarget: deserializeParam(
+          data['financialTarget'],
+          ParamType.double,
+          false,
+        ),
       );
 
   @override
@@ -300,7 +321,8 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         actualGP == other.actualGP &&
         totalBudget == other.totalBudget &&
         spentBudget == other.spentBudget &&
-        remainingBudget == other.remainingBudget;
+        remainingBudget == other.remainingBudget &&
+        financialTarget == other.financialTarget;
   }
 
   @override
@@ -316,7 +338,8 @@ class FinancialStatisticsOutputModelStruct extends BaseStruct {
         actualGP,
         totalBudget,
         spentBudget,
-        remainingBudget
+        remainingBudget,
+        financialTarget
       ]);
 }
 
@@ -334,6 +357,7 @@ FinancialStatisticsOutputModelStruct
   double? totalBudget,
   double? spentBudget,
   double? remainingBudget,
+  double? financialTarget,
 }) =>
         FinancialStatisticsOutputModelStruct(
           data: data ?? FinancialStatisticsOutputModelStruct(),
@@ -348,4 +372,5 @@ FinancialStatisticsOutputModelStruct
           totalBudget: totalBudget,
           spentBudget: spentBudget,
           remainingBudget: remainingBudget,
+          financialTarget: financialTarget,
         );
