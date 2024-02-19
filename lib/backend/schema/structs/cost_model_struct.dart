@@ -28,6 +28,8 @@ class CostModelStruct extends BaseStruct {
     int? projectId,
     bool? isNew,
     bool? isUpdated,
+    String? creator,
+    double? actualBilledAmount,
   })  : _id = id,
         _title = title,
         _date = date,
@@ -48,7 +50,9 @@ class CostModelStruct extends BaseStruct {
         _project = project,
         _projectId = projectId,
         _isNew = isNew,
-        _isUpdated = isUpdated;
+        _isUpdated = isUpdated,
+        _creator = creator,
+        _actualBilledAmount = actualBilledAmount;
 
   // "id" field.
   int? _id;
@@ -185,6 +189,20 @@ class CostModelStruct extends BaseStruct {
   set isUpdated(bool? val) => _isUpdated = val;
   bool hasIsUpdated() => _isUpdated != null;
 
+  // "creator" field.
+  String? _creator;
+  String get creator => _creator ?? '';
+  set creator(String? val) => _creator = val;
+  bool hasCreator() => _creator != null;
+
+  // "actualBilledAmount" field.
+  double? _actualBilledAmount;
+  double get actualBilledAmount => _actualBilledAmount ?? 0.0;
+  set actualBilledAmount(double? val) => _actualBilledAmount = val;
+  void incrementActualBilledAmount(double amount) =>
+      _actualBilledAmount = actualBilledAmount + amount;
+  bool hasActualBilledAmount() => _actualBilledAmount != null;
+
   static CostModelStruct fromMap(Map<String, dynamic> data) => CostModelStruct(
         id: castToType<int>(data['id']),
         title: data['title'] as String?,
@@ -207,6 +225,8 @@ class CostModelStruct extends BaseStruct {
         projectId: castToType<int>(data['projectId']),
         isNew: data['isNew'] as bool?,
         isUpdated: data['isUpdated'] as bool?,
+        creator: data['creator'] as String?,
+        actualBilledAmount: castToType<double>(data['actualBilledAmount']),
       );
 
   static CostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -235,6 +255,8 @@ class CostModelStruct extends BaseStruct {
         'projectId': _projectId,
         'isNew': _isNew,
         'isUpdated': _isUpdated,
+        'creator': _creator,
+        'actualBilledAmount': _actualBilledAmount,
       }.withoutNulls;
 
   @override
@@ -322,6 +344,14 @@ class CostModelStruct extends BaseStruct {
         'isUpdated': serializeParam(
           _isUpdated,
           ParamType.bool,
+        ),
+        'creator': serializeParam(
+          _creator,
+          ParamType.String,
+        ),
+        'actualBilledAmount': serializeParam(
+          _actualBilledAmount,
+          ParamType.double,
         ),
       }.withoutNulls;
 
@@ -432,6 +462,16 @@ class CostModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        creator: deserializeParam(
+          data['creator'],
+          ParamType.String,
+          false,
+        ),
+        actualBilledAmount: deserializeParam(
+          data['actualBilledAmount'],
+          ParamType.double,
+          false,
+        ),
       );
 
   @override
@@ -460,7 +500,9 @@ class CostModelStruct extends BaseStruct {
         project == other.project &&
         projectId == other.projectId &&
         isNew == other.isNew &&
-        isUpdated == other.isUpdated;
+        isUpdated == other.isUpdated &&
+        creator == other.creator &&
+        actualBilledAmount == other.actualBilledAmount;
   }
 
   @override
@@ -485,7 +527,9 @@ class CostModelStruct extends BaseStruct {
         project,
         projectId,
         isNew,
-        isUpdated
+        isUpdated,
+        creator,
+        actualBilledAmount
       ]);
 }
 
@@ -511,6 +555,8 @@ CostModelStruct createCostModelStruct({
   int? projectId,
   bool? isNew,
   bool? isUpdated,
+  String? creator,
+  double? actualBilledAmount,
 }) =>
     CostModelStruct(
       id: id,
@@ -534,4 +580,6 @@ CostModelStruct createCostModelStruct({
       projectId: projectId,
       isNew: isNew,
       isUpdated: isUpdated,
+      creator: creator,
+      actualBilledAmount: actualBilledAmount,
     );
