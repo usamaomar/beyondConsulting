@@ -1,3 +1,4 @@
+import '../../../backend/schema/structs/team_members_model_struct.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'side_nav_widget.dart' show SideNavWidget;
@@ -16,6 +17,19 @@ class SideNavModel extends FlutterFlowModel<SideNavWidget> {
   ApiCallResponse? apiResultpos;
 
   /// Initialization and disposal methods.
+  ///
+  ///
+  ///
+
+
+  TeamMembersModelStruct? teamMemberModel;
+  void updateTeamMemberModelStruct(Function(TeamMembersModelStruct) updateFn) =>
+      updateFn(teamMemberModel ??= TeamMembersModelStruct());
+
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Backend Call - API (GetMyTeamApi)] action in TeamCapacitiesPage widget.
+  ApiCallResponse? apiResult1xv;
 
   @override
   void initState(BuildContext context) {}

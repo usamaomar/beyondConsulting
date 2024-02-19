@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import '../components/my_dialog.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -88,6 +90,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               });
             }
           }
+
+          _model.apiResultm5e = await GetFinancialStatisticsCall.call(
+            token: FFAppState().tokenModelAppState.token,
+          );
+          if ((_model.apiResultm5e?.succeeded ?? true)) {
+            setState(() {
+              _model.financialStatisticsModel =
+                  FinancialStatisticsOutputModelStruct.maybeFromMap(getJsonField(
+                    (_model.apiResultm5e?.jsonBody ?? ''),
+                    r'''$''',
+                  ));
+            });
+          }
         }
       }
 
@@ -102,7 +117,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         );
       });
     });
-
+    localNotify();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -1664,7 +1679,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Text(
-                                                      '${FFAppState().ProjectStatisticsModel.profit.toString()}${FFLocalizations.of(context).getVariableText(
+                                                      '${(FFAppState().ProjectStatisticsModel.profit/1000).toString()}${FFLocalizations.of(context).getVariableText(
                                                         enText: ' K ',
                                                         arText: ' الف ',
                                                       )}',
@@ -1916,7 +1931,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        '${FFAppState().ProjectStatisticsModel.profit.toString()}${FFLocalizations.of(context).getVariableText(
+                                                        '${(FFAppState().ProjectStatisticsModel.profit/1000).toString()}${FFLocalizations.of(context).getVariableText(
                                                           enText: ' K ',
                                                           arText: ' الف ',
                                                         )}',
@@ -2083,5 +2098,47 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
       ),
     );
+  }
+
+
+  void localNotify() async {
+    FirebaseDatabase.instance.ref().onValue.listen((event) {
+      if (event.snapshot.value != null) {
+        Map<Object?, Object?> value =
+        event.snapshot.value as Map<Object?, Object?>;
+        if (FFAppState().userModelAppState.accessRole != 5 &&
+            FFAppState().userModelAppState.accessRole != 1) {
+          if (value['Available'] != null) {
+            value.forEach((key, value) async {
+              if (key == 'Available') {
+                Map<String, dynamic> values = value as Map<String, dynamic>;
+                String? email = values['email'];
+                bool? isAvailable = values['isAvailable'];
+                String? senderId = values['senderId'];
+                String? name = values['name'];
+                List<dynamic> teamList = values['teamList'];
+                String? timeStamp = values['timeStamp'];
+                if (email != FFAppState().userModelAppState.email) {
+                  String? value = teamList.firstWhere(
+                          (element) =>
+                      element == FFAppState().userModelAppState.email,
+                      orElse: () => 'null');
+                  if (value != 'null') {
+                    await showDialog(
+                      context:   context,
+                      builder: (alertDialogContext) {
+                        return MyDialog(
+                          msg: '$name ${isAvailable == true ? "is Available" : "isBusy"}',
+                        );
+                      },
+                    );
+                  }
+                }
+              }
+            });
+          }
+        }
+      }
+    });
   }
 }

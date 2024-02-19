@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -38,12 +39,12 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
 
     if (kDebugMode)
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.textController1?.text = 'generalmanager@beyond.com';
-      });
       // setState(() {
-      //   _model.textController1?.text = 'zaina.hammour@beyond-consult.com';
+      //   _model.textController1?.text = 'generalmanager@beyond.com';
       // });
+      setState(() {
+        _model.textController1?.text = 'zaina.hammour@beyond-consult.com';
+      });
       // setState(() {
       //   _model.textController2?.text = '123456';
       // });
@@ -61,12 +62,12 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
       // setState(() {
       //   _model.textController1?.text = 'admin@beyond.com';
       // });
-      setState(() {
-        _model.textController2?.text = '123!Pa\$\$word';
-      });
       // setState(() {
-      //   _model.textController1?.text = '123456';
+      //   _model.textController2?.text = '123!Pa\$\$word';
       // });
+      setState(() {
+        _model.textController1?.text = '123456';
+      });
       // setState(() {
       //   _model.textController2?.text = '';
       // });
@@ -79,8 +80,27 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
   @override
   void dispose() {
     _model.dispose();
-
+    getPermission().then((value) {
+      FirebaseMessaging.instance.deleteToken().then((value) {
+        FirebaseMessaging.instance.getToken().then((fbToken) {
+          FFAppState().fcm = fbToken ?? 'null';
+        });
+      });
+    });
     super.dispose();
+  }
+
+  Future<void> getPermission() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
   }
 
   @override
@@ -184,24 +204,24 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
                                                             .getText(
                                                           '6qxobb1r' /* BEYOND CONSULTING */,
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Almarai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .beyondBlueColor,
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      false,
-                                                                ),
+                                                      style:
+                                                             FlutterFlowTheme
+                                                             .of(context)
+                                                             .bodyMedium
+                                                             .override(
+                                                             fontFamily:
+                                                             'Almarai',
+                                                             color: FlutterFlowTheme
+                                                             .of(context)
+                                                             .beyondBlueColor,
+                                                             fontSize:
+                                                             20.0,
+                                                             fontWeight:
+                                                             FontWeight
+                                                             .w500,
+                                                             useGoogleFonts:
+                                                             false,
+                                                             ),
                                                       ),
                                                     ),
                                                     Align(

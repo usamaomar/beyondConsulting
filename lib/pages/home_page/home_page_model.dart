@@ -28,9 +28,14 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResult9gl;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
+  ApiCallResponse? apiResultm5e;
 
   /// Initialization and disposal methods.
-
+  FinancialStatisticsOutputModelStruct? financialStatisticsModel;
+  void updateFinancialStatisticsModelStruct(
+      Function(FinancialStatisticsOutputModelStruct) updateFn) =>
+      updateFn(
+          financialStatisticsModel ??= FinancialStatisticsOutputModelStruct());
   @override
   void initState(BuildContext context) {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.

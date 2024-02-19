@@ -1,3 +1,5 @@
+import 'package:firebase_database/firebase_database.dart';
+
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -83,15 +85,16 @@ class _SideNavWidgetState extends State<SideNavWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 24.0, 10.0, 16.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(10.0, 24.0, 10.0, 16.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 35.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -154,8 +157,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'zdq4e0la' /* Home */,
@@ -196,9 +200,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                               if ((_model.apiResultv5n
                                                       ?.succeeded ??
                                                   true)) {
-                                                Navigator.pop(context);
+                                                sendNot(true);
                                               }
-
                                               setState(() {});
                                             } else {
                                               setState(() {
@@ -215,7 +218,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                               if ((_model.apiResultpos
                                                       ?.succeeded ??
                                                   true)) {
-                                                Navigator.pop(context);
+                                                sendNot(false);
                                               }
 
                                               setState(() {});
@@ -227,7 +230,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                           activeTrackColor:
                                               FlutterFlowTheme.of(context)
                                                   .accent1,
-                                          inactiveTrackColor: const Color(0xFFEA2903),
+                                          inactiveTrackColor:
+                                              const Color(0xFFEA2903),
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
@@ -298,8 +302,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'p7ziaqge' /* Main DashBoard */,
@@ -371,8 +376,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'i4cv7m8y' /* Cost Managment */,
@@ -406,9 +411,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 10.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 10.0, 10.0),
                                           child: Stack(
                                             children: [
                                               if (FFAppState().costIsOpend ==
@@ -481,7 +485,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
+                                            kTransitionInfoKey:
+                                                const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -506,13 +511,16 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                                   if (projectsSidListItem
                                                           .type ==
                                                       4) {
-                                                    return const Color(0xFFB00712);
+                                                    return const Color(
+                                                        0xFFB00712);
                                                   } else if (projectsSidListItem
                                                           .type ==
                                                       4) {
-                                                    return const Color(0xFFECAD7C);
+                                                    return const Color(
+                                                        0xFFECAD7C);
                                                   } else {
-                                                    return const Color(0xFF9DCD5A);
+                                                    return const Color(
+                                                        0xFF9DCD5A);
                                                   }
                                                 }(),
                                                 shape: BoxShape.circle,
@@ -520,9 +528,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 2.0, 15.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(15.0, 2.0, 15.0, 0.0),
                                             child: Text(
                                               projectsSidListItem.name,
                                               style:
@@ -603,8 +610,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           functions.projectTitle(
                                               FFLocalizations.of(context)
@@ -641,9 +648,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 10.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 10.0, 10.0),
                                           child: Stack(
                                             children: [
                                               if (FFAppState().projectIsOpend ==
@@ -716,7 +722,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
+                                            kTransitionInfoKey:
+                                                const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -741,13 +748,16 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                                   if (projectsSidListItem
                                                           .type ==
                                                       4) {
-                                                    return const Color(0xFFB00712);
+                                                    return const Color(
+                                                        0xFFB00712);
                                                   } else if (projectsSidListItem
                                                           .type ==
                                                       4) {
-                                                    return const Color(0xFFECAD7C);
+                                                    return const Color(
+                                                        0xFFECAD7C);
                                                   } else {
-                                                    return const Color(0xFF9DCD5A);
+                                                    return const Color(
+                                                        0xFF9DCD5A);
                                                   }
                                                 }(),
                                                 shape: BoxShape.circle,
@@ -755,9 +765,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 2.0, 15.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(15.0, 2.0, 15.0, 0.0),
                                             child: Text(
                                               projectsSidListItem.name,
                                               style:
@@ -834,8 +843,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 2.0, 15.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 2.0, 15.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'h61xrlo6' /* Create a Project */,
@@ -924,8 +934,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'eq8mamhx' /* Team Capacities */,
@@ -1006,8 +1017,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       size: 24.0,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'o38ukczj' /* Financials */,
@@ -1089,8 +1101,9 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       size: 24.0,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'l7z31cm6' /* All Costs */,
@@ -1134,9 +1147,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     focusColor: Colors.transparent,
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
-                    onTap: () async {
-
-                    },
+                    onTap: () async {},
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -1194,15 +1205,17 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       await showDialog(
                                         context: context,
                                         builder: (dialogContext) {
-                                          return Dialog(
+                                          return  Dialog(
                                             elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
-                                            alignment: const AlignmentDirectional(
-                                                    0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                            child: const LogOutComponentWidget(),
+                                            alignment:
+                                                const AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                            child:
+                                                 LogOutComponentWidget(),
                                           );
                                         },
                                       ).then((value) => setState(() {}));
@@ -1229,5 +1242,41 @@ class _SideNavWidgetState extends State<SideNavWidget> {
         ),
       ),
     );
+  }
+
+  void sendNot(bool isAvailable) async {
+    if (FFAppState().userModelAppState.accessRole != 5 &&
+        FFAppState().userModelAppState.accessRole != 1) {
+      _model.apiResult1xv = await GetMyTeamApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResult1xv?.succeeded ?? true)) {
+        _model.teamMemberModel =
+            TeamMembersModelStruct.maybeFromMap(getJsonField(
+          (_model.apiResult1xv?.jsonBody ?? ''),
+          r'''$.data''',
+        ));
+      }
+      List<String> listOfValue = [];
+      listOfValue.addAll(
+          _model.teamMemberModel?.seniors.map((e) => e.email).toList() ?? []);
+      listOfValue.addAll(
+          _model.teamMemberModel?.members.map((e) => e.email).toList() ?? []);
+      Map<String, dynamic> mapValue = {};
+      mapValue['senderId'] =
+          FirebaseDatabase.instance.app.options.messagingSenderId;
+      mapValue['teamList'] = listOfValue;
+      mapValue['isAvailable'] = isAvailable;
+      mapValue['email'] = FFAppState().userModelAppState.email;
+      mapValue['name'] = '${FFAppState().userModelAppState.firstName} ${FFAppState().userModelAppState.lastName}';
+      mapValue['timeStamp'] = DateTime.now().millisecondsSinceEpoch.toString();
+      FirebaseDatabase.instance.ref().child("Available").set(mapValue).catchError((onError) {
+        onError.toString();
+      }).then((value) {
+        Navigator.pop(context);
+      });
+    } else {
+      Navigator.pop(context);
+    }
   }
 }

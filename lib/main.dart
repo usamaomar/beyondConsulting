@@ -1,3 +1,7 @@
+import 'package:beyond_consulting/pages/components/my_dialog.dart';
+import 'package:beyond_consulting/pages/components/my_singleton_class.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,7 +16,7 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:universal_html/js.dart';
+import 'dart:io' show Platform;
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   try {
@@ -27,7 +31,14 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
-  await initFirebase();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyAPaePPsnCQ_I2MKODe4ofybO_0briJ0X8",
+          appId: "1:1009527882445:web:54cbedfa27b82b26825f84",
+          databaseURL:
+              'https://beyondconsulting-ebbe5-default-rtdb.firebaseio.com',
+          messagingSenderId: "1009527882445",
+          projectId: 'beyondconsulting-ebbe5'));
 
   await FlutterFlowTheme.initialize();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -60,16 +71,22 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+
     super.initState();
+
     getPermission().then((value) {
       FirebaseMessaging.instance.getToken().then((fbToken) {
         FFAppState().fcm = fbToken ?? 'null';
       });
       handleInAppMessage();
     });
+
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
+
   }
+
+
 
   void handleInAppMessage() {
     FirebaseMessaging.instance.getInitialMessage().then((message) => {
@@ -87,7 +104,9 @@ class _MyAppState extends State<MyApp> {
     try {
       if (message.notification != null &&
           message.notification?.title != null &&
-          message.notification?.body != null) {
+          message.notification?.body != null &&
+          message.from !=
+              FirebaseMessaging.instance.app.options.messagingSenderId) {
         showNotification(message.notification);
       }
     } catch (ex) {

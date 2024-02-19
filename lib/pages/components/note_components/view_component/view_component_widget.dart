@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'view_component_model.dart';
 export 'view_component_model.dart';
+import 'dart:html' as html;
+
 
 class ViewComponentWidget extends StatefulWidget {
   const ViewComponentWidget({
@@ -87,22 +89,43 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
           ),
           margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
           height: 50,
-
           child: Padding(
             padding: EdgeInsets.only(left: 10, right: 10),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.close,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+
+                        // if(widget.imagePath==null){
+                        //
+                        //
+                        //
+                        // }
+                        //
+                        //
+                        // downloadFileFromUrl(widget.imagePath?.isEmpty ? widget.imagePath : widget.imagePath);
+                      },
+                      child: Icon(
+                        Icons.security_update,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -110,5 +133,12 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
         ),
       ],
     );
+  }
+
+
+  void downloadFileFromUrl(String url) {
+    html.AnchorElement anchorElement = html.AnchorElement(href: url);
+    anchorElement.download = '';
+    anchorElement.click();
   }
 }
