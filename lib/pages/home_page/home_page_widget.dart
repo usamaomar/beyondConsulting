@@ -1699,7 +1699,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      '/ ${FFAppState().ProjectStatisticsModel.profitPercentage} %',
+                                                      '/ ${_model.financialStatisticsModel?.financialTarget} %',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1952,7 +1952,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             ),
                                                       ),
                                                       Text(
-                                                        '/ ${FFAppState().ProjectStatisticsModel.profitPercentage} %',
+                                                        '/ ${_model.financialStatisticsModel?.financialTarget} %',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
