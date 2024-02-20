@@ -371,29 +371,29 @@ class _AdminsCostManagementWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
-                                            wrapWithModel(
-                                              model: _model
-                                                  .costDropComponentModels
-                                                  .getModel(
-                                                localCostListItem.id.toString(),
-                                                localCostListIndex,
-                                              ),
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              child: CostDropComponentWidget(
-                                                key: Key(
-                                                  'Keyuub_${localCostListItem.id.toString()}',
-                                                ),
-                                                parameter1:
-                                                    functions.getCostStatusName(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                        localCostListItem
-                                                            .costStatus),
-                                                costId: localCostListItem.id,
-                                              ),
-                                            ),
+                                            // wrapWithModel(
+                                            //   model: _model
+                                            //       .costDropComponentModels
+                                            //       .getModel(
+                                            //     localCostListItem.id.toString(),
+                                            //     localCostListIndex,
+                                            //   ),
+                                            //   updateCallback: () =>
+                                            //       setState(() {}),
+                                            //   child: CostDropComponentWidget(
+                                            //     key: Key(
+                                            //       'Keyuub_${localCostListItem.id.toString()}',
+                                            //     ),
+                                            //     parameter1:
+                                            //         functions.getCostStatusName(
+                                            //             FFLocalizations.of(
+                                            //                     context)
+                                            //                 .languageCode,
+                                            //             localCostListItem
+                                            //                 .costStatus),
+                                            //     costId: localCostListItem.id,
+                                            //   ),
+                                            // ),
                                           ],
                                         ),
                                       ].map((c) => DataCell(c)).toList())

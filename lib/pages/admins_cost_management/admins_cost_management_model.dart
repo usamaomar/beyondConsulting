@@ -31,7 +31,7 @@ class AdminsCostManagementModel
 
   final unfocusNode = FocusNode();
   // Models for CostDropComponent dynamic component.
-  late FlutterFlowDynamicModels<CostDropComponentModel> costDropComponentModels;
+  // late FlutterFlowDynamicModels<CostDropComponentModel> costDropComponentModels;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 
@@ -40,15 +40,15 @@ class AdminsCostManagementModel
   @override
   void initState(BuildContext context) {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
-    costDropComponentModels =
-        FlutterFlowDynamicModels(() => CostDropComponentModel());
+    // costDropComponentModels =
+    //     FlutterFlowDynamicModels(() => CostDropComponentModel());
     sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    costDropComponentModels.dispose();
+    // costDropComponentModels.dispose();
     sideNavModel.dispose();
   }
 

@@ -36,7 +36,6 @@ class LoginApiCall {
       );
 }
 
-
 class GetMyDataApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
@@ -685,16 +684,24 @@ class GetFinancialResultsExcelApiCall {
 class GetAllCostsApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
+    DateTime? fromDate,
+    DateTime? toDate,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetAllCostsApi',
-      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/GetAllCosts?PageSize=1000',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Projects/GetAllCosts?PageSize=1000',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer $token',
       },
-      params: {},
+      params: (fromDate != null && toDate != null)
+          ? {
+              'FromDate': dateTimeToString(fromDate),
+              'ToDate': dateTimeToString(toDate),
+            }
+          : {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -708,6 +715,16 @@ class GetAllCostsApiCall {
         r'''$.data''',
         true,
       ) as List?;
+
+  static String dateTimeToString(DateTime dateTime) {
+    String year = dateTime.year.toString().padLeft(4, '0');
+    String month = dateTime.month.toString().padLeft(2, '0');
+    String day = dateTime.day.toString().padLeft(2, '0');
+    String hour = dateTime.hour.toString().padLeft(2, '0');
+    String minute = dateTime.minute.toString().padLeft(2, '0');
+    String second = dateTime.second.toString().padLeft(2, '0');
+    return '${year}-${month}-${day}T${hour}:${minute}:${second}.000Z';
+  }
 }
 
 class GetMyProjectTrackersApiCall {
@@ -871,13 +888,9 @@ class CreateClintCall {
   }
 }
 
-
-
-class RefreshTokenCall  {
-  static Future<ApiCallResponse> call({
-    String? token = '',
-    String? refreshToken = ''
-  }) async {
+class RefreshTokenCall {
+  static Future<ApiCallResponse> call(
+      {String? token = '', String? refreshToken = ''}) async {
     final ffApiRequestBody = '''
 {
   "token": "$token",
@@ -1126,13 +1139,15 @@ class UpdateCostStatusApiCall {
     String? token = '',
     String? notes = '',
     String? attachmentUrl = '',
+    required double? actualBilledAmount,
   }) async {
     final ffApiRequestBody = '''
 {
   "costId": $costId,
   "isApproved": $isApproved,
   "notes": "$notes",
-  "attachmentUrl": "$attachmentUrl"
+  "attachmentUrl": "$attachmentUrl",
+  "actualBilledAmount": "$actualBilledAmount",
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateCostStatusApi',
@@ -1162,13 +1177,15 @@ class UpdateAdminCostStatusApiCall {
     String? token = '',
     String? notes = '',
     String? attachmentUrl = '',
+    required double? actualBilledAmount,
   }) async {
     final ffApiRequestBody = '''
 {
   "costId": $costId,
   "isApproved": $isApproved,
   "notes": "$notes",
-  "attachmentUrl": "$attachmentUrl"
+  "attachmentUrl": "$attachmentUrl",
+  "actualBilledAmount": "$actualBilledAmount",
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateAdminCostStatusApi',

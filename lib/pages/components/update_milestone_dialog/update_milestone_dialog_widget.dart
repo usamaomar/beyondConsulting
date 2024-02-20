@@ -931,27 +931,37 @@ class _UpdateMilestoneDialogWidgetState
                                           await showDialog(
                                             context: context,
                                             builder: (dialogContext) {
-                                              return Material(
-                                                color: Colors.transparent,
-                                                child: SizedBox(
-                                                  height: 450.0,
-                                                  width: 450.0,
-                                                  child: ViewComponentWidget(
-                                                    imagePath: (getPath()
-                                                                ?.contains(
-                                                                    'pdf') ??
-                                                            true)
-                                                        ? null
-                                                        : getPath(),
-                                                    filePath: (getPath()
-                                                                ?.contains(
-                                                                    'pdf') ??
-                                                            false)
-                                                        ? null
-                                                        : getPath(),
-                                                  ),
-                                                ),
-                                              );
+                                              return Dialog(
+                                                  elevation: 0,
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  child: Material(
+                                                    child: SizedBox(
+                                                        height: 500.0,
+                                                        width: 500.0,
+                                                        child:
+                                                            ViewComponentWidget(
+                                                          imagePath: (getPath()
+                                                                      ?.contains(
+                                                                          'pdf') ??
+                                                                  true)
+                                                              ? null
+                                                              : getPath(),
+                                                          filePath: (getPath()
+                                                                      ?.contains(
+                                                                          'pdf') ??
+                                                                  false)
+                                                              ? null
+                                                              : getPath(),
+                                                        )),
+                                                  ));
                                             },
                                           ).then((value) => setState(() {}));
                                         },
@@ -1328,7 +1338,6 @@ class _UpdateMilestoneDialogWidgetState
       ),
     );
   }
-
 
   int convertFromStringInvoiceStatusToInt(String invoiceStatus) {
     if (invoiceStatus == 'NoInvoice') {

@@ -22,7 +22,8 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   List<CostModelStruct> savedAllCostsList = [];
 
   ///  State fields for stateful widgets in this page.
-  DateTime? datePicked;
+  DateTime? fromDatePicked;
+  DateTime? toDatePicked;
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetAllCostsApi)] action in AllCostsPage widget.
@@ -49,6 +50,13 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   TextEditingController? textControllerAdminNote;
   String? Function(BuildContext, String?)? textController1ValidatorAdminNote;
 
+
+
+  FocusNode? textFieldFocusNodeActualBilledAmount;
+  TextEditingController? textControllerActualBilledAmount;
+  String? Function(BuildContext, String?)? textController1ValidatorActualBilledAmount;
+
+
   /// Initialization and disposal methods.
 
   @override
@@ -67,6 +75,10 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
 
     textFieldFocusNodeAdminNote?.dispose();
     textControllerAdminNote?.dispose();
+
+
+    textFieldFocusNodeActualBilledAmount?.dispose();
+    textControllerActualBilledAmount?.dispose();
   }
 
   /// Action blocks are added here.

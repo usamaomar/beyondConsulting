@@ -102,6 +102,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_database: ^10.4.5
   audioplayers: ^5.2.1
+  image_downloader_web: ^2.0.2
 
 dependency_overrides:
   device_info_plus: 9.1.0

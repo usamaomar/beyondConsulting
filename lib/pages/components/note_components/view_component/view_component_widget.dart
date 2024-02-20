@@ -1,3 +1,5 @@
+import 'package:image_downloader_web/image_downloader_web.dart';
+
 import '../../../../flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -99,15 +101,7 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
                   children: [
                     InkWell(
                       onTap: () {
-
-                        // if(widget.imagePath==null){
-                        //
-                        //
-                        //
-                        // }
-                        //
-                        //
-                        // downloadFileFromUrl(widget.imagePath?.isEmpty ? widget.imagePath : widget.imagePath);
+                        downloadFileFromUrl(widget.imagePath?.isEmpty == true ? widget.imagePath : widget.filePath);
                       },
                       child: Icon(
                         Icons.security_update,
@@ -136,9 +130,10 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
   }
 
 
-  void downloadFileFromUrl(String url) {
-    html.AnchorElement anchorElement = html.AnchorElement(href: url);
-    anchorElement.download = '';
-    anchorElement.click();
+  void downloadFileFromUrl(String? url) async{
+    Map<String, String> headersParams = <String, String>{};
+    headersParams['Accept'] = "application/json";
+    headersParams['Authorization'] ='Bearer ${FFAppState().tokenModelAppState.token}';
+    await WebImageDownloader.downloadImageFromWeb(url ?? '',headers: headersParams,name: 'Beyond');
   }
 }

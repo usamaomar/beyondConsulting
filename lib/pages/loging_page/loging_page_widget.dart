@@ -39,12 +39,12 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
 
     if (kDebugMode)
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      // setState(() {
-      //   _model.textController1?.text = 'generalmanager@beyond.com';
-      // });
       setState(() {
-        _model.textController1?.text = 'zaina.hammour@beyond-consult.com';
+        _model.textController1?.text = 'generalmanager@beyond.com';
       });
+      // setState(() {
+      //   _model.textController1?.text = 'zaina.hammour@beyond-consult.com';
+      // });
       // setState(() {
       //   _model.textController2?.text = '123456';
       // });
@@ -56,18 +56,18 @@ class _LogingPageWidgetState extends State<LogingPageWidget> {
       //   _model.textController1?.text = 'basel.kassab@beyond-consult.com';
       // });
 
-      // setState(() {
-      //   _model.textController2?.text = '123!Pa\$\$word';
-      // });
+      setState(() {
+        _model.textController2?.text = '123!Pa\$\$word';
+      });
       // setState(() {
       //   _model.textController1?.text = 'admin@beyond.com';
       // });
       // setState(() {
       //   _model.textController2?.text = '123!Pa\$\$word';
       // });
-      setState(() {
-        _model.textController1?.text = '123456';
-      });
+      // setState(() {
+      //   _model.textController1?.text = '123456';
+      // });
       // setState(() {
       //   _model.textController2?.text = '';
       // });
