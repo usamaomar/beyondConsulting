@@ -288,6 +288,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _ImAvailable = prefs.getBool('ff_ImAvailable') ?? _ImAvailable;
     });
+    _safeInit(() {
+      _isSameTimeStamp =
+          prefs.getString('ff_isSameTimeStamp') ?? _isSameTimeStamp;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -974,6 +978,13 @@ class FFAppState extends ChangeNotifier {
   set ImAvailable(bool value) {
     _ImAvailable = value;
     prefs.setBool('ff_ImAvailable', value);
+  }
+
+  String _isSameTimeStamp = '';
+  String get isSameTimeStamp => _isSameTimeStamp;
+  set isSameTimeStamp(String value) {
+    _isSameTimeStamp = value;
+    prefs.setString('ff_isSameTimeStamp', value);
   }
 }
 
