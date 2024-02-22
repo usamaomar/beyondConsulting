@@ -1086,6 +1086,67 @@ class UpdateProjectApiCall {
   }
 }
 
+class CreateNoteApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? date = '',
+    String? title = '',
+    String? color = '',
+    String? noteText = '',
+    String? backTitle = '',
+    String? backColor = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "date": "$date",
+  "title": "$title",
+  "color": "$color",
+  "noteText": "$noteText",
+  "backTitle": "$backTitle",
+  "backColor": "$backColor"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateNoteApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Notes/Post',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetAllNotesApiCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetAllNotesApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Notes/GetAllNotes',
+      callType: ApiCallType.GET,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class UpdateCostStatusApiCall {
   static Future<ApiCallResponse> call({
     int? costId,
