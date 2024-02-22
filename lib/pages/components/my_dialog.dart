@@ -47,6 +47,7 @@ class _MyDialogState extends State<MyDialog> {
             const Text('Attention'),
             const SizedBox(height: 20),
             Text('${widget.msg}'),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);

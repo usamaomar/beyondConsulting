@@ -1,5 +1,6 @@
 import 'package:beyond_consulting/pages/components/my_dialog.dart';
 import 'package:beyond_consulting/pages/components/my_singleton_class.dart';
+import 'package:fbroadcast/fbroadcast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -36,7 +37,7 @@ void main() async {
           apiKey: "AIzaSyAPaePPsnCQ_I2MKODe4ofybO_0briJ0X8",
           appId: "1:1009527882445:web:54cbedfa27b82b26825f84",
           databaseURL:
-              'https://beyondconsulting-ebbe5-default-rtdb.firebaseio.com',
+          'https://beyondconsulting-ebbe5-default-rtdb.firebaseio.com',
           messagingSenderId: "1009527882445",
           projectId: 'beyondconsulting-ebbe5'));
 
@@ -71,7 +72,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-
+    localNotify();
     super.initState();
 
     getPermission().then((value) {
@@ -83,122 +84,137 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
+  }
 
+
+  void localNotify() async {
+    FirebaseDatabase.instance
+        .ref()
+        .onChildChanged
+        .listen((event) async {
+      if (event.snapshot.value != null) {
+        Map<Object?, Object?> myValue =
+        event.snapshot.value as Map<Object?, Object?>;
+        FBroadcast.instance().broadcast('Key_msg',value: myValue);
+      };
+    });
   }
 
 
 
-  void handleInAppMessage() {
-    FirebaseMessaging.instance.getInitialMessage().then((message) => {
-          if (message != null) {_firebaseMessagingInAppHandler(message)}
-        });
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      _firebaseMessagingInAppHandler(message);
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      _firebaseMessagingInAppHandler(message);
-    });
-  }
 
-  Future<void> _firebaseMessagingInAppHandler(RemoteMessage message) async {
-    try {
-      if (message.notification != null &&
-          message.notification?.title != null &&
-          message.notification?.body != null &&
-          message.from !=
-              FirebaseMessaging.instance.app.options.messagingSenderId) {
-        showNotification(message.notification);
-      }
-    } catch (ex) {
-      ex.toString();
+void handleInAppMessage() {
+  FirebaseMessaging.instance.getInitialMessage().then((message) =>
+  {
+    if (message != null) {_firebaseMessagingInAppHandler(message)}
+  });
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    _firebaseMessagingInAppHandler(message);
+  });
+  FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+    _firebaseMessagingInAppHandler(message);
+  });
+}
+
+Future<void> _firebaseMessagingInAppHandler(RemoteMessage message) async {
+  try {
+    if (message.notification != null &&
+        message.notification?.title != null &&
+        message.notification?.body != null &&
+        message.from !=
+            FirebaseMessaging.instance.app.options.messagingSenderId) {
+      showNotification(message.notification);
     }
-  }
-
-  void showNotification(RemoteNotification? notification) async {
-    try {
-      Fluttertoast.showToast(
-          msg: notification?.body ?? '',
-          toastLength: Toast.LENGTH_LONG,
-          backgroundColor: Colors.white,
-          textColor: Colors.black87);
-    } catch (ex) {
-      ex.toString();
-    }
-  }
-
-  Future<void> getPermission() async {
-    FirebaseMessaging messaging = FirebaseMessaging.instance;
-    NotificationSettings settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-  }
-
-  void messageListener(BuildContext context) {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message.data}');
-      final notification = message.notification;
-      if (notification != null) {
-        // showDialog(
-        //     context: context,
-        //     builder: ((BuildContext context) {
-        //       return AlertDialog(
-        //           title: Text('${notification.title}'),
-        //           content:  Text('${notification.body}'),
-        //           actions: <Widget>[
-        //             InkWell(
-        //               child: Text('Close'),
-        //               onTap: () {
-        //                 Navigator.of(context).pop();
-        //               },
-        //             )
-        //           ],);
-        //     }));
-      }
-    });
-  }
-
-  void setLocale(String language) {
-    setState(() => _locale = createLocale(language));
-  }
-
-  void setThemeMode(ThemeMode mode) => setState(() {
-        _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
-      });
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'BeyondConsulting',
-      localizationsDelegates: const [
-        FFLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      locale: _locale,
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
-      theme: ThemeData(
-        brightness: Brightness.light,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      themeMode: _themeMode,
-      routerConfig: _router,
-    );
+  } catch (ex) {
+    ex.toString();
   }
 }
+
+void showNotification(RemoteNotification? notification) async {
+  try {
+    Fluttertoast.showToast(
+        msg: notification?.body ?? '',
+        toastLength: Toast.LENGTH_LONG,
+        backgroundColor: Colors.white,
+        textColor: Colors.black87);
+  } catch (ex) {
+    ex.toString();
+  }
+}
+
+Future<void> getPermission() async {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+}
+
+void messageListener(BuildContext context) {
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    print('Got a message whilst in the foreground!');
+    print('Message data: ${message.data}');
+    final notification = message.notification;
+    if (notification != null) {
+      // showDialog(
+      //     context: context,
+      //     builder: ((BuildContext context) {
+      //       return AlertDialog(
+      //           title: Text('${notification.title}'),
+      //           content:  Text('${notification.body}'),
+      //           actions: <Widget>[
+      //             InkWell(
+      //               child: Text('Close'),
+      //               onTap: () {
+      //                 Navigator.of(context).pop();
+      //               },
+      //             )
+      //           ],);
+      //     }));
+    }
+  });
+}
+
+void setLocale(String language) {
+  setState(() => _locale = createLocale(language));
+}
+
+void setThemeMode(ThemeMode mode) =>
+    setState(() {
+      _themeMode = mode;
+      FlutterFlowTheme.saveThemeMode(mode);
+    });
+
+@override
+Widget build(BuildContext context) {
+  return MaterialApp.router(
+    title: 'BeyondConsulting',
+    localizationsDelegates: const [
+      FFLocalizationsDelegate(),
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    locale: _locale,
+    supportedLocales: const [
+      Locale('en'),
+      Locale('ar'),
+    ],
+    theme: ThemeData(
+      brightness: Brightness.light,
+    ),
+    darkTheme: ThemeData(
+      brightness: Brightness.dark,
+    ),
+    themeMode: _themeMode,
+    routerConfig: _router,
+  );
+}}
 
 class DynamicDialog extends StatefulWidget {
   final title;

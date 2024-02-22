@@ -1147,7 +1147,7 @@ class UpdateCostStatusApiCall {
   "isApproved": $isApproved,
   "notes": "$notes",
   "attachmentUrl": "$attachmentUrl",
-  "actualBilledAmount": "$actualBilledAmount",
+  "actualBilledAmount": "$actualBilledAmount"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateCostStatusApi',
@@ -1185,7 +1185,7 @@ class UpdateAdminCostStatusApiCall {
   "isApproved": $isApproved,
   "notes": "$notes",
   "attachmentUrl": "$attachmentUrl",
-  "actualBilledAmount": "$actualBilledAmount",
+  "actualBilledAmount": "$actualBilledAmount"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateAdminCostStatusApi',

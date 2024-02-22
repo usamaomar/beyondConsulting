@@ -45,6 +45,7 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   TextEditingController? textControllerNote;
   String? Function(BuildContext, String?)? textController1ValidatorNote;
 
+  bool? isFiltered = false;
 
   FocusNode? textFieldFocusNodeAdminNote;
   TextEditingController? textControllerAdminNote;

@@ -381,88 +381,163 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                 ),
                               ),
                             ],),
-                          InkWell(
-                            onTap: () async {
-                              CostModelStruct cost =
-                              _model.allCostsList.firstWhere(
-                                      (element) =>
-                                  element
-                                      .isUpdated ==
-                                      true,
-                                  orElse: () =>
-                                      CostModelStruct(
-                                          isUpdated:
-                                          false));
-                              if (cost.isUpdated) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: const Text('Error'),
-                                      content: const Text(
-                                          'Discard Updated Value'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(
-                                                  alertDialogContext),
-                                          child: const Text('Ok'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(
-                                                  alertDialogContext),
-                                          child: const Text('Cancel'),
-                                        ),
-                                      ],
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () async {
+                                  CostModelStruct cost =
+                                  _model.allCostsList.firstWhere(
+                                          (element) =>
+                                      element
+                                          .isUpdated ==
+                                          true,
+                                      orElse: () =>
+                                          CostModelStruct(
+                                              isUpdated:
+                                              false));
+                                  if (cost.isUpdated) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: const Text('Error'),
+                                          content: const Text(
+                                              'Discard Updated Value'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () =>
+                                                  Navigator.pop(
+                                                      alertDialogContext),
+                                              child: const Text('Ok'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () =>
+                                                  Navigator.pop(
+                                                      alertDialogContext),
+                                              child: const Text('Cancel'),
+                                            ),
+                                          ],
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                              } else {
-                                _model.apiResulttbe =
-                                await GetAllCostsApiCall.call(
-                                  token: FFAppState().tokenModelAppState.token,
-                                  fromDate: _model.fromDatePicked,
-                                  toDate: _model.toDatePicked,
-                                );
-                                if ((_model.apiResulttbe?.succeeded ?? true)) {
-                                  setState(() {
-                                    _model.allCostsList = (getJsonField(
-                                      (_model.apiResulttbe?.jsonBody ?? ''),
-                                      r'''$.data''',
-                                      true,
-                                    )!
-                                        .toList()
-                                        .map<CostModelStruct?>(
-                                        CostModelStruct.maybeFromMap)
-                                        .toList() as Iterable<CostModelStruct?>)
-                                        .withoutNulls
-                                        .toList()
-                                        .cast<CostModelStruct>();
-                                  });
-                                }
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('Apply Filter',
-                                  style: FlutterFlowTheme
-                                      .of(context)
-                                      .labelLarge
-                                      .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: (_model.fromDatePicked != null &&
-                                        _model.toDatePicked != null)
-                                        ? FlutterFlowTheme
-                                        .of(context)
-                                        .beyondBlueColor
-                                        : Color(0xFF868788),
+                                  } else {
+                                    _model.apiResulttbe =
+                                    await GetAllCostsApiCall.call(
+                                      token: FFAppState().tokenModelAppState
+                                          .token,
+                                      fromDate: _model.fromDatePicked,
+                                      toDate: _model.toDatePicked,
+                                    );
+                                    if ((_model.apiResulttbe?.succeeded ??
+                                        true)) {
+                                      setState(() {
+                                        _model.isFiltered = true;
+                                        _model.allCostsList = (getJsonField(
+                                          (_model.apiResulttbe?.jsonBody ?? ''),
+                                          r'''$.data''',
+                                          true,
+                                        )!
+                                            .toList()
+                                            .map<CostModelStruct?>(
+                                            CostModelStruct.maybeFromMap)
+                                            .toList() as Iterable<
+                                            CostModelStruct?>)
+                                            .withoutNulls
+                                            .toList()
+                                            .cast<CostModelStruct>();
+                                      });
+                                    }
+                                  }
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 0, 0, 10),
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text('Apply Filter',
+                                      style: FlutterFlowTheme
+                                          .of(context)
+                                          .labelLarge
+                                          .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: (_model.fromDatePicked != null &&
+                                            _model.toDatePicked != null)
+                                            ? FlutterFlowTheme
+                                            .of(context)
+                                            .beyondBlueColor
+                                            : Color(0xFF868788),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
+                              SizedBox(width: 20,),
+                              Visibility(
+                                visible: _model.isFiltered == true,
+                                child: InkWell(
+                                  onTap: () async {
+                                    CostModelStruct cost =
+                                    _model.allCostsList.firstWhere(
+                                            (element) =>
+                                        element
+                                            .isUpdated ==
+                                            true,
+                                        orElse: () =>
+                                            CostModelStruct(
+                                                isUpdated:
+                                                false));
+                                    _model.apiResulttbe =
+                                    await GetAllCostsApiCall.call(
+                                      token: FFAppState().tokenModelAppState
+                                          .token,
+                                    );
+                                    if ((_model.apiResulttbe?.succeeded ??
+                                        true)) {
+                                      setState(() {
+                                        _model.fromDatePicked = null;
+                                        _model.toDatePicked = null;
+                                        _model.isFiltered = false;
+                                        _model.allCostsList = (getJsonField(
+                                          (_model.apiResulttbe?.jsonBody ?? ''),
+                                          r'''$.data''',
+                                          true,
+                                        )!
+                                            .toList()
+                                            .map<CostModelStruct?>(
+                                            CostModelStruct.maybeFromMap)
+                                            .toList() as Iterable<
+                                            CostModelStruct?>)
+                                            .withoutNulls
+                                            .toList()
+                                            .cast<CostModelStruct>();
+                                      });
+                                    }
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        0, 0, 0, 10),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text('Clear',
+                                        style: FlutterFlowTheme
+                                            .of(context)
+                                            .labelLarge
+                                            .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: (_model.fromDatePicked !=
+                                              null &&
+                                              _model.toDatePicked != null)
+                                              ? FlutterFlowTheme
+                                              .of(context)
+                                              .beyondBlueColor
+                                              : Color(0xFF868788),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),

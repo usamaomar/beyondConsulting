@@ -570,13 +570,16 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     financialBudgetLocalListItem,
                                                                     r'''$.description''',
-                                                                  ).toString(),
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    financialBudgetLocalListItem,
+                                                                    r'''$.category''',
+                                                                  ).toString()== 'null' ? '' : getJsonField(
                                                                     financialBudgetLocalListItem,
                                                                     r'''$.category''',
                                                                   ).toString(),
@@ -588,6 +591,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     financialBudgetLocalListItem,
                                                                     r'''$.percentage''',
+                                                                  ).toString() == 'null' ? '0.0' : getJsonField(
+                                                                    financialBudgetLocalListItem,
+                                                                    r'''$.percentage''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -595,6 +601,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    financialBudgetLocalListItem,
+                                                                    r'''$.annualAmount''',
+                                                                  ).toString() == 'null'? '0' :  getJsonField(
                                                                     financialBudgetLocalListItem,
                                                                     r'''$.annualAmount''',
                                                                   ).toString(),
@@ -606,7 +615,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     financialBudgetLocalListItem,
                                                                     r'''$.monthlyAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    financialBudgetLocalListItem,
+                                                                    r'''$.monthlyAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -952,7 +964,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.clientName''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' : getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.clientName''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -961,7 +976,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.projectName''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' :  getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.projectName''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -970,13 +988,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.country''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' : getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.country''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.revenues''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.revenues''',
                                                                   ).toString(),
@@ -988,6 +1012,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.costOfSales''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.costOfSales''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -995,6 +1022,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.costOfSalesPercentage''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.costOfSalesPercentage''',
                                                                   ).toString(),
@@ -1006,6 +1036,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.optimalCostOfSales''',
+                                                                  ).toString() == 'null' ? '0' :  getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.optimalCostOfSales''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1013,6 +1046,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.grossProfit''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.grossProfit''',
                                                                   ).toString(),
@@ -1024,13 +1060,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.grossProfitPercentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.grossProfitPercentage''',
+                                                                  ).toString()  ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.clientSatisfaction''',
+                                                                  ).toString() == 'null' ? '' :  getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.clientSatisfaction''',
                                                                   ).toString(),
@@ -1042,7 +1084,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinancialProjectSummaryLocalItem,
                                                                     r'''$.projectManagement''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' : getJsonField(
+                                                                    listOfFinancialProjectSummaryLocalItem,
+                                                                    r'''$.projectManagement''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1103,7 +1148,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                     await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd2
-                                                                ?.jsonBody ??
+                                                                ?.bodyText ??
                                                             ''),
                                                         r'''$''',
                                                       ).toString(),
@@ -1374,7 +1419,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.percentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0.0' :getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.percentage''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1383,13 +1431,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.annualAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.annualAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.monthlyAmount''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.monthlyAmount''',
                                                                   ).toString(),
@@ -1401,13 +1455,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.description''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' : getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.description''',
+                                                                  ).toString()  ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.category''',
+                                                                  ).toString() == 'null' ? '' : getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.category''',
                                                                   ).toString(),
@@ -1419,7 +1479,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.upToDatePercentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' :  getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.upToDatePercentage''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1428,13 +1491,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.upToDateAnnualAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.upToDateAnnualAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.upToDateMonthlyAmount''',
+                                                                  ).toString() == 'null' ? '0' :  getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.upToDateMonthlyAmount''',
                                                                   ).toString(),
@@ -1446,6 +1515,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.variance''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.variance''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1455,7 +1527,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfLocalsRepsItem,
                                                                     r'''$.variancePercentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfLocalsRepsItem,
+                                                                    r'''$.variancePercentage''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1516,7 +1591,7 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                     await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd24
-                                                                ?.jsonBody ??
+                                                                ?.bodyText ??
                                                             ''),
                                                         r'''$''',
                                                       ).toString(),
@@ -1804,13 +1879,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.description''',
+                                                                  ).toString()== 'null' ? '' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.description''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
-                                                                ),
+                                                                ) ,
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.category''',
+                                                                  ).toString()=='null' ? '' : getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.category''',
                                                                   ).toString(),
@@ -1822,6 +1903,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.percentage''',
+                                                                  ).toString() == 'null' ? '0.0' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.percentage''',
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1829,6 +1913,9 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.annualAmount''',
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.annualAmount''',
                                                                   ).toString(),
@@ -1840,7 +1927,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.monthlyAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' :  getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.monthlyAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1849,7 +1939,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.initialAnnualAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.initialAnnualAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1858,13 +1951,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.upToDatePercentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.upToDatePercentage''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
                                                                 Text(
                                                                   getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.upToDateAnnualAmount''',
+                                                                  ).toString() == 'null' ? '0' :  getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.upToDateAnnualAmount''',
                                                                   ).toString(),
@@ -1876,7 +1975,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.upToDateMonthlyAmount''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.upToDateMonthlyAmount''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1885,7 +1987,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.variance''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' :getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.variance''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1894,7 +1999,10 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                                   getJsonField(
                                                                     listOfFinReopsItem,
                                                                     r'''$.variancePercentage''',
-                                                                  ).toString(),
+                                                                  ).toString() == 'null' ? '0' : getJsonField(
+                                                                    listOfFinReopsItem,
+                                                                    r'''$.variancePercentage''',
+                                                                  ).toString() ,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
@@ -1943,14 +2051,19 @@ class _FinancialPageWidgetState extends State<FinancialPageWidget>
                                                 onPressed: () async {
                                                   _model.apiResultrqd245 =
                                                       await GetFinancialResultsExcelApiCall
-                                                          .call();
+                                                          .call(
+                                                        token: FFAppState()
+                                                            .tokenModelAppState
+                                                            .token,
+                                                        year: _model.currentYear,
+                                                      );
                                                   if ((_model.apiResultrqd245
                                                           ?.succeeded ??
                                                       true)) {
                                                     await convertAndDownload(
                                                       getJsonField(
                                                         (_model.apiResultrqd245
-                                                                ?.jsonBody ??
+                                                                ?.bodyText ??
                                                             ''),
                                                         r'''$''',
                                                       ).toString(),

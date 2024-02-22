@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:fbroadcast/fbroadcast.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -97,27 +97,41 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           if ((_model.apiResultm5e?.succeeded ?? true)) {
             setState(() {
               _model.financialStatisticsModel =
-                  FinancialStatisticsOutputModelStruct.maybeFromMap(getJsonField(
-                    (_model.apiResultm5e?.jsonBody ?? ''),
-                    r'''$''',
-                  ));
+                  FinancialStatisticsOutputModelStruct.maybeFromMap(
+                      getJsonField(
+                (_model.apiResultm5e?.jsonBody ?? ''),
+                r'''$''',
+              ));
             });
           }
         }
+      } else {
+        FFAppState().update(() {
+          FFAppState().tokenModelAppState = TokenModelStruct();
+          FFAppState().userModelAppState = UserModelStruct.fromSerializableMap(
+              jsonDecode(
+                  '{"supervisorName":"name","profilePictureDataUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU"}'));
+        });
+        while (context.canPop() == true) {
+          context.pop();
+        }
+        context.pushReplacement('LogingPage');
       }
-
       FirebaseMessaging.instance.getToken().then((fbToken) {
         FFAppState().fcm = fbToken ?? 'null';
       });
-
-      FirebaseMessaging.instance.getToken().then((value) async{
+      FirebaseMessaging.instance.getToken().then((value) async {
         _model.apiResult9gl = await SetNotificationTokenApiCall.call(
           token: FFAppState().tokenModelAppState.token,
           notificationToken: value,
         );
       });
     });
-    localNotify();
+    FBroadcast.instance().unregister(this);
+
+    FBroadcast.instance().register('Key_msg', (value, callback) {
+      localNotify(value);
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -184,8 +198,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        25.0, 0.0, 25.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         '33fu4n6u' /* Home */,
@@ -289,9 +303,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   children: [
                                     if (valueOrDefault<bool>(
                                       FFAppState()
-                                                  .userModelAppState
-                                                  .profilePictureDataUrl ==
-                                              '',
+                                              .userModelAppState
+                                              .profilePictureDataUrl ==
+                                          '',
                                       false,
                                     ))
                                       ClipRRect(
@@ -304,9 +318,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ),
                                     if (valueOrDefault<bool>(
                                       FFAppState()
-                                                  .userModelAppState
-                                                  .profilePictureDataUrl !=
-                                              '',
+                                              .userModelAppState
+                                              .profilePictureDataUrl !=
+                                          '',
                                       false,
                                     ))
                                       ClipRRect(
@@ -410,8 +424,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      5.0, 0.0, 5.0, 0.0),
                                               child: Text(
                                                 '${_model.statisticsModel?.beyonders.toString()}  ${FFLocalizations.of(context).getVariableText(
                                                   enText: 'Beyonders',
@@ -453,8 +469,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      5.0, 0.0, 5.0, 0.0),
                                               child: Text(
                                                 '${_model.statisticsModel?.teams.toString()}  ${FFLocalizations.of(context).getVariableText(
                                                   enText: 'Teams',
@@ -500,8 +518,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: Text(
                                                   '${_model.statisticsModel?.projects.toString()}  ${FFLocalizations.of(context).getVariableText(
@@ -537,9 +556,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 5.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(5.0, 0.0, 5.0, 0.0),
                                             child: Text(
                                               '${_model.statisticsModel?.projects.toString()}  ${FFLocalizations.of(context).getVariableText(
                                                 enText: 'Projects',
@@ -596,7 +614,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Almarai',
-                                                    color: const Color(0xFF01A3E2),
+                                                    color:
+                                                        const Color(0xFF01A3E2),
                                                     fontWeight: FontWeight.bold,
                                                     useGoogleFonts: false,
                                                   ),
@@ -608,9 +627,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         height: 400.0,
                                         decoration: const BoxDecoration(),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 0.0, 20.0),
                                           child: Builder(
                                             builder: (context) {
                                               final prioritiesDatatTable =
@@ -769,10 +787,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                     child:
                                                                         AutoSizeText(
                                                                       prioritiesDatatTableItem
@@ -817,7 +835,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   ),
                                                                   Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        const EdgeInsets
+                                                                            .all(
                                                                             5.0),
                                                                     child:
                                                                         Container(
@@ -1006,8 +1025,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFF01A3E2),
+                                                          color: const Color(
+                                                              0xFF01A3E2),
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           useGoogleFonts: false,
@@ -1040,7 +1059,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
-                                                                15.0, 0.0),
+                                                            15.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1052,10 +1071,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  5.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1086,8 +1105,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 ),
                                                               ),
                                                               Padding(
-                                                                padding: const EdgeInsetsDirectional
-                                                                    .fromSTEB(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                         10.0,
                                                                         0.0,
                                                                         10.0,
@@ -1354,8 +1374,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 listOfProjects[
                                                     listOfProjectsIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       15.0, 0.0, 15.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1366,8 +1387,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 5.0),
+                                                            .fromSTEB(
+                                                            0.0, 0.0, 0.0, 5.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1398,10 +1419,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1555,8 +1576,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 5.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 5.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1662,8 +1684,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFF808080),
+                                                          color: const Color(
+                                                              0xFF808080),
                                                           fontSize: 20.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -1671,15 +1693,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Text(
-                                                      '${(FFAppState().ProjectStatisticsModel.profit/1000).toString()}${FFLocalizations.of(context).getVariableText(
+                                                      '${(FFAppState().ProjectStatisticsModel.profit / 1000).toString()}${FFLocalizations.of(context).getVariableText(
                                                         enText: ' K ',
                                                         arText: ' الف ',
                                                       )}',
@@ -1771,8 +1794,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Almarai',
-                                                          color:
-                                                              const Color(0xFF808080),
+                                                          color: const Color(
+                                                              0xFF808080),
                                                           fontSize: 20.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -1780,8 +1803,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1868,7 +1892,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Almarai',
-                                                  color: const Color(0xFF01A3E2),
+                                                  color:
+                                                      const Color(0xFF01A3E2),
                                                   fontWeight: FontWeight.bold,
                                                   useGoogleFonts: false,
                                                 ),
@@ -1914,8 +1939,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Almarai',
-                                                        color:
-                                                            const Color(0xFF808080),
+                                                        color: const Color(
+                                                            0xFF808080),
                                                         fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -1923,15 +1948,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 10.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        '${(FFAppState().ProjectStatisticsModel.profit/1000).toString()}${FFLocalizations.of(context).getVariableText(
+                                                        '${(FFAppState().ProjectStatisticsModel.profit / 1000).toString()}${FFLocalizations.of(context).getVariableText(
                                                           enText: ' K ',
                                                           arText: ' الف ',
                                                         )}',
@@ -2025,8 +2051,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Almarai',
-                                                        color:
-                                                            const Color(0xFF808080),
+                                                        color: const Color(
+                                                            0xFF808080),
                                                         fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -2034,8 +2060,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 10.0, 0.0, 10.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -2100,45 +2127,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     );
   }
 
-
-  void localNotify() async {
-    FirebaseDatabase.instance.ref().onValue.listen((event) {
-      if (event.snapshot.value != null) {
-        Map<Object?, Object?> value =
-        event.snapshot.value as Map<Object?, Object?>;
-        if (FFAppState().userModelAppState.accessRole != 5 &&
-            FFAppState().userModelAppState.accessRole != 1) {
-          if (value['Available'] != null) {
-            value.forEach((key, value) async {
-              if (key == 'Available') {
-                Map<String, dynamic> values = value as Map<String, dynamic>;
-                String? email = values['email'];
-                bool? isAvailable = values['isAvailable'];
-                String? senderId = values['senderId'];
-                String? name = values['name'];
-                List<dynamic> teamList = values['teamList'];
-                String? timeStamp = values['timeStamp'];
-                if (email != FFAppState().userModelAppState.email) {
-                  String? value = teamList.firstWhere(
-                          (element) =>
-                      element == FFAppState().userModelAppState.email,
-                      orElse: () => 'null');
-                  if (value != 'null') {
-                    await showDialog(
-                      context:   context,
-                      builder: (alertDialogContext) {
-                        return MyDialog(
-                          msg: '$name ${isAvailable == true ? "is Available" : "isBusy"}',
-                        );
-                      },
-                    );
-                  }
-                }
-              }
-            });
+  void localNotify(Map<Object?, Object?> value) async {
+    if (FFAppState().userModelAppState.accessRole != 5 &&
+        FFAppState().userModelAppState.accessRole != 1) {
+      if (value['email'] != null) {
+        // value.forEach((key, value) async {
+        // if (key == 'Available') {
+        //   Map<String, dynamic> values = value as Map<String, dynamic>;
+        String? email = value['email'] as String;
+        bool? isAvailable = value['isAvailable'] as bool;
+        String? senderId = value['senderId'] as String;
+        String? name = value['name'] as String;
+        List<dynamic> teamList = value['teamList'] as List<dynamic>;
+        String? timeStamp = value['timeStamp'] as String;
+        // if(timeStamp != FFAppState().isSameTimeStamp){
+        //   FFAppState().isSameTimeStamp = timeStamp.toString();
+        if (email != FFAppState().userModelAppState.email) {
+          String? value = teamList.firstWhere(
+              (element) => element == FFAppState().userModelAppState.email,
+              orElse: () => 'null');
+          if (value != 'null') {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return MyDialog(
+                  msg:
+                      '$name ${isAvailable == true ? "is Available" : "isBusy"}',
+                );
+              },
+            );
           }
         }
       }
-    });
+    }
   }
 }

@@ -7,21 +7,22 @@
     <list default="true" id="ca9ec24d-ddfd-478f-b587-0a22da5ac54c" name="Changes" comment="c">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/backend/api_requests/api_calls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/api_requests/api_calls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/admins_cost_management/admins_cost_management_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/admins_cost_management/admins_cost_management_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/admins_cost_management/admins_cost_management_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/admins_cost_management/admins_cost_management_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/cost_drop_component/cost_drop_component_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/cost_drop_component/cost_drop_component_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/cost_drop_component/cost_drop_component_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/cost_drop_component/cost_drop_component_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/note_components/view_component/view_component_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/note_components/view_component/view_component_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/update_milestone_dialog/update_milestone_dialog_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/my_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/my_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -195,6 +196,53 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>2135</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>2062</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>200</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>203</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>205</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/financial_page/financial_page_widget.dart</url>
+          <line>204</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart</url>
+          <line>131</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/main.dart</url>
+          <line>97</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart</url>
+          <line>138</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
         <breakpoint type="python-exception">
