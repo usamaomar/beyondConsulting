@@ -126,11 +126,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         );
       });
     });
-    FBroadcast.instance().unregister(this);
 
-    FBroadcast.instance().register('Key_msg', (value, callback) {
-      localNotify(value);
-    });
+     if(FFAppState().isHomeRegesterd == false) {
+       FFAppState().isHomeRegesterd = true;
+       FBroadcast.instance().register('Key_msg', (value, callback) {
+         localNotify(value);
+       });
+     }
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
