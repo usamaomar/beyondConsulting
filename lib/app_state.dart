@@ -986,6 +986,12 @@ class FFAppState extends ChangeNotifier {
     _isSameTimeStamp = value;
     prefs.setString('ff_isSameTimeStamp', value);
   }
+
+  bool _isHomeRegesterd = false;
+  bool get isHomeRegesterd => _isHomeRegesterd;
+  set isHomeRegesterd(bool value) {
+    _isHomeRegesterd = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

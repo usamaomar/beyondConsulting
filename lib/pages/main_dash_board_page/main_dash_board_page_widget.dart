@@ -17,7 +17,6 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'main_dash_board_page_model.dart';
 export 'main_dash_board_page_model.dart';
@@ -160,15 +159,6 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
