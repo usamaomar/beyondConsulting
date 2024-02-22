@@ -10,6 +10,7 @@ export 'financial_statistics_output_model_struct.dart';
 export 'member_model_struct.dart';
 export 'mile_stone_state_model_struct.dart';
 export 'milestone_model_struct.dart';
+export 'note_model_struct.dart';
 export 'ordinal_sales_struct.dart';
 export 'prioritie_model_struct.dart';
 export 'project_model_struct.dart';
