@@ -47,84 +47,19 @@ class _AskForHelpComponentWidgetState extends State<AskForHelpComponentWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+      child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: const [
-          BoxShadow(
-            blurRadius: 5.0,
-            color: Color(0x162D3A21),
-            offset: Offset(0.0, 3.0),
-          )
-        ],
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: SingleChildScrollView(
+        elevation: 4.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            if ((FFAppState().helpRequstedStrings.isNotEmpty) == true
-                ? true
-                : false)
-              Builder(
-                builder: (context) {
-                  final listOfRequstedStrings =
-                      FFAppState().helpRequstedStrings.map((e) => e).toList();
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listOfRequstedStrings.length,
-                    itemBuilder: (context, listOfRequstedStringsIndex) {
-                      final listOfRequstedStringsItem =
-                          listOfRequstedStrings[listOfRequstedStringsIndex];
-                      return Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 15.0, 15.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            setState(() {
-                              _model.textController?.text =
-                                  listOfRequstedStringsItem;
-                            });
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(8.0),
-                                bottomRight: Radius.circular(8.0),
-                                topLeft: Radius.circular(8.0),
-                                topRight: Radius.circular(8.0),
-                              ),
-                              border: Border.all(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                width: 1.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 10.0, 10.0),
-                              child: Text(
-                                listOfRequstedStringsItem,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
             Divider(
               height: 12.0,
               thickness: 2.0,
@@ -136,7 +71,7 @@ class _AskForHelpComponentWidgetState extends State<AskForHelpComponentWidget> {
               padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Flexible(
                     child: Padding(
@@ -159,44 +94,52 @@ class _AskForHelpComponentWidgetState extends State<AskForHelpComponentWidget> {
                             'xj5ogyf1' /* Write something... */,
                           ),
                           hintStyle: FlutterFlowTheme.of(context).labelSmall,
-                          enabledBorder: const UnderlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: FlutterFlowTheme.of(context).accent1,
                               width: 1.0,
                             ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                              topLeft: Radius.circular(5.0),
+                              topRight: Radius.circular(5.0),
                             ),
                           ),
-                          focusedBorder: const UnderlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: FlutterFlowTheme.of(context).accent1,
                               width: 1.0,
                             ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                              topLeft: Radius.circular(5.0),
+                              topRight: Radius.circular(5.0),
                             ),
                           ),
-                          errorBorder: const UnderlineInputBorder(
+                          errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: FlutterFlowTheme.of(context).accent1,
                               width: 1.0,
                             ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                              topLeft: Radius.circular(5.0),
+                              topRight: Radius.circular(5.0),
                             ),
                           ),
-                          focusedErrorBorder: const UnderlineInputBorder(
+                          focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: FlutterFlowTheme.of(context).accent1,
                               width: 1.0,
                             ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                              topLeft: Radius.circular(5.0),
+                              topRight: Radius.circular(5.0),
                             ),
                           ),
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -210,6 +153,72 @@ class _AskForHelpComponentWidgetState extends State<AskForHelpComponentWidget> {
                       ),
                     ),
                   ),
+                  if ((FFAppState().helpRequstedStrings.isNotEmpty) == true
+                      ? true
+                      : false)
+                    Expanded(
+                      child: Builder(
+                        builder: (context) {
+                          final listOfRequstedStrings = FFAppState()
+                              .helpRequstedStrings
+                              .map((e) => e)
+                              .toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listOfRequstedStrings.length,
+                            itemBuilder: (context, listOfRequstedStringsIndex) {
+                              final listOfRequstedStringsItem =
+                                  listOfRequstedStrings[
+                                      listOfRequstedStringsIndex];
+                              return Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 15.0, 15.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      _model.textController?.text =
+                                          listOfRequstedStringsItem;
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(8.0),
+                                        bottomRight: Radius.circular(8.0),
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
+                                      ),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 10.0, 10.0, 10.0),
+                                      child: Text(
+                                        listOfRequstedStringsItem,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
                 ],
               ),
             ),
