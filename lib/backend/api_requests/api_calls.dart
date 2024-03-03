@@ -988,6 +988,31 @@ class AddCostApiCall {
   }
 }
 
+class RemoveCostApiCall {
+  static Future<ApiCallResponse> call({
+    int? costId,
+    String? token = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'RemoveCostApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/RemoveCost',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {
+        'costId': costId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ImAvailableApiCall {
   static Future<ApiCallResponse> call({
     String? message = '',
