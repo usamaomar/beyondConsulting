@@ -899,6 +899,49 @@ class AskForHelpApiCall {
   }
 }
 
+class AddCostApiCall {
+  static Future<ApiCallResponse> call({
+    String? title = '',
+    String? token = '',
+    String? category = '',
+    String? notes = '',
+    String? date = '',
+    double? unitCost = 0,
+    String? unit = '',
+    double? duration = 0,
+    String? durationUnit = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "title": "$title",
+  "category": "$category",
+  "notes": "$notes",
+  "date": "$date",
+  "unitCost": $unitCost,
+  "unit": "$unit",
+  "duration": $duration,
+  "durationUnit": "$durationUnit"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'AddCostApi',
+      apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/AddCost',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ImAvailableApiCall {
   static Future<ApiCallResponse> call({
     String? message = '',
