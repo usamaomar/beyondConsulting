@@ -1,3 +1,4 @@
+import '../../../backend/api_requests/api_manager.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class AddCostTotalDialogModel extends FlutterFlowModel<AddCostTotalDialogWidget>
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  ApiCallResponse? apiResult4a6;
 
   FocusNode? textFieldFocusNodeNote;
   TextEditingController? textControllerNote;

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:beyond_consulting/backend/api_requests/api_calls.dart';
 import 'package:flutter/scheduler.dart';
 
 import '/backend/schema/structs/index.dart';
@@ -15,12 +16,11 @@ import 'add_cost_total_dialog_model.dart';
 export 'add_cost_total_dialog_model.dart';
 
 class AddCostTotalDialogWidget extends StatefulWidget {
-
-
   const AddCostTotalDialogWidget({super.key});
 
   @override
-  State<AddCostTotalDialogWidget> createState() => _AddCostTotalDialogWidgetState();
+  State<AddCostTotalDialogWidget> createState() =>
+      _AddCostTotalDialogWidgetState();
 }
 
 class _AddCostTotalDialogWidgetState extends State<AddCostTotalDialogWidget> {
@@ -38,8 +38,7 @@ class _AddCostTotalDialogWidgetState extends State<AddCostTotalDialogWidget> {
     _model = createModel(context, () => AddCostTotalDialogModel());
 
     // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-    });
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -307,10 +306,15 @@ class _AddCostTotalDialogWidgetState extends State<AddCostTotalDialogWidget> {
                                                             .fromSTEB(
                                                             5.0, 0.0, 5.0, 0.0),
                                                     child: Text(
-                                                      functions.convertDateString(dateTimeFormat(
+                                                      functions
+                                                          .convertDateString(
+                                                              dateTimeFormat(
                                                         'yyyy-mm-ddT00:00:00.000Z',
                                                         _model.datePicked,
-                                                        locale: FFLocalizations.of(context).languageCode,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
                                                       )),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1033,43 +1037,77 @@ class _AddCostTotalDialogWidgetState extends State<AddCostTotalDialogWidget> {
                             onPressed: () async {
                               if (!isNotNumber(_model.textController5.text)) {
                                 if (!isNotNumber(_model.textController3.text)) {
-                                  // setState(() {
-                                  //   if (FFAppState().SelectedCostModel.id ==
-                                  //       0) {
-                                  //     FFAppState().SelectedCostModel.id =
-                                  //         genNum();
-                                  //     FFAppState().SelectedCostModel.isNew =
-                                  //         true;
-                                  //   }
-                                  // });
-                                  // setState(() {
-                                  //   FFAppState().updateSelectedCostModelStruct(
-                                  //       (e) => e
-                                  //         ..title = _model.textController1.text
-                                  //         ..category =
-                                  //             _model.textController2.text
-                                  //         ..unitCost = double.tryParse(
-                                  //             _model.textController3.text)
-                                  //         ..unit = _model.textController4.text
-                                  //         ..duration = double.tryParse(
-                                  //             _model.textController5.text)
-                                  //         ..durationUnit =
-                                  //             _model.textController6.text
-                                  //         ..notes =
-                                  //             _model.textControllerNote.text);
-                                  // });
-                                  // setState(() {
-                                  //   FFAppState()
-                                  //       .updateNewProjectCreatedModelStruct(
-                                  //     (e) => e
-                                  //       ..updateCosts(
-                                  //         (e) => e.add(
-                                  //             FFAppState().SelectedCostModel),
-                                  //       ),
-                                  //   );
-                                  // });
-
-                                  Navigator.pop(context);
+                                  _model.apiResult4a6 =
+                                      await AddCostApiCall.call(
+                                    token:
+                                        FFAppState().tokenModelAppState.token,
+                                    date: formatDateTime(_model.datePicked?? DateTime(2024)),
+                                    title: _model.textController1.text,
+                                    category: _model.textController2.text,
+                                    notes: _model.textControllerNote.text,
+                                    unitCost: double.tryParse(
+                                        _model.textController3.text),
+                                    unit: _model.textController4.text,
+                                    duration: double.tryParse(
+                                        _model.textController5.text),
+                                    durationUnit:  _model.textController6.text,
+                                  );
+                                  if ((_model.apiResult4a6
+                                      ?.jsonBody[
+                                  'succeeded']) ==
+                                      true) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          FFLocalizations.of(context).getVariableText(
+                                            enText: 'Cost Added Successfully',
+                                            arText: 'تم اضافة التكلفة بنجاح',
+                                          ),
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context).info,
+                                          ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor: FlutterFlowTheme.of(context)
+                                            .beyondBlueColor,
+                                      ),
+                                    );
+                                    Navigator.pop(context,true);
+                                  }else{
+                                    await showDialog(
+                                      context: context,
+                                      builder:
+                                          (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text(
+                                              FFLocalizations.of(
+                                                  context)
+                                                  .getVariableText(
+                                                enText: 'Error',
+                                                arText: 'مشكله',
+                                              )),
+                                          content: Text((_model
+                                              .apiResult4a6
+                                              ?.bodyText ??
+                                              '')),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () =>
+                                                  Navigator.pop(
+                                                      alertDialogContext),
+                                              child: Text(FFLocalizations.of(
+                                                  context)
+                                                  .getVariableText(
+                                                enText: 'Ok',
+                                                arText:
+                                                'حسنا',
+                                              )),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1166,6 +1204,16 @@ class _AddCostTotalDialogWidgetState extends State<AddCostTotalDialogWidget> {
   bool isNotNumber(String value) {
     final RegExp numericRegex = RegExp(r'^[0-9]+$');
     return !numericRegex.hasMatch(value);
+  }
+
+  String formatDateTime(DateTime dateTime) {
+    // Define the desired date format pattern
+    String pattern = 'yyyy-MM-dd\'T\'HH:mm:ss.SSSZ';
+
+    // Format the DateTime object using the pattern
+    String formattedDateTime = DateFormat(pattern).format(dateTime);
+
+    return formattedDateTime;
   }
 
   int genNum() {

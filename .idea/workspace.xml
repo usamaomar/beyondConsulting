@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca9ec24d-ddfd-478f-b587-0a22da5ac54c" name="Changes" comment="c">
-      <change afterPath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/all_costs_page/all_costs_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/note_components/creat_new_not_component/creat_new_not_component_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/note_components/creat_new_not_component/creat_new_not_component_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/note_components/creat_new_not_component/creat_new_not_component_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/note_components/creat_new_not_component/creat_new_not_component_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/components/side_nav/side_nav_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/side_nav/side_nav_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page/home_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/loging_page/loging_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main_dash_board_page/main_dash_board_page_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/progect_pages/create_project_page/create_project_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/components/add_cost_total_dialog/add_cost_total_dialog_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

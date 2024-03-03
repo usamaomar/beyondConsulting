@@ -198,13 +198,43 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) =>
+                  ).then((value) async {
+                    _model.allCostsList.firstWhere(
+                            (element) =>
+                        element
+                            .isUpdated ==
+                            true,
+                        orElse: () =>
+                            CostModelStruct(
+                                isUpdated:
+                                false));
+                    _model.apiResulttbe =
+                        await GetAllCostsApiCall.call(
+                      token: FFAppState().tokenModelAppState
+                          .token,
+                    );
+                    if ((_model.apiResulttbe?.succeeded ??
+                        true)) {
                       setState(() {
-
-
-
-
-                      }));
+                        _model.fromDatePicked = null;
+                        _model.toDatePicked = null;
+                        _model.isFiltered = false;
+                        _model.allCostsList = (getJsonField(
+                          (_model.apiResulttbe?.jsonBody ?? ''),
+                          r'''$.data''',
+                          true,
+                        )!
+                            .toList()
+                            .map<CostModelStruct?>(
+                            CostModelStruct.maybeFromMap)
+                            .toList() as Iterable<
+                            CostModelStruct?>)
+                            .withoutNulls
+                            .toList()
+                            .cast<CostModelStruct>();
+                      });
+                    }
+                  });
                 },)
             ],
           ),
@@ -519,7 +549,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 20,),
+                              const SizedBox(width: 20,),
                               Visibility(
                                 visible: _model.isFiltered == true,
                                 child: InkWell(
@@ -2441,40 +2471,6 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                                         .toList()
                                                                         .cast<
                                                                         CostModelStruct>();
-
-                                                                // if (_model
-                                                                //     .datePicked !=
-                                                                //     null) {
-                                                                //   //filter
-                                                                //   if (_model
-                                                                //       .savedAllCostsList
-                                                                //       .isEmpty) {
-                                                                //     _model
-                                                                //         .savedAllCostsList =
-                                                                //         _model
-                                                                //             .allCostsList;
-                                                                //   } else {
-                                                                //     _model
-                                                                //         .allCostsList =
-                                                                //         _model
-                                                                //             .savedAllCostsList;
-                                                                //   }
-                                                                //   _model
-                                                                //       .allCostsList =
-                                                                //       _model
-                                                                //           .allCostsList
-                                                                //           .where((
-                                                                //           element) =>
-                                                                //       convertDateString(
-                                                                //           element
-                                                                //               .date) ==
-                                                                //           formatDate(
-                                                                //               _model
-                                                                //                   .datePicked ??
-                                                                //                   DateTime
-                                                                //                       .now()))
-                                                                //           .toList();
-                                                                // }
                                                                 ScaffoldMessenger
                                                                     .of(context)
                                                                     .showSnackBar(
@@ -2661,6 +2657,94 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                             child: Icon(
                                               Icons
                                                   .cancel_outlined,
+                                              color: Colors.orange,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () async {
+                                            await showDialog(
+                                              context: context,
+                                              builder:
+                                                  (alertDialogContext) {
+                                                return AlertDialog(
+                                                  title: Text(
+                                                      FFLocalizations.of(
+                                                          context)
+                                                          .getVariableText(
+                                                        enText:
+                                                        'Alert',
+                                                        arText:
+                                                        'تنبيه',
+                                                      )),
+                                                  content: const Text(
+                                                      'Are you sure you want to Delete this Cost'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed:
+                                                          () {
+                                                        setState(
+                                                                () {
+                                                              localCostList
+                                                                  .map((e) =>
+                                                              e.isUpdated =
+                                                              false)
+                                                                  .toList();
+                                                              localCostListItem
+                                                                  .isUpdated =
+                                                              false;
+                                                              clear();
+                                                            });
+
+
+
+
+
+
+                                                        Navigator.pop(
+                                                            alertDialogContext);
+                                                      },
+                                                      child: Text(
+                                                          FFLocalizations.of(
+                                                              context)
+                                                              .getVariableText(
+                                                            enText:
+                                                            'Ok',
+                                                            arText:
+                                                            'حسنا',
+                                                          )),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text(
+                                                          FFLocalizations.of(
+                                                              context)
+                                                              .getVariableText(
+                                                            enText:
+                                                            'Cancel',
+                                                            arText:
+                                                            'كلا',
+                                                          )),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                          child: Padding(
+                                            padding:
+                                            const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                10.0,
+                                                0.0,
+                                                10.0,
+                                                0.0),
+                                            child: Icon(
+                                              Icons
+                                                  .delete_forever,
                                               color: Colors.red,
                                               size: 24.0,
                                             ),

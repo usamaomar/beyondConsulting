@@ -36,6 +36,7 @@ class AllCostsPageModel extends FlutterFlowModel<AllCostsPageWidget> {
   ApiCallResponse? outUpload;
   // Stores action output result for [Backend Call - API (UpdateAdminCostStatusApi)] action in Button widget.
   ApiCallResponse? apiResultz7xm;
+  ApiCallResponse? apiResultDeleteCost;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
   late CostModelStruct costModelStruct;
