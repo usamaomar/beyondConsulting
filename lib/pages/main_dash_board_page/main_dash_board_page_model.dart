@@ -82,6 +82,20 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
           int index, Function(MemberModelStruct) updateFn) =>
       listOfMids[index] = updateFn(listOfMids[index]);
 
+
+
+  List<AppCardModelStruct> listOfCards = [];
+  void addToListOfCards(AppCardModelStruct item) => listOfCards.add(item);
+  void removeFromListOfCards(AppCardModelStruct item) => listOfCards.remove(item);
+  void removeAtIndexFromListOfCards(int index) => listOfCards.removeAt(index);
+  void insertAtIndexInListOfCards(int index, AppCardModelStruct item) =>
+      listOfCards.insert(index, item);
+  void updateListOfCardsAtIndex(
+          int index, Function(AppCardModelStruct) updateFn) =>
+      listOfCards[index] = updateFn(listOfCards[index]);
+
+
+
   FinancialStatisticsOutputModelStruct? financialStatisticsModel;
   void updateFinancialStatisticsModelStruct(
           Function(FinancialStatisticsOutputModelStruct) updateFn) =>
@@ -101,6 +115,8 @@ class MainDashBoardPageModel extends FlutterFlowModel<MainDashBoardPageWidget> {
   ApiCallResponse? apiResult8i4;
   // Stores action output result for [Backend Call - API (GetFinancialStatistics)] action in MainDashBoardPage widget.
   ApiCallResponse? apiResultm5e;
+
+  ApiCallResponse? getAllNotesApi;
   // State field(s) for Timer widget.
   int timerMilliseconds = 2000;
   String timerValue = StopWatchTimer.getDisplayTime(

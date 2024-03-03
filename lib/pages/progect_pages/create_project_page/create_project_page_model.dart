@@ -31,6 +31,11 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
   List<MemberModelStruct> get checkboxCheckedItems =>
       checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
 
+
+  FocusNode? budgetTextFieldFocusNode;
+  TextEditingController? budgetTextFieldController;
+  String? Function(BuildContext, String?)? budgetTextFieldControllerValidator;
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
@@ -72,6 +77,9 @@ class CreateProjectPageModel extends FlutterFlowModel<CreateProjectPageWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
 
+
+    budgetTextFieldFocusNode?.dispose();
+    budgetTextFieldController?.dispose();
     clintDropDouwnListComponentModel.dispose();
     sideNavModel.dispose();
   }

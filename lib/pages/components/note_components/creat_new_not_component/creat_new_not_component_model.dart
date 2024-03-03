@@ -1,3 +1,4 @@
+import '../../../../backend/api_requests/api_manager.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'creat_new_not_component_widget.dart' show CreatNewNotComponentWidget;
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class CreatNewNotComponentModel
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
+  ApiCallResponse? creatNotesApi;
 
   /// Initialization and disposal methods.
 

@@ -444,14 +444,14 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             ),
                           ),
                         ),
-                        if (FFAppState().projectIsOpend == false)
-                          Opacity(
-                            opacity: 0.2,
-                            child: Divider(
-                              thickness: 1.0,
-                              color: FlutterFlowTheme.of(context).accent4,
-                            ),
-                          ),
+                        // if (FFAppState().projectIsOpend == false)
+                        //   Opacity(
+                        //     opacity: 0.2,
+                        //     child: Divider(
+                        //       thickness: 1.0,
+                        //       color: FlutterFlowTheme.of(context).accent4,
+                        //     ),
+                        //   ),
                         if (FFAppState().costIsOpend == true)
                           Container(
                             decoration: const BoxDecoration(),
@@ -556,12 +556,19 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               },
                             ),
                           ),
+                        // if (FFAppState().costIsOpend == true)
+                        //   Opacity(
+                        //     opacity: 0.2,
+                        //     child: Divider(
+                        //       thickness: 1.0,
+                        //       color: FlutterFlowTheme.of(context).accent4,
+                        //     ),
+                        //   ),
                       ],
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (FFAppState().projectIsOpend != false)
                           Opacity(
                             opacity: 0.2,
                             child: Divider(
@@ -681,14 +688,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             ),
                           ),
                         ),
-                        if (FFAppState().projectIsOpend == false)
-                          Opacity(
-                            opacity: 0.2,
-                            child: Divider(
-                              thickness: 1.0,
-                              color: FlutterFlowTheme.of(context).accent4,
-                            ),
-                          ),
                         if (FFAppState().projectIsOpend == true)
                           Container(
                             decoration: const BoxDecoration(),
@@ -871,6 +870,14 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                           ),
                       ],
                     ),
+                    if (FFAppState().projectIsOpend == false)
+                      Opacity(
+                        opacity: 0.2,
+                        child: Divider(
+                          thickness: 1.0,
+                          color: FlutterFlowTheme.of(context).accent4,
+                        ),
+                      ),
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [

@@ -133,6 +133,26 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
               .cast<MemberModelStruct>();
         });
       }
+
+      _model.getAllNotesApi = await GetAllNotesApiCall.call(
+          token: FFAppState().tokenModelAppState.token
+      );
+      if ((_model.getAllNotesApi?.succeeded ?? true)) {
+        setState(() {
+          _model.listOfCards = (getJsonField(
+            (_model.getAllNotesApi?.jsonBody ?? ''),
+            r'''$.data''',
+            true,
+          )!.toList().map<AppCardModelStruct?>(AppCardModelStruct.maybeFromMap).toList() as Iterable<AppCardModelStruct?>)
+              .withoutNulls
+              .toList()
+              .cast<AppCardModelStruct>();
+        });
+      }
+
+
+
+
       _model.apiResultm5e = await GetFinancialStatisticsCall.call(
         token: FFAppState().tokenModelAppState.token,
       );
@@ -148,6 +168,28 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+
+  List<AppCardModelStruct> convertNoteModelList(List<NoteModelStruct> notes) {
+    List<AppCardModelStruct> appCards = [];
+    notes.forEach((note) {
+      DateTime? createdDate = note.date != null ? DateTime.parse(note.date) : null;
+
+      appCards.add(AppCardModelStruct(
+        title: note.title,
+        note: note.noteText,
+        backTitle: note.backTitle,
+        createdDate: createdDate,
+        backColor: note.backColor != null ? _parseColor(note.backColor) : null,
+        frontColor: note.color != null ? _parseColor(note.color) : null,
+      ));
+    });
+    return appCards;
+  }
+
+  Color _parseColor(String colorString) {
+    return Color(int.parse(colorString, radix: 16) + 0xFF000000);
   }
 
   @override
@@ -244,8 +286,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               decoration: const BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
-                                  final listOfLocalCards = FFAppState()
-                                      .listOfNotes
+                                  final listOfLocalCards = _model.listOfCards
                                       .map((e) => e)
                                       .toList();
                                   return ListView.builder(

@@ -1,3 +1,5 @@
+import 'package:beyond_consulting/pages/components/add_cost_total_dialog/add_cost_total_dialog_model.dart';
+import 'package:beyond_consulting/pages/components/add_cost_total_dialog/add_cost_total_dialog_widget.dart';
 import 'package:data_table_2/data_table_2.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
@@ -158,6 +160,52 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                   ),
                 ],
               ),
+              InkWell(child: const Icon(
+                Icons.price_change, size: 25, color: Colors.white,),
+                onTap: () async {
+                  await showDialog(
+                    barrierColor:
+                    const Color(0x4F000000),
+                    context: context,
+                    builder: (dialogContext) {
+                      return Dialog(
+                        elevation: 0,
+                        insetPadding:
+                        EdgeInsets.zero,
+                        backgroundColor:
+                        Colors.transparent,
+                        alignment:
+                        const AlignmentDirectional(
+                            0.0, 0.0)
+                            .resolve(
+                            Directionality.of(
+                                context)),
+                        child: GestureDetector(
+                          onTap: () =>
+                          _model
+                              .unfocusNode
+                              .canRequestFocus
+                              ? FocusScope.of(
+                              context)
+                              .requestFocus(
+                              _model
+                                  .unfocusNode)
+                              : FocusScope.of(
+                              context)
+                              .unfocus(),
+                          child:
+                          const AddCostTotalDialogWidget(),
+                        ),
+                      );
+                    },
+                  ).then((value) =>
+                      setState(() {
+
+
+
+
+                      }));
+                },)
             ],
           ),
           actions: const [],

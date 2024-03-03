@@ -1714,7 +1714,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      '/ ${_model.financialStatisticsModel?.financialTarget} %',
+                                                      '/ ${(_model.financialStatisticsModel?.financialTarget ?? 0 )* 1000} K',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1970,7 +1970,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             ),
                                                       ),
                                                       Text(
-                                                        '/ ${_model.financialStatisticsModel?.financialTarget} %',
+                                                        '/ ${(_model.financialStatisticsModel?.financialTarget?? 0 )*1000} K',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium

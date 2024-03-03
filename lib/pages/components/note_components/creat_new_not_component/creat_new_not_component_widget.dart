@@ -1,3 +1,5 @@
+import 'package:beyond_consulting/backend/api_requests/api_calls.dart';
+
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -74,8 +76,8 @@ class _CreatNewNotComponentWidgetState
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 12.0, 12.0),
                       child: Container(
                         width: 230.0,
                         decoration: BoxDecoration(
@@ -182,8 +184,9 @@ class _CreatNewNotComponentWidgetState
                                     ],
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 8.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController1,
                                       focusNode: _model.textFieldFocusNode1,
@@ -266,8 +269,8 @@ class _CreatNewNotComponentWidgetState
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 12.0, 12.0),
                       child: Container(
                         width: 230.0,
                         decoration: BoxDecoration(
@@ -350,7 +353,8 @@ class _CreatNewNotComponentWidgetState
                                                   BorderRadius.circular(12.0),
                                             ),
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                             child: const Icon(
                                               Icons.color_lens_outlined,
                                               color: Colors.white,
@@ -360,8 +364,8 @@ class _CreatNewNotComponentWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController2,
                                           focusNode: _model.textFieldFocusNode2,
@@ -372,17 +376,17 @@ class _CreatNewNotComponentWidgetState
                                                     .getText(
                                               '71axit66' /* Title */,
                                             ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Almarai',
-                                                      color: const Color(0xFF4D4D4D),
-                                                      fontSize: 18.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      useGoogleFonts: false,
-                                                    ),
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Almarai',
+                                                  color:
+                                                      const Color(0xFF4D4D4D),
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: false,
+                                                ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium,
@@ -516,39 +520,48 @@ class _CreatNewNotComponentWidgetState
                                                       .secondaryText,
                                               size: 24.0,
                                             ),
-                                            _model.date==null ? Padding(
-                                              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                              child: Text(
-                                                'YYYY/MM/dd',
-                                                style:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                  fontFamily:
-                                                  'Readex Pro',
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ) :Padding(
-                                              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                              child: Text(
-                                                dateTimeFormat(
-                                                  'yMd',
-                                                  _model.date,
-                                                  locale:
-                                                      FFLocalizations.of(context)
-                                                          .languageCode,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 12.0,
-                                                        ),
-                                              ),
-                                            ),
+                                            _model.date == null
+                                                ? Padding(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 0, 10, 0),
+                                                    child: Text(
+                                                      'YYYY/MM/dd',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  )
+                                                : Padding(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 0, 10, 0),
+                                                    child: Text(
+                                                      dateTimeFormat(
+                                                        'yMd',
+                                                        _model.date,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  ),
                                           ],
                                         ),
                                       ),
@@ -565,8 +578,8 @@ class _CreatNewNotComponentWidgetState
                                   children: [
                                     Flexible(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController3,
                                           focusNode: _model.textFieldFocusNode3,
@@ -578,17 +591,17 @@ class _CreatNewNotComponentWidgetState
                                                     .getText(
                                               '7yyhbrag' /* Note */,
                                             ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Almarai',
-                                                      color: const Color(0xFF4D4D4D),
-                                                      fontSize: 18.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      useGoogleFonts: false,
-                                                    ),
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Almarai',
+                                                  color:
+                                                      const Color(0xFF4D4D4D),
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: false,
+                                                ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium,
@@ -663,23 +676,23 @@ class _CreatNewNotComponentWidgetState
               ),
               FFButtonWidget(
                 onPressed: () async {
-
-                  if(_model.date == null){
+                  if (_model.date == null) {
                     await showDialog(
-                      context:
-                      context,
-                      builder:
-                          (alertDialogContext) {
+                      context: context,
+                      builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: Text(FFLocalizations.of(context).getVariableText(
+                          title:
+                              Text(FFLocalizations.of(context).getVariableText(
                             enText: 'Missing Field',
                             arText: 'نص مفقود',
                           )),
                           content: Text('Add Date'),
                           actions: [
                             TextButton(
-                              onPressed: () => Navigator.pop(alertDialogContext),
-                              child: Text(FFLocalizations.of(context).getVariableText(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text(
+                                  FFLocalizations.of(context).getVariableText(
                                 enText: 'Ok',
                                 arText: 'حسنا',
                               )),
@@ -691,22 +704,23 @@ class _CreatNewNotComponentWidgetState
                     return;
                   }
 
-                  if(_model.textController1.text == ''){
+                  if (_model.textController1.text == '') {
                     await showDialog(
-                      context:
-                      context,
-                      builder:
-                          (alertDialogContext) {
+                      context: context,
+                      builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: Text(FFLocalizations.of(context).getVariableText(
+                          title:
+                              Text(FFLocalizations.of(context).getVariableText(
                             enText: 'Missing Field',
                             arText: 'نص مفقود',
                           )),
                           content: Text('Add Back title'),
                           actions: [
                             TextButton(
-                              onPressed: () => Navigator.pop(alertDialogContext),
-                              child: Text(FFLocalizations.of(context).getVariableText(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text(
+                                  FFLocalizations.of(context).getVariableText(
                                 enText: 'Ok',
                                 arText: 'حسنا',
                               )),
@@ -718,22 +732,23 @@ class _CreatNewNotComponentWidgetState
                     return;
                   }
 
-                  if(_model.textController2.text == ''){
+                  if (_model.textController2.text == '') {
                     await showDialog(
-                      context:
-                      context,
-                      builder:
-                          (alertDialogContext) {
+                      context: context,
+                      builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: Text(FFLocalizations.of(context).getVariableText(
+                          title:
+                              Text(FFLocalizations.of(context).getVariableText(
                             enText: 'Missing Field',
                             arText: 'نص مفقود',
                           )),
                           content: Text('Add title'),
                           actions: [
                             TextButton(
-                              onPressed: () => Navigator.pop(alertDialogContext),
-                              child: Text(FFLocalizations.of(context).getVariableText(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text(
+                                  FFLocalizations.of(context).getVariableText(
                                 enText: 'Ok',
                                 arText: 'حسنا',
                               )),
@@ -745,22 +760,23 @@ class _CreatNewNotComponentWidgetState
                     return;
                   }
 
-                  if(_model.textController3.text == ''){
+                  if (_model.textController3.text == '') {
                     await showDialog(
-                      context:
-                      context,
-                      builder:
-                          (alertDialogContext) {
+                      context: context,
+                      builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: Text(FFLocalizations.of(context).getVariableText(
+                          title:
+                              Text(FFLocalizations.of(context).getVariableText(
                             enText: 'Missing Field',
                             arText: 'نص مفقود',
                           )),
                           content: Text('Add Note'),
                           actions: [
                             TextButton(
-                              onPressed: () => Navigator.pop(alertDialogContext),
-                              child: Text(FFLocalizations.of(context).getVariableText(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text(
+                                  FFLocalizations.of(context).getVariableText(
                                 enText: 'Ok',
                                 arText: 'حسنا',
                               )),
@@ -772,22 +788,29 @@ class _CreatNewNotComponentWidgetState
                     return;
                   }
 
-
-
                   if ((_model.textController1.text != '') &&
                       (_model.textController2.text != '') &&
                       (_model.textController3.text != '') &&
                       (_model.datePicked != null)) {
-                    setState(() {
-                      FFAppState().addToListOfNotes(AppCardModelStruct(
-                        title: _model.textController2.text,
-                        note: _model.textController3.text,
-                        backTitle: _model.textController1.text,
-                        createdDate: getCurrentTimestamp,
-                        achievementData: _model.date,
-                        backColor: FFAppState().FrontColorModel.colorHex,
-                        frontColor: FFAppState().BackColorModel.colorHex,
-                      ));
+                    setState(() async {
+                      _model.creatNotesApi = await CreateNoteApiCall.call(
+                          token: FFAppState().tokenModelAppState.token,
+                          date : formatDateTime(_model.date ?? DateTime(2024)),
+                          title : _model.textController2.text,
+                          color : FFAppState().BackColorModel.colorHex?.value.toString(),
+                          noteText : _model.textController3.text,
+                          backTitle : _model.textController1.text,
+                          backColor :  FFAppState().FrontColorModel.colorHex?.value.toString());
+                      //
+                      // FFAppState().addToListOfNotes(AppCardModelStruct(
+                      //   title: _model.textController2.text,
+                      //   note: _model.textController3.text,
+                      //   backTitle: _model.textController1.text,
+                      //   createdDate: getCurrentTimestamp,
+                      //   achievementData: _model.date,
+                      //   backColor: FFAppState().FrontColorModel.colorHex,
+                      //   frontColor: FFAppState().BackColorModel.colorHex,
+                      // ));
                     });
                     setState(() {
                       FFAppState().FrontColorModel = ColorModelStruct();
@@ -802,7 +825,8 @@ class _CreatNewNotComponentWidgetState
                 ),
                 options: FFButtonOptions(
                   height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      24.0, 0.0, 24.0, 0.0),
                   iconPadding:
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).beyondBlueColor,
@@ -823,5 +847,15 @@ class _CreatNewNotComponentWidgetState
         ),
       ),
     );
+  }
+
+  String formatDateTime(DateTime dateTime) {
+    // Define the desired date format pattern
+    String pattern = 'yyyy-MM-dd\'T\'HH:mm:ss.SSSZ';
+
+    // Format the DateTime object using the pattern
+    String formattedDateTime = DateFormat(pattern).format(dateTime);
+
+    return formattedDateTime;
   }
 }
