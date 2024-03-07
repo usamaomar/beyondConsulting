@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'read_member_cpacity_model.dart';
 export 'read_member_cpacity_model.dart';
 
@@ -55,8 +54,6 @@ class _ReadMemberCpacityWidgetState extends State<ReadMemberCpacityWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [

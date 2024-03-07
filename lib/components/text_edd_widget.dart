@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'text_edd_model.dart';
 export 'text_edd_model.dart';
 
@@ -48,8 +47,6 @@ class _TextEddWidgetState extends State<TextEddWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return TextFormField(
       controller: _model.textController,
       focusNode: _model.textFieldFocusNode,

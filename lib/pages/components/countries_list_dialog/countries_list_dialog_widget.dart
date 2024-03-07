@@ -5,7 +5,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'countries_list_dialog_model.dart';
 export 'countries_list_dialog_model.dart';
 
@@ -59,8 +58,6 @@ class _CountriesListDialogWidgetState extends State<CountriesListDialogWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 100.0),
       child: Container(

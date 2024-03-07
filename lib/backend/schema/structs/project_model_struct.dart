@@ -34,6 +34,7 @@ class ProjectModelStruct extends BaseStruct {
     double? profit,
     double? profitPercentage,
     double? totalPricing,
+    double? value,
   })  : _id = id,
         _name = name,
         _type = type,
@@ -61,7 +62,8 @@ class ProjectModelStruct extends BaseStruct {
         _approvedCost = approvedCost,
         _profit = profit,
         _profitPercentage = profitPercentage,
-        _totalPricing = totalPricing;
+        _totalPricing = totalPricing,
+        _value = value;
 
   // "id" field.
   int? _id;
@@ -256,6 +258,13 @@ class ProjectModelStruct extends BaseStruct {
       _totalPricing = totalPricing + amount;
   bool hasTotalPricing() => _totalPricing != null;
 
+  // "value" field.
+  double? _value;
+  double get value => _value ?? 0.0;
+  set value(double? val) => _value = val;
+  void incrementValue(double amount) => _value = value + amount;
+  bool hasValue() => _value != null;
+
   static ProjectModelStruct fromMap(Map<String, dynamic> data) =>
       ProjectModelStruct(
         id: castToType<int>(data['id']),
@@ -298,6 +307,7 @@ class ProjectModelStruct extends BaseStruct {
         profit: castToType<double>(data['profit']),
         profitPercentage: castToType<double>(data['profitPercentage']),
         totalPricing: castToType<double>(data['totalPricing']),
+        value: castToType<double>(data['value']),
       );
 
   static ProjectModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -333,6 +343,7 @@ class ProjectModelStruct extends BaseStruct {
         'profit': _profit,
         'profitPercentage': _profitPercentage,
         'totalPricing': _totalPricing,
+        'value': _value,
       }.withoutNulls;
 
   @override
@@ -451,6 +462,10 @@ class ProjectModelStruct extends BaseStruct {
         ),
         'totalPricing': serializeParam(
           _totalPricing,
+          ParamType.double,
+        ),
+        'value': serializeParam(
+          _value,
           ParamType.double,
         ),
       }.withoutNulls;
@@ -601,6 +616,11 @@ class ProjectModelStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
+        value: deserializeParam(
+          data['value'],
+          ParamType.double,
+          false,
+        ),
       );
 
   @override
@@ -637,7 +657,8 @@ class ProjectModelStruct extends BaseStruct {
         approvedCost == other.approvedCost &&
         profit == other.profit &&
         profitPercentage == other.profitPercentage &&
-        totalPricing == other.totalPricing;
+        totalPricing == other.totalPricing &&
+        value == other.value;
   }
 
   @override
@@ -669,7 +690,8 @@ class ProjectModelStruct extends BaseStruct {
         approvedCost,
         profit,
         profitPercentage,
-        totalPricing
+        totalPricing,
+        value
       ]);
 }
 
@@ -698,6 +720,7 @@ ProjectModelStruct createProjectModelStruct({
   double? profit,
   double? profitPercentage,
   double? totalPricing,
+  double? value,
 }) =>
     ProjectModelStruct(
       id: id,
@@ -724,4 +747,5 @@ ProjectModelStruct createProjectModelStruct({
       profit: profit,
       profitPercentage: profitPercentage,
       totalPricing: totalPricing,
+      value: value,
     );

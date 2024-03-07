@@ -801,9 +801,9 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                                   .fromSTEB(
                                                       10.0, 30.0, 30.0, 30.0),
                                               child: RichText(
-                                                textScaleFactor:
+                                                textScaler:
                                                     MediaQuery.of(context)
-                                                        .textScaleFactor,
+                                                        .textScaler,
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(

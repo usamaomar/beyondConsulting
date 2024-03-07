@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'dialog_text_drop_douwn_list_component_model.dart';
 export 'dialog_text_drop_douwn_list_component_model.dart';
 
@@ -46,8 +45,6 @@ class _DialogTextDropDouwnListComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: MediaQuery.sizeOf(context).width < 400.0 ? 280.0 : 480.0,
       decoration: BoxDecoration(

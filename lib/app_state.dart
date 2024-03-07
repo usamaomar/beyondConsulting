@@ -303,7 +303,7 @@ class FFAppState extends ChangeNotifier {
 
   UserModelStruct _userModelAppState = UserModelStruct.fromSerializableMap(
       jsonDecode(
-          '{"supervisorName":"name","profilePictureDataUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU"}'));
+          '{\"supervisorName\":\"name\",\"profilePictureDataUrl\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU\"}'));
   UserModelStruct get userModelAppState => _userModelAppState;
   set userModelAppState(UserModelStruct value) {
     _userModelAppState = value;
@@ -495,11 +495,11 @@ class FFAppState extends ChangeNotifier {
 
   List<ProjectTypeModelStruct> _projectTypesList = [
     ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"آ","nameEn":"A","color":"#ea0202","type":"4"}')),
+        '{\"nameAr\":\"آ\",\"nameEn\":\"A\",\"color\":\"#ea0202\",\"type\":\"4\"}')),
     ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"ب","nameEn":"B","color":"#008000","type":"2"}')),
+        '{\"nameAr\":\"ب\",\"nameEn\":\"B\",\"color\":\"#008000\",\"type\":\"2\"}')),
     ProjectTypeModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"ج","nameEn":"C","color":"#ffd600","type":"1"}'))
+        '{\"nameAr\":\"ج\",\"nameEn\":\"C\",\"color\":\"#ffd600\",\"type\":\"1\"}'))
   ];
   List<ProjectTypeModelStruct> get projectTypesList => _projectTypesList;
   set projectTypesList(List<ProjectTypeModelStruct> value) {
@@ -585,17 +585,17 @@ class FFAppState extends ChangeNotifier {
 
   List<MileStoneStateModelStruct> _mileStoneModelAppState = [
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"لم يبدأ","nameEn":"Not Started","stateId":"0"}')),
+        '{\"nameAr\":\"لم يبدأ\",\"nameEn\":\"Not Started\",\"stateId\":\"0\"}')),
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"عن مسارها","nameEn":"Offtrack","stateId":"1"}')),
+        '{\"nameAr\":\"عن مسارها\",\"nameEn\":\"Offtrack\",\"stateId\":\"1\"}')),
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"في تَقَدم","nameEn":"In Progress","stateId":"2"}')),
+        '{\"nameAr\":\"في تَقَدم\",\"nameEn\":\"In Progress\",\"stateId\":\"2\"}')),
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"في خطر","nameEn":"At Risk","stateId":"3"}')),
+        '{\"nameAr\":\"في خطر\",\"nameEn\":\"At Risk\",\"stateId\":\"3\"}')),
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"ألغيت","nameEn":"Canceled","stateId":"4"}')),
+        '{\"nameAr\":\"ألغيت\",\"nameEn\":\"Canceled\",\"stateId\":\"4\"}')),
     MileStoneStateModelStruct.fromSerializableMap(jsonDecode(
-        '{"nameAr":"مكتمل","nameEn":"Completed","stateId":"5"}'))
+        '{\"nameAr\":\"مكتمل\",\"nameEn\":\"Completed\",\"stateId\":\"5\"}'))
   ];
   List<MileStoneStateModelStruct> get mileStoneModelAppState =>
       _mileStoneModelAppState;
@@ -756,15 +756,15 @@ class FFAppState extends ChangeNotifier {
 
   List<SatisfactionModelStruct> _clintSatisfactionList = [
     SatisfactionModelStruct.fromSerializableMap(jsonDecode(
-        '{"type":"1","isSelected":"false","color":"#e6000b","notColor":"#472a21"}')),
+        '{\"type\":\"1\",\"isSelected\":\"false\",\"color\":\"#e6000b\",\"notColor\":\"#472a21\"}')),
     SatisfactionModelStruct.fromSerializableMap(jsonDecode(
-        '{"type":"2","isSelected":"false","color":"#ee8b60","notColor":"#4d3820"}')),
+        '{\"type\":\"2\",\"isSelected\":\"false\",\"color\":\"#ee8b60\",\"notColor\":\"#4d3820\"}')),
     SatisfactionModelStruct.fromSerializableMap(jsonDecode(
-        '{"type":"3","isSelected":"false","color":"#ffe851","notColor":"#524624"}')),
+        '{\"type\":\"3\",\"isSelected\":\"false\",\"color\":\"#ffe851\",\"notColor\":\"#524624\"}')),
     SatisfactionModelStruct.fromSerializableMap(jsonDecode(
-        '{"type":"4","isSelected":"false","color":"#249689","notColor":"#363e27"}')),
+        '{\"type\":\"4\",\"isSelected\":\"false\",\"color\":\"#249689\",\"notColor\":\"#363e27\"}')),
     SatisfactionModelStruct.fromSerializableMap(jsonDecode(
-        '{"type":"5","isSelected":"false","color":"#0bf352","notColor":"#468a61"}'))
+        '{\"type\":\"5\",\"isSelected\":\"false\",\"color\":\"#0bf352\",\"notColor\":\"#468a61\"}'))
   ];
   List<SatisfactionModelStruct> get clintSatisfactionList =>
       _clintSatisfactionList;
@@ -810,21 +810,21 @@ class FFAppState extends ChangeNotifier {
 
   List<ColorModelStruct> _colorList = [
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#03a4e2","colorName":"Beyond Blue"}')),
+        jsonDecode('{\"colorHex\":\"#03a4e2\",\"colorName\":\"Beyond Blue\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#ea0202","colorName":"Read"}')),
+        jsonDecode('{\"colorHex\":\"#ea0202\",\"colorName\":\"Read\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#fff","colorName":"Clear"}')),
+        jsonDecode('{\"colorHex\":\"#fff\",\"colorName\":\"Clear\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#14181b","colorName":"Black"}')),
+        jsonDecode('{\"colorHex\":\"#14181b\",\"colorName\":\"Black\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#ee8b60","colorName":"Orange"}')),
+        jsonDecode('{\"colorHex\":\"#ee8b60\",\"colorName\":\"Orange\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#39d2c0","colorName":"Teal"}')),
+        jsonDecode('{\"colorHex\":\"#39d2c0\",\"colorName\":\"Teal\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#339259","colorName":"Grean"}')),
+        jsonDecode('{\"colorHex\":\"#339259\",\"colorName\":\"Grean\"}')),
     ColorModelStruct.fromSerializableMap(
-        jsonDecode('{"colorHex":"#ffd612","colorName":"Yello"}'))
+        jsonDecode('{\"colorHex\":\"#ffd612\",\"colorName\":\"Yello\"}'))
   ];
   List<ColorModelStruct> get colorList => _colorList;
   set colorList(List<ColorModelStruct> value) {

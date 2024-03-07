@@ -509,9 +509,8 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     30.0, 30.0, 30.0, 30.0),
                                             child: RichText(
-                                              textScaleFactor:
-                                                  MediaQuery.of(context)
-                                                      .textScaleFactor,
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
                                               text: TextSpan(
                                                 children: [
                                                   TextSpan(

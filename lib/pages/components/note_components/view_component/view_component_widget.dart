@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'view_component_model.dart';
 export 'view_component_model.dart';
 
@@ -45,8 +44,6 @@ class _ViewComponentWidgetState extends State<ViewComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
