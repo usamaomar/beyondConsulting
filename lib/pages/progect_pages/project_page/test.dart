@@ -2,6 +2,7 @@ import 'package:beyond_consulting/backend/schema/structs/index.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../flutter_flow/flutter_flow_util.dart';
 import 'milestone_chart_widget.dart';
 
 class test extends StatefulWidget{
@@ -76,9 +77,9 @@ class _test extends State<test> {
             series: <ChartSeries<ChartSampleData, double>>[
               RangeColumnSeries<ChartSampleData, double>(
                 dataSource: chartData,
-                xValueMapper: (ChartSampleData data, _) => data.x,
-                lowValueMapper: (ChartSampleData data, _) => data.x,
-                highValueMapper: (ChartSampleData data, _) => data.y,
+                xValueMapper: (ChartSampleData data, _) => roundToTwoDecimalPlaces(data.x),
+                lowValueMapper: (ChartSampleData data, _) => roundToTwoDecimalPlaces(data.x),
+                highValueMapper: (ChartSampleData data, _) => roundToTwoDecimalPlaces(data.y),
                 pointColorMapper: (ChartSampleData data, _) => data.y2 >= 50 ? Colors.green : Colors.red,
                 dataLabelSettings: DataLabelSettings(isVisible: true,),
               ),
@@ -88,4 +89,8 @@ class _test extends State<test> {
       ],
     );
   }
+
+
+
+
 }

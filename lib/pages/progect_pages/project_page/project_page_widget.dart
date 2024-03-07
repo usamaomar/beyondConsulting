@@ -1,7 +1,5 @@
 import 'package:beyond_consulting/pages/progect_pages/project_page/sync.dart';
 import 'package:beyond_consulting/pages/progect_pages/project_page/test.dart';
-import 'package:beyond_consulting/pages/progect_pages/project_page/test2.dart';
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/cupertino.dart';
 
 import '/backend/schema/enums/enums.dart';
@@ -18,9 +16,6 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
-import 'milestone_chart_widget.dart';
-import 'milestone_graph.dart';
-import 'milestone_progress_graph.dart';
 import 'project_page_model.dart';
 export 'project_page_model.dart';
 
@@ -1087,117 +1082,117 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                                           ),
                                         ],
                                       ),
-                                      Material(
-                                          color: Colors.transparent,
-                                          elevation: 4.0,
-                                          shape: const RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(5.0),
-                                              bottomRight: Radius.circular(5.0),
-                                              topLeft: Radius.circular(5.0),
-                                              topRight: Radius.circular(5.0),
-                                            ),
-                                          ),
-                                          child:Container(
-                                        decoration: const BoxDecoration(
-                                          color: Color(0xFFBCD1AE),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(5.0),
-                                            bottomRight: Radius.circular(5.0),
-                                            topLeft: Radius.circular(5.0),
-                                            topRight: Radius.circular(5.0),
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'ofm4073h' /* Revenue */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: const Color(
-                                                            0xFF339259),
-                                                      ),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'mhnpt9xj' /* JOD */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: const Color(
-                                                            0xFF339259),
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              height: 56.0,
-                                              child: VerticalDivider(
-                                                thickness: 1.0,
-                                                indent: 5.0,
-                                                endIndent: 5.0,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .info,
-                                              ),
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'x8rgmtig' /* 30k/ */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: const Color(
-                                                            0xFF339259),
-                                                      ),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '239ewb9m' /* 30k */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: const Color(
-                                                            0xFF339259),
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                                    //   Material(
+                                    //       color: Colors.transparent,
+                                    //       elevation: 4.0,
+                                    //       shape: const RoundedRectangleBorder(
+                                    //         borderRadius: BorderRadius.only(
+                                    //           bottomLeft: Radius.circular(5.0),
+                                    //           bottomRight: Radius.circular(5.0),
+                                    //           topLeft: Radius.circular(5.0),
+                                    //           topRight: Radius.circular(5.0),
+                                    //         ),
+                                    //       ),
+                                    //       child:Container(
+                                    //     decoration: const BoxDecoration(
+                                    //       color: Color(0xFFBCD1AE),
+                                    //       borderRadius: BorderRadius.only(
+                                    //         bottomLeft: Radius.circular(5.0),
+                                    //         bottomRight: Radius.circular(5.0),
+                                    //         topLeft: Radius.circular(5.0),
+                                    //         topRight: Radius.circular(5.0),
+                                    //       ),
+                                    //     ),
+                                    //     child: Row(
+                                    //       mainAxisSize: MainAxisSize.max,
+                                    //       mainAxisAlignment:
+                                    //           MainAxisAlignment.spaceEvenly,
+                                    //       children: [
+                                    //         Row(
+                                    //           mainAxisSize: MainAxisSize.max,
+                                    //           children: [
+                                    //             Text(
+                                    //               FFLocalizations.of(context)
+                                    //                   .getText(
+                                    //                 'ofm4073h' /* Revenue */,
+                                    //               ),
+                                    //               style: FlutterFlowTheme.of(
+                                    //                       context)
+                                    //                   .bodyMedium
+                                    //                   .override(
+                                    //                     fontFamily:
+                                    //                         'Readex Pro',
+                                    //                     color: const Color(
+                                    //                         0xFF339259),
+                                    //                   ),
+                                    //             ),
+                                    //             Text(
+                                    //               FFLocalizations.of(context)
+                                    //                   .getText(
+                                    //                 'mhnpt9xj' /* JOD */,
+                                    //               ),
+                                    //               style: FlutterFlowTheme.of(
+                                    //                       context)
+                                    //                   .bodyMedium
+                                    //                   .override(
+                                    //                     fontFamily:
+                                    //                         'Readex Pro',
+                                    //                     color: const Color(
+                                    //                         0xFF339259),
+                                    //                   ),
+                                    //             ),
+                                    //           ],
+                                    //         ),
+                                    //         SizedBox(
+                                    //           height: 56.0,
+                                    //           child: VerticalDivider(
+                                    //             thickness: 1.0,
+                                    //             indent: 5.0,
+                                    //             endIndent: 5.0,
+                                    //             color:
+                                    //                 FlutterFlowTheme.of(context)
+                                    //                     .info,
+                                    //           ),
+                                    //         ),
+                                    //         Row(
+                                    //           mainAxisSize: MainAxisSize.max,
+                                    //           children: [
+                                    //             Text(
+                                    //               FFLocalizations.of(context)
+                                    //                   .getText(
+                                    //                 'x8rgmtig' /* 30k/ */,
+                                    //               ),
+                                    //               style: FlutterFlowTheme.of(
+                                    //                       context)
+                                    //                   .bodyMedium
+                                    //                   .override(
+                                    //                     fontFamily:
+                                    //                         'Readex Pro',
+                                    //                     color: const Color(
+                                    //                         0xFF339259),
+                                    //                   ),
+                                    //             ),
+                                    //             Text(
+                                    //               FFLocalizations.of(context)
+                                    //                   .getText(
+                                    //                 '239ewb9m' /* 30k */,
+                                    //               ),
+                                    //               style: FlutterFlowTheme.of(
+                                    //                       context)
+                                    //                   .bodyMedium
+                                    //                   .override(
+                                    //                     fontFamily:
+                                    //                         'Readex Pro',
+                                    //                     color: const Color(
+                                    //                         0xFF339259),
+                                    //                   ),
+                                    //             ),
+                                    //           ],
+                                    //         ),
+                                    //       ],
+                                    //     ),
+                                    //   ),
+                                    // ),
                                       ],
                                     ),
                                   ),

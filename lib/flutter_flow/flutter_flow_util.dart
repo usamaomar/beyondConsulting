@@ -447,6 +447,46 @@ extension FFStringExt on String {
           : this;
 }
 
+extension DoubleExtension on double {
+  double rToD() {
+    return double.parse(toStringAsFixed(2));
+  }
+}
+
+
+extension StringOnExtension on String {
+  String? roundToNDecimalPlaces() {
+    double? value = double.tryParse(this);
+    if (value != null) {
+      return value.toStringAsFixed(2);
+    } else {
+      '0.0';
+    }
+    return null;
+  }
+}
+
+extension StrExtension on double {
+  String rToDS(String value) {
+    return double.parse(toStringAsFixed(2)).toString();
+  }
+}
+
+extension Stringsion on String {
+  String roundToNces(int decimalPlaces) {
+    double? value = double.tryParse(this);
+    if (value != null) {
+      return value.toStringAsFixed(decimalPlaces);
+    } else {
+      return "0";
+    }
+  }
+}
+
+ double roundToTwoDecimalPlaces(double value) {
+  return double.parse(value.toStringAsFixed(2));
+}
+
 extension ListFilterExt<T> on Iterable<T?> {
   List<T> get withoutNulls => where((s) => s != null).map((e) => e!).toList();
 }
