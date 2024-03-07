@@ -2652,7 +2652,7 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                                 .fromSTEB(
                                                 10.0,
                                                 0.0,
-                                                10.0,
+                                                0.0,
                                                 0.0),
                                             child: Icon(
                                               Icons
@@ -2662,94 +2662,181 @@ class _AllCostsPageWidgetState extends State<AllCostsPageWidget> {
                                             ),
                                           ),
                                         ),
-                                        InkWell(
-                                          onTap: () async {
-                                            await showDialog(
-                                              context: context,
-                                              builder:
-                                                  (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: Text(
-                                                      FFLocalizations.of(
-                                                          context)
-                                                          .getVariableText(
-                                                        enText:
-                                                        'Alert',
-                                                        arText:
-                                                        'تنبيه',
-                                                      )),
-                                                  content: const Text(
-                                                      'Are you sure you want to Delete this Cost'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed:
-                                                          () {
-                                                        setState(
-                                                                () {
-                                                              localCostList
-                                                                  .map((e) =>
-                                                              e.isUpdated =
-                                                              false)
-                                                                  .toList();
-                                                              localCostListItem
-                                                                  .isUpdated =
-                                                              false;
-                                                              clear();
-                                                            });
-
-
-
-
-
-
-                                                        Navigator.pop(
-                                                            alertDialogContext);
-                                                      },
-                                                      child: Text(
-                                                          FFLocalizations.of(
-                                                              context)
-                                                              .getVariableText(
-                                                            enText:
-                                                            'Ok',
-                                                            arText:
-                                                            'حسنا',
-                                                          )),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text(
-                                                          FFLocalizations.of(
-                                                              context)
-                                                              .getVariableText(
-                                                            enText:
-                                                            'Cancel',
-                                                            arText:
-                                                            'كلا',
-                                                          )),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          },
-                                          child: Padding(
-                                            padding:
-                                            const EdgeInsetsDirectional
-                                                .fromSTEB(
-                                                10.0,
-                                                0.0,
-                                                10.0,
-                                                0.0),
-                                            child: Icon(
-                                              Icons
-                                                  .delete_forever,
-                                              color: Colors.red,
-                                              size: 24.0,
-                                            ),
-                                          ),
-                                        )
+                                        // InkWell(
+                                        //   onTap: () async {
+                                        //     await showDialog(
+                                        //       context: context,
+                                        //       builder:
+                                        //           (alertDialogContext) {
+                                        //         return AlertDialog(
+                                        //           title: Text(
+                                        //               FFLocalizations.of(
+                                        //                   context)
+                                        //                   .getVariableText(
+                                        //                 enText:
+                                        //                 'Alert',
+                                        //                 arText:
+                                        //                 'تنبيه',
+                                        //               )),
+                                        //           content: const Text(
+                                        //               'Are you sure you want to Delete this Cost'),
+                                        //           actions: [
+                                        //             TextButton(
+                                        //               onPressed:
+                                        //                   () async{
+                                        //                 _model.apiResulttbe = await RemoveCostApiCall.call(
+                                        //                   token: FFAppState().tokenModelAppState.token,
+                                        //                   costId: localCostListItem.id
+                                        //                 );
+                                        //                 if ((_model.apiResulttbe
+                                        //                     ?.jsonBody[
+                                        //                 'succeeded']) ==
+                                        //                     true){
+                                        //                   setState(
+                                        //                           () {
+                                        //                         localCostList
+                                        //                             .map((e) =>
+                                        //                         e.isUpdated =
+                                        //                         false)
+                                        //                             .toList();
+                                        //                         localCostListItem
+                                        //                             .isUpdated =
+                                        //                         false;
+                                        //                         clear();
+                                        //                       });
+                                        //
+                                        //                   _model.allCostsList = (getJsonField(
+                                        //                     (_model.apiResulttbe?.jsonBody ?? ''),
+                                        //                     r'''$.data''',
+                                        //                     true,
+                                        //                   )!
+                                        //                       .toList()
+                                        //                       .map<CostModelStruct?>(CostModelStruct.maybeFromMap)
+                                        //                       .toList() as Iterable<CostModelStruct?>)
+                                        //                       .withoutNulls
+                                        //                       .toList()
+                                        //                       .cast<CostModelStruct>();
+                                        //                 }else{
+                                        //                   await showDialog(
+                                        //                     context: context,
+                                        //                     builder:
+                                        //                         (alertDialogContext) {
+                                        //                       return AlertDialog(
+                                        //                         title: Text(
+                                        //                             FFLocalizations.of(
+                                        //                                 context)
+                                        //                                 .getVariableText(
+                                        //                               enText: 'Error',
+                                        //                               arText: 'مشكله',
+                                        //                             )),
+                                        //                         content: Text((_model
+                                        //                             .apiResulttbe
+                                        //                             ?.bodyText ??
+                                        //                             '')),
+                                        //                         actions: [
+                                        //                           TextButton(
+                                        //                             onPressed: () =>
+                                        //                                 Navigator.pop(
+                                        //                                     alertDialogContext),
+                                        //                             child: Text(FFLocalizations.of(
+                                        //                                 context)
+                                        //                                 .getVariableText(
+                                        //                               enText: 'Ok',
+                                        //                               arText:
+                                        //                               'حسنا',
+                                        //                             )),
+                                        //                           ),
+                                        //                         ],
+                                        //                       );
+                                        //                     },
+                                        //                   );
+                                        //                 }
+                                        //                 Navigator.pop(
+                                        //                     alertDialogContext,true);
+                                        //               },
+                                        //               child: Text(
+                                        //                   FFLocalizations.of(
+                                        //                       context)
+                                        //                       .getVariableText(
+                                        //                     enText:
+                                        //                     'Ok',
+                                        //                     arText:
+                                        //                     'حسنا',
+                                        //                   )),
+                                        //             ),
+                                        //             TextButton(
+                                        //               onPressed: () =>
+                                        //                   Navigator.pop(
+                                        //                       alertDialogContext),
+                                        //               child: Text(
+                                        //                   FFLocalizations.of(
+                                        //                       context)
+                                        //                       .getVariableText(
+                                        //                     enText:
+                                        //                     'Cancel',
+                                        //                     arText:
+                                        //                     'كلا',
+                                        //                   )),
+                                        //             ),
+                                        //           ],
+                                        //         );
+                                        //       },
+                                        //     ).then((value) async{
+                                        //       if(value == true){
+                                        //         _model.allCostsList.firstWhere(
+                                        //                 (element) =>
+                                        //             element
+                                        //                 .isUpdated ==
+                                        //                 true,
+                                        //             orElse: () =>
+                                        //                 CostModelStruct(
+                                        //                     isUpdated:
+                                        //                     false));
+                                        //         _model.apiResulttbe =
+                                        //             await GetAllCostsApiCall.call(
+                                        //           token: FFAppState().tokenModelAppState
+                                        //               .token,
+                                        //         );
+                                        //         if ((_model.apiResulttbe?.succeeded ??
+                                        //             true)) {
+                                        //           setState(() {
+                                        //             _model.fromDatePicked = null;
+                                        //             _model.toDatePicked = null;
+                                        //             _model.isFiltered = false;
+                                        //             _model.allCostsList = (getJsonField(
+                                        //               (_model.apiResulttbe?.jsonBody ?? ''),
+                                        //               r'''$.data''',
+                                        //               true,
+                                        //             )!
+                                        //                 .toList()
+                                        //                 .map<CostModelStruct?>(
+                                        //                 CostModelStruct.maybeFromMap)
+                                        //                 .toList() as Iterable<
+                                        //                 CostModelStruct?>)
+                                        //                 .withoutNulls
+                                        //                 .toList()
+                                        //                 .cast<CostModelStruct>();
+                                        //           });
+                                        //         }
+                                        //       }
+                                        //     });
+                                        //   },
+                                        //   child: Padding(
+                                        //     padding:
+                                        //     const EdgeInsetsDirectional
+                                        //         .fromSTEB(
+                                        //         10.0,
+                                        //         0.0,
+                                        //         10.0,
+                                        //         0.0),
+                                        //     child: Icon(
+                                        //       Icons
+                                        //           .delete_forever,
+                                        //       color: Colors.red,
+                                        //       size: 24.0,
+                                        //     ),
+                                        //   ),
+                                        // )
                                       ],
                                     ),
                                   ),

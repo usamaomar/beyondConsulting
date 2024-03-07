@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 
+import '../../pages/team_chat_page/team_chat_page_widget.dart';
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -74,6 +75,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TeamCapacitiesPage',
           path: '/teamCapacitiesPage',
           builder: (context, params) => const TeamCapacitiesPageWidget(),
+        ),
+        FFRoute(
+          name: 'TeamChatPage',
+          path: '/teamChatPage',
+          builder: (context, params) => const TeamChatPageWidget(),
         ),
         FFRoute(
           name: 'CostManagement',

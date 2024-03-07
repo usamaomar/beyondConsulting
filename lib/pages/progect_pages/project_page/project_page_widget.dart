@@ -595,7 +595,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 20.0, 10.0, 0.0),
+                              10.0, 20.0, 10.0, 10.0),
                           child: Material(
                             color: Colors.transparent,
                             elevation: 4.0,
@@ -826,7 +826,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
-                          0.0, 0.0, 10.0, 0.0),
+                          0.0, 0.0, 10.0, 10.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

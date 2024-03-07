@@ -2619,6 +2619,127 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                               children: [
                                                 FFButtonWidget(
                                                   onPressed: () async {
+
+
+
+
+                                                    if (isNotNumber(_model
+                                                        .budgetTextFieldController
+                                                        .text)) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Error',
+                                                                  arText: 'مشكله',
+                                                                )),
+                                                            content: Text(
+                                                                'Budget Must Be Number'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child: Text(FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Ok',
+                                                                  arText:
+                                                                  'حسنا',
+                                                                )),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                      return;
+                                                    }
+
+
+
+                                                    if (FFAppState()
+                                                        .newProjectCreatedModel
+                                                        .countryCode
+                                                        .isEmpty) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Error',
+                                                                  arText: 'مشكله',
+                                                                )),
+                                                            content: Text(
+                                                                'You must select Country'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child: Text(FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Ok',
+                                                                  arText:
+                                                                  'حسنا',
+                                                                )),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                      return;
+                                                    }
+                                                    if (FFAppState()
+                                                        .newProjectCreatedModel
+                                                        .teamId==0) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Error',
+                                                                  arText: 'مشكله',
+                                                                )),
+                                                            content: Text(
+                                                                'You must select Team'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child: Text(FFLocalizations.of(
+                                                                    context)
+                                                                    .getVariableText(
+                                                                  enText: 'Ok',
+                                                                  arText:
+                                                                  'حسنا',
+                                                                )),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                      return;
+                                                    }
+
+
+
+
+
                                                     FFAppState()
                                                         .newProjectCreatedModel
                                                         .milestones
@@ -2767,10 +2888,11 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
                                                               enText: 'Error',
                                                               arText: 'مشكله',
                                                             )),
-                                                            content: Text((_model
+                                                            content: Text(
+                                                                convertJsonToString((_model
                                                                     .apiResultb91
                                                                     ?.bodyText ??
-                                                                '')),
+                                                                    ''))),
                                                             actions: [
                                                               TextButton(
                                                                 onPressed: () =>
@@ -2856,6 +2978,11 @@ class _UpdateProjectPageWidgetState extends State<UpdateProjectPageWidget> {
   String convertDateFormatLocals(String inputDate) {
     String result = inputDate.substring(0, 10);
     return '${result}T00:00:00.000Z';
+  }
+
+  bool isNotNumber(String value) {
+    final RegExp numericRegex = RegExp(r'^[0-9]+$');
+    return !numericRegex.hasMatch(value);
   }
 
   int genNum() {

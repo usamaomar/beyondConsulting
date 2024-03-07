@@ -1,4 +1,5 @@
 import 'package:flutter/scheduler.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../progect_pages/project_page/sync.dart';
 import '/backend/schema/structs/index.dart';
@@ -127,215 +128,266 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
             Stack(
               children: [
                 if ((FFAppState().userModelAppState.accessRole == 2) ||
-                    (FFAppState().userModelAppState.accessRole == 3) ||
-                    (FFAppState().userModelAppState.accessRole == 4)
+                        (FFAppState().userModelAppState.accessRole == 3) ||
+                        (FFAppState().userModelAppState.accessRole == 4)
                     ? true
                     : false)
-                Container(
+                  Container(
+                    child: Row(
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SizedBox(
+                                    width: 390.0,
+                                    height: 400.0,
+                                    child: SfCartesianChart(
+                                        primaryXAxis: CategoryAxis(
+                                            majorTickLines:
+                                                const MajorTickLines(size: 0)),
+                                        primaryYAxis: NumericAxis(
+                                          rangePadding: ChartRangePadding.none,
+                                          axisLine: const AxisLine(width: 0),
+                                          majorGridLines:
+                                              const MajorGridLines(width: 0),
+                                        ),
+                                        tooltipBehavior:
+                                            TooltipBehavior(enable: true),
+                                        series: <ChartSeries<
+                                            BarChartModelStruct, String>>[
+                                          ColumnSeries<BarChartModelStruct,
+                                                  String>(
+                                              dataSource: [
+                                                BarChartModelStruct(
+                                                    lable: _model.totalLableList
+                                                            .isNotEmpty
+                                                        ? _model
+                                                            .totalLableList[0]
+                                                            .lable
+                                                        : '',
+                                                    number: widget
+                                                            .financialStatisticsModel
+                                                            ?.data
+                                                            .totalBudget
+                                                            .toInt() ??
+                                                        0,
+                                                    color: Colors.amberAccent),
+                                                BarChartModelStruct(
+                                                    lable: _model.spentLableList
+                                                            .isNotEmpty
+                                                        ? _model
+                                                            .spentLableList[0]
+                                                            .lable
+                                                        : '',
+                                                    number: widget
+                                                            .financialStatisticsModel
+                                                            ?.data
+                                                            .spentBudget
+                                                            .toInt() ??
+                                                        0,
+                                                    color: Colors.deepOrange),
+                                                BarChartModelStruct(
+                                                    lable: _model
+                                                            .remainingLableList
+                                                            .isNotEmpty
+                                                        ? _model
+                                                            .remainingLableList[
+                                                                0]
+                                                            .lable
+                                                        : '',
+                                                    number: widget
+                                                            .financialStatisticsModel
+                                                            ?.data
+                                                            .remainingBudget
+                                                            .toInt() ??
+                                                        0,
+                                                    color:
+                                                        Colors.lightBlueAccent)
+                                              ],
+                                              yValueMapper:
+                                                  (BarChartModelStruct sales,
+                                                          _) =>
+                                                      sales.number,
+                                              xValueMapper:
+                                                  (BarChartModelStruct sales,
+                                                          _) =>
+                                                      sales.lable,
+                                              pointColorMapper:
+                                                  (BarChartModelStruct data,
+                                                          _) =>
+                                                      data.color),
+                                        ])
 
-                  child: Row(
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              SizedBox(
-                                width: 390.0,
-                                height: 370.0,
-                                child: Sync(
-                                  width: 390.0,
-                                  listOfTotal:
-                                  _model.totalLableList,
-                                  listOfSpent:
-                                  _model.spentLableList,
-                                  listOfRemainingBudget:
-                                  _model.remainingLableList,
-                                ),
+                                    // child: Sync(
+                                    //   key: Key('data'),
+                                    //   width: 390.0,
+                                    //   listOfTotal:
+                                    //   _model.totalLableList,
+                                    //   listOfSpent:
+                                    //   _model.spentLableList,
+                                    //   listOfRemainingBudget:
+                                    //   _model.remainingLableList,
+                                    // ),
+                                    ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 15.0, 15.0, 15.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'hki296sc' /* Total Budgets */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Almarai',
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      '${valueOrDefault<String>(
+                                        widget.financialStatisticsModel?.data
+                                            .totalBudget
+                                            .toString(),
+                                        '0',
+                                      )} ${FFLocalizations.of(context).getVariableText(
+                                        enText: 'JOD',
+                                        arText: 'د.أ',
+                                      )}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Almarai',
+                                            color: const Color(0xFFFFD600),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            useGoogleFonts: false,
+                                          ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional
-                                .fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                              MainAxisAlignment.start,
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context)
-                                      .getText(
-                                    'hki296sc' /* Total Budgets */,
-                                  ),
-                                  style: FlutterFlowTheme.of(
-                                      context)
-                                      .bodyMedium
-                                      .override(
-                                    fontFamily: 'Almarai',
-                                    fontSize: 16.0,
-                                    fontWeight:
-                                    FontWeight.bold,
-                                    useGoogleFonts: false,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                  const EdgeInsetsDirectional
-                                      .fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Text(
-                                    '${valueOrDefault<String>(
-                                      widget.financialStatisticsModel?.data.totalBudget.toString(),
-                                      '0',
-                                    )} ${FFLocalizations.of(context).getVariableText(
-                                      enText: 'JOD',
-                                      arText: 'د.أ',
-                                    )}',
-                                    style: FlutterFlowTheme.of(
-                                        context)
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 15.0, 15.0, 15.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '6g45g0s6' /* Spent Budgets */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                      fontFamily: 'Almarai',
-                                      color: const Color(
-                                          0xFFFFD600),
-                                      fontSize: 16.0,
-                                      fontWeight:
-                                      FontWeight.bold,
-                                      useGoogleFonts: false,
+                                          fontFamily: 'Almarai',
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      '${valueOrDefault<String>(
+                                        widget.financialStatisticsModel?.data
+                                            .spentBudget
+                                            .toString(),
+                                        '0',
+                                      )} ${FFLocalizations.of(context).getVariableText(
+                                        enText: 'JOD',
+                                        arText: 'د.أ',
+                                      )}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Almarai',
+                                            color: const Color(0xFF2C8CB6),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            useGoogleFonts: false,
+                                          ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional
-                                .fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                              MainAxisAlignment.start,
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context)
-                                      .getText(
-                                    '6g45g0s6' /* Spent Budgets */,
-                                  ),
-                                  style: FlutterFlowTheme.of(
-                                      context)
-                                      .bodyMedium
-                                      .override(
-                                    fontFamily: 'Almarai',
-                                    fontSize: 16.0,
-                                    fontWeight:
-                                    FontWeight.bold,
-                                    useGoogleFonts: false,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                  const EdgeInsetsDirectional
-                                      .fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Text(
-                                    '${valueOrDefault<String>(
-                                      widget.financialStatisticsModel?.data.spentBudget
-                                          .toString(),
-                                      '0',
-                                    )} ${FFLocalizations.of(context).getVariableText(
-                                      enText: 'JOD',
-                                      arText: 'د.أ',
-                                    )}',
-                                    style: FlutterFlowTheme.of(
-                                        context)
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 15.0, 15.0, 15.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '69xkzumz' /* Remaining Budgets */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                      fontFamily: 'Almarai',
-                                      color: const Color(
-                                          0xFF2C8CB6),
-                                      fontSize: 16.0,
-                                      fontWeight:
-                                      FontWeight.bold,
-                                      useGoogleFonts: false,
+                                          fontFamily: 'Almarai',
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        widget.financialStatisticsModel?.data
+                                            .remainingBudget
+                                            .toString(),
+                                        '0',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Almarai',
+                                            color: const Color(0xFFC8C9CC),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            useGoogleFonts: false,
+                                          ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional
-                                .fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                              MainAxisAlignment.start,
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context)
-                                      .getText(
-                                    '69xkzumz' /* Remaining Budgets */,
-                                  ),
-                                  style: FlutterFlowTheme.of(
-                                      context)
-                                      .bodyMedium
-                                      .override(
-                                    fontFamily: 'Almarai',
-                                    fontSize: 16.0,
-                                    fontWeight:
-                                    FontWeight.bold,
-                                    useGoogleFonts: false,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                  const EdgeInsetsDirectional
-                                      .fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                       widget.financialStatisticsModel?.data.remainingBudget
-                                          .toString(),
-                                      '0',
-                                    ),
-                                    style: FlutterFlowTheme
-                                        .of(context)
-                                        .bodyMedium
-                                        .override(
-                                      fontFamily: 'Almarai',
-                                      color: const Color(
-                                          0xFFC8C9CC),
-                                      fontSize: 16.0,
-                                      fontWeight:
-                                      FontWeight.bold,
-                                      useGoogleFonts: false,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
                 if ((FFAppState().userModelAppState.accessRole == 0) ||
                         (FFAppState().userModelAppState.accessRole == 1) ||
                         (FFAppState().userModelAppState.accessRole == 5)
@@ -986,17 +1038,18 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                           0
                                                       ? 0
                                                       : (getPercentage(
-                                                              widget
-                                                                      .financialStatisticsModel
-                                                                      ?.data
-                                                                      .actualProfit ??
-                                                                  0,
-                                                              widget
-                                                                      .financialStatisticsModel
-                                                                      ?.data
-                                                                      .plannedProfit ??
-                                                                  0) *
-                                                          0.01) % 1,
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .actualProfit ??
+                                                                      0,
+                                                                  widget
+                                                                          .financialStatisticsModel
+                                                                          ?.data
+                                                                          .plannedProfit ??
+                                                                      0) *
+                                                              0.01) %
+                                                          1,
                                                   lineHeight: 16.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
@@ -1052,17 +1105,110 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           SizedBox(
-                                            width: 390.0,
-                                            child: Sync(
                                               width: 390.0,
-                                              listOfTotal:
-                                                  _model.totalLableList,
-                                              listOfSpent:
-                                                  _model.spentLableList,
-                                              listOfRemainingBudget:
-                                                  _model.remainingLableList,
-                                            ),
-                                          ),
+                                              child: SfCartesianChart(
+                                                  primaryXAxis: CategoryAxis(
+                                                      majorTickLines:
+                                                          const MajorTickLines(
+                                                              size: 0)),
+                                                  primaryYAxis: NumericAxis(
+                                                    rangePadding:
+                                                        ChartRangePadding.none,
+                                                    axisLine: const AxisLine(
+                                                        width: 0),
+                                                    majorGridLines:
+                                                        const MajorGridLines(
+                                                            width: 0),
+                                                  ),
+                                                  tooltipBehavior:
+                                                      TooltipBehavior(
+                                                          enable: true),
+                                                  series: <ChartSeries<
+                                                      BarChartModelStruct,
+                                                      String>>[
+                                                    ColumnSeries<
+                                                            BarChartModelStruct,
+                                                            String>(
+                                                        dataSource: [
+                                                          BarChartModelStruct(
+                                                              lable: _model
+                                                                      .totalLableList
+                                                                      .isNotEmpty
+                                                                  ? _model
+                                                                      .totalLableList[
+                                                                          0]
+                                                                      .lable
+                                                                  : '',
+                                                              number: widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .totalBudget
+                                                                      .toInt() ??
+                                                                  0,
+                                                              color: Colors
+                                                                  .amberAccent),
+                                                          BarChartModelStruct(
+                                                              lable: _model
+                                                                      .spentLableList
+                                                                      .isNotEmpty
+                                                                  ? _model
+                                                                      .spentLableList[
+                                                                          0]
+                                                                      .lable
+                                                                  : '',
+                                                              number: widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .spentBudget
+                                                                      .toInt() ??
+                                                                  0,
+                                                              color: Colors
+                                                                  .deepOrange),
+                                                          BarChartModelStruct(
+                                                              lable: _model
+                                                                      .remainingLableList
+                                                                      .isNotEmpty
+                                                                  ? _model
+                                                                      .remainingLableList[
+                                                                          0]
+                                                                      .lable
+                                                                  : '',
+                                                              number: widget
+                                                                      .financialStatisticsModel
+                                                                      ?.data
+                                                                      .remainingBudget
+                                                                      .toInt() ??
+                                                                  0,
+                                                              color: Colors
+                                                                  .lightBlueAccent)
+                                                        ],
+                                                        yValueMapper:
+                                                            (BarChartModelStruct
+                                                                        sales,
+                                                                    _) =>
+                                                                sales.number,
+                                                        xValueMapper:
+                                                            (BarChartModelStruct
+                                                                        sales,
+                                                                    _) =>
+                                                                sales.lable,
+                                                        pointColorMapper:
+                                                            (BarChartModelStruct
+                                                                        data,
+                                                                    _) =>
+                                                                data.color),
+                                                  ])
+
+                                              // child: Sync(
+                                              //   width: 390.0,
+                                              //   listOfTotal:
+                                              //       _model.totalLableList,
+                                              //   listOfSpent:
+                                              //       _model.spentLableList,
+                                              //   listOfRemainingBudget:
+                                              //       _model.remainingLableList,
+                                              // ),
+                                              ),
                                         ],
                                       ),
                                     ],
@@ -1174,7 +1320,7 @@ class _FinancialComponentWidgetState extends State<FinancialComponentWidget>
                                                 widget.financialStatisticsModel
                                                     ?.data.actualGP
                                                     .toString(),
-                                                '0',
+                                                '0', 
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)

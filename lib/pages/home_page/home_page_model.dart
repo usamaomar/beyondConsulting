@@ -29,7 +29,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   // Model for SideNav component.
   late SideNavModel sideNavModel;
   ApiCallResponse? apiResultm5e;
-
+  ApiCallResponse? apiRefresh;
   /// Initialization and disposal methods.
   FinancialStatisticsOutputModelStruct? financialStatisticsModel;
   void updateFinancialStatisticsModelStruct(

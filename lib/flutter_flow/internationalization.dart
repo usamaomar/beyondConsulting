@@ -469,6 +469,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Team Capacities',
       'ar': 'قدرات الفريق',
     },
+    'z0yohwms5': {
+      'en': 'Chat with Team',
+      'ar': 'تحدث مع الفريق',
+    },
     'waxkqn18': {
       'en': 'Home',
       'ar': '',

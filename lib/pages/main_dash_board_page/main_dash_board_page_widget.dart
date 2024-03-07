@@ -150,9 +150,6 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
         });
       }
 
-
-
-
       _model.apiResultm5e = await GetFinancialStatisticsCall.call(
         token: FFAppState().tokenModelAppState.token,
       );
@@ -318,7 +315,7 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                           date: dateTimeFormat(
                                             'yMd',
                                             listOfLocalCardsItem
-                                                .achievementData!,
+                                                .createdDate!,
                                             locale:
                                             FFLocalizations.of(context)
                                                 .languageCode,
@@ -369,7 +366,25 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) async{
+                                  if(value == true){
+                                    _model.getAllNotesApi = await GetAllNotesApiCall.call(
+                                        token: FFAppState().tokenModelAppState.token
+                                    );
+                                    if ((_model.getAllNotesApi?.succeeded ?? true)) {
+                                      setState(() {
+                                        _model.listOfCards = (getJsonField(
+                                          (_model.getAllNotesApi?.jsonBody ?? ''),
+                                          r'''$.data''',
+                                          true,
+                                        )!.toList().map<AppCardModelStruct?>(AppCardModelStruct.maybeFromMap).toList() as Iterable<AppCardModelStruct?>)
+                                            .withoutNulls
+                                            .toList()
+                                            .cast<AppCardModelStruct>();
+                                      });
+                                    }
+                                  }
+                                });
                               },
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -430,215 +445,216 @@ class _MainDashBoardPageWidgetState extends State<MainDashBoardPageWidget> {
                               width: 2.0,
                             ),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    30.0, 20.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'pj06s05h' /* Live Tracker */,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      30.0, 20.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'pj06s05h' /* Live Tracker */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Almarai',
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Almarai',
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
-                                        useGoogleFonts: false,
-                                      ),
                                 ),
-                              ),
-                                Builder(
-                                  builder: (context) {
-                                    final localList = _model.listOfLiveTracker
-                                        .map((e) => e)
-                                        .toList();
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: localList.length,
-                                      itemBuilder: (context, localListIndex) {
-                                        final localListItem =
-                                            localList[localListIndex];
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  60.0, 30.0, 0.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
-                                                  shape: BoxShape.circle,
+                                  Builder(
+                                    builder: (context) {
+                                      final localList = _model.listOfLiveTracker
+                                          .map((e) => e)
+                                          .toList();
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: localList.length,
+                                        itemBuilder: (context, localListIndex) {
+                                          final localListItem =
+                                              localList[localListIndex];
+                                          return Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    60.0, 30.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Container(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    functions.getFullImage(
+                                                        localListItem.seniorPicture)!,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                                child: Image.network(
-                                                  functions.getFullImage(
-                                                      localListItem.seniorPicture)!,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                              Flexible(
-                                                child: Column(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                              15.0, 0.0, 15.0, 0.0),
-                                                      child: Text(
-                                                        localListItem.name,
-                                                        style: FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily: 'Almarai',
-                                                              fontSize: 16.0,
-                                                              fontWeight:
-                                                                  FontWeight.bold,
-                                                              useGoogleFonts: false,
-                                                            ),
+                                                Flexible(
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                15.0, 0.0, 15.0, 0.0),
+                                                        child: Text(
+                                                          localListItem.name,
+                                                          style: FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: 'Almarai',
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight.bold,
+                                                                useGoogleFonts: false,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                              15.0, 10.0, 15.0, 10.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(0.0,
-                                                                    0.0, 5.0, 0.0),
-                                                            child: Text(
-                                                              functions
-                                                                  .convertDateString(
-                                                                      localListItem
-                                                                          .startDate),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Almarai',
-                                                                    color: const Color(
-                                                                        0xFFA6A6A6),
-                                                                    fontSize: 16.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                15.0, 10.0, 15.0, 10.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(0.0,
+                                                                      0.0, 5.0, 0.0),
+                                                              child: Text(
+                                                                functions
+                                                                    .convertDateString(
+                                                                        localListItem
+                                                                            .startDate),
+                                                                style: FlutterFlowTheme
+                                                                        .of(context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFFA6A6A6),
+                                                                      fontSize: 16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(5.0,
-                                                                    0.0, 0.0, 0.0),
-                                                            child: Text(
-                                                              functions
-                                                                  .convertDateString(
-                                                                      localListItem
-                                                                          .endDate),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Almarai',
-                                                                    color: const Color(
-                                                                        0xFFA6A6A6),
-                                                                    fontSize: 16.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(5.0,
+                                                                      0.0, 0.0, 0.0),
+                                                              child: Text(
+                                                                functions
+                                                                    .convertDateString(
+                                                                        localListItem
+                                                                            .endDate),
+                                                                style: FlutterFlowTheme
+                                                                        .of(context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Almarai',
+                                                                      color: const Color(
+                                                                          0xFFA6A6A6),
+                                                                      fontSize: 16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              Opacity(
-                                opacity: 0.0,
-                                child: FlutterFlowTimer(
-                                  initialTime: _model.timerMilliseconds,
-                                  getDisplayTime: (value) =>
-                                      StopWatchTimer.getDisplayTime(
-                                    value,
-                                    hours: false,
-                                    milliSecond: false,
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
                                   ),
-                                  controller: _model.timerController,
-                                  updateStateInterval:
-                                      const Duration(milliseconds: 1000),
-                                  onChanged: (value, displayTime, shouldUpdate) {
-                                    _model.timerMilliseconds = value;
-                                    _model.timerValue = displayTime;
-                                    if (shouldUpdate) setState(() {});
-                                  },
-                                  onEnded: () async {
-                                    _model.apiResult7fn5 =
-                                        await GetMyProjectTrackersApiCall.call(
-                                      token: FFAppState().tokenModelAppState.token,
-                                            fromDate: "2023/11/01 00:00:00.000",
-                                            toDate: '2024/01/01 00:00:00.000'
-                                    );
-                                    if ((_model.apiResult7fn5?.succeeded ?? true)) {
-                                      setState(() {
-                                        _model.listOfLiveTracker = (getJsonField(
-                                          (_model.apiResult7fn5?.jsonBody ?? ''),
-                                          r'''$.data''',
-                                          true,
-                                        )!
-                                                    .toList()
-                                                    .map<ProjectModelStruct?>(
-                                                        ProjectModelStruct.maybeFromMap)
-                                                    .toList()
-                                                as Iterable<ProjectModelStruct?>)
-                                            .withoutNulls
-                                            .toList()
-                                            .cast<ProjectModelStruct>();
-                                      });
-                                    }
-
-                                    setState(() {});
-                                  },
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context).headlineSmall,
+                                Opacity(
+                                  opacity: 0.0,
+                                  child: FlutterFlowTimer(
+                                    initialTime: _model.timerMilliseconds,
+                                    getDisplayTime: (value) =>
+                                        StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: false,
+                                      milliSecond: false,
+                                    ),
+                                    controller: _model.timerController,
+                                    updateStateInterval:
+                                        const Duration(milliseconds: 1000),
+                                    onChanged: (value, displayTime, shouldUpdate) {
+                                      _model.timerMilliseconds = value;
+                                      _model.timerValue = displayTime;
+                                      if (shouldUpdate) setState(() {});
+                                    },
+                                    onEnded: () async {
+                                      _model.apiResult7fn5 =
+                                          await GetMyProjectTrackersApiCall.call(
+                                        token: FFAppState().tokenModelAppState.token,
+                                              fromDate: "2023/11/01 00:00:00.000",
+                                              toDate: '2024/01/01 00:00:00.000'
+                                      );
+                                      if ((_model.apiResult7fn5?.succeeded ?? true)) {
+                                        setState(() {
+                                          _model.listOfLiveTracker = (getJsonField(
+                                            (_model.apiResult7fn5?.jsonBody ?? ''),
+                                            r'''$.data''',
+                                            true,
+                                          )!
+                                                      .toList()
+                                                      .map<ProjectModelStruct?>(
+                                                          ProjectModelStruct.maybeFromMap)
+                                                      .toList()
+                                                  as Iterable<ProjectModelStruct?>)
+                                              .withoutNulls
+                                              .toList()
+                                              .cast<ProjectModelStruct>();
+                                        });
+                                      }
+                                      setState(() {});
+                                    },
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context).headlineSmall,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

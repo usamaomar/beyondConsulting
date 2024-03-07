@@ -1,23 +1,16 @@
-import 'package:beyond_consulting/pages/components/my_dialog.dart';
-import 'package:beyond_consulting/pages/components/my_singleton_class.dart';
 import 'package:fbroadcast/fbroadcast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'dart:io' show Platform;
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   try {
@@ -75,16 +68,17 @@ class _MyAppState extends State<MyApp> {
     localNotify();
     super.initState();
 
-    getPermission().then((value) {
-      FirebaseMessaging.instance.getToken().then((fbToken) {
-        FFAppState().fcm = fbToken ?? 'null';
-      });
-      handleInAppMessage();
-    });
-
+    // getPermission().then((value) {
+    //   FirebaseMessaging.instance.getToken().then((fbToken) {
+    //     FFAppState().fcm = fbToken ?? 'null';
+    //   });
+    //   handleInAppMessage();
+    // });
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
   }
+
+
 
 
   void localNotify() async {

@@ -67,22 +67,21 @@ class _SyncFusionFlutterBarChartsState extends State<Sync> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: SfCartesianChart(
-            primaryXAxis:
-                CategoryAxis(majorTickLines: const MajorTickLines(size: 0)),
-            primaryYAxis: NumericAxis(
-              rangePadding: ChartRangePadding.none,
-              axisLine: const AxisLine(width: 0),
-              majorGridLines: const MajorGridLines(width: 0),
-            ),
-            tooltipBehavior: TooltipBehavior(enable: true),
-            series: <ChartSeries<BarChartModelStruct, String>>[
-          ColumnSeries<BarChartModelStruct, String>(
-              dataSource: data,
-              yValueMapper: (BarChartModelStruct sales, _) => sales.number,
-              xValueMapper: (BarChartModelStruct sales, _) => sales.lable,
-              pointColorMapper: (BarChartModelStruct data, _) => data.color),
-        ]));
+    return SfCartesianChart(
+        primaryXAxis:
+            CategoryAxis(majorTickLines: const MajorTickLines(size: 0)),
+        primaryYAxis: NumericAxis(
+          rangePadding: ChartRangePadding.none,
+          axisLine: const AxisLine(width: 0),
+          majorGridLines: const MajorGridLines(width: 0),
+        ),
+        tooltipBehavior: TooltipBehavior(enable: true),
+        series: <ChartSeries<BarChartModelStruct, String>>[
+      ColumnSeries<BarChartModelStruct, String>(
+          dataSource: data,
+          yValueMapper: (BarChartModelStruct sales, _) => sales.number,
+          xValueMapper: (BarChartModelStruct sales, _) => sales.lable,
+          pointColorMapper: (BarChartModelStruct data, _) => data.color),
+    ]);
   }
 }

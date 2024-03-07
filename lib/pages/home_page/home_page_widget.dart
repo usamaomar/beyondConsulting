@@ -2,6 +2,15 @@ import 'package:fbroadcast/fbroadcast.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:googleapis/calendar/v3.dart' as v3ss;
+// import 'package:googleapis/storage/v1.dart';
+// import 'package:googleapis_auth/auth_io.dart';
+
+import '../components/callender/calendar_client.dart';
+import '../components/callender/event_info.dart';
+import '../components/callender/google_http_client.dart';
+import '../components/callender/storage.dart';
 import '../components/my_dialog.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
@@ -21,6 +30,10 @@ import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
+// import 'package:googleapis/calendar/v3.dart' as GoogleAPI;
+// import 'package:http/http.dart' as http;
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:googleapis/people/v1.dart';
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
 
@@ -31,91 +44,98 @@ class HomePageWidget extends StatefulWidget {
 class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
 
+  // List<v3ss.EventAttendee> attendeeEmails = [
+  //   v3ss.EventAttendee(email: 'usamaomarsoftware@gmail.com')
+  // ];
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  // Storage storage = Storage();
+  // CalendarClient calendarClient = CalendarClient();
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      // await refreshToken();
       _model.apiResult8gj = await GetStatisticsApiCall.call(
         token: FFAppState().tokenModelAppState.token,
       );
-      if ((_model.apiResult8gj?.statusCode ?? 200) == 200) {
+      if ((_model.apiResult8gj?.jsonBody['succeeded']) ==
+          true) {
         setState(() {
           _model.statisticsModel = StatisticsModelStruct.maybeFromMap(
               GetStatisticsApiCall.statisticsJsonModel(
             (_model.apiResult8gj?.jsonBody ?? ''),
           ));
         });
-        _model.apiResultscn = await GetMyPrioritiesApiCall.call(
-          token: FFAppState().tokenModelAppState.token,
-        );
-        if ((_model.apiResultscn?.statusCode ?? 200) == 200) {
-          setState(() {
-            FFAppState().prioritiesListAppState = functions
-                .fromJsonToModelList(getJsonField(
-                  (_model.apiResultscn?.jsonBody ?? ''),
-                  r'''$.data''',
-                ))
-                .toList()
-                .cast<PrioritieModelStruct>();
-          });
-          _model.apiProjectResultscn = await GetMyProjectsApiCall.call(
-            token: FFAppState().tokenModelAppState.token,
-          );
-          if ((_model.apiProjectResultscn?.statusCode ?? 200) == 200) {
-            setState(() {
-              FFAppState().projectsListAppState = functions
-                  .fromProjectJsonToModelList(getJsonField(
-                    (_model.apiProjectResultscn?.jsonBody ?? ''),
-                    r'''$.data''',
-                  ))!
-                  .toList()
-                  .cast<ProjectModelStruct>();
-            });
-            _model.apiProjectStats = await GetProjectStatisticsApiCall.call(
-              token: FFAppState().tokenModelAppState.token,
-            );
-            if ((_model.apiProjectStats?.statusCode ?? 200) == 200) {
-              setState(() {
-                FFAppState().ProjectStatisticsModel =
-                    ProjectStatisticModelStruct.maybeFromMap(getJsonField(
-                  (_model.apiProjectStats?.jsonBody ?? ''),
-                  r'''$.data''',
-                ))!;
-              });
-            }
-          }
-
-          _model.apiResultm5e = await GetFinancialStatisticsCall.call(
-            token: FFAppState().tokenModelAppState.token,
-          );
-          if ((_model.apiResultm5e?.succeeded ?? true)) {
-            setState(() {
-              _model.financialStatisticsModel =
-                  FinancialStatisticsOutputModelStruct.maybeFromMap(
-                      getJsonField(
-                (_model.apiResultm5e?.jsonBody ?? ''),
-                r'''$''',
-              ));
-            });
-          }
-        }
       } else {
-        FFAppState().update(() {
-          FFAppState().tokenModelAppState = TokenModelStruct();
-          FFAppState().userModelAppState = UserModelStruct.fromSerializableMap(
-              jsonDecode(
-                  '{"supervisorName":"name","profilePictureDataUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwk9ehRwCXvCb9IP02EyqUz-ppXch-25QRBA&usqp=CAU"}'));
-        });
+        FFAppState().userModelAppState = UserModelStruct();
+        FFAppState().tokenModelAppState = TokenModelStruct();
         while (context.canPop() == true) {
           context.pop();
         }
-        context.pushReplacement('LogingPage');
+        context.pushReplacement('loginPage');
       }
+
+      _model.apiResultscn = await GetMyPrioritiesApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResultscn?.statusCode ?? 200) == 200) {
+        setState(() {
+          FFAppState().prioritiesListAppState = functions
+              .fromJsonToModelList(getJsonField(
+                (_model.apiResultscn?.jsonBody ?? ''),
+                r'''$.data''',
+              ))
+              .toList()
+              .cast<PrioritieModelStruct>();
+        });
+      }
+
+      _model.apiProjectResultscn = await GetMyProjectsApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiProjectResultscn?.statusCode ?? 200) == 200) {
+        setState(() {
+          FFAppState().projectsListAppState = functions
+              .fromProjectJsonToModelList(getJsonField(
+                (_model.apiProjectResultscn?.jsonBody ?? ''),
+                r'''$.data''',
+              ))!
+              .toList()
+              .cast<ProjectModelStruct>();
+        });
+      }
+
+      _model.apiResultm5e = await GetFinancialStatisticsCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiResultm5e?.succeeded ?? true)) {
+        setState(() {
+          _model.financialStatisticsModel =
+              FinancialStatisticsOutputModelStruct.maybeFromMap(getJsonField(
+            (_model.apiResultm5e?.jsonBody ?? ''),
+            r'''$''',
+          ));
+        });
+      }
+
+      _model.apiProjectStats = await GetProjectStatisticsApiCall.call(
+        token: FFAppState().tokenModelAppState.token,
+      );
+      if ((_model.apiProjectStats?.statusCode ?? 200) == 200) {
+        setState(() {
+          FFAppState().ProjectStatisticsModel =
+              ProjectStatisticModelStruct.maybeFromMap(getJsonField(
+            (_model.apiProjectStats?.jsonBody ?? ''),
+            r'''$.data''',
+          ))!;
+        });
+      }
+
       FirebaseMessaging.instance.getToken().then((fbToken) {
         FFAppState().fcm = fbToken ?? 'null';
       });
@@ -127,19 +147,39 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       });
     });
 
-     if(FFAppState().isHomeRegesterd == false) {
-       FFAppState().isHomeRegesterd = true;
-       FBroadcast.instance().register('Key_msg', (value, callback) {
-         localNotify(value);
-       });
-     }
+    if (FFAppState().isHomeRegesterd == false) {
+      FFAppState().isHomeRegesterd = true;
+      FBroadcast.instance().register('Key_msg', (value, callback) {
+        localNotify(value);
+      });
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  Future<void> refreshToken() async {
+    _model.apiRefresh = await RefreshCall.call(
+      token: FFAppState().tokenModelAppState.token,
+      refreshToken: FFAppState().tokenModelAppState.refreshToken,
+    );
+    if ((_model.apiRefresh?.succeeded ?? true)) {
+      setState(() {
+        String token = getJsonField(
+          (_model.apiRefresh?.jsonBody ?? ''),
+          r'''$.data.token''',
+        );
+        String refreshToken = getJsonField(
+          (_model.apiRefresh?.jsonBody ?? ''),
+          r'''$.data.refreshToken''',
+        );
+        FFAppState().tokenModelAppState.token = token;
+        FFAppState().tokenModelAppState.refreshToken = refreshToken;
+      });
+    }
   }
 
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -236,11 +276,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ? FocusScope.of(context)
                                               .requestFocus(_model.unfocusNode)
                                           : FocusScope.of(context).unfocus(),
-                                  child: const SizedBox(
-                                    height: 220.0,
-                                    width: 390.0,
-                                    child: AskForHelpComponentWidget(),
-                                  ),
+                                  child: AskForHelpComponentWidget(),
                                 ),
                               );
                             },
@@ -1714,7 +1750,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      '/ ${(_model.financialStatisticsModel?.financialTarget ?? 0 )* 1000} K',
+                                                      '/ ${(_model.financialStatisticsModel?.data.financialTarget ?? 0) / 1000} K',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1970,7 +2006,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             ),
                                                       ),
                                                       Text(
-                                                        '/ ${(_model.financialStatisticsModel?.financialTarget?? 0 )*1000} K',
+                                                        '/ ${(_model.financialStatisticsModel?.data.financialTarget ?? 0) / 1000} K',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium

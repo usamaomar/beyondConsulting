@@ -194,8 +194,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                               context: context,
                                               initialDate: (_model.startDate ??
                                                   DateTime.now()),
-                                              firstDate: (_model.startDate ??
-                                                  DateTime.now()),
+                                              firstDate:  DateTime(1999),
                                               lastDate: DateTime(2050),
                                               builder: (context, child) {
                                                 return wrapInMaterialDatePickerTheme(
@@ -364,10 +363,7 @@ class _AddMilestoneDialogWidgetState extends State<AddMilestoneDialogWidget> {
                                                       _model.endDate!
                                                           .toString()),
                                               firstDate:
-                                                  (functions.parseDateString(
-                                                          _model.endDate!
-                                                              .toString()) ??
-                                                      DateTime(1900)),
+                                              DateTime(1999),
                                               lastDate: DateTime(2050),
                                               builder: (context, child) {
                                                 return wrapInMaterialDatePickerTheme(

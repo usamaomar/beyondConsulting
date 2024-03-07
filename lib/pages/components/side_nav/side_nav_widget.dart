@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
@@ -45,7 +46,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
       _model.apiResultoho = await GetMyProjectsCreationApiCall.call(
         token: FFAppState().tokenModelAppState.token,
       );
-      if ((_model.apiResultoho?.statusCode ?? 200) == 200) {
+      if ((_model.apiResultoho?.jsonBody['succeeded']) == true) {
         setState(() {
           FFAppState().projectListCreationAppState = functions
               .fromProjectJsonToModelList(getJsonField(
@@ -569,13 +570,13 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                          Opacity(
-                            opacity: 0.2,
-                            child: Divider(
-                              thickness: 1.0,
-                              color: FlutterFlowTheme.of(context).accent4,
-                            ),
+                        Opacity(
+                          opacity: 0.2,
+                          child: Divider(
+                            thickness: 1.0,
+                            color: FlutterFlowTheme.of(context).accent4,
                           ),
+                        ),
                         InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -971,6 +972,80 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         ),
                       ],
                     ),
+                    // Visibility(
+                    //   visible: (FFAppState().userModelAppState.accessRole !=
+                    //           0) ||
+                    //       (FFAppState().userModelAppState.accessRole != 1) ||
+                    //       (FFAppState().userModelAppState.accessRole != 5),
+                    //   child: Column(
+                    //     mainAxisSize: MainAxisSize.min,
+                    //     children: [
+                    //       InkWell(
+                    //         splashColor: Colors.transparent,
+                    //         focusColor: Colors.transparent,
+                    //         hoverColor: Colors.transparent,
+                    //         highlightColor: Colors.transparent,
+                    //         onTap: () async {
+                    //           if (widget.sideMenuEnum !=
+                    //               SideMenuEnum.CHAT_WITH_TEAM) {
+                    //             context.pushNamed('TeamChatPage');
+                    //           } else {
+                    //             return;
+                    //           }
+                    //         },
+                    //         child: Container(
+                    //           width: double.infinity,
+                    //           height: 40.0,
+                    //           decoration: BoxDecoration(
+                    //             color: widget.sideMenuEnum ==
+                    //                     SideMenuEnum.CHAT_WITH_TEAM
+                    //                 ? const Color(0x73FFFFFF)
+                    //                 : const Color(0x00000000),
+                    //             borderRadius: BorderRadius.circular(0.0),
+                    //             shape: BoxShape.rectangle,
+                    //           ),
+                    //           child: Padding(
+                    //             padding: const EdgeInsets.all(8.0),
+                    //             child: Row(
+                    //               mainAxisSize: MainAxisSize.max,
+                    //               children: [
+                    //                 ClipRRect(
+                    //                   borderRadius: BorderRadius.circular(0.0),
+                    //                   child: Icon(Icons.chat,size: 25,color: Colors.lightBlue,),
+                    //                 ),
+                    //                 Padding(
+                    //                   padding:
+                    //                       const EdgeInsetsDirectional.fromSTEB(
+                    //                           12.0, 0.0, 0.0, 0.0),
+                    //                   child: Text(
+                    //                     FFLocalizations.of(context).getText(
+                    //                       'z0yohwms5' /* cHAT Team */,
+                    //                     ),
+                    //                     style: FlutterFlowTheme.of(context)
+                    //                         .bodyLarge
+                    //                         .override(
+                    //                           fontFamily: 'Readex Pro',
+                    //                           color:
+                    //                               FlutterFlowTheme.of(context)
+                    //                                   .info,
+                    //                         ),
+                    //                   ),
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       Opacity(
+                    //         opacity: 0.2,
+                    //         child: Divider(
+                    //           thickness: 1.0,
+                    //           color: FlutterFlowTheme.of(context).accent4,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     if ((FFAppState().userModelAppState.accessRole == 0) ||
                             (FFAppState().userModelAppState.accessRole == 1) ||
                             (FFAppState().userModelAppState.accessRole == 5)
@@ -1212,7 +1287,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       await showDialog(
                                         context: context,
                                         builder: (dialogContext) {
-                                          return  Dialog(
+                                          return Dialog(
                                             elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
@@ -1221,8 +1296,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                                         0.0, 0.0)
                                                     .resolve(Directionality.of(
                                                         context)),
-                                            child:
-                                                 LogOutComponentWidget(),
+                                            child: LogOutComponentWidget(),
                                           );
                                         },
                                       ).then((value) => setState(() {}));
@@ -1275,9 +1349,14 @@ class _SideNavWidgetState extends State<SideNavWidget> {
       mapValue['teamList'] = listOfValue;
       mapValue['isAvailable'] = isAvailable;
       mapValue['email'] = FFAppState().userModelAppState.email;
-      mapValue['name'] = '${FFAppState().userModelAppState.firstName} ${FFAppState().userModelAppState.lastName}';
+      mapValue['name'] =
+          '${FFAppState().userModelAppState.firstName} ${FFAppState().userModelAppState.lastName}';
       mapValue['timeStamp'] = DateTime.now().millisecondsSinceEpoch.toString();
-      FirebaseDatabase.instance.ref().child("Available").set(mapValue).catchError((onError) {
+      FirebaseDatabase.instance
+          .ref()
+          .child("Available")
+          .set(mapValue)
+          .catchError((onError) {
         onError.toString();
       }).then((value) {
         Navigator.pop(context);

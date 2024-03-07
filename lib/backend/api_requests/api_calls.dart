@@ -143,6 +143,42 @@ class GetFinancialStatisticsCall {
       );
 }
 
+class RefreshCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? refreshToken = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "token": "$token",
+  "refreshToken": "$refreshToken"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetFinancialStatistics',
+      apiUrl:
+          'https://api.beyond.matterhr.com/api/v1/Auth/Refresh',
+      callType: ApiCallType.POST,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      bodyType: BodyType.JSON,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic statisticsJsonModel(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
 class GetMyPrioritiesApiCall {
   static Future<ApiCallResponse> call({
     String? token = '',
@@ -993,6 +1029,11 @@ class RemoveCostApiCall {
     int? costId,
     String? token = '',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "costId": $costId
+}''';
+
     return ApiManager.instance.makeApiCall(
       callName: 'RemoveCostApi',
       apiUrl: 'https://api.beyond.matterhr.com/api/v1/Projects/RemoveCost',
@@ -1004,6 +1045,7 @@ class RemoveCostApiCall {
       params: {
         'costId': costId,
       },
+      // body: ffApiRequestBody,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

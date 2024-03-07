@@ -1005,3 +1005,76 @@ Future _safeInitAsync(Function() initializeField) async {
     await initializeField();
   } catch (_) {}
 }
+
+
+String convertJsonToString(String input) {
+  if (!input.startsWith("{")) {
+    return input;
+  }
+  dynamic json = jsonDecode(input);
+  try {
+    // Reverse the input string
+    // String reversedString = input.split('').reversed.join();
+
+    // Parse the reversed string into a JSON object
+
+    if (json is Map) {
+      // If the reversed string is a JSON object, iterate through its entries
+      List<String> lines = [];
+      json.forEach((key, value) {
+        if (value is List) {
+          // If the value is a list, convert it to a comma-separated string
+          lines.add('${value.join(', ')}');
+        } else if (value is Map) {
+          // If the value is another object, recursively convert it
+          lines.add('${convertJsonToStringInternal(value)}');
+        } else {
+          // Otherwise, append the key-value pair as a string
+          lines.add('$value');
+        }
+      });
+      // Join the lines with line breaks and return the result
+      return lines.join('\n');
+    } else {
+      // If the reversed string is not a JSON object, return it as is
+      return input;
+    }
+  } catch (e) {
+    // If an exception occurs during parsing, return the reversed string as is
+    return input;
+  } // String reversedString = input.split('').reversed.join();
+}
+
+String convertJsonToStringInternal(dynamic json) {
+  try {
+    // Reverse the input string
+    // String reversedString = input.split('').reversed.join();
+
+    // Parse the reversed string into a JSON object
+
+    if (json is Map) {
+      // If the reversed string is a JSON object, iterate through its entries
+      List<String> lines = [];
+      json.forEach((key, value) {
+        if (value is List) {
+          // If the value is a list, convert it to a comma-separated string
+          lines.add('${key} : ${value.join(', ')}');
+        } else if (value is Map) {
+          // If the value is another object, recursively convert it
+          lines.add('${convertJsonToStringInternal(value)}');
+        } else {
+          // Otherwise, append the key-value pair as a string
+          lines.add('$value');
+        }
+      });
+      // Join the lines with line breaks and return the result
+      return lines.join('\n');
+    } else {
+      // If the reversed string is not a JSON object, return it as is
+      return json.toString();
+    }
+  } catch (e) {
+    // If an exception occurs during parsing, return the reversed string as is
+    return json.toString();
+  }
+}

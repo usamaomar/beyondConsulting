@@ -792,31 +792,19 @@ class _CreatNewNotComponentWidgetState
                       (_model.textController2.text != '') &&
                       (_model.textController3.text != '') &&
                       (_model.datePicked != null)) {
-                    setState(() async {
-                      _model.creatNotesApi = await CreateNoteApiCall.call(
-                          token: FFAppState().tokenModelAppState.token,
-                          date : formatDateTime(_model.date ?? DateTime(2024)),
-                          title : _model.textController2.text,
-                          color : FFAppState().BackColorModel.colorHex?.value.toString(),
-                          noteText : _model.textController3.text,
-                          backTitle : _model.textController1.text,
-                          backColor :  FFAppState().FrontColorModel.colorHex?.value.toString());
-                      //
-                      // FFAppState().addToListOfNotes(AppCardModelStruct(
-                      //   title: _model.textController2.text,
-                      //   note: _model.textController3.text,
-                      //   backTitle: _model.textController1.text,
-                      //   createdDate: getCurrentTimestamp,
-                      //   achievementData: _model.date,
-                      //   backColor: FFAppState().FrontColorModel.colorHex,
-                      //   frontColor: FFAppState().BackColorModel.colorHex,
-                      // ));
-                    });
+                    _model.creatNotesApi = await CreateNoteApiCall.call(
+                        token: FFAppState().tokenModelAppState.token,
+                        date : formatDateTime(_model.date ?? DateTime(2024)),
+                        title : _model.textController2.text,
+                        color : FFAppState().BackColorModel.colorHex?.value.toString(),
+                        noteText : _model.textController3.text,
+                        backTitle : _model.textController1.text,
+                        backColor :  FFAppState().FrontColorModel.colorHex?.value.toString());
                     setState(() {
                       FFAppState().FrontColorModel = ColorModelStruct();
                       FFAppState().BackColorModel = ColorModelStruct();
                     });
-                    Navigator.pop(context);
+                    Navigator.pop(context,true);
                     FFAppState().update(() {});
                   }
                 },

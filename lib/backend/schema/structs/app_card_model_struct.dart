@@ -24,56 +24,81 @@ class AppCardModelStruct extends BaseStruct {
 
   // "title" field.
   String? _title;
+
   String get title => _title ?? '';
+
   set title(String? val) => _title = val;
+
   bool hasTitle() => _title != null;
 
   // "note" field.
   String? _note;
+
   String get note => _note ?? '';
+
   set note(String? val) => _note = val;
+
   bool hasNote() => _note != null;
 
   // "backTitle" field.
   String? _backTitle;
+
   String get backTitle => _backTitle ?? '';
+
   set backTitle(String? val) => _backTitle = val;
+
   bool hasBackTitle() => _backTitle != null;
 
   // "createdDate" field.
   DateTime? _createdDate;
+
   DateTime? get createdDate => _createdDate;
+
   set createdDate(DateTime? val) => _createdDate = val;
+
   bool hasCreatedDate() => _createdDate != null;
 
   // "achievementData" field.
   DateTime? _achievementData;
+
   DateTime? get achievementData => _achievementData;
+
   set achievementData(DateTime? val) => _achievementData = val;
+
   bool hasAchievementData() => _achievementData != null;
 
   // "backColor" field.
   Color? _backColor;
+
   Color? get backColor => _backColor;
+
   set backColor(Color? val) => _backColor = val;
+
   bool hasBackColor() => _backColor != null;
 
   // "frontColor" field.
   Color? _frontColor;
+
   Color? get frontColor => _frontColor;
+
   set frontColor(Color? val) => _frontColor = val;
+
   bool hasFrontColor() => _frontColor != null;
 
   static AppCardModelStruct fromMap(Map<String, dynamic> data) =>
       AppCardModelStruct(
         title: data['title'] as String?,
-        note: data['note'] as String?,
+        note: data['noteText'] as String?,
         backTitle: data['backTitle'] as String?,
-        createdDate: data['createdDate'] as DateTime?,
-        achievementData: data['achievementData'] as DateTime?,
-        backColor: getSchemaColor(data['backColor']),
-        frontColor: getSchemaColor(data['frontColor']),
+        createdDate: convertStringToDateTime(data['date']),
+        backColor: Color(int.parse(data['backColor'])),
+        frontColor: Color(int.parse(data['color'])),
       );
+
+  static DateTime? convertStringToDateTime(String dateString) {
+    DateTime? dateTime = DateTime.parse(dateString);
+    return dateTime;
+  }
 
   static AppCardModelStruct? maybeFromMap(dynamic data) => data is Map
       ? AppCardModelStruct.fromMap(data.cast<String, dynamic>())

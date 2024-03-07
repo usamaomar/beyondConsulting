@@ -202,7 +202,7 @@ class _AddCostDialogWidgetState extends State<AddCostDialogWidget> {
                                                 context: context,
                                                 initialDate:
                                                     getCurrentTimestamp,
-                                                firstDate: getCurrentTimestamp,
+                                                firstDate:  DateTime(1999),
                                                 lastDate: DateTime(2050),
                                                 builder: (context, child) {
                                                   return wrapInMaterialDatePickerTheme(
